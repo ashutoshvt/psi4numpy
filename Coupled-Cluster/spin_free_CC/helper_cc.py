@@ -3,7 +3,7 @@
 # Algorithms were taken directly from Daniel Crawford's programming website:
 # http://sirius.chem.vt.edu/wiki/doku.php?id=crawdad:programming
 # Equations were spin-adapted using unitary group approach used in the moelcular 
-# electronic structure theory. 
+# electronic structure theory book. 
 # Special thanks to Dr. T Daniel Crawford for help in spin-adaptation of 
 # the equations and Lori Burns for integral help
 #
@@ -117,28 +117,32 @@ def ndot(input_string, op1, op2, prefactor=None):
 
 class helper_ccenergy(object):
 
-    def __init__(self, mol, freeze_core=False, memory=2):
+    #def __init__(self, mol, freeze_core=False, memory=2):
+    def __init__(self, mol, rhf_e, rhf_wfn, memory=2):
 
-        if freeze_core:
-            raise Exception("Frozen core doesnt work yet!")
+        #if freeze_core:
+        #    raise Exception("Frozen core doesnt work yet!")
         print("\nInitalizing CCSD object...\n")
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
 
-        print('Computing RHF reference.')
-        psi4.core.set_active_molecule(mol)
-        psi4.set_module_options('SCF', {'SCF_TYPE':'PK'})
-        psi4.set_module_options('SCF', {'E_CONVERGENCE':10e-13})
-        psi4.set_module_options('SCF', {'D_CONVERGENCE':10e-13})
+        #print('Computing RHF reference.')
+        #psi4.core.set_active_molecule(mol)
+        #psi4.set_module_options('SCF', {'SCF_TYPE':'PK'})
+        #psi4.set_module_options('SCF', {'E_CONVERGENCE':10e-13})
+        #psi4.set_module_options('SCF', {'D_CONVERGENCE':10e-13})
 
         # Core is frozen by default
-        if not freeze_core:
-            psi4.set_module_options('CCENERGY', {'FREEZE_CORE':'FALSE'})
+        #if not freeze_core:
+        #    psi4.set_module_options('CCENERGY', {'FREEZE_CORE':'FALSE'})
 
-        self.rhf_e, self.wfn = psi4.energy('SCF', return_wfn=True)
-        print('RHF Final Energy                          % 16.10f\n' % (self.rhf_e))
+        #self.rhf_e, self.wfn = psi4.energy('SCF', return_wfn=True)
+        #print('RHF Final Energy                          % 16.10f\n' % (self.rhf_e))
 
+        self.rhf_e = rhf_e 
+        self.wfn = rhf_wfn
+   
         self.ccsd_corr_e = 0.0
         self.ccsd_e = 0.0
 
@@ -149,28 +153,31 @@ class helper_ccenergy(object):
         self.nfzc = 0
 
         # Freeze core
-        if freeze_core:
-            Zlist = np.array([mol.Z(x) for x in range(mol.natom())])
-            self.nfzc = np.sum(Zlist > 2)
-            self.nfzc += np.sum(Zlist > 10) * 4
-            if np.any(Zlist > 18):
-                raise Exception("Frozen core for Z > 18 not yet implemented")
+        #if freeze_core:
+        #    Zlist = np.array([mol.Z(x) for x in range(mol.natom())])
+        #    self.nfzc = np.sum(Zlist > 2)
+        #    self.nfzc += np.sum(Zlist > 10) * 4
+        #    if np.any(Zlist > 18):
+        #        raise Exception("Frozen core for Z > 18 not yet implemented")
 
-            print("Cutting %d core orbitals." % self.nfzc)
+        #    print("Cutting %d core orbitals." % self.nfzc)
 
-            # Copy C
-            oldC = np.array(self.wfn.Ca(), copy=True)
+        #    # Copy C
+        #    oldC = np.array(self.wfn.Ca(), copy=True)
 
-            # Build new C matrix and view, set with numpy slicing
-            self.C = psi.Matrix(self.nmo, self.nmo - self.nfzc)
-            self.npC = np.asarray(self.C)
-            self.npC[:] = oldC[:, self.nfzc:]
+        #    # Build new C matrix and view, set with numpy slicing
+        #    self.C = psi.Matrix(self.nmo, self.nmo - self.nfzc)
+        #    self.npC = np.asarray(self.C)
+        #    self.npC[:] = oldC[:, self.nfzc:]
 
-            self.ndocc -= self.nfzc
+        #    self.ndocc -= self.nfzc
 
-        else:
-            self.C = self.wfn.Ca()
-            self.npC = np.asarray(self.C)
+        #else:
+        #    self.C = self.wfn.Ca()
+        #    self.npC = np.asarray(self.C)
+
+        self.C = self.wfn.Ca()
+        self.npC = np.asarray(self.C)
 
         self.mints = psi4.core.MintsHelper(self.wfn.basisset())
         H = np.asarray(self.mints.ao_kinetic()) + np.asarray(self.mints.ao_potential())
@@ -454,8 +461,8 @@ class helper_ccenergy(object):
         self.t1 += r_T1 / self.Dia
         self.t2 += r_T2 / self.Dijab
 
-        rms = np.einsum('ia,ia->', r_T1, r_T1)
-        rms += np.einsum('ijab,ijab->', r_T2, r_T2)
+        rms = np.einsum('ia,ia->', r_T1/self.Dia, r_T1/self.Dia)
+        rms += np.einsum('ijab,ijab->', r_T2/self.Dijab, r_T2/self.Dijab)
 
         return np.sqrt(rms)
 
@@ -470,7 +477,7 @@ class helper_ccenergy(object):
         self.ccsd_e = self.rhf_e + self.ccsd_corr_e
         return CCSDcorr_E
 
-    def compute_energy(self, e_conv=1.e-13, maxiter=50, max_diis=8):
+    def compute_energy(self, r_conv=1e-7, maxiter=50, max_diis=8):
         ### Setup DIIS
         diis_vals_t1 = [self.t1.copy()]
         diis_vals_t2 = [self.t2.copy()]
@@ -500,8 +507,8 @@ class helper_ccenergy(object):
             print('CCSD Iteration %3d: CCSD correlation = %.15f   dE = % .5E   DIIS = %d' % (CCSD_iter, CCSDcorr_E, (CCSDcorr_E - CCSDcorr_E_old), diis_size))
 
             # Check convergence
-            #if (abs(CCSDcorr_E - CCSDcorr_E_old) < e_conv):
-            if (rms < e_conv):
+            #if (abs(CCSDcorr_E - CCSDcorr_E_old) < e_conv and rms < r_conv):
+            if (rms < r_conv): # to be consistent with ugacc
                 print('\nCCSD has converged in %.3f seconds!' % (time.time() - ccsd_tstart))
                 return CCSDcorr_E
 
@@ -587,9 +594,13 @@ class helper_cchbar(object):
         #print(self.t2)
         print('\nBuilding appropriate pieces of similarity transformed hamiltonian ...')
 
-        tmp = self.MO.copy()
-        self.L = 2.0 * tmp
-        self.L -= tmp.swapaxes(2,3)
+        #tmp = self.MO.copy()
+        #self.L = 2.0 * tmp
+        #self.L -= tmp.swapaxes(2,3)
+
+        self.build_Loovv() 
+        self.build_Looov() 
+        self.build_Lvovv() 
 
         self.build_Hov()
         #print('\n Hov \n')
@@ -637,12 +648,12 @@ class helper_cchbar(object):
         return self.MO[self.slice_dict[string[0]], self.slice_dict[string[1]],
                      self.slice_dict[string[2]], self.slice_dict[string[3]]]
 
-    def get_L(self, string):
-        if len(string) != 4:
-            psi4.core.clean()
-            raise Exception('get_L: string %s must have 4 elements.' % string)
-        return (self.L[self.slice_dict[string[0]], self.slice_dict[string[1]],
-                       self.slice_dict[string[2]], self.slice_dict[string[3]]])
+    #def get_L(self, string):
+    #    if len(string) != 4:
+    #        psi4.core.clean()
+    #        raise Exception('get_L: string %s must have 4 elements.' % string)
+    #    return (self.L[self.slice_dict[string[0]], self.slice_dict[string[1]],
+    #                   self.slice_dict[string[2]], self.slice_dict[string[3]]])
 
 
     def get_F(self, string):
@@ -650,6 +661,21 @@ class helper_cchbar(object):
             psi4.core.clean()
             raise Exception('get_F: string %s must have 4 elements.' % string)
         return self.F[self.slice_dict[string[0]], self.slice_dict[string[1]]]
+
+    def build_Loovv(self):
+        tmp = self.get_MO('oovv').copy()
+        self.Loovv = 2.0 * tmp - tmp.swapaxes(2,3)
+        return self.Loovv
+
+    def build_Looov(self):
+        tmp = self.get_MO('ooov').copy()
+        self.Looov = 2.0 * tmp - tmp.swapaxes(0,1)
+        return self.Looov
+
+    def build_Lvovv(self):
+        tmp = self.get_MO('vovv').copy()
+        self.Lvovv = 2.0 * tmp - tmp.swapaxes(2,3)
+        return self.Lvovv
 
     def build_tau(self):
         self.ttau = self.t2.copy()
@@ -659,21 +685,21 @@ class helper_cchbar(object):
 
     def build_Hov(self):
         self.Hov = self.get_F('ov').copy()
-        self.Hov += ndot('nf,mnef->me', self.t1, self.get_L('oovv'))
+        self.Hov += ndot('nf,mnef->me', self.t1, self.Loovv)
         return self.Hov
 
     def build_Hoo(self):
         self.Hoo = self.get_F('oo').copy()
         self.Hoo += ndot('ie,me->mi', self.t1, self.get_F('ov'))
-        self.Hoo += ndot('ne,mnie->mi', self.t1, self.get_L('ooov'))
-        self.Hoo += ndot('mnef,inef->mi', self.get_L('oovv'), self.build_tau())
+        self.Hoo += ndot('ne,mnie->mi', self.t1, self.Looov)
+        self.Hoo += ndot('mnef,inef->mi', self.Loovv, self.build_tau())
         return self.Hoo
 
     def build_Hvv(self):
         self.Hvv = self.get_F('vv').copy()
         self.Hvv -= ndot('ma,me->ae', self.t1, self.get_F('ov'))
-        self.Hvv += ndot('amef,mf->ae', self.get_L('vovv'), self.t1)
-        self.Hvv -= ndot('mnfa,mnfe->ae', self.build_tau(), self.get_L('oovv'))
+        self.Hvv += ndot('amef,mf->ae', self.Lvovv, self.t1)
+        self.Hvv -= ndot('mnfa,mnfe->ae', self.build_tau(), self.Loovv)
         return self.Hvv
 
     def build_Hoooo(self):
@@ -703,7 +729,7 @@ class helper_cchbar(object):
         self.Hovvo += ndot('jf,mbef->mbej', self.t1, self.get_MO('ovvv'))
         self.Hovvo -= ndot('nb,mnej->mbej', self.t1, self.get_MO('oovo'))
         self.Hovvo -= ndot('njbf,mnef->mbej', self.build_tau(), self.get_MO('oovv'))
-        self.Hovvo += ndot('njfb,mnef->mbej', self.t2, self.get_L('oovv'))
+        self.Hovvo += ndot('njfb,mnef->mbej', self.t2, self.Loovv)
         return self.Hovvo
 
     def build_Hovov(self):
@@ -722,16 +748,16 @@ class helper_cchbar(object):
         self.Hvvvo -= ndot('imfb,amef->abei', self.build_tau(), self.get_MO('vovv'))
         self.Hvvvo += ndot('mnab,mnei->abei', self.build_tau(), self.get_MO('oovo'))
         self.Hvvvo -= ndot('me,miab->abei', self.get_F('ov'), self.t2)
-        self.Hvvvo += ndot('mifb,amef->abei', self.t2, self.get_L('vovv'))
+        self.Hvvvo += ndot('mifb,amef->abei', self.t2, self.Lvovv)
         tmp =    ndot('mnef,if->mnei', self.get_MO('oovv'), self.t1)
         self.Hvvvo += ndot('mnab,mnei->abei', self.t2, tmp)
         tmp =    ndot('mnef,ma->anef', self.get_MO('oovv'), self.t1)
         self.Hvvvo += ndot('infb,anef->abei', self.t2, tmp)
         tmp =    ndot('mnef,nb->mefb', self.get_MO('oovv'), self.t1)
         self.Hvvvo += ndot('miaf,mefb->abei', self.t2, tmp)
-        tmp =    ndot('mnfe,mf->ne', self.get_L('oovv'), self.t1)
+        tmp =    ndot('mnfe,mf->ne', self.Loovv, self.t1)
         self.Hvvvo -= ndot('niab,ne->abei', self.t2, tmp)
-        tmp =    ndot('mnfe,na->mafe', self.get_L('oovv'), self.t1)
+        tmp =    ndot('mnfe,na->mafe', self.Loovv, self.t1)
         self.Hvvvo -= ndot('mifb,mafe->abei', self.t2, tmp)
         tmp1 =   ndot('if,ma->imfa', self.t1, self.t1)
         tmp2 =   ndot('mnef,nb->mbef', self.get_MO('oovv'), self.t1)
@@ -747,16 +773,16 @@ class helper_cchbar(object):
         self.Hovoo -= ndot('jneb,mnie->mbij', self.build_tau(), self.get_MO('ooov'))
         self.Hovoo += ndot('ijef,mbef->mbij', self.build_tau(), self.get_MO('ovvv'))
         self.Hovoo += ndot('me,ijeb->mbij', self.get_F('ov'), self.t2)
-        self.Hovoo += ndot('njeb,mnie->mbij', self.t2, self.get_L('ooov'))
+        self.Hovoo += ndot('njeb,mnie->mbij', self.t2, self.Looov)
         tmp =    ndot('mnef,jf->mnej', self.get_MO('oovv'), self.t1)
         self.Hovoo -= ndot('ineb,mnej->mbij', self.t2, tmp)
         tmp =    ndot('mnef,ie->mnif', self.get_MO('oovv'), self.t1)
         self.Hovoo -= ndot('jnfb,mnif->mbij', self.t2, tmp)
         tmp =    ndot('mnef,nb->mefb', self.get_MO('oovv'), self.t1)
         self.Hovoo -= ndot('ijef,mefb->mbij', self.t2, tmp)
-        tmp =    ndot('mnef,njfb->mejb', self.get_L('oovv'), self.t2)
+        tmp =    ndot('mnef,njfb->mejb', self.Loovv, self.t2)
         self.Hovoo += ndot('mejb,ie->mbij', tmp, self.t1)
-        tmp =    ndot('mnef,nf->me', self.get_L('oovv'), self.t1)
+        tmp =    ndot('mnef,nf->me', self.Loovv, self.t1)
         self.Hovoo += ndot('me,ijeb->mbij', tmp, self.t2)
         tmp1 =   ndot('ie,jf->ijef', self.t1, self.t1)
         tmp2 =   ndot('mnef,nb->mbef', self.get_MO('oovv'), self.t1)
@@ -792,7 +818,9 @@ class helper_cclambda(object):
         self.t2 = ccsd.t2
 
         self.ttau  =  hbar.ttau
-        self.L     =  hbar.L
+        self.Loovv =  hbar.Loovv
+        self.Looov =  hbar.Looov
+        self.Lvovv =  hbar.Lvovv
         self.Hov   =  hbar.Hov
         self.Hvv   =  hbar.Hvv
         self.Hoo   =  hbar.Hoo
@@ -826,12 +854,6 @@ class helper_cclambda(object):
             raise Exception('get_F: string %s must have 4 elements.' % string)
         return self.F[self.slice_dict[string[0]], self.slice_dict[string[1]]]
 
-    def get_L(self, string):
-        if len(string) != 4:
-            psi4.core.clean()
-            raise Exception('get_MO: string %s must have 4 elements.' % string)
-        return (self.L[self.slice_dict[string[0]], self.slice_dict[string[1]],
-                       self.slice_dict[string[2]], self.slice_dict[string[3]]])
 
     def build_Goo(self):
         self.Goo = 0
@@ -856,7 +878,8 @@ class helper_cclambda(object):
         r_l1 -= ndot('mina,mn->ia', self.Hooov, self.build_Goo(), prefactor=2.0)
         r_l1 -= ndot('imna,mn->ia', self.Hooov, self.build_Goo(), prefactor=-1.0)
 
-        r_l2 = self.get_L('oovv').copy()
+
+        r_l2 = self.Loovv.copy()
         r_l2 += ndot('ia,jb->ijab', self.l1, self.Hov, prefactor=2.0)
         r_l2 -= ndot('ja,ib->ijab', self.l1, self.Hov)
         r_l2 += ndot('ijeb,ea->ijab', self.l2, self.Hvv)
@@ -871,30 +894,32 @@ class helper_cclambda(object):
         r_l2 += ndot('iema,mjeb->ijab', self.Hovov, self.l2, prefactor=-1.0)
         r_l2 -= ndot('mibe,jema->ijab', self.l2, self.Hovov)
         r_l2 -= ndot('mieb,jeam->ijab', self.l2, self.Hovvo)
-        r_l2 += ndot('ijeb,ae->ijab', self.get_L('oovv'), self.build_Gvv())
-        r_l2 -= ndot('mi,mjab->ijab', self.build_Goo(), self.get_L('oovv'))
+        r_l2 += ndot('ijeb,ae->ijab', self.Loovv, self.build_Gvv())
+        r_l2 -= ndot('mi,mjab->ijab', self.build_Goo(), self.Loovv)
 
         self.l1 += r_l1/self.Dia
 
-        tmp = r_l2
-        tmp += r_l2.swapaxes(0,1).swapaxes(2,3)
-        self.l2 += tmp/self.Dijab
+        old_l2 = self.l2
 
-        #print(self.l1)
-        #print(self.l2)
+        self.l2 += r_l2/self.Dijab 
+        self.l2 += (r_l2/self.Dijab).swapaxes(0,1).swapaxes(2,3) 
+
+        rms = 2.0 * np.einsum('ia,ia->', r_l1/self.Dia, r_l1/self.Dia) 
+        rms += np.einsum('ijab,ijab->', old_l2 - self.l2, old_l2 - self.l2) 
+        return np.sqrt(rms)
+   
 
 
 
     def pseudoenergy(self):
         pseudoenergy = 0
-        #tmp = ndot('ia,jb->ijab', self.l1, self.l1)
         pseudoenergy += ndot('ijab,ijab->', self.get_MO('oovv'), self.l2, prefactor=0.5)
-        #pseudoenergy += ndot('ijab,ijab->', self.get_MO('oovv'), tmp, prefactor=0.5)
+        #pseudoenergy += ndot('ia,ia->', self.l1, self.l1)
         return pseudoenergy
 
 
 
-    def compute_lambda(self, r_conv=1.e-13, maxiter=50, max_diis=8):
+    def compute_lambda(self, r_conv=1e-7, maxiter=100, max_diis=8):
         print('\n Solving lambda equations ...\n')
         ### Setup DIIS
         diis_vals_l1 = [self.l1.copy()]
@@ -915,7 +940,7 @@ class helper_cclambda(object):
             oldl1 = self.l1.copy()
             oldl2 = self.l2.copy()
 
-            self.update()
+            rms = self.update()
 
             # Compute lambda 
             pseudoenergy = self.pseudoenergy()
@@ -924,7 +949,8 @@ class helper_cclambda(object):
             print('CCLAMBDA Iteration %3d: pseudoenergy = %.15f   dE = % .5E   DIIS = %d' % (CCLAMBDA_iter, pseudoenergy, (pseudoenergy - pseudoenergy_old), diis_size))
 
             # Check convergence
-            if (abs(pseudoenergy - pseudoenergy_old) < r_conv):
+            #if (abs(pseudoenergy - pseudoenergy_old) < r_conv):
+            if (rms < r_conv):
                 print('\nCCLAMBDA has converged in %.3f seconds!' % (time.time() - cclambda_tstart))
                 #print(self.l1)
                 #print(self.l2)
@@ -943,7 +969,7 @@ class helper_cclambda(object):
             pseudoenergy_old = pseudoenergy
 
             if CCLAMBDA_iter >= 1:
-                # Limit size of DIIS vector
+               # Limit size of DIIS vector
                 if (len(diis_vals_l1) > max_diis):
                     del diis_vals_l1[0]
                     del diis_vals_l2[0]
@@ -984,7 +1010,7 @@ class helper_cclambda(object):
 
 class helper_ccpert(object):
 
-    def __init__(self, name, pert, ccsd, hbar, cclambda, memory=2):
+    def __init__(self, name, pert, ccsd, hbar, cclambda, omega):
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
@@ -1014,7 +1040,9 @@ class helper_ccpert(object):
 
 
         self.ttau  =  hbar.ttau
-        self.L     =  hbar.L
+        self.Loovv =  hbar.Loovv
+        self.Looov =  hbar.Looov
+        self.Lvovv =  hbar.Lvovv
         self.Hov   =  hbar.Hov
         self.Hvv   =  hbar.Hvv
         self.Hoo   =  hbar.Hoo
@@ -1031,17 +1059,44 @@ class helper_ccpert(object):
         self.l1 = cclambda.l1
         self.l2 = cclambda.l2
 
-        self.omega = 0
+        self.omega = omega
         self.Dia = self.Hoo.diagonal().reshape(-1, 1) - self.Hvv.diagonal()
-        self.Dijab = self.Hoo.diagonal().reshape(-1, 1, 1, 1) + self.Hoo.diagonal().reshape(-1, 1, 1) - self.Hvv.diagonal().reshape(-1, 1) - self.Hvv.diagonal() + self.omega
+        self.Dijab = self.Hoo.diagonal().reshape(-1, 1, 1, 1) + self.Hoo.diagonal().reshape(-1, 1, 1) - self.Hvv.diagonal().reshape(-1, 1) - self.Hvv.diagonal() 
 
-        self.x1 = self.build_Avo().swapaxes(0,1)/(self.Dia + self.omega)
-        self.y1 = self.build_Avo().swapaxes(0,1)/(self.Dia + self.omega)
+        self.Dia += omega
+        self.Dijab += omega
 
-        tmp = self.build_Avvoo()
-        tmp += tmp.swapaxes(0,1).swapaxes(2,3)
-        self.x2 = tmp.swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
-        self.y2 = tmp.swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
+        self.x1 = self.build_Avo().swapaxes(0,1)/self.Dia
+        self.y1 = self.x1.copy() 
+
+        self.x2 = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)       
+        self.x2 += self.build_Avvoo().swapaxes(0,3).swapaxes(1,2)
+        self.x2 = self.x2/self.Dijab
+        self.y2 = self.x2.copy() 
+
+
+        #print(self.x1)
+        #print(self.y1)
+        #print(self.x2)
+        #print(self.y2)
+
+        ####
+
+        #self.x1 = self.build_Avo().swapaxes(0,1)/(self.Dia + self.omega)
+        #self.y1 = self.build_Avo().swapaxes(0,1)/(self.Dia + self.omega)
+
+        #tmp = self.build_Avvoo()
+        #tmp += tmp.swapaxes(0,1).swapaxes(2,3)
+        #self.x2 = tmp.swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
+        #self.y2 = tmp.swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
+     
+        #tmp = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
+        #self.x2 = tmp
+        #self.x2 += tmp.swapaxes(0,1).swapaxes(2,3)
+
+        #self.y2 = tmp
+        #self.y2 += tmp.swapaxes(0,1).swapaxes(2,3)
+
 
     # occ orbitals i, j, k, l, m, n
     # virt orbitals a, b, c, d, e, f
@@ -1060,12 +1115,6 @@ class helper_ccpert(object):
             raise Exception('get_F: string %s must have 4 elements.' % string)
         return self.F[self.slice_dict[string[0]], self.slice_dict[string[1]]]
 
-    def get_L(self, string):
-        if len(string) != 4:
-            psi4.core.clean()
-            raise Exception('get_MO: string %s must have 4 elements.' % string)
-        return (self.L[self.slice_dict[string[0]], self.slice_dict[string[1]],
-                       self.slice_dict[string[2]], self.slice_dict[string[3]]])
 
     def get_pert(self, string):
         if len(string) != 2:
@@ -1128,14 +1177,14 @@ class helper_ccpert(object):
         Zvv = 0
         Zvv += ndot('amef,mf->ae', self.Hvovv, self.x1, prefactor=2.0)
         Zvv += ndot('amfe,mf->ae', self.Hvovv, self.x1, prefactor=-1.0)
-        Zvv -= ndot('mnaf,mnef->ae', self.x2, self.get_L('oovv'))
+        Zvv -= ndot('mnaf,mnef->ae', self.x2, self.Loovv)
         return Zvv
 
     def build_Zoo(self):
         Zoo = 0
         Zoo -= ndot('mnie,ne->mi', self.Hooov, self.x1, prefactor=2.0)
         Zoo -= ndot('nmie,ne->mi', self.Hooov, self.x1, prefactor=-1.0)
-        Zoo -= ndot('mnef,inef->mi', self.get_L('oovv'), self.x2)
+        Zoo -= ndot('mnef,inef->mi', self.Loovv, self.x2)
         return Zoo
 
     def build_x1l1oo(self, x1, l1):
@@ -1224,7 +1273,6 @@ class helper_ccpert(object):
         r_x1 -= ndot('mnie,mnae->ia', self.Hooov, self.x2, prefactor=2.0)
         r_x1 -= ndot('nmie,mnae->ia', self.Hooov, self.x2, prefactor=-1.0)
 
-        self.x1 += r_x1/self.Dia
 
         r_x2 = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3).copy()
         r_x2 -= 0.5 * self.omega * self.x2
@@ -1246,124 +1294,34 @@ class helper_ccpert(object):
         r_x2 += ndot('miea,mbej->ijab', self.x2, self.Hovvo, prefactor=2.0)
         r_x2 += ndot('miea,mbje->ijab', self.x2, self.Hovov, prefactor=-1.0)
 
+        old_x2 = self.x2
+
+        self.x1 += r_x1/self.Dia
         self.x2 += r_x2/self.Dijab
-        self.x2 += r_x2.swapaxes(0,1).swapaxes(2,3)/self.Dijab
+        #tmp = r_x2/self.Dijab
+        #tmp += r_x2.swapaxes(0,1).swapaxes(2,3)/self.Dijab
+        self.x2 += (r_x2/self.Dijab).swapaxes(0,1).swapaxes(2,3)
+
+        rms = np.einsum('ia,ia->', r_x1/self.Dia, r_x1/self.Dia)
+        rms += np.einsum('ijab,ijab->', old_x2 - self.x2, old_x2 - self.x2)
+        return np.sqrt(rms)
+
+
+
         #self.x2 = self.x2/self.Dijab
 
-    def update_Y(self):
 
-        # Homogenous terms (exactly same as lambda1 equations)
+    def inhomogenous_y2(self):
 
-        r_y1  = 2.0 * self.build_Aov().copy()
-        r_y1 += self.omega * self.y1
-        r_y1 += ndot('ie,ea->ia', self.y1, self.Hvv)
-        r_y1 -= ndot('im,ma->ia', self.Hoo, self.y1)
-        r_y1 += ndot('ieam,me->ia', self.Hovvo, self.y1, prefactor=2.0)
-        r_y1 += ndot('iema,me->ia', self.Hovov, self.y1, prefactor=-1.0)
-        r_y1 += ndot('imef,efam->ia', self.y2, self.Hvvvo)
-        r_y1 -= ndot('iemn,mnae->ia', self.Hovoo, self.y2)
-        r_y1 -= ndot('eifa,ef->ia', self.Hvovv, self.build_Gvv(self.y2, self.t2), prefactor=2.0)
-        r_y1 -= ndot('eiaf,ef->ia', self.Hvovv, self.build_Gvv(self.y2, self.t2), prefactor=-1.0)
-        r_y1 -= ndot('mina,mn->ia', self.Hooov, self.build_Goo(self.t2, self.y2), prefactor=2.0)
-        r_y1 -= ndot('imna,mn->ia', self.Hooov, self.build_Goo(self.t2, self.y2), prefactor=-1.0)
-
-        # Inhomogenous terms 
-
-
-        r_y1 += ndot('imae,me->ia', self.get_L('oovv'), self.x1, prefactor=2.0)
-        r_y1 -= ndot('im,ma->ia', self.build_Aoo(), self.l1)
-        r_y1 += ndot('ie,ea->ia', self.l1, self.build_Avv())
-        r_y1 += ndot('imfe,feam->ia', self.l2, self.build_Avvvo())
-        r_y1 -= ndot('ienm,mnea->ia', self.build_Aovoo(), self.l2, prefactor=0.5)
-        r_y1 -= ndot('iemn,mnae->ia', self.build_Aovoo(), self.l2, prefactor=0.5)
-        r_y1 -= ndot('mi,ma->ia', self.build_x1l1oo(self.x1,self.l1), self.Hov) # q
-        r_y1 -= ndot('ie,ea->ia', self.Hov, self.build_x1l1vv(self.x1,self.l1)) # q
-        r_y1 -= ndot('mn,mina->ia', self.build_x1l1oo(self.x1,self.l1), self.Hooov, prefactor=2.0)      # q
-        r_y1 -= ndot('mn,imna->ia', self.build_x1l1oo(self.x1,self.l1), self.Hooov, prefactor=-1.0)     # q
-        r_y1 -= ndot('mena,imne->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hooov, prefactor=2.0)  # q
-        r_y1 -= ndot('mena,mine->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hooov, prefactor=-1.0) # q
-        r_y1 += ndot('meif,fmae->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hvovv, prefactor=2.0)  # q
-        r_y1 += ndot('meif,fmea->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hvovv, prefactor=-1.0) # q
-        r_y1 += ndot('ef,fiea->ia', self.build_x1l1vv(self.x1,self.l1), self.Hvovv, prefactor=2.0)      # q
-        r_y1 += ndot('ef,fiae->ia', self.build_x1l1vv(self.x1,self.l1), self.Hvovv, prefactor=-1.0)     # q
-        r_y1 += ndot('ianf,nf->ia', self.build_Lx2ovov(self.get_L('oovv'),self.x2), self.l1)    # r
-        r_y1 -= ndot('ni,na->ia', self.build_Goo(self.x2, self.get_L('oovv')), self.l1) # r
-        r_y1 += ndot('ie,ea->ia', self.l1, self.build_Gvv(self.x2, self.get_L('oovv'))) # r Gvv is alreay negative
-        r_y1 -= ndot('mnif,mfna->ia', self.build_x1l2ooov(self.x1,self.l2), self.Hovov) # s
-        r_y1 -= ndot('ifne,enaf->ia', self.Hovov, self.build_x1l2vovv(self.x1,self.l2)) # s
-        r_y1 -= ndot('minf,mfan->ia', self.build_x1l2ooov(self.x1,self.l2), self.Hovvo) # s
-        r_y1 -= ndot('ifen,enfa->ia', self.Hovvo, self.build_x1l2vovv(self.x1,self.l2)) # s
-        r_y1 += ndot('fgae,eifg->ia', self.Hvvvv, self.build_x1l2vovv(self.x1,self.l2), prefactor=0.5)  # s
-        r_y1 += ndot('fgea,eigf->ia', self.Hvvvv, self.build_x1l2vovv(self.x1,self.l2), prefactor=0.5)  # s
-        r_y1 += ndot('imno,mona->ia', self.Hoooo, self.build_x1l2ooov(self.x1,self.l2), prefactor=0.5)  # s
-        r_y1 += ndot('mino,mnoa->ia', self.Hoooo, self.build_x1l2ooov(self.x1,self.l2), prefactor=0.5)  # s
-
-        ## 3-body terms
-
-        tmp  =  ndot('nb,fb->nf', self.x1, self.build_Gvv(self.t2, self.l2))
-        r_y1 += ndot('inaf,nf->ia', self.get_L('oovv'), tmp)  # Gvv already negative
-        tmp  =  ndot('me,fa->mefa', self.x1, self.build_Gvv(self.t2, self.l2))
-        r_y1 += ndot('mief,mefa->ia', self.get_L('oovv'), tmp)
-        tmp  =  ndot('me,ni->meni', self.x1, self.build_Goo(self.t2, self.l2))
-        r_y1 -= ndot('meni,mnea->ia', tmp, self.get_L('oovv'))
-        tmp  =  ndot('jf,nj->fn', self.x1, self.build_Goo(self.t2, self.l2))
-        r_y1 -= ndot('inaf,fn->ia', self.get_L('oovv'), tmp)
-
-        ## 3-body terms over
-
-        ## X2 * L2 terms 
-
-        r_y1  -=  ndot('mi,ma->ia', self.build_Goo(self.x2, self.l2), self.Hov)  # t
-        r_y1  +=  ndot('ie,ea->ia', self.Hov, self.build_Gvv(self.x2, self.l2))  # t
-        r_y1  -=  ndot('igne,gnea->ia', self.build_l2x2ovov_1(self.l2, self.x2), self.Hvovv)  # t
-        r_y1  -=  ndot('igne,gnae->ia', self.build_l2x2ovov_2(self.l2, self.x2), self.Hvovv)  # t
-        r_y1  -=  ndot('gief,gaef->ia', self.Hvovv, self.build_l2x2vvvv(self.l2, self.x2))  # t
-        r_y1  +=  ndot('igme,gmae->ia', self.build_l2x2ovov_3(self.l2, self.x2), self.Hvovv, prefactor=2.0) # t
-        r_y1  +=  ndot('igme,gmea->ia', self.build_l2x2ovov_3(self.l2, self.x2), self.Hvovv, prefactor=-1.0) # t
-        r_y1  -=  ndot('giea,ge->ia', self.Hvovv, self.build_Gvv(self.l2, self.x2), prefactor=2.0)  # t
-        r_y1  -=  ndot('giae,ge->ia', self.Hvovv, self.build_Gvv(self.l2, self.x2), prefactor=-1.0)  # t
-        r_y1  +=  ndot('oimn,mnoa->ia', self.build_l2x2oooo(self.l2, self.x2), self.Hooov)  # t
-        r_y1  +=  ndot('inoe,oane->ia', self.Hooov, self.build_l2x2ovov_2(self.l2, self.x2))  # t
-        r_y1  +=  ndot('miof,oamf->ia', self.Hooov, self.build_l2x2ovov_1(self.l2, self.x2))  # t
-        r_y1  -=  ndot('mioa,mo->ia', self.Hooov, self.build_Goo(self.x2, self.l2), prefactor=2.0)  # t
-        r_y1  -=  ndot('imoa,mo->ia', self.Hooov, self.build_Goo(self.x2, self.l2), prefactor=-1.0)  # t
-        r_y1  -=  ndot('imoe,oame->ia', self.Hooov, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=2.0) # t
-        r_y1  -=  ndot('mioe,oame->ia', self.Hooov, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=-1.0) # t
-
-
-        # y1 over !! 
-
-        # Homogenous terms of Y2 equations 
-
-        r_y2 = 0.5 * self.omega * self.y2.copy()
-        r_y2 += ndot('ia,jb->ijab', self.y1, self.Hov, prefactor=2.0)
-        r_y2 -= ndot('ja,ib->ijab', self.y1, self.Hov)
-        r_y2 += ndot('ijeb,ea->ijab', self.y2, self.Hvv)
-        r_y2 -= ndot('im,mjab->ijab', self.Hoo, self.y2)
-        r_y2 += ndot('ijmn,mnab->ijab', self.Hoooo, self.y2, prefactor=0.5)
-        r_y2 += ndot('ijef,efab->ijab', self.y2, self.Hvvvv, prefactor=0.5)
-        r_y2 += ndot('ie,ejab->ijab', self.y1, self.Hvovv, prefactor=2.0)
-        r_y2 += ndot('ie,ejba->ijab', self.y1, self.Hvovv, prefactor=-1.0)
-        r_y2 -= ndot('mb,jima->ijab', self.y1, self.Hooov, prefactor=2.0)
-        r_y2 -= ndot('mb,ijma->ijab', self.y1, self.Hooov, prefactor=-1.0)
-        r_y2 += ndot('ieam,mjeb->ijab', self.Hovvo, self.y2, prefactor=2.0)
-        r_y2 += ndot('iema,mjeb->ijab', self.Hovov, self.y2, prefactor=-1.0)
-        r_y2 -= ndot('mibe,jema->ijab', self.y2, self.Hovov)
-        r_y2 -= ndot('mieb,jeam->ijab', self.y2, self.Hovvo)
-        r_y2 += ndot('ijeb,ae->ijab', self.get_L('oovv'), self.build_Gvv(self.y2, self.t2))
-        r_y2 -= ndot('mi,mjab->ijab', self.build_Goo(self.t2, self.y2), self.get_L('oovv'))
-
-        # InHomogenous terms of Y2 equations 
-
-        r_y2 += ndot('ia,jb->ijab', self.l1, self.build_Aov(), prefactor=2.0) # o
+        r_y2 = ndot('ia,jb->ijab', self.l1, self.build_Aov(), prefactor=2.0) # o
         r_y2 -= ndot('ja,ib->ijab', self.l1, self.build_Aov()) # o
         r_y2 += ndot('ijeb,ea->ijab', self.l2, self.build_Avv()) # p
         r_y2 -= ndot('im,mjab->ijab', self.build_Aoo(), self.l2) # p
 
-        r_y2 -= ndot('mieb,meja->ijab', self.get_L('oovv'), self.build_x1l1ovov(self.x1, self.l1)) # u
-        r_y2 -= ndot('ijae,eb->ijab', self.get_L('oovv'), self.build_x1l1vv(self.x1, self.l1)) # u
-        r_y2 -= ndot('mi,jmba->ijab', self.build_x1l1oo(self.x1, self.l1), self.get_L('oovv')) # u
-        r_y2 += ndot('imae,mejb->ijab', self.get_L('oovv'), self.build_x1l1ovov(self.x1, self.l1), prefactor=2.0) # u
+        r_y2 -= ndot('mieb,meja->ijab', self.Loovv, self.build_x1l1ovov(self.x1, self.l1)) # u
+        r_y2 -= ndot('ijae,eb->ijab', self.Loovv, self.build_x1l1vv(self.x1, self.l1)) # u
+        r_y2 -= ndot('mi,jmba->ijab', self.build_x1l1oo(self.x1, self.l1), self.Loovv) # u
+        r_y2 += ndot('imae,mejb->ijab', self.Loovv, self.build_x1l1ovov(self.x1, self.l1), prefactor=2.0) # u
 
         r_y2 -= ndot('mijb,ma->ijab', self.build_x1l2ooov(self.x1, self.l2), self.Hov) # w
         r_y2 -= ndot('ie,ejba->ijab', self.Hov, self.build_x1l2vovv(self.x1, self.l2)) # w
@@ -1390,20 +1348,136 @@ class helper_ccpert(object):
         r_y2 += ndot('ibne,njea->ijab', self.build_l2x2ovov_2(self.l2, self.x2), self.get_MO('oovv'), prefactor=0.5) # x same.2
         r_y2 += ndot('ijfe,baef->ijab', self.get_MO('oovv'), self.build_l2x2vvvv(self.l2, self.x2), prefactor=0.5) # x
 
-        r_y2 -= ndot('inae,jbne->ijab', self.get_L('oovv'), self.build_l2x2ovov_2(self.l2, self.x2), prefactor=1.0) # x 
-        r_y2 -= ndot('in,jnba->ijab', self.build_Goo(self.get_L('oovv'), self.x2), self.l2, prefactor=1.0) # x 
-        r_y2 += ndot('ijfb,af->ijab', self.l2, self.build_Gvv(self.get_L('oovv'), self.x2), prefactor=1.0) # x 
+        r_y2 -= ndot('inae,jbne->ijab', self.Loovv, self.build_l2x2ovov_2(self.l2, self.x2), prefactor=1.0) # x 
+        r_y2 -= ndot('in,jnba->ijab', self.build_Goo(self.Loovv, self.x2), self.l2, prefactor=1.0) # x 
+        r_y2 += ndot('ijfb,af->ijab', self.l2, self.build_Gvv(self.Loovv, self.x2), prefactor=1.0) # x 
 
-        r_y2 += ndot('ijae,be->ijab', self.get_L('oovv'), self.build_Gvv(self.l2, self.x2), prefactor=1.0) # x 
-        r_y2 -= ndot('imab,jm->ijab', self.get_L('oovv'), self.build_Goo(self.l2, self.x2), prefactor=1.0) # x 
-        r_y2 -= ndot('ibme,mjea->ijab', self.build_l2x2ovov_3(self.l2, self.x2), self.get_L('oovv'), prefactor=1.0) # x 
+        r_y2 += ndot('ijae,be->ijab', self.Loovv, self.build_Gvv(self.l2, self.x2), prefactor=1.0) # x 
+        r_y2 -= ndot('imab,jm->ijab', self.Loovv, self.build_Goo(self.l2, self.x2), prefactor=1.0) # x 
+        r_y2 -= ndot('ibme,mjea->ijab', self.build_l2x2ovov_3(self.l2, self.x2), self.Loovv, prefactor=1.0) # x 
+        r_y2 += ndot('imae,jbme->ijab', self.Loovv, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=2.0) # x 
+        
+        return r_y2
 
 
-        r_y2 += ndot('imae,jbme->ijab', self.get_L('oovv'), self.build_l2x2ovov_3(self.l2, self.x2), prefactor=2.0) # x 
+    def inhomogenous_y1(self):
+        
+        r_y1 = ndot('imae,me->ia', self.Loovv, self.x1, prefactor=2.0)
+        r_y1 -= ndot('im,ma->ia', self.build_Aoo(), self.l1)
+        r_y1 += ndot('ie,ea->ia', self.l1, self.build_Avv())
+        r_y1 += ndot('imfe,feam->ia', self.l2, self.build_Avvvo())
+        r_y1 -= ndot('ienm,mnea->ia', self.build_Aovoo(), self.l2, prefactor=0.5)
+        r_y1 -= ndot('iemn,mnae->ia', self.build_Aovoo(), self.l2, prefactor=0.5)
+        r_y1 -= ndot('mi,ma->ia', self.build_x1l1oo(self.x1,self.l1), self.Hov) # q
+        r_y1 -= ndot('ie,ea->ia', self.Hov, self.build_x1l1vv(self.x1,self.l1)) # q
+        r_y1 -= ndot('mn,mina->ia', self.build_x1l1oo(self.x1,self.l1), self.Hooov, prefactor=2.0)      # q
+        r_y1 -= ndot('mn,imna->ia', self.build_x1l1oo(self.x1,self.l1), self.Hooov, prefactor=-1.0)     # q
+        r_y1 -= ndot('mena,imne->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hooov, prefactor=2.0)  # q
+        r_y1 -= ndot('mena,mine->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hooov, prefactor=-1.0) # q
+        r_y1 += ndot('meif,fmae->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hvovv, prefactor=2.0)  # q
+        r_y1 += ndot('meif,fmea->ia', self.build_x1l1ovov(self.x1,self.l1), self.Hvovv, prefactor=-1.0) # q
+        r_y1 += ndot('ef,fiea->ia', self.build_x1l1vv(self.x1,self.l1), self.Hvovv, prefactor=2.0)      # q
+        r_y1 += ndot('ef,fiae->ia', self.build_x1l1vv(self.x1,self.l1), self.Hvovv, prefactor=-1.0)     # q
+        r_y1 += ndot('ianf,nf->ia', self.build_Lx2ovov(self.Loovv,self.x2), self.l1)    # r
+        r_y1 -= ndot('ni,na->ia', self.build_Goo(self.x2, self.Loovv), self.l1) # r
+        r_y1 += ndot('ie,ea->ia', self.l1, self.build_Gvv(self.x2, self.Loovv)) # r Gvv is alreay negative
+        r_y1 -= ndot('mnif,mfna->ia', self.build_x1l2ooov(self.x1,self.l2), self.Hovov) # s
+        r_y1 -= ndot('ifne,enaf->ia', self.Hovov, self.build_x1l2vovv(self.x1,self.l2)) # s
+        r_y1 -= ndot('minf,mfan->ia', self.build_x1l2ooov(self.x1,self.l2), self.Hovvo) # s
+        r_y1 -= ndot('ifen,enfa->ia', self.Hovvo, self.build_x1l2vovv(self.x1,self.l2)) # s
+        r_y1 += ndot('fgae,eifg->ia', self.Hvvvv, self.build_x1l2vovv(self.x1,self.l2), prefactor=0.5)  # s
+        r_y1 += ndot('fgea,eigf->ia', self.Hvvvv, self.build_x1l2vovv(self.x1,self.l2), prefactor=0.5)  # s
+        r_y1 += ndot('imno,mona->ia', self.Hoooo, self.build_x1l2ooov(self.x1,self.l2), prefactor=0.5)  # s
+        r_y1 += ndot('mino,mnoa->ia', self.Hoooo, self.build_x1l2ooov(self.x1,self.l2), prefactor=0.5)  # s
+
+        return r_y1
+
+
+    def update_Y(self):
+
+        # Homogenous terms (exactly same as lambda1 equations)
+
+        r_y1 = self.im_y1.copy()
+        r_y1  += 2.0 * self.build_Aov().copy()
+        r_y1 += self.omega * self.y1
+        r_y1 += ndot('ie,ea->ia', self.y1, self.Hvv)
+        r_y1 -= ndot('im,ma->ia', self.Hoo, self.y1)
+        r_y1 += ndot('ieam,me->ia', self.Hovvo, self.y1, prefactor=2.0)
+        r_y1 += ndot('iema,me->ia', self.Hovov, self.y1, prefactor=-1.0)
+        r_y1 += ndot('imef,efam->ia', self.y2, self.Hvvvo)
+        r_y1 -= ndot('iemn,mnae->ia', self.Hovoo, self.y2)
+        r_y1 -= ndot('eifa,ef->ia', self.Hvovv, self.build_Gvv(self.y2, self.t2), prefactor=2.0)
+        r_y1 -= ndot('eiaf,ef->ia', self.Hvovv, self.build_Gvv(self.y2, self.t2), prefactor=-1.0)
+        r_y1 -= ndot('mina,mn->ia', self.Hooov, self.build_Goo(self.t2, self.y2), prefactor=2.0)
+        r_y1 -= ndot('imna,mn->ia', self.Hooov, self.build_Goo(self.t2, self.y2), prefactor=-1.0)
+
+        ### 3-body terms
+
+        tmp  =  ndot('nb,fb->nf', self.x1, self.build_Gvv(self.t2, self.l2))
+        r_y1 += ndot('inaf,nf->ia', self.Loovv, tmp)  # Gvv already negative
+        tmp  =  ndot('me,fa->mefa', self.x1, self.build_Gvv(self.t2, self.l2))
+        r_y1 += ndot('mief,mefa->ia', self.Loovv, tmp)
+        tmp  =  ndot('me,ni->meni', self.x1, self.build_Goo(self.t2, self.l2))
+        r_y1 -= ndot('meni,mnea->ia', tmp, self.Loovv)
+        tmp  =  ndot('jf,nj->fn', self.x1, self.build_Goo(self.t2, self.l2))
+        r_y1 -= ndot('inaf,fn->ia', self.Loovv, tmp)
+
+        ### 3-body terms over
+
+        ### X2 * L2 terms 
+
+        r_y1  -=  ndot('mi,ma->ia', self.build_Goo(self.x2, self.l2), self.Hov)  # t
+        r_y1  +=  ndot('ie,ea->ia', self.Hov, self.build_Gvv(self.x2, self.l2))  # t
+        r_y1  -=  ndot('igne,gnea->ia', self.build_l2x2ovov_1(self.l2, self.x2), self.Hvovv)  # t
+        r_y1  -=  ndot('igne,gnae->ia', self.build_l2x2ovov_2(self.l2, self.x2), self.Hvovv)  # t
+        r_y1  -=  ndot('gief,gaef->ia', self.Hvovv, self.build_l2x2vvvv(self.l2, self.x2))  # t
+        r_y1  +=  ndot('igme,gmae->ia', self.build_l2x2ovov_3(self.l2, self.x2), self.Hvovv, prefactor=2.0) # t
+        r_y1  +=  ndot('igme,gmea->ia', self.build_l2x2ovov_3(self.l2, self.x2), self.Hvovv, prefactor=-1.0) # t
+        r_y1  -=  ndot('giea,ge->ia', self.Hvovv, self.build_Gvv(self.l2, self.x2), prefactor=2.0)  # t
+        r_y1  -=  ndot('giae,ge->ia', self.Hvovv, self.build_Gvv(self.l2, self.x2), prefactor=-1.0)  # t
+        r_y1  +=  ndot('oimn,mnoa->ia', self.build_l2x2oooo(self.l2, self.x2), self.Hooov)  # t
+        r_y1  +=  ndot('inoe,oane->ia', self.Hooov, self.build_l2x2ovov_2(self.l2, self.x2))  # t
+        r_y1  +=  ndot('miof,oamf->ia', self.Hooov, self.build_l2x2ovov_1(self.l2, self.x2))  # t
+        r_y1  -=  ndot('mioa,mo->ia', self.Hooov, self.build_Goo(self.x2, self.l2), prefactor=2.0)  # t
+        r_y1  -=  ndot('imoa,mo->ia', self.Hooov, self.build_Goo(self.x2, self.l2), prefactor=-1.0)  # t
+        r_y1  -=  ndot('imoe,oame->ia', self.Hooov, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=2.0) # t
+        r_y1  -=  ndot('mioe,oame->ia', self.Hooov, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=-1.0) # t
+
+
+        # y1 over !! 
+
+        # Homogenous terms of Y2 equations 
+
+        r_y2 = self.im_y2.copy()
+        r_y2 += 0.5 * self.omega * self.y2.copy()
+        r_y2 += ndot('ia,jb->ijab', self.y1, self.Hov, prefactor=2.0)
+        r_y2 -= ndot('ja,ib->ijab', self.y1, self.Hov)
+        r_y2 += ndot('ijeb,ea->ijab', self.y2, self.Hvv)
+        r_y2 -= ndot('im,mjab->ijab', self.Hoo, self.y2)
+        r_y2 += ndot('ijmn,mnab->ijab', self.Hoooo, self.y2, prefactor=0.5)
+        r_y2 += ndot('ijef,efab->ijab', self.y2, self.Hvvvv, prefactor=0.5)
+        r_y2 += ndot('ie,ejab->ijab', self.y1, self.Hvovv, prefactor=2.0)
+        r_y2 += ndot('ie,ejba->ijab', self.y1, self.Hvovv, prefactor=-1.0)
+        r_y2 -= ndot('mb,jima->ijab', self.y1, self.Hooov, prefactor=2.0)
+        r_y2 -= ndot('mb,ijma->ijab', self.y1, self.Hooov, prefactor=-1.0)
+        r_y2 += ndot('ieam,mjeb->ijab', self.Hovvo, self.y2, prefactor=2.0)
+        r_y2 += ndot('iema,mjeb->ijab', self.Hovov, self.y2, prefactor=-1.0)
+        r_y2 -= ndot('mibe,jema->ijab', self.y2, self.Hovov)
+        r_y2 -= ndot('mieb,jeam->ijab', self.y2, self.Hovvo)
+        r_y2 += ndot('ijeb,ae->ijab', self.Loovv, self.build_Gvv(self.y2, self.t2))
+        r_y2 -= ndot('mi,mjab->ijab', self.build_Goo(self.t2, self.y2), self.Loovv)
+
+
         self.y1 += r_y1/self.Dia
-        tmp = r_y2
-        tmp += r_y2.swapaxes(0,1).swapaxes(2,3)
-        self.y2 += tmp/self.Dijab
+        old_y2 = self.y2
+        self.y2 += r_y2/self.Dijab
+        self.y2 += (r_y2/self.Dijab).swapaxes(0,1).swapaxes(2,3)
+
+        rms = np.einsum('ia,ia->', r_y1/self.Dia, r_y1/self.Dia)
+        rms += np.einsum('ijab,ijab->', old_y2 - self.y2, old_y2 - self.y2)
+        return np.sqrt(rms)
+
+
 
     def pseudoresponse(self, hand):
         polar1 = 0
@@ -1412,14 +1486,16 @@ class helper_ccpert(object):
             z1 = self.x1 ; z2 = self.x2
         else:
             z1 = self.y1 ; z2 = self.y2
+
         polar1 += ndot('ia,ai->', z1, self.build_Avo(), prefactor=2.0)
         polar2 += ndot('ijab,abij->', z2, self.build_Avvoo(), prefactor=4.0)
         polar2 += ndot('ijba,abij->', z2, self.build_Avvoo(), prefactor=-2.0)
+
         return -2.0 * (polar1 + polar2)
 
 
 
-    def solve(self, hand, r_conv=1.e-13, maxiter=50, max_diis=8):
+    def solve(self, hand, r_conv=1.e-7, maxiter=50, max_diis=8):
         ### Setup DIIS
         if hand == 'right':
             z1 = self.x1 ; z2 = self.x2
@@ -1440,6 +1516,11 @@ class helper_ccpert(object):
         #print(self.build_Avvoo())
 
         # Iterate!
+
+        #self.im_y1 = np.zeros_like(self.inhomogenous_y1())
+        #self.im_y2 = np.zeros_like(self.inhomogenous_y2())
+        self.im_y1 = self.inhomogenous_y1()
+        self.im_y2 = self.inhomogenous_y2()
         diis_size = 0
         for CCPERT_iter in range(1, maxiter + 1):
 
@@ -1447,16 +1528,17 @@ class helper_ccpert(object):
             oldz1 = z1.copy()
             oldz2 = z2.copy()
             if hand == 'right':
-                self.update_X()
+                rms = self.update_X()
             else:
-                self.update_Y()
+                rms = self.update_Y()
             pseudoresponse = self.pseudoresponse(hand)
 
             # Print CCPERT iteration information
             print('CCPERT_%s Iteration %3d: pseudoresponse = %.15f   dE = % .5E   DIIS = %d' % (self.name, CCPERT_iter, pseudoresponse, (pseudoresponse - pseudoresponse_old), diis_size))
 
             # Check convergence
-            if (abs(pseudoresponse - pseudoresponse_old) < r_conv):
+            #if (abs(pseudoresponse - pseudoresponse_old) < r_conv):
+            if (rms < r_conv):
                 print('\nCCPERT_%s has converged in %.3f seconds!' % (self.name, time.time() - ccpert_tstart))
                 return pseudoresponse
 
@@ -1564,7 +1646,7 @@ class helper_cclinresp(object):
         tmp = ndot('ijab,kjab->ik', self.l2, self.x2_y)
         self.polar2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
-        tmp = ndot('ijab,kiba->jk', self.l2, self.x2_y,)
+        mp = ndot('ijab,kiba->jk', self.l2, self.x2_y,)
         self.polar2 -= ndot('jk,kj->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
         tmp = ndot('ijab,ijac->bc', self.l2, self.x2_y,)
