@@ -40,8 +40,8 @@ compare_psi4 = True
 cc2 = helper_cc2energy(mol, rhf_e, rhf_wfn, memory=2)
 cc2.compute_energy(1e-10)
 
-CC2corr_E = cc2.ccsd_corr_e
-CC2_E = cc2.ccsd_e
+CC2corr_E = cc2.cc2_corr_e
+CC2_E = cc2.cc2_e
 
 print('\nFinal CC2 correlation energy:          % 16.15f' % CC2corr_E)
 print('Total CC2 energy:                      % 16.15f' % CC2_E)

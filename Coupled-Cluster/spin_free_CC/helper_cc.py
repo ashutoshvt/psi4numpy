@@ -1194,7 +1194,7 @@ class helper_cclambda(object):
 
 class helper_ccpert(object):
 
-    def __init__(self, name, pert, ccsd, hbar, cclambda, omega):
+    def __init__(self, name, pert, ccsd, hbar, cclambda, omega, inhom='false'):
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
@@ -1885,7 +1885,7 @@ class helper_cclinresp(object):
         tmp = ndot('ijab,kjab->ik', self.l2, self.x2_y)
         self.polar2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
-        mp = ndot('ijab,kiba->jk', self.l2, self.x2_y,)
+        tmp = ndot('ijab,kiba->jk', self.l2, self.x2_y,)
         self.polar2 -= ndot('jk,kj->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
         tmp = ndot('ijab,ijac->bc', self.l2, self.x2_y,)
