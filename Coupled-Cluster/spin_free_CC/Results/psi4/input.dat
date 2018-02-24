@@ -1,0 +1,27 @@
+memory 8 gb
+
+molecule h2o2 {
+ O     -0.028962160801    -0.694396279686    -0.049338350190
+ O      0.028962160801     0.694396279686    -0.049338350190
+ H      0.350498145881    -0.910645626300     0.783035421467
+ H     -0.350498145881     0.910645626300     0.783035421467
+noreorient
+symmetry c1
+}
+
+set scf{
+    e_convergence 1e-9
+    d_convergence 1e-9
+
+}
+set {
+  basis aug-cc-pvqz
+  #print 3
+  r_convergence 1e-7
+  omega [589,'nm']
+  gauge velocity
+  #diis 'false'
+}
+
+properties('ccsd', properties=['rotation'])
+#energy('scf')
