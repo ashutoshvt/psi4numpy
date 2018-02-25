@@ -115,13 +115,13 @@ def ndot(input_string, op1, op2, prefactor=None):
     else:
         return np.einsum(tdot_result + '->' + output_ind, new_view)
 
-def sort(Evec, Eval):
+def sort_descending(Evec, Eval):
     tmp = Eval.copy()
     tmp = abs(tmp)
     idx =  tmp.argsort()[::-1]
     Eval = Eval[idx]
 
-    print('\n Printing sorted eigenvalues\n')
+    print('\n Printing descending sorted eigenvalues\n')
 
     for item in Eval:
         print(item)
@@ -129,6 +129,19 @@ def sort(Evec, Eval):
     Evec = Evec[:,idx]
     return Evec
 
+def sort_ascending(Evec, Eval):
+    tmp = Eval.copy()
+    tmp = abs(tmp)
+    idx =  tmp.argsort()[::1]
+    Eval = Eval[idx]
+
+    print('\n Printing ascending sorted eigenvalues\n')
+
+    for item in Eval:
+        print(item)
+
+    Evec = Evec[:,idx]
+    return Evec
 
 class helper_localize(object):
     def __init__(self, wfn, mol, pno_cutoff):
@@ -156,7 +169,7 @@ class helper_localize(object):
         self.dints = []
         tmp = np.zeros((vir,vir))
         
-        self.F = wfn.F.copy()        
+        self.F = wfn.F.copy()
         self.t2   = wfn.t2.copy()
         self.t2_t = 2.0 * self.t2 - self.t2.swapaxes(2,3)
 
@@ -190,10 +203,10 @@ class helper_localize(object):
         self.occ_num = []
 
         for ij in range(n_pairs):
-            evals, evecs = LA.eig(Dij[ij])
-            evecs = sort(evecs, evals)    
-            self.Q_full.append(evecs.copy())
-            self.occ_num.append(evals.copy())
+            Eval, Evec = LA.eig(Dij[ij])
+            Evec = sort_descending(Evec, Eval)
+            self.Q_full.append(Evec.copy())
+            self.occ_num.append(Eval.copy())
             
         # if singles_cut_ : init_sep_singles(Q_full)   <---- take care of this later.
         self.dim_ = []
@@ -227,11 +240,11 @@ class helper_localize(object):
                 self.pair_list_.append(ij)
             else:
                 self.zero_list_.append(ij)    
-        spairs = self.pair_list_.size
+        self.spairs = self.pair_list_.size
 
         self.Q_ = []
         # Form truncated transforms
-        for ij in range(spairs):
+        for ij in range(self.spairs):
             pair_idx = self.pair_list_[ij]
             pno = self.dim_[pair_idx]
             qtemp = np.zeros((vir,pno))
@@ -241,24 +254,74 @@ class helper_localize(object):
             self.Q_.append(qtemp.copy()) 
     
         # Get semicanonical transforms from virtual fock block 
-        Fvir = self.F[vir:,vir:] 
+        Fvir = self.F[vir:,vir:]
         #  Transform Fvir to PNO basis
         self.eps_vir_ = []
-        for ij in range(spairs):
+        self.fpno = []
+        for ij in range(self.spairs):
             pair_idx = self.pair_list_[ij]
             pno = self.dim_[pair_idx]   
-            btemp = np.einsum('Aa,ab,bB', self.Q_[ij].T, Fvir, self.)
+            btemp = np.einsum('Aa,ab,bB', self.Q_[ij].T, Fvir, self.Q_[ij])
+            self.fpno.append(btemp.copy())
 
-            
-        
+        # Diagonalize Fpno now
+        self.L_ = []
+        for ij in range(self.spairs):
+            pair_idx = self.pair_list_[ij]
+            pno = self.dim_[pair_idx]
+            Eval, Evec = LA.eig(self.pno[ij])
+            Evec = sort_ascending(Evec,Eval)
+            self.eps_vir_.append(Eval.copy())
+            self.L_.append(Evec.copy())
+
+    def local_filter_T2(self, Z2):
+        nao = self.nao
+        nmo = self.nmo
+        occ = self.occ
+        vir = self.vir
+        natom = self.natom
+        Z2 = Z2.reshape(occ*occ,vir*vir)
+        # Transform from MO to Local to Semicanonical Basis
+        for ij in range(self.spairs):
+            pair_idx = self.pair_list_[ij]
+            i = pair_idx/occ
+            j = pair_idx%occ
+            pno = self.dim_[pair_idx]
+            t2temp = np.zeros((vir, vir))
+            for ab in range(vir*vir):
+                a = ab/vir
+                b = ab%vir
+                t2temp[a][b] = Z2[pair_idx][ab]
+
+             # To PNO basis
+            t2bar = np.einsum('Aa,ab,bB', self.Q_[ij].T, t2temp, self.Q_[ij])
+            # To semi-can basis
+            t2bar_scn = np.einsum('aA,AB,Bb', self.L_[ij].T, t2bar, self.L_[ij])
+            # apply energy denominators
+            for a in range(pno):
+                for b in range(pno):
+                    t2bar_scn[a][b] /= (self.F[i][i] + self.F[j][j] - self.eps_vir_[a] - self.eps_vir_[b])
+            # back to pno basis
+            t2bar = np.einsum('Aa,ab,bB',self.L_[ij], t2bar_scn, self.L_[ij].T)
+            # back to MO basis
+            t2temp = np.einsum('aA,AB,Bb',self.Q_[ij], t2bar, self.Q_[ij].T)
+            for ab in range(vir*vir):
+                a = ab/vir
+                b = ab%vir
+                Z2[pair_idx][ab] = t2temp[a][b]
+        # Make sure T2 data for non - significant pairs are zero
+        for ij in range(self.zero_list_.size):
+            pair_idx = self.zero_list_[ij]
+            for ab in range(vir*vir):
+                Z2[pair_idx][ab] = 0
+        return Z2
 
 
-        
 
-        
 
-        
-        
+
+
+
 
 
 
