@@ -1,0 +1,8 @@
+Path before removal of conda v
+/opt/mam/mam/bin:/opt/moab/moab/bin:/opt/torque/torque/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+-----
+/opt/mam/mam/bin:/opt/moab/moab/bin:/opt/torque/torque/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+Path after removal of conda ^
+psi4 at
+/groups/crawdad_lab/opt/software/dragonstooth_python3_psi4/bin/psi4
+

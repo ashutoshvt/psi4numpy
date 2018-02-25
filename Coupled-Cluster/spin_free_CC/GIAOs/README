@@ -1,0 +1,35 @@
+If I look at the GIAO code of TDC, these are the quantities that appear there,
+
+AO basis: 
+
+1. PSIF_AO_DGDBX, PSIF_AO_DGDBY, PSIF_AO_DGDBZ
+2. PSIF_AO_DSDB_X, PSIF_AO_DSDB_Y. PSIF_AO_DSDB_Z
+3. PSIF_AO_DHDB_X, PSIF_AO_DHDB_Y, PSIF_AO_DHDB_Z
+
+Transformation of dg/db_(x,y,z) from ao to mo basis
+comment in code:
+// Form F and dF/dBi (just to check against ACES2 and other programs) in MO basis from dH/dBi and dg/dBi
+
+form_hamiltonian_deriv(H,g,nmo,ndocc,F);
+form_hamiltonian_deriv(dHdBx,dgdBx,nmo,ndocc,dFdBx);
+form_hamiltonian_deriv(dHdBy,dgdBy,nmo,ndocc,dFdBy);
+form_hamiltonian_deriv(dHdBz,dgdBz,nmo,ndocc,dFdBz);
+
+// Now form dH~/dBi in MO basis from H, dS/dBi and dH/dBi
+  tildeize_1e(H,dHdBx,dSdBx,nmo,dHtdBx);
+  tildeize_1e(H,dHdBy,dSdBy,nmo,dHtdBy);
+  tildeize_1e(H,dHdBz,dSdBz,nmo,dHtdBz);
+
+// Also form dg~/dBi in MO basis from g, dS/dBi and dg/dBi
+  nijkl = nmo*nmo*nmo*nmo;
+  tildeize_2e(g,dgdBx,dSdBx,nmo,dgtdBx);
+  tildeize_2e(g,dgdBy,dSdBy,nmo,dgtdBy);
+  tildeize_2e(g,dgdBz,dSdBz,nmo,dgtdBz);
+
+// Finally form dF~/dBi in MO basis from dH~/dBi and dg~/dBi
+  form_hamiltonian_deriv(dHtdBx,dgtdBx,nmo,ndocc,dFtdBx);
+  form_hamiltonian_deriv(dHtdBy,dgtdBx,nmo,ndocc,dFtdBy);
+  form_hamiltonian_deriv(dHtdBz,dgtdBx,nmo,ndocc,dFtdBz);
+
+
+

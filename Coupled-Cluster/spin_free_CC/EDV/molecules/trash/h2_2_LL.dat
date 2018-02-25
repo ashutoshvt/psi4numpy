@@ -1,0 +1,999 @@
+
+*** tstart() called on dtlogin1
+*** at Sat Feb 17 18:11:34 2018
+
+   => Loading Basis Set <=
+
+    Name: STO-3G
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1-4 entry H          line    19 file /groups/crawdad_lab/opt/software/dragonstooth_python3_psi4/share/psi4/basis/sto-3g.gbs 
+
+    There are an even number of electrons - assuming singlet.
+    Specify the multiplicity in the molecule input block.
+
+
+         ---------------------------------------------------------
+                                   SCF
+            by Justin Turney, Rob Parrish, Andy Simmonett
+                             and Daniel Smith
+                              RHF Reference
+                        1 Threads,    500 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: c1
+    Full point group: C2
+
+    Geometry (in Angstrom), charge = 0, multiplicity = 1:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+           H          0.000000000000    -0.750000000000    -0.324759526419     1.007825032070
+           H         -0.375000000000    -0.750000000000     0.324759526419     1.007825032070
+           H          0.000000000000     0.750000000000    -0.324759526419     1.007825032070
+           H          0.375000000000     0.750000000000     0.324759526419     1.007825032070
+
+  Running in c1 symmetry.
+
+  Rotational constants: A =     30.20658  B =      6.60810  C =      5.92883 [cm^-1]
+  Rotational constants: A = 905570.43220  B = 198105.71960  C = 177741.85725 [MHz]
+  Nuclear repulsion =    2.710544997073993
+
+  Charge       = 0
+  Multiplicity = 1
+  Electrons    = 4
+  Nalpha       = 2
+  Nbeta        = 2
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is PK.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-09
+  Density threshold  = 1.00e-09
+  Integral threshold = 0.00e+00
+
+  ==> Primary Basis <==
+
+  Basis Set: STO-3G
+    Blend: STO-3G
+    Number of shells: 4
+    Number of basis function: 4
+    Number of Cartesian functions: 4
+    Spherical Harmonics?: true
+    Max angular momentum: 0
+
+  ==> Pre-Iterations <==
+
+   -------------------------------------------------------
+    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
+   -------------------------------------------------------
+     A          4       4       0       0       0       0
+   -------------------------------------------------------
+    Total       4       4       2       2       2       0
+   -------------------------------------------------------
+
+  ==> Integral Setup <==
+
+  Using in-core PK algorithm.
+   Calculation information:
+      Number of atoms:                   4
+      Number of AO shells:               4
+      Number of primitives:             12
+      Number of atomic orbitals:         4
+      Number of basis functions:         4
+
+      Integral cutoff                 1.00e-12
+      Number of threads:                 1
+
+  Performing in-core PK
+  Using 110 doubles for integral storage.
+  We computed 55 shell quartets total.
+  Whereas there are 55 unique shell quartets.
+  ==> DiskJK: Disk-Based J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    Memory (MB):               375
+    Schwarz Cutoff:          1E-12
+
+    OpenMP threads:              1
+  Minimum eigenvalue in the overlap matrix is 3.1633977932E-01.
+  Using Symmetric Orthogonalization.
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+
+  ==> Iterations <==
+
+                        Total Energy        Delta E     RMS |[F,P]|
+
+   @RHF iter   0:    -1.49255767302709   -1.49256e+00   9.26463e-04 
+   @RHF iter   1:    -2.17208854012083   -6.79531e-01   1.93558e-03 
+   @RHF iter   2:    -2.17214681888134   -5.82788e-05   3.93433e-04 DIIS
+   @RHF iter   3:    -2.17214948406829   -2.66519e-06   4.35803e-05 DIIS
+   @RHF iter   4:    -2.17214951665067   -3.25824e-08   1.72199e-09 DIIS
+   @RHF iter   5:    -2.17214951665067   -1.77636e-15   1.52120e-13 DIIS
+
+  ==> Post-Iterations <==
+
+    Orbital Energies (a.u.)
+    -----------------------
+
+    Doubly Occupied:                                                      
+
+       1A     -0.666364     2A     -0.464509  
+
+    Virtual:                                                              
+
+       3A      0.590378     4A      0.743887  
+
+    Final Occupation by Irrep:
+              A 
+    DOCC [     2 ]
+
+  Energy converged.
+
+  @RHF Final Energy:    -2.17214951665067
+
+   => Energetics <=
+
+    Nuclear Repulsion Energy =              2.7105449970739932
+    One-Electron Energy =                  -7.5036431871278388
+    Two-Electron Energy =                   2.6209486734031771
+    Total Energy =                         -2.1721495166506681
+
+
+
+Properties will be evaluated at   0.000000,   0.000000,   0.000000 Bohr
+
+Properties computed using the SCF density matrix
+
+  Nuclear Dipole Moment: (a.u.)
+     X:     0.0000      Y:     0.0000      Z:     0.0000
+
+  Electronic Dipole Moment: (a.u.)
+     X:    -0.0000      Y:     0.0000      Z:    -0.0111
+
+  Dipole Moment: (a.u.)
+     X:    -0.0000      Y:     0.0000      Z:    -0.0111     Total:     0.0111
+
+  Dipole Moment: (Debye)
+     X:    -0.0000      Y:     0.0000      Z:    -0.0281     Total:     0.0281
+
+
+*** tstop() called on dtlogin1 at Sat Feb 17 18:11:34 2018
+Module time:
+	user time   =       0.26 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
+Total time:
+	user time   =       0.26 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
+  ==> Pipek-Mezey Localizer <==
+
+    Convergence =   1.000E-12
+    Maxiter     =         200
+
+    Iteration                   Metric       Residual
+    @PM    0   5.0091475353587511E-01              -
+    @PM    1   1.0345238465391244E+00   1.065269E+00
+    @PM    2   1.0345238465391244E+00   0.000000E+00
+
+    PM Localizer converged.
+
+  ==> Pipek-Mezey Localizer <==
+
+    Convergence =   1.000E-12
+    Maxiter     =         200
+
+    Iteration                   Metric       Residual
+    @PM    0   1.0345238465391244E+00              -
+    @PM    1   1.0345238465391244E+00   0.000000E+00
+
+    PM Localizer converged.
+
+Computing RHF reference.
+RHF Final Energy                             -2.1721495167
+
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 4 basis functions.
+Building initial guess...
+
+..initialized CCSD in 0.011 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.028336645635886   dE =  2.83366E-02   MP2
+
+Final CCSD correlation energy:          -0.028336645635886
+Total CCSD energy:                      -2.200486162286554
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.028336645635886   dE =  2.83366E-02   MP2
+Norm
+5.35541754574e-06
+
+ Printing sorted eigenvalues
+
+4.23577677707e-06
+3.27699438267e-06
+Truncation:0
+F_vir_pert
+[[ 0.590377797900965  0.000000000000001]
+ [ 0.000000000000001  0.743886962770851]]
+tmp_eval
+[ 0.590377797900965  0.743886962770851]
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 4 basis functions.
+Building initial guess...
+
+..initialized CCSD in 0.010 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.028336645635886   dE =  2.83366E-02   MP2
+CCSD Iteration   1: CCSD correlation = -0.038750520417513   dE = -1.04139E-02   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.042614223109795   dE = -3.86370E-03   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.044943206552354   dE = -2.32898E-03   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.044971340649127   dE = -2.81341E-05   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.044980858662335   dE = -9.51801E-06   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.044977716904372   dE =  3.14176E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.044977386347467   dE =  3.30557E-07   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.044977536323724   dE = -1.49976E-07   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.044977512133162   dE =  2.41906E-08   DIIS = 7
+
+CCSD has converged in 0.025 seconds!
+
+Final CCSD correlation energy:          -0.044977512133162
+Total CCSD energy:                      -2.217127028783830
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.044977598264135   dE =  4.49776E-02   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.044555126458647   dE =  4.22472E-04   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.044401378803990   dE =  1.53748E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.044313374675250   dE =  8.80041E-05   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.044308237668928   dE =  5.13701E-06   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.044308221973822   dE =  1.56951E-08   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.044308208546361   dE =  1.34275E-08   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.044308206725503   dE =  1.82086E-09   DIIS = 6
+
+CCLAMBDA has converged in 0.009 seconds!
+
+solving right hand perturbed amplitudes for MU_X
+
+polar1:   -0.579655593667505
+polar2:   -0.000094200377171
+response:   -0.650692299296346
+CCPERT_MU_X Iteration   0: pseudoresponse = 1.159499588089353   dE = -1.15950E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.148213893942937
+polar1:   -0.741417903793036
+polar2:   -0.000135150526910
+response:   -0.833824292008381
+CCPERT_MU_X Iteration   1: pseudoresponse = 1.483106108639892   dE =  3.23607E-01   DIIS = 0
+rms:    0.052019977895278
+polar1:   -0.792116803500554
+polar2:   -0.000157259670257
+response:   -0.891585495428899
+CCPERT_MU_X Iteration   2: pseudoresponse = 1.584548126341622   dE =  1.01442E-01   DIIS = 1
+rms:    0.003850563953760
+polar1:   -0.818011187460916
+polar2:   -0.000173959037320
+response:   -0.921202847888797
+CCPERT_MU_X Iteration   3: pseudoresponse = 1.636370292996472   dE =  5.18222E-02   DIIS = 2
+rms:    0.000094314985919
+polar1:   -0.818965937554092
+polar2:   -0.000176987187847
+response:   -0.922324023558896
+CCPERT_MU_X Iteration   4: pseudoresponse = 1.638285849483878   dE =  1.91556E-03   DIIS = 3
+rms:    0.000007045898155
+polar1:   -0.818965933584882
+polar2:   -0.000177479555342
+response:   -0.922324051111436
+CCPERT_MU_X Iteration   5: pseudoresponse = 1.638286826280447   dE =  9.76797E-07   DIIS = 4
+rms:    0.000002020711866
+polar1:   -0.818965954462431
+polar2:   -0.000177494783643
+response:   -0.922324074240226
+CCPERT_MU_X Iteration   6: pseudoresponse = 1.638286898492149   dE =  7.22117E-08   DIIS = 5
+rms:    0.000000094337717
+polar1:   -0.818965958709860
+polar2:   -0.000177488060720
+response:   -0.922324078146601
+CCPERT_MU_X Iteration   7: pseudoresponse = 1.638286893541160   dE = -4.95099E-09   DIIS = 6
+
+CCPERT_MU_X has converged in 0.014 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+polar1:   -0.403083717363380
+polar2:   -0.000067751358610
+response:    0.363735442406948
+CCPERT_L_X Iteration   0: pseudoresponse = 0.806302937443980   dE = -8.06303E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.148562440610925
+polar1:   -0.542340816616925
+polar2:   -0.000107510683497
+response:    0.489818474485361
+CCPERT_L_X Iteration   1: pseudoresponse = 1.084896654600843   dE =  2.78594E-01   DIIS = 0
+rms:    0.054821379850081
+polar1:   -0.592315486481121
+polar2:   -0.000129048394832
+response:    0.535145954353014
+CCPERT_L_X Iteration   2: pseudoresponse = 1.184889069751905   dE =  9.99924E-02   DIIS = 1
+rms:    0.001619508604455
+polar1:   -0.621141520679519
+polar2:   -0.000145895660045
+response:    0.561314862868804
+CCPERT_L_X Iteration   3: pseudoresponse = 1.242574832679128   dE =  5.76858E-02   DIIS = 2
+rms:    0.000089300416687
+polar1:   -0.621374663804563
+polar2:   -0.000147985638658
+response:    0.561531780891071
+CCPERT_L_X Iteration   4: pseudoresponse = 1.243045298886443   dE =  4.70466E-04   DIIS = 3
+rms:    0.000004616875797
+polar1:   -0.621374867327763
+polar2:   -0.000148468629889
+response:    0.561531964445553
+CCPERT_L_X Iteration   5: pseudoresponse = 1.243046671915305   dE =  1.37303E-06   DIIS = 4
+rms:    0.000001501700793
+polar1:   -0.621374851997196
+polar2:   -0.000148474706836
+response:    0.561531950126265
+CCPERT_L_X Iteration   6: pseudoresponse = 1.243046653408063   dE = -1.85072E-08   DIIS = 5
+rms:    0.000000121754133
+polar1:   -0.621374850688074
+polar2:   -0.000148474414419
+response:    0.561531948764224
+CCPERT_L_X Iteration   7: pseudoresponse = 1.243046650204986   dE = -3.20308E-09   DIIS = 6
+rms:    0.000000000000000
+polar1:   -0.621374851056296
+polar2:   -0.000148473991719
+response:    0.561531949074483
+CCPERT_L_X Iteration   8: pseudoresponse = 1.243046650096030   dE = -1.08956E-10   DIIS = 7
+
+CCPERT_L_X has converged in 0.017 seconds!
+
+solving left hand perturbed amplitudes for MU_X
+
+polar1:   -1.637931917419720
+polar2:   -0.000354976121440
+response:   -1.844648156293202
+CCPERT_MU_X Iteration   0: pseudoresponse = 3.276573787082320   dE = -3.27657E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.329665421050915
+polar1:   -1.255336762346491
+polar2:   -0.000321876245434
+response:   -1.413745212691498
+CCPERT_MU_X Iteration   1: pseudoresponse = 2.511317277183851   dE = -7.65257E-01   DIIS = 0
+rms:    0.065343386213741
+polar1:   -1.192965947569064
+polar2:   -0.000301643968335
+response:   -1.342611746559423
+CCPERT_MU_X Iteration   2: pseudoresponse = 2.386535183074798   dE = -1.24782E-01   DIIS = 1
+rms:    0.005235359253132
+polar1:   -1.177109804624157
+polar2:   -0.000289088034483
+response:   -1.324441968192764
+CCPERT_MU_X Iteration   3: pseudoresponse = 2.354797785317281   dE = -3.17374E-02   DIIS = 2
+rms:    0.000141642200279
+polar1:   -1.175900284100434
+polar2:   -0.000285992464339
+response:   -1.323049610290438
+CCPERT_MU_X Iteration   4: pseudoresponse = 2.352372553129547   dE = -2.42523E-03   DIIS = 3
+rms:    0.000027901771878
+polar1:   -1.175898896843178
+polar2:   -0.000285509427961
+response:   -1.323047997961100
+CCPERT_MU_X Iteration   5: pseudoresponse = 2.352368812542277   dE = -3.74059E-06   DIIS = 4
+rms:    0.000003002849555
+polar1:   -1.175898832409754
+polar2:   -0.000285422316903
+response:   -1.323047916759257
+CCPERT_MU_X Iteration   6: pseudoresponse = 2.352368509453313   dE = -3.03089E-07   DIIS = 5
+rms:    0.000000168980551
+polar1:   -1.175898827408092
+polar2:   -0.000285429264353
+response:   -1.323047911802846
+CCPERT_MU_X Iteration   7: pseudoresponse = 2.352368513344890   dE =  3.89158E-09   DIIS = 6
+rms:    0.000000000000000
+polar1:   -1.175898827049257
+polar2:   -0.000285429413727
+response:   -1.323047911450813
+CCPERT_MU_X Iteration   8: pseudoresponse = 2.352368512925968   dE = -4.18922E-10   DIIS = 7
+
+CCPERT_MU_X has converged in 0.015 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+polar1:   -1.242749702112593
+polar2:   -0.000296947983438
+response:    1.123063898148966
+CCPERT_L_X Iteration   0: pseudoresponse = 2.486093300192060   dE = -2.48609E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.940238644541194
+polar1:    0.627098364943628
+polar2:    0.000002597873959
+response:   -0.564036755744800
+CCPERT_L_X Iteration   1: pseudoresponse = -1.254201925635174   dE = -3.74030E+00   DIIS = 0
+rms:    0.429582984420571
+polar1:    1.020968751495833
+polar2:    0.000158945164219
+response:   -0.921161658154765
+CCPERT_L_X Iteration   2: pseudoresponse = -2.042255393320104   dE = -7.88053E-01   DIIS = 1
+rms:    0.016821761276101
+polar1:    1.134908873970895
+polar2:    0.000243768941596
+response:   -1.024611370879223
+CCPERT_L_X Iteration   3: pseudoresponse = -2.270305285824982   dE = -2.28050E-01   DIIS = 2
+rms:    0.000925013851516
+polar1:    1.138716645685551
+polar2:    0.000259097658718
+response:   -1.028077627311875
+CCPERT_L_X Iteration   4: pseudoresponse = -2.277951486688537   dE = -7.64620E-03   DIIS = 3
+rms:    0.000052165788506
+polar1:    1.138724785206367
+polar2:    0.000262719041740
+response:   -1.028085137437166
+CCPERT_L_X Iteration   5: pseudoresponse = -2.277975008496214   dE = -2.35218E-05   DIIS = 4
+rms:    0.000010734798308
+polar1:    1.138724832577509
+polar2:    0.000262843467073
+response:   -1.028085178425800
+CCPERT_L_X Iteration   6: pseudoresponse = -2.277975352089164   dE = -3.43593E-07   DIIS = 5
+rms:    0.000000978426740
+polar1:    1.138724829437183
+polar2:    0.000262856870986
+response:   -1.028085175188199
+CCPERT_L_X Iteration   7: pseudoresponse = -2.277975372616338   dE = -2.05272E-08   DIIS = 6
+rms:    0.000000000000000
+polar1:    1.138724831900203
+polar2:    0.000262854947988
+response:   -1.028085177302420
+CCPERT_L_X Iteration   8: pseudoresponse = -2.277975373696381   dE = -1.08004E-09   DIIS = 7
+
+CCPERT_L_X has converged in 0.015 seconds!
+
+ Calculating rotation tensor from linear response function: X 
+
+
+ optrot_muL =   -0.109221620020571 
+
+
+ optrot_Lmu =    0.109934495872269 
+
+
+ optrot_mumu =    1.483696084831611 
+
+
+ optrot_LL =   -1.113897903622039 
+
+
+ optrot_response =   -0.109578057946420 CCSD 
+
+
+solving right hand perturbed amplitudes for MU_Y
+
+polar1:   -0.022250086601008
+polar2:   -0.001436447312685
+response:   -0.023142043571197
+CCPERT_MU_Y Iteration   0: pseudoresponse = 0.047373067827387   dE = -4.73731E-02 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.026913589723171
+polar1:   -0.027665485874740
+polar2:   -0.001939575207475
+response:   -0.028784035043974
+CCPERT_MU_Y Iteration   1: pseudoresponse = 0.059210122164430   dE =  1.18371E-02   DIIS = 0
+rms:    0.008940529872412
+polar1:   -0.029181125918178
+polar2:   -0.002112788494815
+response:   -0.030365680105074
+CCPERT_MU_Y Iteration   2: pseudoresponse = 0.062587828825985   dE =  3.37771E-03   DIIS = 1
+rms:    0.000893158987065
+polar1:   -0.029873504123953
+polar2:   -0.002199672073728
+response:   -0.031089103983937
+CCPERT_MU_Y Iteration   3: pseudoresponse = 0.064146352395360   dE =  1.55852E-03   DIIS = 2
+rms:    0.000032182681653
+polar1:   -0.029911972755790
+polar2:   -0.002205278062422
+response:   -0.031129549878900
+CCPERT_MU_Y Iteration   4: pseudoresponse = 0.064234501636424   dE =  8.81492E-05   DIIS = 3
+rms:    0.000003860043270
+polar1:   -0.029912515568241
+polar2:   -0.002204773495563
+response:   -0.031130117647343
+CCPERT_MU_Y Iteration   5: pseudoresponse = 0.064234578127608   dE =  7.64912E-08   DIIS = 4
+rms:    0.000001120350559
+polar1:   -0.029912539091240
+polar2:   -0.002204754621640
+response:   -0.031130142197899
+CCPERT_MU_Y Iteration   6: pseudoresponse = 0.064234587425760   dE =  9.29815E-09   DIIS = 5
+rms:    0.000000044726243
+polar1:   -0.029912528573803
+polar2:   -0.002204767058067
+response:   -0.031130131182760
+CCPERT_MU_Y Iteration   7: pseudoresponse = 0.064234591263740   dE =  3.83798E-09   DIIS = 6
+
+CCPERT_MU_Y has converged in 0.014 seconds!
+
+solving right hand perturbed amplitudes for L_Y
+
+polar1:   -0.024862785141368
+polar2:   -0.000070312822724
+response:    0.022428505205325
+CCPERT_L_Y Iteration   0: pseudoresponse = 0.049866195928183   dE = -4.98662E-02 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.036506421925668
+polar1:   -0.033337502199048
+polar2:   -0.000090278957894
+response:    0.030096077698500
+CCPERT_L_Y Iteration   1: pseudoresponse = 0.066855562313886   dE =  1.69894E-02   DIIS = 0
+rms:    0.013419164062260
+polar1:   -0.036355561102632
+polar2:   -0.000095239800673
+response:    0.032831089456317
+CCPERT_L_Y Iteration   2: pseudoresponse = 0.072901601806610   dE =  6.04604E-03   DIIS = 1
+rms:    0.000440237049726
+polar1:   -0.038083379059550
+polar2:   -0.000096670857344
+response:    0.034398150343634
+CCPERT_L_Y Iteration   3: pseudoresponse = 0.076360099833788   dE =  3.45850E-03   DIIS = 2
+rms:    0.000027941876354
+polar1:   -0.038100672955866
+polar2:   -0.000096040114889
+response:    0.034414127004046
+CCPERT_L_Y Iteration   4: pseudoresponse = 0.076393426141511   dE =  3.33263E-05   DIIS = 3
+rms:    0.000000873742829
+polar1:   -0.038100890182479
+polar2:   -0.000095876741370
+response:    0.034414324062156
+CCPERT_L_Y Iteration   5: pseudoresponse = 0.076393533847699   dE =  1.07706E-07   DIIS = 4
+rms:    0.000000310159999
+polar1:   -0.038100891629927
+polar2:   -0.000095874186682
+response:    0.034414325353418
+CCPERT_L_Y Iteration   6: pseudoresponse = 0.076393531633217   dE = -2.21448E-09   DIIS = 5
+rms:    0.000000018556021
+polar1:   -0.038100891820597
+polar2:   -0.000095873919284
+response:    0.034414325517538
+CCPERT_L_Y Iteration   7: pseudoresponse = 0.076393531479762   dE = -1.53455E-10   DIIS = 6
+
+CCPERT_L_Y has converged in 0.014 seconds!
+
+solving left hand perturbed amplitudes for MU_Y
+
+polar1:   -0.059825057147606
+polar2:   -0.004409534116134
+response:   -0.062260262365521
+CCPERT_MU_Y Iteration   0: pseudoresponse = 0.128469182527480   dE = -1.28469E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.042361866598259
+polar1:   -0.050583640355419
+polar2:   -0.004097038873249
+response:   -0.052636505258847
+CCPERT_MU_Y Iteration   1: pseudoresponse = 0.109361358457336   dE = -1.91078E-02   DIIS = 0
+rms:    0.008129677480112
+polar1:   -0.049314768207999
+polar2:   -0.003994912692343
+response:   -0.051311013918139
+CCPERT_MU_Y Iteration   2: pseudoresponse = 0.106619361800684   dE = -2.74200E-03   DIIS = 1
+rms:    0.000789448344418
+polar1:   -0.049015162651611
+polar2:   -0.003960184145455
+response:   -0.050997583390382
+CCPERT_MU_Y Iteration   3: pseudoresponse = 0.105950693594131   dE = -6.68668E-04   DIIS = 2
+rms:    0.000040275781731
+polar1:   -0.048988753961012
+polar2:   -0.003954668515012
+response:   -0.050969920214215
+CCPERT_MU_Y Iteration   4: pseudoresponse = 0.105886844952046   dE = -6.38486E-05   DIIS = 3
+rms:    0.000010202009220
+polar1:   -0.048988610153624
+polar2:   -0.003954257476506
+response:   -0.050969770196249
+CCPERT_MU_Y Iteration   5: pseudoresponse = 0.105885735260259   dE = -1.10969E-06   DIIS = 4
+rms:    0.000000747058412
+polar1:   -0.048988642400157
+polar2:   -0.003954085241019
+response:   -0.050969804179979
+CCPERT_MU_Y Iteration   6: pseudoresponse = 0.105885455282352   dE = -2.79978E-07   DIIS = 5
+rms:    0.000000020911028
+polar1:   -0.048988641420607
+polar2:   -0.003954085816223
+response:   -0.050969803158231
+CCPERT_MU_Y Iteration   7: pseudoresponse = 0.105885454473660   dE = -8.08691E-10   DIIS = 6
+
+CCPERT_MU_Y has converged in 0.013 seconds!
+
+solving left hand perturbed amplitudes for L_Y
+
+polar1:   -0.076201783641194
+polar2:   -0.000191747838568
+response:    0.068828651035075
+CCPERT_L_Y Iteration   0: pseudoresponse = 0.152787062959524   dE = -1.52787E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.481557939275382
+polar1:    0.039123288004219
+polar2:    0.000092323875335
+response:   -0.035197609076466
+CCPERT_L_Y Iteration   1: pseudoresponse = -0.078431223759107   dE = -2.31218E-01   DIIS = 0
+rms:    0.105358143403115
+polar1:    0.062948398645366
+polar2:    0.000153993227262
+response:   -0.056782312151221
+CCPERT_L_Y Iteration   2: pseudoresponse = -0.126204783745256   dE = -4.77736E-02   DIIS = 1
+rms:    0.004494369352435
+polar1:    0.069760301290681
+polar2:    0.000168667874187
+response:   -0.062961218441593
+CCPERT_L_Y Iteration   3: pseudoresponse = -0.139857938329737   dE = -1.36532E-02   DIIS = 2
+rms:    0.000151411415990
+polar1:    0.070018452560865
+polar2:    0.000167898401717
+response:   -0.063195866981556
+CCPERT_L_Y Iteration   4: pseudoresponse = -0.140372701925163   dE = -5.14764E-04   DIIS = 3
+rms:    0.000019281641615
+polar1:    0.070019095719383
+polar2:    0.000167518795585
+response:   -0.063196454763076
+CCPERT_L_Y Iteration   5: pseudoresponse = -0.140373229029937   dE = -5.27105E-07   DIIS = 4
+rms:    0.000001575128268
+polar1:    0.070019167467867
+polar2:    0.000167460931371
+response:   -0.063196520018408
+CCPERT_L_Y Iteration   6: pseudoresponse = -0.140373256798477   dE = -2.77685E-08   DIIS = 5
+rms:    0.000000112031536
+polar1:    0.070019172377031
+polar2:    0.000167455043254
+response:   -0.063196524486322
+CCPERT_L_Y Iteration   7: pseudoresponse = -0.140373254840570   dE =  1.95791E-09   DIIS = 6
+rms:    0.000000000000001
+polar1:    0.070019172345601
+polar2:    0.000167455136024
+response:   -0.063196524454976
+CCPERT_L_Y Iteration   8: pseudoresponse = -0.140373254963248   dE = -1.22678E-10   DIIS = 7
+
+CCPERT_L_Y has converged in 0.016 seconds!
+
+ Calculating rotation tensor from linear response function: Y 
+
+
+ optrot_muL =    0.002270774700682 
+
+
+ optrot_Lmu =   -0.002292105747664 
+
+
+ optrot_mumu =    0.057838623724325 
+
+
+ optrot_LL =   -0.068515486084710 
+
+
+ optrot_response =    0.002281440224173 CCSD 
+
+
+solving right hand perturbed amplitudes for MU_Z
+
+polar1:   -1.669713498392619
+polar2:   -0.000033629665869
+response:   -1.914175690258007
+CCPERT_MU_Z Iteration   0: pseudoresponse = 3.339494256116975   dE = -3.33949E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.199648431802584
+polar1:   -2.057874111833992
+polar2:   -0.000098509256412
+response:   -2.360821748595733
+CCPERT_MU_Z Iteration   1: pseudoresponse = 4.115945242180809   dE =  7.76451E-01   DIIS = 0
+rms:    0.054383566584850
+polar1:   -2.155145672171601
+polar2:   -0.000134629489255
+response:   -2.473152103851127
+CCPERT_MU_Z Iteration   2: pseudoresponse = 4.310560603321712   dE =  1.94615E-01   DIIS = 1
+rms:    0.004540253609817
+polar1:   -2.190345206951490
+polar2:   -0.000156682979312
+response:   -2.513924824914251
+CCPERT_MU_Z Iteration   3: pseudoresponse = 4.381003779861604   dE =  7.04432E-02   DIIS = 2
+rms:    0.000410273516523
+polar1:   -2.191758440057664
+polar2:   -0.000161792613054
+response:   -2.515597205115098
+CCPERT_MU_Z Iteration   4: pseudoresponse = 4.383840465341436   dE =  2.83669E-03   DIIS = 3
+rms:    0.000080009665360
+polar1:   -2.191762895006882
+polar2:   -0.000163145063638
+response:   -2.515602917249084
+CCPERT_MU_Z Iteration   5: pseudoresponse = 4.383852080141041   dE =  1.16148E-05   DIIS = 4
+rms:    0.000028140684705
+polar1:   -2.191763104578620
+polar2:   -0.000163213471850
+response:   -2.515603279986121
+CCPERT_MU_Z Iteration   6: pseudoresponse = 4.383852636100941   dE =  5.55960E-07   DIIS = 5
+rms:    0.000003072186880
+polar1:   -2.191763253807200
+polar2:   -0.000163206527782
+response:   -2.515603510774930
+CCPERT_MU_Z Iteration   7: pseudoresponse = 4.383852920669963   dE =  2.84569E-07   DIIS = 6
+rms:    0.000000075687767
+polar1:   -2.191763260377798
+polar2:   -0.000163204401124
+response:   -2.515603519697693
+CCPERT_MU_Z Iteration   8: pseudoresponse = 4.383852929557844   dE =  8.88788E-09   DIIS = 7
+
+CCPERT_MU_Z has converged in 0.016 seconds!
+
+solving right hand perturbed amplitudes for L_Z
+
+polar1:   -0.137042160569162
+polar2:   -0.000000005956490
+response:    0.122350542093445
+CCPERT_L_Z Iteration   0: pseudoresponse = 0.274084333051306   dE = -2.74084E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.067052478069019
+polar1:   -0.175674053854861
+polar2:   -0.000000223340409
+response:    0.157098970786920
+CCPERT_L_Z Iteration   1: pseudoresponse = 0.351348554390539   dE =  7.72642E-02   DIIS = 0
+rms:    0.020364992298836
+polar1:   -0.187013154522062
+polar2:   -0.000000372250892
+response:    0.167350808303187
+CCPERT_L_Z Iteration   2: pseudoresponse = 0.374027053545906   dE =  2.26785E-02   DIIS = 1
+rms:    0.001225174091922
+polar1:   -0.191886351608892
+polar2:   -0.000000483594824
+response:    0.171771699741880
+CCPERT_L_Z Iteration   3: pseudoresponse = 0.383773670407431   dE =  9.74662E-03   DIIS = 2
+rms:    0.000387464583143
+polar1:   -0.191971251016352
+polar2:   -0.000000509646181
+response:    0.171852749538115
+CCPERT_L_Z Iteration   4: pseudoresponse = 0.383943521325067   dE =  1.69851E-04   DIIS = 3
+rms:    0.000042258656911
+polar1:   -0.191976491749451
+polar2:   -0.000000519522995
+response:    0.171857774087304
+CCPERT_L_Z Iteration   5: pseudoresponse = 0.383954022544892   dE =  1.05012E-05   DIIS = 4
+rms:    0.000003393541161
+polar1:   -0.191976711548495
+polar2:   -0.000000516956583
+response:    0.171858003817543
+CCPERT_L_Z Iteration   6: pseudoresponse = 0.383954457010156   dE =  4.34465E-07   DIIS = 5
+rms:    0.000000784013166
+polar1:   -0.191976708101366
+polar2:   -0.000000516801543
+response:    0.171858001233229
+CCPERT_L_Z Iteration   7: pseudoresponse = 0.383954449805818   dE = -7.20434E-09   DIIS = 6
+rms:    0.000000028216278
+polar1:   -0.191976705353230
+polar2:   -0.000000516778726
+response:    0.171857998572210
+CCPERT_L_Z Iteration   8: pseudoresponse = 0.383954444263911   dE = -5.54191E-09   DIIS = 7
+
+CCPERT_L_Z has converged in 0.016 seconds!
+
+solving left hand perturbed amplitudes for MU_Z
+
+polar1:   -4.383526520755597
+polar2:   -0.000327024096969
+response:   -5.031207039395386
+CCPERT_MU_Z Iteration   0: pseudoresponse = 8.767707089705130   dE = -8.76771E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.554774848891996
+polar1:   -3.280223915041935
+polar2:   -0.000270868201221
+response:   -3.765547776745486
+CCPERT_MU_Z Iteration   1: pseudoresponse = 6.560989566486311   dE = -2.20672E+00   DIIS = 0
+rms:    0.070673029853432
+polar1:   -3.164419478240198
+polar2:   -0.000222070298044
+response:   -3.631453216184346
+CCPERT_MU_Z Iteration   2: pseudoresponse = 6.329283097076483   dE = -2.31706E-01   DIIS = 1
+rms:    0.007457893517044
+polar1:   -3.144304725838446
+polar2:   -0.000201695983988
+response:   -3.608052351723990
+CCPERT_MU_Z Iteration   3: pseudoresponse = 6.289012843644868   dE = -4.02703E-02   DIIS = 2
+rms:    0.000621029261964
+polar1:   -3.142170050331165
+polar2:   -0.000195897618702
+response:   -3.605561306935825
+CCPERT_MU_Z Iteration   4: pseudoresponse = 6.284731895899735   dE = -4.28095E-03   DIIS = 3
+rms:    0.000220821785728
+polar1:   -3.142157851153656
+polar2:   -0.000194592849845
+response:   -3.605546785546343
+CCPERT_MU_Z Iteration   5: pseudoresponse = 6.284704888007004   dE = -2.70079E-05   DIIS = 4
+rms:    0.000052779598119
+polar1:   -3.142155886360476
+polar2:   -0.000194138074987
+response:   -3.605544296338187
+CCPERT_MU_Z Iteration   6: pseudoresponse = 6.284700048870928   dE = -4.83914E-06   DIIS = 5
+rms:    0.000004897144282
+polar1:   -3.142155757003115
+polar2:   -0.000194163133370
+response:   -3.605544094811084
+CCPERT_MU_Z Iteration   7: pseudoresponse = 6.284699840272969   dE = -2.08598E-07   DIIS = 6
+rms:    0.000000107790984
+polar1:   -3.142155756992612
+polar2:   -0.000194162629845
+response:   -3.605544090952998
+CCPERT_MU_Z Iteration   8: pseudoresponse = 6.284699839244915   dE = -1.02805E-09   DIIS = 7
+rms:    0.000000020375149
+polar1:   -3.142155757049093
+polar2:   -0.000194162519324
+response:   -3.605544090948981
+CCPERT_MU_Z Iteration   9: pseudoresponse = 6.284699839136833   dE = -1.08082E-10   DIIS = 7
+
+CCPERT_MU_Z has converged in 0.017 seconds!
+
+solving left hand perturbed amplitudes for L_Z
+
+polar1:   -0.383953410706460
+polar2:   -0.000000990418387
+response:    0.343715997144420
+CCPERT_L_Z Iteration   0: pseudoresponse = 0.767908802249694   dE = -7.67909E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.083786032531274
+polar1:    0.246480619040109
+polar2:   -0.000000917466872
+response:   -0.218695028423660
+CCPERT_L_Z Iteration   1: pseudoresponse = -0.492959403146475   dE = -1.26087E+00   DIIS = 0
+rms:    0.178824257498767
+polar1:    0.344581952086750
+polar2:    0.000000005259027
+response:   -0.307571078868178
+CCPERT_L_Z Iteration   2: pseudoresponse = -0.689163914691554   dE = -1.96205E-01   DIIS = 1
+rms:    0.012155128213592
+polar1:    0.365539012726183
+polar2:    0.000000533339080
+response:   -0.326645540647874
+CCPERT_L_Z Iteration   3: pseudoresponse = -0.731079092130524   dE = -4.19152E-02   DIIS = 2
+rms:    0.002976304498931
+polar1:    0.366757906291226
+polar2:    0.000000679235055
+response:   -0.327761024205761
+CCPERT_L_Z Iteration   4: pseudoresponse = -0.733517171052563   dE = -2.43808E-03   DIIS = 3
+rms:    0.000349054189761
+polar1:    0.366795015406645
+polar2:    0.000000740217153
+response:   -0.327796290716161
+CCPERT_L_Z Iteration   5: pseudoresponse = -0.733591511247595   dE = -7.43402E-05   DIIS = 4
+rms:    0.000037352332100
+polar1:    0.366795436272360
+polar2:    0.000000727344968
+response:   -0.327796789918721
+CCPERT_L_Z Iteration   6: pseudoresponse = -0.733592327234655   dE = -8.15987E-07   DIIS = 5
+rms:    0.000009466791527
+polar1:    0.366795403619262
+polar2:    0.000000725840911
+response:   -0.327796765368217
+CCPERT_L_Z Iteration   7: pseudoresponse = -0.733592258920347   dE =  6.83143E-08   DIIS = 6
+rms:    0.000000364194495
+polar1:    0.366795423071886
+polar2:    0.000000725504635
+response:   -0.327796785522506
+CCPERT_L_Z Iteration   8: pseudoresponse = -0.733592297153042   dE = -3.82327E-08   DIIS = 7
+rms:    0.000000073978436
+polar1:    0.366795425369887
+polar2:    0.000000725504256
+response:   -0.327796787708431
+CCPERT_L_Z Iteration   9: pseudoresponse = -0.733592301748286   dE = -4.59524E-09   DIIS = 7
+
+CCPERT_L_Z has converged in 0.017 seconds!
+
+ Calculating rotation tensor from linear response function: Z 
+
+
+ optrot_muL =    0.088269357091625 
+
+
+ optrot_Lmu =   -0.087253684810188 
+
+
+ optrot_mumu =    4.014622073273596 
+
+
+ optrot_LL =   -0.350178091284515 
+
+
+ optrot_response =    0.087761520950907 CCSD 
+
+1/3 * Traces of each linear response function
+
+ trace_3_optrot_muL =   -0.006227162742755 
+
+
+ trace_3_optrot_Lmu =    0.006796235104806 
+
+
+ trace_3_optrot_mumu =    1.852052260609844 
+
+
+ trace_3_optrot_LL =   -0.510863826997088 
+
+
+ trace_3_actual_optrot =   -0.006511698923780 
+

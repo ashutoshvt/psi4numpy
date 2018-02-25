@@ -1,0 +1,13 @@
+Up till now,
+
+the best so far is MUMU_SD and then MUMU_D
+i.e singles can't be frozen.
+Let me see if I can get the same behavior 
+for L-PNO as well.
+Let me code L-PNO in two days and test this
+while running cc2 calculations on bigger molecules 
+in the FVNO++ code. So, let me fix my helper_cc2_exp code
+first
+
+Also check your PNO code with h2_7 first in cc2.
+

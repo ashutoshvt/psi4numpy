@@ -114,198 +114,15 @@ def ndot(input_string, op1, op2, prefactor=None):
     else:
         return np.einsum(tdot_result + '->' + output_ind, new_view)
 
-class helper_mp2_guess(object):
-
-    def __init__(self, mol, rhf_e, rhf_wfn, pert, memory=2):
-
-        print("\nInitalizing MP2 object...\n")
-
-        # Integral generation from Psi4's MintsHelper
-        time_init = time.time()
-
-        self.rhf_e = rhf_e
-        self.wfn = rhf_wfn
-        self.pert = pert
-
-        self.ndocc = self.wfn.doccpi()[0]
-        self.nmo = self.wfn.nmo()
-        self.memory = memory
-
-        self.C = self.wfn.Ca()
-        self.npC = np.asarray(self.C)
-
-        self.mints = psi4.core.MintsHelper(self.wfn.basisset())
-
-        # transform F from ao to MO basis 
-        self.F = np.einsum('uj,vi,uv', self.npC, self.npC, self.wfn.Fa())
-        print('Starting AO ->  MO transformation...')
-
-        ERI_Size = self.nmo  * 128.e-9
-        memory_footprint = ERI_Size * 5
-        if memory_footprint > self.memory:
-            psi.clean()
-            raise Exception("Estimated memory utilization (%4.2f GB) exceeds numpy_memory \
-                            limit of %4.2f GB." % (memory_footprint, self.memory))
-
-
-        # Integral generation from Psi4's MintsHelper
-        Co = self.wfn.Ca_subset("AO", "OCC")
-        Cv = self.wfn.Ca_subset("AO", "VIR")
-        self.MO = np.asarray(self.mints.mo_eri(Co, Cv, Co, Cv))
-        self.MO = self.MO.swapaxes(1,2)
-
-        print("Size of the ERI tensor is %4.2f GB, %d basis functions." % (ERI_Size, self.nmo))
-
-        # Update nocc and nvirt
-        self.nfzc = 0
-        self.nocc = self.ndocc
-        self.nvirt = self.nmo - self.nocc - self.nfzc
-
-        # Make slices
-        self.slice_nfzc = slice(0, self.nfzc)
-        self.slice_o = slice(self.nfzc, self.nocc + self.nfzc)
-        self.slice_v = slice(self.nocc + self.nfzc, self.nmo)
-        self.slice_a = slice(0, self.nmo)
-        self.slice_dict = {'f': self.slice_nfzc, 'o' : self.slice_o, 'v' : self.slice_v,
-                           'a' : self.slice_a}
-
-        # Compute Fock matrix
-        #self.F = H + 2.0 * np.einsum('pmqm->pq', self.MO[:, self.slice_o, :, self.slice_o])
-        #self.F -= np.einsum('pmmq->pq', self.MO[:, self.slice_o, self.slice_o, :])
-
-        ### Build D matrices
-        #Focc = np.diag(self.F)[self.slice_o]
-        #Fvir = np.diag(self.F)[self.slice_v]
-
-        #self.Dia = Focc.reshape(-1, 1) - Fvir
-        #self.Dijab = Focc.reshape(-1, 1, 1, 1) + Focc.reshape(-1, 1, 1) - Fvir.reshape(-1, 1) - Fvir
-
-        eps = np.asarray(self.wfn.epsilon_a())
-        Eocc = eps[:self.nocc]
-        Evirt = eps[self.nocc:]
-        self.dia = Eocc.reshape(-1, 1) - Evirt
-        self.dijab = Eocc.reshape(-1, 1, 1, 1) + Eocc.reshape(-1, 1, 1) - Evirt.reshape(-1, 1) - Evirt
-
-        ### Construct initial guess
-        print('Building initial guess...')
-        # t^a_i
-        self.t1 = np.zeros((self.nocc, self.nvirt))
-        # t^{ab}_{ij}
-        self.t2 = self.MO / self.dijab
-
-
-
-
-        # all oribitals p, q, r, s, t, u, v
-    #def get_MO(self, string):
-    #    if len(string) != 4:
-    #        psi4.core.clean()
-    #        raise Exception('get_MO: string %s must have 4 elements.' % string)
-    #    return self.MO[self.slice_dict[string[0]], self.slice_dict[string[1]],
-    #                   self.slice_dict[string[2]], self.slice_dict[string[3]]]
-
-    def get_F(self, string):
-        if len(string) != 2:
-            psi4.core.clean()
-            raise Exception('get_F: string %s must have 4 elements.' % string)
-        return self.F[self.slice_dict[string[0]], self.slice_dict[string[1]]]
-
-    def get_pert(self, string):
-        if len(string) != 2:
-            psi4.core.clean()
-            raise Exception('get_pert: string %s must have 4 elements.' % string)
-        return self.pert[self.slice_dict[string[0]], self.slice_dict[string[1]]]
-
-    def build_tau(self):
-        tau = self.t2.copy()
-        tmp = np.einsum('ia,jb->ijab', self.t1, self.t1)
-        tau += tmp
-        return tau
-
-    def build_Loovv(self):
-        tmp = self.MO.copy()
-        Loovv = 2.0 * tmp - tmp.swapaxes(2,3)
-        return Loovv
-
-    def build_Hoo(self):
-        Hoo = self.get_F('oo').copy()
-        Hoo += ndot('ie,me->mi', self.t1, self.get_F('ov'))
-        #self.Hoo += ndot('ne,mnie->mi', self.t1, self.build_Looov())
-        Hoo += ndot('mnef,inef->mi', self.build_Loovv(), self.build_tau())
-        return Hoo
-
-    def build_Hvv(self):
-        Hvv = self.get_F('vv').copy()
-        Hvv -= ndot('ma,me->ae', self.t1, self.get_F('ov'))
-        #self.Hvv += ndot('amef,mf->ae', self.build_Lvovv(), self.t1)
-        Hvv -= ndot('mnfa,mnfe->ae', self.build_tau(), self.build_Loovv())
-        return Hvv
-
-    def denom(self):
-        self.Dia = self.build_Hoo().diagonal().reshape(-1, 1) - self.build_Hvv().diagonal()
-        self.Dijab = self.build_Hoo().diagonal().reshape(-1, 1, 1, 1) + self.build_Hoo().diagonal().reshape(-1, 1, 1) \
-                     - self.build_Hvv().diagonal().reshape(-1, 1) - self.build_Hvv().diagonal()
-
-    def build_Aoo(self):
-        Aoo = self.get_pert('oo').copy()
-        Aoo += ndot('ie,me->mi', self.t1, self.get_pert('ov'))
-        return Aoo
-
-    def build_Aov(self):
-        Aov = self.get_pert('ov').copy()
-        return Aov
-
-    def build_Avo(self):
-        Avo =  self.get_pert('vo').copy()
-        Avo += ndot('ae,ie->ai', self.get_pert('vv'), self.t1)
-        Avo -= ndot('ma,mi->ai', self.t1, self.get_pert('oo'))
-        Avo += ndot('miea,me->ai', self.t2, self.get_pert('ov'), prefactor=2.0)
-        Avo += ndot('imea,me->ai', self.t2, self.get_pert('ov'), prefactor=-1.0)
-        tmp = ndot('ie,ma->imea', self.t1, self.t1)
-        Avo -= ndot('imea,me->ai', tmp, self.get_pert('ov'))
-        return Avo
-
-    def build_Avv(self):
-        Avv =  self.get_pert('vv').copy()
-        Avv -= ndot('ma,me->ae', self.t1, self.get_pert('ov'))
-        return Avv
-
-    def build_Avvoo(self):
-        Avvoo = 0
-        Avvoo += ndot('ijeb,ae->abij', self.t2, self.build_Avv())
-        Avvoo -= ndot('mjab,mi->abij', self.t2, self.build_Aoo())
-        return Avvoo
-
-
-    #def build_guess(self, inhom='true'):
-    def build_guess(self):
-        
-        self.x1 = self.build_Avo().swapaxes(0,1)/self.Dia
-
-        self.x2 = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)
-        self.x2 += self.build_Avvoo().swapaxes(0,3).swapaxes(1,2)
-        self.x2 = self.x2/self.Dijab
-        #if (inhom):
-        #    self.y1 = self.inhomogenous_y1() 
-        #    self.y1 += 2.0 * self.build_Aov().copy()
-        #    self.y1 = self.y1/self.Dia 
-        #    tmp= self.inhomogenous_y2()/self.Dijab
-        #    self.y2 = tmp + tmp.swapaxes(0,1).swapaxes(2,3)
-        #else:
-        #    self.y1 = 2.0 * self.x1.copy()
-        #    self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3))
-        self.y1 = 2.0 * self.x1.copy()
-        self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3))
-
 
 class helper_ccenergy(object):
 
     #def __init__(self, mol, freeze_core=False, memory=2):
-    def __init__(self, mol, rhf_e, rhf_wfn, memory=2):
+    def __init__(self, mol, rhf_e, rhf_wfn, edv, memory=2):
 
         #if freeze_core:
         #    raise Exception("Frozen core doesnt work yet!")
-        print("\nInitalizing CCSD object...\n")
+        print("\nInitalizing CCSD object...\n", flush=True)
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
@@ -334,6 +151,7 @@ class helper_ccenergy(object):
         self.nmo = self.wfn.nmo()
         self.memory = memory
         self.nfzc = 0
+        self.edv = edv
 
         # Freeze core
         #if freeze_core:
@@ -359,6 +177,21 @@ class helper_ccenergy(object):
         #    self.C = self.wfn.Ca()
         #    self.npC = np.asarray(self.C)
 
+
+        # Pipek Mezey Localization 
+        npC = np.asarray(self.wfn.Ca())
+        C_occ = self.wfn.Ca_subset("AO", "OCC")
+        Local = psi4.core.Localizer.build("PIPEK_MEZEY", self.wfn.basisset(), C_occ)
+        #Local = psi4.core.Localizer.build("BOYS", self.wfn.basisset(), C_occ)
+        Local.localize()
+        C_occ_L = np.asarray(Local.L)
+        #print(npC)
+        npC[:,:self.ndocc] = C_occ_L
+        C = psi4.core.Matrix.from_array(npC)
+        self.wfn.Ca() == C  
+        #print(npC)
+        
+
         self.C = self.wfn.Ca()
         self.npC = np.asarray(self.C)
         #print(self.npC)
@@ -370,19 +203,19 @@ class helper_ccenergy(object):
         # Update H, transform to MO basis 
         H = np.einsum('uj,vi,uv', self.npC, self.npC, H)
 
-        print('Starting AO ->  MO transformation...')
+        print('Starting AO ->  MO transformation...', flush=True)
 
         ERI_Size = self.nmo  * 128.e-9
         memory_footprint = ERI_Size * 5
         if memory_footprint > self.memory:
             psi.clean()
             raise Exception("Estimated memory utilization (%4.2f GB) exceeds numpy_memory \
-                            limit of %4.2f GB." % (memory_footprint, self.memory))
+                            limit of %4.2f GB." % (memory_footprint, self.memory), flush=True)
 
         # Integral generation from Psi4's MintsHelper
         self.MO = np.asarray(self.mints.mo_eri(self.C, self.C, self.C, self.C))
         self.MO = self.MO.swapaxes(1,2)
-        print("Size of the ERI tensor is %4.2f GB, %d basis functions." % (ERI_Size, self.nmo))
+        print("Size of the ERI tensor is %4.2f GB, %d basis functions." % (ERI_Size, self.nmo), flush=True)
 
         # Update nocc and nvirt
         self.nocc = self.ndocc 
@@ -414,17 +247,36 @@ class helper_ccenergy(object):
         self.Dijab = Focc.reshape(-1, 1, 1, 1) + Focc.reshape(-1, 1, 1) - Fvir.reshape(-1, 1) - Fvir
 
         ### Construct initial guess
-        print('Building initial guess...')
+        print('Building initial guess...', flush=True)
         # t^a_i
         self.t1 = np.zeros((self.nocc, self.nvirt))
         # t^{ab}_{ij}
         self.t2 = self.MO[self.slice_o, self.slice_o, self.slice_v, self.slice_v] / self.Dijab
 
-        print('\n..initialized CCSD in %.3f seconds.\n' % (time.time() - time_init))
+        print('\n..initialized CCSD in %.3f seconds.\n' % (time.time() - time_init), flush=True)
 
-    # occ orbitals i, j, k, l, m, n
-    # virt orbitals a, b, c, d, e, f
-    # all oribitals p, q, r, s, t, u, v
+    def after_initialize(self, Dab_evec, Fvv):
+        self.D2ab_evec = Dab_evec
+        Foo = self.F[:self.ndocc,:self.ndocc]
+        self.new_Dia = Foo.diagonal().reshape(-1, 1) - Fvv.diagonal()
+        self.new_Dijab = Foo.diagonal().reshape(-1, 1, 1, 1) + Foo.diagonal().reshape(-1, 1, 1) - Fvv.diagonal().reshape(-1, 1) - Fvv.diagonal()
+
+    def pert_basis_transform1(self, z1):
+        t1 = np.einsum('ia,aA->iA', z1, self.D2ab_evec)
+        t1/= self.new_Dia
+        t1_back = np.einsum('iA,Aa->ia', t1, self.D2ab_evec.T)
+        return t1_back
+
+    def pert_basis_transform2(self, z2):
+        t2 = np.einsum('Aa,ijab,bB->ijAB', self.D2ab_evec.T, z2, self.D2ab_evec)
+        t2/= self.new_Dijab
+        t2_back = np.einsum('aA,ijAB,Bb->ijab', self.D2ab_evec, t2, self.D2ab_evec.T)
+        return t2_back
+
+    def guess_transform(self):
+        t2 = self.MO[self.slice_o, self.slice_o, self.slice_v, self.slice_v]
+        self.t2 = self.pert_basis_transform2(t2) 
+
     def get_MO(self, string):
         if len(string) != 4:
             psi4.core.clean()
@@ -641,12 +493,22 @@ class helper_ccenergy(object):
         r_T2 -= ndot('ma,mbij->jiba', self.t1, Zmbij)	
 
 
-        ### Update T1 and T2 amplitudes
-        self.t1 += r_T1 / self.Dia
-        self.t2 += r_T2 / self.Dijab
+        old_t1 = self.t1.copy()
+        old_t2 = self.t2.copy()
 
-        rms = np.einsum('ia,ia->', r_T1/self.Dia, r_T1/self.Dia)
-        rms += np.einsum('ijab,ijab->', r_T2/self.Dijab, r_T2/self.Dijab)
+        ### Update T1 and T2 amplitudes
+        #self.t1 += r_T1 / self.Dia
+        
+        if self.edv:
+            self.t1 += self.pert_basis_transform1(r_T1)
+            self.t2 += self.pert_basis_transform2(r_T2)
+        else:
+            self.t1 += r_T1 / self.Dia
+            self.t2 += r_T2 / self.Dijab
+
+    
+        rms = np.einsum('ia,ia->', old_t1-self.t1, old_t1-self.t1)
+        rms += np.einsum('ijab,ijab->', old_t2-self.t2, old_t2-self.t2)
 
         return np.sqrt(rms)
 
@@ -975,7 +837,7 @@ class helper_cchbar(object):
 
 class helper_cclambda(object):
 
-    def __init__(self, ccsd, hbar):
+    def __init__(self, ccsd, hbar, edv):
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
@@ -986,6 +848,7 @@ class helper_cclambda(object):
         self.nfzc = 0
         self.nocc = ccsd.ndocc
         self.nvirt = ccsd.nmo - ccsd.nocc - ccsd.nfzc
+        self.edv = edv
 
         self.slice_nfzc = slice(0, self.nfzc)
         self.slice_o = slice(self.nfzc, self.nocc + self.nfzc)
@@ -1017,13 +880,27 @@ class helper_cclambda(object):
         self.Hvvvo =  hbar.Hvvvo
         self.Hovoo =  hbar.Hovoo
 
-        self.l1 = 2.0 * self.t1
-        tmp = self.t2
+        self.l1 = 2.0 * self.t1.copy()
+        tmp = self.t2.copy()
         self.l2 = 2.0 * (2.0 * tmp - tmp.swapaxes(2,3))
 
-    # occ orbitals i, j, k, l, m, n
-    # virt orbitals a, b, c, d, e, f
-    # all oribitals p, q, r, s, t, u, v
+    def after_initialize(self, Dab_evec, Fvv):
+        self.D2ab_evec = Dab_evec
+        Foo = self.F[:self.ndocc,:self.ndocc]
+        self.new_Dia = Foo.diagonal().reshape(-1, 1) - Fvv.diagonal()
+        self.new_Dijab = Foo.diagonal().reshape(-1, 1, 1, 1) + Foo.diagonal().reshape(-1, 1, 1) - Fvv.diagonal().reshape(-1, 1) - Fvv.diagonal()
+
+    def pert_basis_transform1(self, z1):
+        l1 = np.einsum('ia,aA->iA', z1, self.D2ab_evec)
+        l1/= self.new_Dia
+        l1_back = np.einsum('iA,Aa->ia', l1, self.D2ab_evec.T)
+        return l1_back
+
+    def pert_basis_transform2(self, z2):
+        l2 = np.einsum('Aa,ijab,bB->ijAB', self.D2ab_evec.T, z2, self.D2ab_evec)
+        l2/= self.new_Dijab
+        l2_back = np.einsum('aA,ijAB,Bb->ijab', self.D2ab_evec, l2, self.D2ab_evec.T)
+        return l2_back
 
     def get_MO(self, string):
         if len(string) != 4:
@@ -1081,14 +958,20 @@ class helper_cclambda(object):
         r_l2 += ndot('ijeb,ae->ijab', self.Loovv, self.build_Gvv())
         r_l2 -= ndot('mi,mjab->ijab', self.build_Goo(), self.Loovv)
 
-        self.l1 += r_l1/self.Dia
+        #self.l1 += r_l1/self.Dia
 
-        old_l2 = self.l2
+        old_l2 = self.l2.copy()
+        old_l1 = self.l1.copy()
+        if self.edv:
+            tmp = self.pert_basis_transform2(r_l2)
+            self.l2 += tmp + tmp.swapaxes(0,1).swapaxes(2,3)
+            self.l1 += self.pert_basis_transform1(r_l1)
+        else:
+            self.l2 += r_l2/self.Dijab 
+            self.l2 += (r_l2/self.Dijab).swapaxes(0,1).swapaxes(2,3) 
+            self.l1 += r_l1/self.Dia
 
-        self.l2 += r_l2/self.Dijab 
-        self.l2 += (r_l2/self.Dijab).swapaxes(0,1).swapaxes(2,3) 
-
-        rms = 2.0 * np.einsum('ia,ia->', r_l1/self.Dia, r_l1/self.Dia) 
+        rms = 2.0 * np.einsum('ia,ia->', old_l1 - self.l1, old_l1 - self.l1) 
         rms += np.einsum('ijab,ijab->', old_l2 - self.l2, old_l2 - self.l2) 
         return np.sqrt(rms)
    
@@ -1187,18 +1070,17 @@ class helper_cclambda(object):
                     self.l1 += ci[num] * diis_vals_l1[num + 1]
                     self.l2 += ci[num] * diis_vals_l2[num + 1]
 
-
-
-
 # End cclambda class
 
 class helper_ccpert(object):
 
-    def __init__(self, name, pert, ccsd, hbar, cclambda, omega, inhom='false'):
+    def __init__(self, name, pert, ccsd, hbar, cclambda, omega, edv, filt_singles):
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
-
+        
+        self.edv = edv
+        self.filt_singles = filt_singles
         self.pert = pert
         self.name = name
         self.MO = ccsd.MO
@@ -1247,63 +1129,45 @@ class helper_ccpert(object):
         self.Dia = self.Hoo.diagonal().reshape(-1, 1) - self.Hvv.diagonal()
         self.Dijab = self.Hoo.diagonal().reshape(-1, 1, 1, 1) + self.Hoo.diagonal().reshape(-1, 1, 1) - self.Hvv.diagonal().reshape(-1, 1) - self.Hvv.diagonal() 
 
+        self.Dia_ = self.Dia.copy()
+        self.Dijab_ = self.Dijab.copy()
+
         self.Dia += omega
         self.Dijab += omega
-
         self.x1 = self.build_Avo().swapaxes(0,1)/self.Dia
-
-        self.y1 = 2.0 * self.x1.copy() 
-
         self.x2 = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)       
         self.x2 += self.build_Avvoo().swapaxes(0,3).swapaxes(1,2)
         self.x2 = self.x2/self.Dijab
        
-        if (inhom):
-            self.y1 = self.inhomogenous_y1() 
-            self.y1 += 2.0 * self.build_Aov().copy()
-            self.y1 = self.y1/self.Dia 
-            tmp= self.inhomogenous_y2()/self.Dijab
-            self.y2 = tmp + tmp.swapaxes(0,1).swapaxes(2,3)
-        else:
-            self.y1 = 2.0 * self.x1.copy() 
-            self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3)) 
+        self.y1 = 2.0 * self.x1.copy() 
+        self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3)) 
 
+    def after_initialize(self, Dab_evec, Hvv):
+        self.D2ab_evec = Dab_evec
+        self.new_Dia = self.Hoo.diagonal().reshape(-1, 1) - Hvv.diagonal() 
+        self.new_Dia += self.omega
+        self.new_Dijab = self.Hoo.diagonal().reshape(-1, 1, 1, 1) + self.Hoo.diagonal().reshape(-1, 1, 1) - Hvv.diagonal().reshape(-1, 1) - Hvv.diagonal() 
+        self.new_Dijab += self.omega
 
-
-        #self.y2 = self.x2.copy() 
-        #self.y1 = self.inhomogenous_y1() 
-        #self.y1 += 2.0 * self.build_Aov().copy()
-        #self.y1 = self.y1/self.Dia 
-
-        #tmp= self.inhomogenous_y2()/self.Dijab
-        #self.y2 = tmp + tmp.swapaxes(0,1).swapaxes(2,3)
-
-        #print(self.x1)
-        #print(self.y1)
-        #print(self.x2)
-        #print(self.y2)
-
-        ####
-
-        #self.x1 = self.build_Avo().swapaxes(0,1)/(self.Dia + self.omega)
-        #self.y1 = self.build_Avo().swapaxes(0,1)/(self.Dia + self.omega)
-
-        #tmp = self.build_Avvoo()
-        #tmp += tmp.swapaxes(0,1).swapaxes(2,3)
-        #self.x2 = tmp.swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
-        #self.y2 = tmp.swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
-     
-        #tmp = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)/(self.Dijab + self.omega)
-        #self.x2 = tmp
-        #self.x2 += tmp.swapaxes(0,1).swapaxes(2,3)
-
-        #self.y2 = tmp
-        #self.y2 += tmp.swapaxes(0,1).swapaxes(2,3)
-
-
-    # occ orbitals i, j, k, l, m, n
-    # virt orbitals a, b, c, d, e, f
-    # all oribitals p, q, r, s, t, u, v
+    def pert_basis_transform1(self, z1):
+        r1 = np.einsum('ia,aA->iA', z1, self.D2ab_evec)
+        r1/= self.new_Dia
+        r1_back = np.einsum('iA,Aa->ia', r1, self.D2ab_evec.T)
+        return r1_back
+        
+    def pert_basis_transform2(self, z2):
+        r2 = np.einsum('Aa,ijab,bB->ijAB', self.D2ab_evec.T, z2, self.D2ab_evec)
+        r2/= self.new_Dijab
+        r2_back = np.einsum('aA,ijAB,Bb->ijab', self.D2ab_evec, r2, self.D2ab_evec.T)
+        return r2_back
+   
+    def guess_transform(self):
+        #self.x1 = self.pert_basis_transform1(self.build_Avo().swapaxes(0,1)) 
+        Avvoo = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)
+        Avvoo += self.build_Avvoo().swapaxes(0,3).swapaxes(1,2)
+        self.x2 = self.pert_basis_transform2(Avvoo)  
+        #self.y1 = 2.0 * self.x1.copy() 
+        self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3)) 
 
     def get_MO(self, string):
         if len(string) != 4:
@@ -1499,22 +1363,26 @@ class helper_ccpert(object):
         r_x2 += ndot('miea,mbej->ijab', self.x2, self.Hovvo, prefactor=2.0)
         r_x2 += ndot('miea,mbje->ijab', self.x2, self.Hovov, prefactor=-1.0)
 
-        old_x2 = self.x2
-
-        self.x1 += r_x1/self.Dia
-        self.x2 += r_x2/self.Dijab
-        #tmp = r_x2/self.Dijab
-        #tmp += r_x2.swapaxes(0,1).swapaxes(2,3)/self.Dijab
-        self.x2 += (r_x2/self.Dijab).swapaxes(0,1).swapaxes(2,3)
-
-        rms = np.einsum('ia,ia->', r_x1/self.Dia, r_x1/self.Dia)
-        rms += np.einsum('ijab,ijab->', old_x2 - self.x2, old_x2 - self.x2)
+        old_x2 = self.x2.copy()
+        old_x1 = self.x1.copy()
+        
+        if self.edv:
+            if self.filt_singles:
+                self.x1 += self.pert_basis_transform1(r_x1)
+            else:
+                self.x1 += r_x1/self.Dia
+            tmp = self.pert_basis_transform2(r_x2)    
+            self.x2 += tmp + tmp.swapaxes(0,1).swapaxes(2,3) 
+            rms = np.einsum('ia,ia->', old_x1 - self.x1, old_x1 - self.x1)
+            rms += np.einsum('ijab,ijab->', old_x2 - self.x2, old_x2 - self.x2)
+            print("rms: %20.15lf"%np.sqrt(rms))
+        else:
+            self.x1 += r_x1/self.Dia
+            self.x2 += r_x2/self.Dijab
+            self.x2 += (r_x2/self.Dijab).swapaxes(0,1).swapaxes(2,3)
+            rms = np.einsum('ia,ia->', r_x1/self.Dia, r_x1/self.Dia)
+            rms += np.einsum('ijab,ijab->', old_x2 - self.x2, old_x2 - self.x2)
         return np.sqrt(rms)
-
-
-
-        #self.x2 = self.x2/self.Dijab
-
 
     def inhomogenous_y2(self):
 
@@ -1648,39 +1516,6 @@ class helper_ccpert(object):
         r_y1 -= ndot('mina,mn->ia', self.Hooov, self.build_Goo(self.t2, self.y2), prefactor=2.0)
         r_y1 -= ndot('imna,mn->ia', self.Hooov, self.build_Goo(self.t2, self.y2), prefactor=-1.0)
 
-        """### 3-body terms
-
-        tmp  =  ndot('nb,fb->nf', self.x1, self.build_Gvv(self.t2, self.l2))
-        r_y1 += ndot('inaf,nf->ia', self.Loovv, tmp)  # Gvv already negative
-        tmp  =  ndot('me,fa->mefa', self.x1, self.build_Gvv(self.t2, self.l2))
-        r_y1 += ndot('mief,mefa->ia', self.Loovv, tmp)
-        tmp  =  ndot('me,ni->meni', self.x1, self.build_Goo(self.t2, self.l2))
-        r_y1 -= ndot('meni,mnea->ia', tmp, self.Loovv)
-        tmp  =  ndot('jf,nj->fn', self.x1, self.build_Goo(self.t2, self.l2))
-        r_y1 -= ndot('inaf,fn->ia', self.Loovv, tmp)
-
-        ### 3-body terms over
-
-        ### X2 * L2 terms 
-
-        r_y1  -=  ndot('mi,ma->ia', self.build_Goo(self.x2, self.l2), self.Hov)  # t
-        r_y1  +=  ndot('ie,ea->ia', self.Hov, self.build_Gvv(self.x2, self.l2))  # t
-        r_y1  -=  ndot('igne,gnea->ia', self.build_l2x2ovov_1(self.l2, self.x2), self.Hvovv)  # t
-        r_y1  -=  ndot('igne,gnae->ia', self.build_l2x2ovov_2(self.l2, self.x2), self.Hvovv)  # t
-        r_y1  -=  ndot('gief,gaef->ia', self.Hvovv, self.build_l2x2vvvv(self.l2, self.x2))  # t
-        r_y1  +=  ndot('igme,gmae->ia', self.build_l2x2ovov_3(self.l2, self.x2), self.Hvovv, prefactor=2.0) # t
-        r_y1  +=  ndot('igme,gmea->ia', self.build_l2x2ovov_3(self.l2, self.x2), self.Hvovv, prefactor=-1.0) # t
-        r_y1  -=  ndot('giea,ge->ia', self.Hvovv, self.build_Gvv(self.l2, self.x2), prefactor=2.0)  # t
-        r_y1  -=  ndot('giae,ge->ia', self.Hvovv, self.build_Gvv(self.l2, self.x2), prefactor=-1.0)  # t
-        r_y1  +=  ndot('oimn,mnoa->ia', self.build_l2x2oooo(self.l2, self.x2), self.Hooov)  # t
-        r_y1  +=  ndot('inoe,oane->ia', self.Hooov, self.build_l2x2ovov_2(self.l2, self.x2))  # t
-        r_y1  +=  ndot('miof,oamf->ia', self.Hooov, self.build_l2x2ovov_1(self.l2, self.x2))  # t
-        r_y1  -=  ndot('mioa,mo->ia', self.Hooov, self.build_Goo(self.x2, self.l2), prefactor=2.0)  # t
-        r_y1  -=  ndot('imoa,mo->ia', self.Hooov, self.build_Goo(self.x2, self.l2), prefactor=-1.0)  # t
-        r_y1  -=  ndot('imoe,oame->ia', self.Hooov, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=2.0) # t
-        r_y1  -=  ndot('mioe,oame->ia', self.Hooov, self.build_l2x2ovov_3(self.l2, self.x2), prefactor=-1.0) # t
-        """
-
         # y1 over !! 
 
         # Homogenous terms of Y2 equations 
@@ -1704,14 +1539,24 @@ class helper_ccpert(object):
         r_y2 += ndot('ijeb,ae->ijab', self.Loovv, self.build_Gvv(self.y2, self.t2))
         r_y2 -= ndot('mi,mjab->ijab', self.build_Goo(self.t2, self.y2), self.Loovv)
 
+        old_y1 = self.y1.copy()
+        old_y2 = self.y2.copy()
 
-        self.y1 += r_y1/self.Dia
-        old_y2 = self.y2
-        self.y2 += r_y2/self.Dijab
-        self.y2 += (r_y2/self.Dijab).swapaxes(0,1).swapaxes(2,3)
+        if self.edv:
+            if self.filt_singles:
+                self.y1 += self.pert_basis_transform1(r_y1)
+            else:
+                self.y1 += r_y1/self.Dia
+            tmp = self.pert_basis_transform2(r_y2)
+            self.y2 += tmp + tmp.swapaxes(0,1).swapaxes(2,3)
+        else:
+            self.y1 += r_y1/self.Dia
+            self.y2 += r_y2/self.Dijab
+            self.y2 += (r_y2/self.Dijab).swapaxes(0,1).swapaxes(2,3)
 
-        rms = np.einsum('ia,ia->', r_y1/self.Dia, r_y1/self.Dia)
+        rms = np.einsum('ia,ia->', old_y1 - self.y1, old_y1 - self.y1)
         rms += np.einsum('ijab,ijab->', old_y2 - self.y2, old_y2 - self.y2)
+        print("rms: %20.15lf"%np.sqrt(rms))
         return np.sqrt(rms)
 
 
@@ -1724,15 +1569,20 @@ class helper_ccpert(object):
         else:
             z1 = self.y1 ; z2 = self.y2
 
+        response = ndot('ia,ia->', z1, self.build_Aov(), prefactor=2.0)
+
         polar1 += ndot('ia,ai->', z1, self.build_Avo(), prefactor=2.0)
         polar2 += ndot('ijab,abij->', z2, self.build_Avvoo(), prefactor=4.0)
         polar2 += ndot('ijba,abij->', z2, self.build_Avvoo(), prefactor=-2.0)
+        print("polar1: %20.15lf"%polar1)
+        print("polar2: %20.15lf"%polar2)
+        print("response: %20.15lf"%response)    
 
         return -2.0 * (polar1 + polar2)
 
 
 
-    def solve(self, hand, r_conv=1.e-7, maxiter=100, max_diis=8):
+    def solve(self, hand, r_conv=1e-7, maxiter=100, max_diis=8):
         ### Setup DIIS
         if hand == 'right':
             z1 = self.x1 ; z2 = self.x2
@@ -1741,6 +1591,8 @@ class helper_ccpert(object):
             self.y2 =  4.0 * self.x2.copy()
             self.y2 -= 2.0 * self.x2.swapaxes(2,3)
             z1 = self.y1 ; z2 = self.y2
+            self.im_y1 = self.inhomogenous_y1()
+            self.im_y2 = self.inhomogenous_y2()
 
         diis_vals_z1 = [z1.copy()]
         diis_vals_z2 = [z2.copy()]
@@ -1761,8 +1613,8 @@ class helper_ccpert(object):
         print('\nR_CONV: %20.15lf\n' % r_conv)
         #self.im_y1 = np.zeros_like(self.inhomogenous_y1())
         #self.im_y2 = np.zeros_like(self.inhomogenous_y2())
-        self.im_y1 = self.inhomogenous_y1()
-        self.im_y2 = self.inhomogenous_y2()
+        #self.im_y1 = self.inhomogenous_y1()
+        #self.im_y2 = self.inhomogenous_y2()
         diis_size = 0
         for CCPERT_iter in range(1, maxiter + 1):
 
@@ -1862,44 +1714,46 @@ class helper_cclinresp(object):
 
     def linresp(self):
         self.polar1 = 0
-        self.polar2 = 0
+        self.polar2_1 = 0
+        self.polar2_2 = 0
         self.polar1 += ndot("ai,ia->", self.ccpert_x.build_Avo(), self.y1_y)
         self.polar1 += ndot("abij,ijab->", self.ccpert_x.build_Avvoo(), self.y2_y, prefactor=0.5)
         self.polar1 += ndot("baji,ijab->", self.ccpert_x.build_Avvoo(), self.y2_y, prefactor=0.5)
 
         tmp = ndot('ia,jb->ijab', self.l1, self.ccpert_x.build_Aov())
-        self.polar2 += ndot('ijab,ijab->', tmp, self.x2_y, prefactor=2.0)
-        self.polar2 += ndot('ijab,ijba->', tmp, self.x2_y, prefactor=-1.0)
+        self.polar2_2 += ndot('ijab,ijab->', tmp, self.x2_y, prefactor=2.0)
+        self.polar2_2 += ndot('ijab,ijba->', tmp, self.x2_y, prefactor=-1.0)
 
         tmp = ndot('ia,ic->ac', self.l1, self.x1_y)
-        self.polar2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv())
+        self.polar2_2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv())
         tmp = ndot('ia,ka->ik', self.l1, self.x1_y)
-        self.polar2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo())
+        self.polar2_2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo())
 
         tmp = ndot('ijbc,bcaj->ia', self.l2, self.ccpert_x.build_Avvvo())
-        self.polar2 += ndot('ia,ia->', tmp, self.x1_y)
+        self.polar2_2 += ndot('ia,ia->', tmp, self.x1_y)
 
         tmp = ndot('ijab,kbij->ak', self.l2, self.ccpert_x.build_Aovoo())
-        self.polar2 -= ndot('ak,ka->', tmp, self.x1_y, prefactor=0.5)
+        self.polar2_2 -= ndot('ak,ka->', tmp, self.x1_y, prefactor=0.5)
 
         tmp = ndot('ijab,kaji->bk', self.l2, self.ccpert_x.build_Aovoo())
-        self.polar2 -= ndot('bk,kb->', tmp, self.x1_y, prefactor=0.5)
+        self.polar2_2 -= ndot('bk,kb->', tmp, self.x1_y, prefactor=0.5)
 
         tmp = ndot('ijab,kjab->ik', self.l2, self.x2_y)
-        self.polar2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
+        self.polar2_2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
         tmp = ndot('ijab,kiba->jk', self.l2, self.x2_y,)
-        self.polar2 -= ndot('jk,kj->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
+        self.polar2_2 -= ndot('jk,kj->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
         tmp = ndot('ijab,ijac->bc', self.l2, self.x2_y,)
-        self.polar2 += ndot('bc,bc->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
+        self.polar2_2 += ndot('bc,bc->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
 
         tmp = ndot('ijab,ijcb->ac', self.l2, self.x2_y,)
-        self.polar2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
+        self.polar2_2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
+        
 
-        self.polar2 += ndot("ia,ia->", self.ccpert_x.build_Aov(), self.x1_y, prefactor=2.0)
+        self.polar2_1 += ndot("ia,ia->", self.ccpert_x.build_Aov(), self.x1_y, prefactor=2.0)
 
-        return -1.0*(self.polar1 + self.polar2)
+        return -1.0*(self.polar1 + self.polar2_1 + self.polar2_2)
 
 # End cclinresp class
 

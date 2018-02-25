@@ -114,189 +114,6 @@ def ndot(input_string, op1, op2, prefactor=None):
     else:
         return np.einsum(tdot_result + '->' + output_ind, new_view)
 
-class helper_mp2_guess(object):
-
-    def __init__(self, mol, rhf_e, rhf_wfn, pert, memory=2):
-
-        print("\nInitalizing MP2 object...\n")
-
-        # Integral generation from Psi4's MintsHelper
-        time_init = time.time()
-
-        self.rhf_e = rhf_e
-        self.wfn = rhf_wfn
-        self.pert = pert
-
-        self.ndocc = self.wfn.doccpi()[0]
-        self.nmo = self.wfn.nmo()
-        self.memory = memory
-
-        self.C = self.wfn.Ca()
-        self.npC = np.asarray(self.C)
-
-        self.mints = psi4.core.MintsHelper(self.wfn.basisset())
-
-        # transform F from ao to MO basis 
-        self.F = np.einsum('uj,vi,uv', self.npC, self.npC, self.wfn.Fa())
-        print('Starting AO ->  MO transformation...')
-
-        ERI_Size = self.nmo  * 128.e-9
-        memory_footprint = ERI_Size * 5
-        if memory_footprint > self.memory:
-            psi.clean()
-            raise Exception("Estimated memory utilization (%4.2f GB) exceeds numpy_memory \
-                            limit of %4.2f GB." % (memory_footprint, self.memory))
-
-
-        # Integral generation from Psi4's MintsHelper
-        Co = self.wfn.Ca_subset("AO", "OCC")
-        Cv = self.wfn.Ca_subset("AO", "VIR")
-        self.MO = np.asarray(self.mints.mo_eri(Co, Cv, Co, Cv))
-        self.MO = self.MO.swapaxes(1,2)
-
-        print("Size of the ERI tensor is %4.2f GB, %d basis functions." % (ERI_Size, self.nmo))
-
-        # Update nocc and nvirt
-        self.nfzc = 0
-        self.nocc = self.ndocc
-        self.nvirt = self.nmo - self.nocc - self.nfzc
-
-        # Make slices
-        self.slice_nfzc = slice(0, self.nfzc)
-        self.slice_o = slice(self.nfzc, self.nocc + self.nfzc)
-        self.slice_v = slice(self.nocc + self.nfzc, self.nmo)
-        self.slice_a = slice(0, self.nmo)
-        self.slice_dict = {'f': self.slice_nfzc, 'o' : self.slice_o, 'v' : self.slice_v,
-                           'a' : self.slice_a}
-
-        # Compute Fock matrix
-        #self.F = H + 2.0 * np.einsum('pmqm->pq', self.MO[:, self.slice_o, :, self.slice_o])
-        #self.F -= np.einsum('pmmq->pq', self.MO[:, self.slice_o, self.slice_o, :])
-
-        ### Build D matrices
-        #Focc = np.diag(self.F)[self.slice_o]
-        #Fvir = np.diag(self.F)[self.slice_v]
-
-        #self.Dia = Focc.reshape(-1, 1) - Fvir
-        #self.Dijab = Focc.reshape(-1, 1, 1, 1) + Focc.reshape(-1, 1, 1) - Fvir.reshape(-1, 1) - Fvir
-
-        eps = np.asarray(self.wfn.epsilon_a())
-        Eocc = eps[:self.nocc]
-        Evirt = eps[self.nocc:]
-        self.dia = Eocc.reshape(-1, 1) - Evirt
-        self.dijab = Eocc.reshape(-1, 1, 1, 1) + Eocc.reshape(-1, 1, 1) - Evirt.reshape(-1, 1) - Evirt
-
-        ### Construct initial guess
-        print('Building initial guess...')
-        # t^a_i
-        self.t1 = np.zeros((self.nocc, self.nvirt))
-        # t^{ab}_{ij}
-        self.t2 = self.MO / self.dijab
-
-
-
-
-        # all oribitals p, q, r, s, t, u, v
-    #def get_MO(self, string):
-    #    if len(string) != 4:
-    #        psi4.core.clean()
-    #        raise Exception('get_MO: string %s must have 4 elements.' % string)
-    #    return self.MO[self.slice_dict[string[0]], self.slice_dict[string[1]],
-    #                   self.slice_dict[string[2]], self.slice_dict[string[3]]]
-
-    def get_F(self, string):
-        if len(string) != 2:
-            psi4.core.clean()
-            raise Exception('get_F: string %s must have 4 elements.' % string)
-        return self.F[self.slice_dict[string[0]], self.slice_dict[string[1]]]
-
-    def get_pert(self, string):
-        if len(string) != 2:
-            psi4.core.clean()
-            raise Exception('get_pert: string %s must have 4 elements.' % string)
-        return self.pert[self.slice_dict[string[0]], self.slice_dict[string[1]]]
-
-    def build_tau(self):
-        tau = self.t2.copy()
-        tmp = np.einsum('ia,jb->ijab', self.t1, self.t1)
-        tau += tmp
-        return tau
-
-    def build_Loovv(self):
-        tmp = self.MO.copy()
-        Loovv = 2.0 * tmp - tmp.swapaxes(2,3)
-        return Loovv
-
-    def build_Hoo(self):
-        Hoo = self.get_F('oo').copy()
-        Hoo += ndot('ie,me->mi', self.t1, self.get_F('ov'))
-        #self.Hoo += ndot('ne,mnie->mi', self.t1, self.build_Looov())
-        Hoo += ndot('mnef,inef->mi', self.build_Loovv(), self.build_tau())
-        return Hoo
-
-    def build_Hvv(self):
-        Hvv = self.get_F('vv').copy()
-        Hvv -= ndot('ma,me->ae', self.t1, self.get_F('ov'))
-        #self.Hvv += ndot('amef,mf->ae', self.build_Lvovv(), self.t1)
-        Hvv -= ndot('mnfa,mnfe->ae', self.build_tau(), self.build_Loovv())
-        return Hvv
-
-    def denom(self):
-        self.Dia = self.build_Hoo().diagonal().reshape(-1, 1) - self.build_Hvv().diagonal()
-        self.Dijab = self.build_Hoo().diagonal().reshape(-1, 1, 1, 1) + self.build_Hoo().diagonal().reshape(-1, 1, 1) \
-                     - self.build_Hvv().diagonal().reshape(-1, 1) - self.build_Hvv().diagonal()
-
-    def build_Aoo(self):
-        Aoo = self.get_pert('oo').copy()
-        Aoo += ndot('ie,me->mi', self.t1, self.get_pert('ov'))
-        return Aoo
-
-    def build_Aov(self):
-        Aov = self.get_pert('ov').copy()
-        return Aov
-
-    def build_Avo(self):
-        Avo =  self.get_pert('vo').copy()
-        Avo += ndot('ae,ie->ai', self.get_pert('vv'), self.t1)
-        Avo -= ndot('ma,mi->ai', self.t1, self.get_pert('oo'))
-        Avo += ndot('miea,me->ai', self.t2, self.get_pert('ov'), prefactor=2.0)
-        Avo += ndot('imea,me->ai', self.t2, self.get_pert('ov'), prefactor=-1.0)
-        tmp = ndot('ie,ma->imea', self.t1, self.t1)
-        Avo -= ndot('imea,me->ai', tmp, self.get_pert('ov'))
-        return Avo
-
-    def build_Avv(self):
-        Avv =  self.get_pert('vv').copy()
-        Avv -= ndot('ma,me->ae', self.t1, self.get_pert('ov'))
-        return Avv
-
-    def build_Avvoo(self):
-        Avvoo = 0
-        Avvoo += ndot('ijeb,ae->abij', self.t2, self.build_Avv())
-        Avvoo -= ndot('mjab,mi->abij', self.t2, self.build_Aoo())
-        return Avvoo
-
-
-    #def build_guess(self, inhom='true'):
-    def build_guess(self):
-        
-        self.x1 = self.build_Avo().swapaxes(0,1)/self.Dia
-
-        self.x2 = self.build_Avvoo().swapaxes(0,2).swapaxes(1,3)
-        self.x2 += self.build_Avvoo().swapaxes(0,3).swapaxes(1,2)
-        self.x2 = self.x2/self.Dijab
-        #if (inhom):
-        #    self.y1 = self.inhomogenous_y1() 
-        #    self.y1 += 2.0 * self.build_Aov().copy()
-        #    self.y1 = self.y1/self.Dia 
-        #    tmp= self.inhomogenous_y2()/self.Dijab
-        #    self.y2 = tmp + tmp.swapaxes(0,1).swapaxes(2,3)
-        #else:
-        #    self.y1 = 2.0 * self.x1.copy()
-        #    self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3))
-        self.y1 = 2.0 * self.x1.copy()
-        self.y2 = 2.0 * (2.0 * self.x2.copy() - self.x2.copy().swapaxes(2,3))
-
 
 class helper_ccenergy(object):
 
@@ -358,6 +175,21 @@ class helper_ccenergy(object):
         #else:
         #    self.C = self.wfn.Ca()
         #    self.npC = np.asarray(self.C)
+
+
+        # Pipek Mezey Localization 
+        npC = np.asarray(self.wfn.Ca())
+        C_occ = self.wfn.Ca_subset("AO", "OCC")
+        Local = psi4.core.Localizer.build("PIPEK_MEZEY", self.wfn.basisset(), C_occ)
+        #Local = psi4.core.Localizer.build("BOYS", self.wfn.basisset(), C_occ)
+        Local.localize()
+        C_occ_L = np.asarray(Local.L)
+        #print(npC)
+        npC[:,:self.ndocc] = C_occ_L
+        C = psi4.core.Matrix.from_array(npC)
+        self.wfn.Ca() == C  
+        #print(npC)
+        
 
         self.C = self.wfn.Ca()
         self.npC = np.asarray(self.C)
@@ -1862,44 +1694,46 @@ class helper_cclinresp(object):
 
     def linresp(self):
         self.polar1 = 0
-        self.polar2 = 0
+        self.polar2_1 = 0
+        self.polar2_2 = 0
         self.polar1 += ndot("ai,ia->", self.ccpert_x.build_Avo(), self.y1_y)
         self.polar1 += ndot("abij,ijab->", self.ccpert_x.build_Avvoo(), self.y2_y, prefactor=0.5)
         self.polar1 += ndot("baji,ijab->", self.ccpert_x.build_Avvoo(), self.y2_y, prefactor=0.5)
 
         tmp = ndot('ia,jb->ijab', self.l1, self.ccpert_x.build_Aov())
-        self.polar2 += ndot('ijab,ijab->', tmp, self.x2_y, prefactor=2.0)
-        self.polar2 += ndot('ijab,ijba->', tmp, self.x2_y, prefactor=-1.0)
+        self.polar2_2 += ndot('ijab,ijab->', tmp, self.x2_y, prefactor=2.0)
+        self.polar2_2 += ndot('ijab,ijba->', tmp, self.x2_y, prefactor=-1.0)
 
         tmp = ndot('ia,ic->ac', self.l1, self.x1_y)
-        self.polar2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv())
+        self.polar2_2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv())
         tmp = ndot('ia,ka->ik', self.l1, self.x1_y)
-        self.polar2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo())
+        self.polar2_2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo())
 
         tmp = ndot('ijbc,bcaj->ia', self.l2, self.ccpert_x.build_Avvvo())
-        self.polar2 += ndot('ia,ia->', tmp, self.x1_y)
+        self.polar2_2 += ndot('ia,ia->', tmp, self.x1_y)
 
         tmp = ndot('ijab,kbij->ak', self.l2, self.ccpert_x.build_Aovoo())
-        self.polar2 -= ndot('ak,ka->', tmp, self.x1_y, prefactor=0.5)
+        self.polar2_2 -= ndot('ak,ka->', tmp, self.x1_y, prefactor=0.5)
 
         tmp = ndot('ijab,kaji->bk', self.l2, self.ccpert_x.build_Aovoo())
-        self.polar2 -= ndot('bk,kb->', tmp, self.x1_y, prefactor=0.5)
+        self.polar2_2 -= ndot('bk,kb->', tmp, self.x1_y, prefactor=0.5)
 
         tmp = ndot('ijab,kjab->ik', self.l2, self.x2_y)
-        self.polar2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
+        self.polar2_2 -= ndot('ik,ki->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
         tmp = ndot('ijab,kiba->jk', self.l2, self.x2_y,)
-        self.polar2 -= ndot('jk,kj->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
+        self.polar2_2 -= ndot('jk,kj->', tmp, self.ccpert_x.build_Aoo(), prefactor=0.5)
 
         tmp = ndot('ijab,ijac->bc', self.l2, self.x2_y,)
-        self.polar2 += ndot('bc,bc->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
+        self.polar2_2 += ndot('bc,bc->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
 
         tmp = ndot('ijab,ijcb->ac', self.l2, self.x2_y,)
-        self.polar2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
+        self.polar2_2 += ndot('ac,ac->', tmp, self.ccpert_x.build_Avv(), prefactor=0.5)
+        
 
-        self.polar2 += ndot("ia,ia->", self.ccpert_x.build_Aov(), self.x1_y, prefactor=2.0)
+        self.polar2_1 += ndot("ia,ia->", self.ccpert_x.build_Aov(), self.x1_y, prefactor=2.0)
 
-        return -1.0*(self.polar1 + self.polar2)
+        return -1.0*(self.polar1 + self.polar2_1 + self.polar2_2)
 
 # End cclinresp class
 

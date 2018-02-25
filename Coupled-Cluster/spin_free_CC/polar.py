@@ -1,5 +1,7 @@
 import time
 import numpy as np
+import sys
+sys.path.append("/home/akumar1/dragonstooth/psi4numpy/Coupled-Cluster/spin_free_CC/helpers")
 from helper_cc import helper_ccenergy
 from helper_cc import helper_cchbar
 from helper_cc import helper_cclambda
@@ -22,15 +24,19 @@ H 1 1.1 2 104
 symmetry c1
 """)
 
-#psi4.set_options({'basis': 'cc-pVDZ'})
-psi4.set_options({'basis': 'sto-3g'})
+psi4.set_options({'basis': 'aug-cc-pVDZ'})
+psi4.set_options({'scf_type': 'PK'})
+psi4.set_options({'d_convergence': 1e-13})
+psi4.set_options({'e_convergence': 1e-13})
+rhf_e, rhf_wfn = psi4.energy('SCF', return_wfn=True)
+print('RHF Final Energy                          % 16.10f\n' % rhf_e)
 
 # For numpy
 compare_psi4 = True
 
 # Compute CCSD
-ccsd = helper_ccenergy(mol, memory=2)
-ccsd.compute_energy()
+ccsd = helper_ccenergy(mol, rhf_e, rhf_wfn, memory=2)
+ccsd.compute_energy(r_conv=1e-13)
 
 CCSDcorr_E = ccsd.ccsd_corr_e
 CCSD_E = ccsd.ccsd_e
@@ -41,7 +47,7 @@ print('Total CCSD energy:                      % 16.15f' % CCSD_E)
 cchbar = helper_cchbar(ccsd)
 
 cclambda = helper_cclambda(ccsd,cchbar)
-cclambda.compute_lambda()
+cclambda.compute_lambda(r_conv=1e-13)
 omega = 0.0
 
 cart = {0:'X', 1: 'Y', 2: 'Z'}
@@ -55,9 +61,9 @@ for i in range(0,3):
     mu[string] = np.einsum('uj,vi,uv', ccsd.npC, ccsd.npC, np.asarray(ccsd.mints.ao_dipole()[i]))
     ccpert[string] = helper_ccpert(string, mu[string], ccsd, cchbar, cclambda, omega)
     print('\nsolving right hand perturbed amplitudes for %s\n' % string)
-    ccpert[string].solve('right')
+    ccpert[string].solve('right', r_conv=1e-13)
     print('\nsolving left hand perturbed amplitudes for %s\n'% string)
-    ccpert[string].solve('left')
+    ccpert[string].solve('left', r_conv=1e-13)
     
 print('\n Calculating Polarizability tensor:\n')
 

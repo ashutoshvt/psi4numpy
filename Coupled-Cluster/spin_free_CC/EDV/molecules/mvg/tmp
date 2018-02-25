@@ -1,0 +1,3395 @@
+Computing RHF reference.
+RHF Final Energy                           -148.7479473344
+
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 12 basis functions.
+Building initial guess...
+
+..initialized CCSD in 0.046 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.065999710528930   dE =  6.59997E-02   MP2
+
+Final CCSD correlation energy:          -0.065999710528930
+Total CCSD energy:                      -148.813947044944314
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.065999710528930   dE =  6.59997E-02   MP2
+Norm
+0.000146451341232
+
+ Printing sorted eigenvalues
+
+0.00012378036515
+5.97889009054e-05
+5.05143928037e-05
+Truncation:0
+F_vir_pert
+[[ 0.514750991664758  0.000000030639181  0.010044108977383]
+ [ 0.000000030639181  0.598190562967368  0.000000132390901]
+ [ 0.010044108977383  0.0000001323909    0.712883725094087]]
+Norm
+1.06358145283
+
+ Printing sorted eigenvalues
+
+0.713391597715
+0.598190562967
+0.514243119044
+tmp_eval
+[ 0.514243119044165  0.713391597714829  0.59819056296722 ]
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 12 basis functions.
+Building initial guess...
+
+..initialized CCSD in 0.045 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.065999704722957   dE =  6.59997E-02   MP2
+CCSD Iteration   1: CCSD correlation = -0.081470218606407   dE = -1.54705E-02   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.090277115178101   dE = -8.80690E-03   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.093411956178269   dE = -3.13484E-03   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.095880898160563   dE = -2.46894E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.096832241861600   dE = -9.51344E-04   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.097100815876008   dE = -2.68574E-04   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.097160061389075   dE = -5.92455E-05   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.097188749762462   dE = -2.86884E-05   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.097197098745187   dE = -8.34898E-06   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.097203482605813   dE = -6.38386E-06   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.097209019818155   dE = -5.53721E-06   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.097209585827241   dE = -5.66009E-07   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.097209062493238   dE =  5.23334E-07   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.097208069665333   dE =  9.92828E-07   DIIS = 7
+CCSD Iteration  15: CCSD correlation = -0.097207359559424   dE =  7.10106E-07   DIIS = 7
+CCSD Iteration  16: CCSD correlation = -0.097207215710890   dE =  1.43849E-07   DIIS = 7
+CCSD Iteration  17: CCSD correlation = -0.097207137054692   dE =  7.86562E-08   DIIS = 7
+CCSD Iteration  18: CCSD correlation = -0.097207123358463   dE =  1.36962E-08   DIIS = 7
+CCSD Iteration  19: CCSD correlation = -0.097207125838374   dE = -2.47991E-09   DIIS = 7
+CCSD Iteration  20: CCSD correlation = -0.097207122864418   dE =  2.97396E-09   DIIS = 7
+
+CCSD has converged in 0.072 seconds!
+
+Final CCSD correlation energy:          -0.097207122864418
+Total CCSD energy:                      -148.845154457279790
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.097238416413350   dE =  9.72384E-02   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.095520726902967   dE =  1.71769E-03   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.095162020879485   dE =  3.58706E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.094929424319113   dE =  2.32597E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.094889558161431   dE =  3.98662E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.094835305724605   dE =  5.42524E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.094813665617062   dE =  2.16401E-05   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.094805776418389   dE =  7.88920E-06   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.094803550005330   dE =  2.22641E-06   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.094802662400761   dE =  8.87605E-07   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.094802302235720   dE =  3.60165E-07   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.094802186479855   dE =  1.15756E-07   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.094802092683674   dE =  9.37962E-08   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.094802076959248   dE =  1.57244E-08   DIIS = 7
+CCLAMBDA Iteration  14: pseudoenergy = -0.094802095766652   dE = -1.88074E-08   DIIS = 7
+CCLAMBDA Iteration  15: pseudoenergy = -0.094802115750480   dE = -1.99838E-08   DIIS = 7
+CCLAMBDA Iteration  16: pseudoenergy = -0.094802130002488   dE = -1.42520E-08   DIIS = 7
+CCLAMBDA Iteration  17: pseudoenergy = -0.094802133906443   dE = -3.90395E-09   DIIS = 7
+CCLAMBDA Iteration  18: pseudoenergy = -0.094802135895644   dE = -1.98920E-09   DIIS = 7
+
+CCLAMBDA has converged in 0.034 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+polar1:   -0.230043063627859
+polar2:   -0.001456973004299
+response:    0.213832511947166
+CCPERT_P_X Iteration   0: pseudoresponse = 0.463000073264315   dE = -4.63000E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.118265204417506
+polar1:   -0.304780091153619
+polar2:   -0.002103970578316
+response:    0.283955273937026
+CCPERT_P_X Iteration   1: pseudoresponse = 0.613768123463871   dE =  1.50768E-01   DIIS = 0
+rms:    0.066955254907484
+polar1:   -0.344791837432456
+polar2:   -0.002714915741125
+response:    0.322151945601558
+CCPERT_P_X Iteration   2: pseudoresponse = 0.695013506347161   dE =  8.12454E-02   DIIS = 1
+rms:    0.032602927315677
+polar1:   -0.376599611249864
+polar2:   -0.003564962691425
+response:    0.352336293022567
+CCPERT_P_X Iteration   3: pseudoresponse = 0.760329147882578   dE =  6.53156E-02   DIIS = 2
+rms:    0.018790546324108
+polar1:   -0.395593722731813
+polar2:   -0.004080405864452
+response:    0.370506295765747
+CCPERT_P_X Iteration   4: pseudoresponse = 0.799348257192530   dE =  3.90191E-02   DIIS = 3
+rms:    0.008168217412580
+polar1:   -0.403740060113006
+polar2:   -0.004537048469728
+response:    0.378156562087556
+CCPERT_P_X Iteration   5: pseudoresponse = 0.816554217165467   dE =  1.72060E-02   DIIS = 4
+rms:    0.004148461722897
+polar1:   -0.406557305338195
+polar2:   -0.004710738127376
+response:    0.380769714436063
+CCPERT_P_X Iteration   6: pseudoresponse = 0.822536086931141   dE =  5.98187E-03   DIIS = 5
+rms:    0.001980594730597
+polar1:   -0.406986496574339
+polar2:   -0.004738959603346
+response:    0.381149808487747
+CCPERT_P_X Iteration   7: pseudoresponse = 0.823450912355370   dE =  9.14825E-04   DIIS = 6
+rms:    0.000866675992805
+polar1:   -0.407145422879868
+polar2:   -0.004756800451051
+response:    0.381298010837670
+CCPERT_P_X Iteration   8: pseudoresponse = 0.823804446661839   dE =  3.53534E-04   DIIS = 7
+rms:    0.000462907893078
+polar1:   -0.407243539448898
+polar2:   -0.004760902116536
+response:    0.381393702793110
+CCPERT_P_X Iteration   9: pseudoresponse = 0.824008883130868   dE =  2.04436E-04   DIIS = 7
+rms:    0.000254889815172
+polar1:   -0.407214192429076
+polar2:   -0.004760344608538
+response:    0.381371253042266
+CCPERT_P_X Iteration  10: pseudoresponse = 0.823949074075227   dE = -5.98091E-05   DIIS = 7
+rms:    0.000124932438772
+polar1:   -0.407208740409048
+polar2:   -0.004761653207726
+response:    0.381369498490115
+CCPERT_P_X Iteration  11: pseudoresponse = 0.823940787233548   dE = -8.28684E-06   DIIS = 7
+rms:    0.000064848409371
+polar1:   -0.407194637700609
+polar2:   -0.004761575344838
+response:    0.381357707670167
+CCPERT_P_X Iteration  12: pseudoresponse = 0.823912426090894   dE = -2.83611E-05   DIIS = 7
+rms:    0.000034830061689
+polar1:   -0.407179985551675
+polar2:   -0.004761641264382
+response:    0.381344491474783
+CCPERT_P_X Iteration  13: pseudoresponse = 0.823883253632114   dE = -2.91725E-05   DIIS = 7
+rms:    0.000017689860793
+polar1:   -0.407166248979438
+polar2:   -0.004761322010189
+response:    0.381331934586870
+CCPERT_P_X Iteration  14: pseudoresponse = 0.823855141979255   dE = -2.81117E-05   DIIS = 7
+rms:    0.000007717903612
+polar1:   -0.407159102921410
+polar2:   -0.004761081504527
+response:    0.381325334272811
+CCPERT_P_X Iteration  15: pseudoresponse = 0.823840368851874   dE = -1.47731E-05   DIIS = 7
+rms:    0.000003448530872
+polar1:   -0.407155538527787
+polar2:   -0.004760960462070
+response:    0.381322038192391
+CCPERT_P_X Iteration  16: pseudoresponse = 0.823832997979715   dE = -7.37087E-06   DIIS = 7
+rms:    0.000002124536082
+polar1:   -0.407154669456719
+polar2:   -0.004760914845624
+response:    0.381321234397671
+CCPERT_P_X Iteration  17: pseudoresponse = 0.823831168604685   dE = -1.82938E-06   DIIS = 7
+rms:    0.000001225547939
+polar1:   -0.407154112803402
+polar2:   -0.004760888398710
+response:    0.381320715017546
+CCPERT_P_X Iteration  18: pseudoresponse = 0.823830002404223   dE = -1.16620E-06   DIIS = 7
+rms:    0.000000660061616
+polar1:   -0.407154059421278
+polar2:   -0.004760883463349
+response:    0.381320665277204
+CCPERT_P_X Iteration  19: pseudoresponse = 0.823829885769253   dE = -1.16635E-07   DIIS = 7
+rms:    0.000000324430973
+polar1:   -0.407154084212721
+polar2:   -0.004760881046497
+response:    0.381320687976519
+CCPERT_P_X Iteration  20: pseudoresponse = 0.823829930518436   dE =  4.47492E-08   DIIS = 7
+rms:    0.000000193705500
+polar1:   -0.407154107185436
+polar2:   -0.004760880782395
+response:    0.381320708488031
+CCPERT_P_X Iteration  21: pseudoresponse = 0.823829975935662   dE =  4.54172E-08   DIIS = 7
+rms:    0.000000121681081
+polar1:   -0.407154110768525
+polar2:   -0.004760879398235
+response:    0.381320710660516
+CCPERT_P_X Iteration  22: pseudoresponse = 0.823829980333519   dE =  4.39786E-09   DIIS = 7
+rms:    0.000000077960006
+polar1:   -0.407154116530664
+polar2:   -0.004760878849789
+response:    0.381320715011272
+CCPERT_P_X Iteration  23: pseudoresponse = 0.823829990760906   dE =  1.04274E-08   DIIS = 7
+
+CCPERT_P_X has converged in 0.056 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+polar1:   -0.768535861674534
+polar2:   -0.006389486372476
+response:    0.733400578408062
+CCPERT_L_X Iteration   0: pseudoresponse = 1.549850696094021   dE = -1.54985E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.245636744593418
+polar1:   -1.072229045667360
+polar2:   -0.013363772951099
+response:    1.024185819065289
+CCPERT_L_X Iteration   1: pseudoresponse = 2.171185637236919   dE =  6.21335E-01   DIIS = 0
+rms:    0.158789964922672
+polar1:   -1.257008935715707
+polar2:   -0.018912291301562
+response:    1.202674520360821
+CCPERT_L_X Iteration   2: pseudoresponse = 2.551842454034539   dE =  3.80657E-01   DIIS = 1
+rms:    0.074344466572070
+polar1:   -1.444810189964283
+polar2:   -0.026947368029833
+response:    1.383787915357921
+CCPERT_L_X Iteration   3: pseudoresponse = 2.943515115988231   dE =  3.91673E-01   DIIS = 2
+rms:    0.042512026909056
+polar1:   -1.581258597203756
+polar2:   -0.032905718201301
+response:    1.515961054444467
+CCPERT_L_X Iteration   4: pseudoresponse = 3.228328630810115   dE =  2.84814E-01   DIIS = 3
+rms:    0.011462718865262
+polar1:   -1.651199009017841
+polar2:   -0.037601178676284
+response:    1.583643535815903
+CCPERT_L_X Iteration   5: pseudoresponse = 3.377600375388252   dE =  1.49272E-01   DIIS = 4
+rms:    0.007128806081883
+polar1:   -1.662962074006823
+polar2:   -0.038841877601344
+response:    1.595057947676723
+CCPERT_L_X Iteration   6: pseudoresponse = 3.403607903216334   dE =  2.60075E-02   DIIS = 5
+rms:    0.003395602607956
+polar1:   -1.660688380986553
+polar2:   -0.039048128856795
+response:    1.592921464117768
+CCPERT_L_X Iteration   7: pseudoresponse = 3.399473019686695   dE = -4.13488E-03   DIIS = 6
+rms:    0.001491970842875
+polar1:   -1.658521230086553
+polar2:   -0.039140562403747
+response:    1.590876720656158
+CCPERT_L_X Iteration   8: pseudoresponse = 3.395323584980600   dE = -4.14943E-03   DIIS = 7
+rms:    0.000829036291429
+polar1:   -1.658496647612008
+polar2:   -0.039227820515264
+response:    1.590879087895318
+CCPERT_L_X Iteration   9: pseudoresponse = 3.395448936254544   dE =  1.25351E-04   DIIS = 7
+rms:    0.000433401920301
+polar1:   -1.658191283883729
+polar2:   -0.039224921586508
+response:    1.590594962125843
+CCPERT_L_X Iteration  10: pseudoresponse = 3.394832410940473   dE = -6.16525E-04   DIIS = 7
+rms:    0.000187295530888
+polar1:   -1.658189011270307
+polar2:   -0.039222315072269
+response:    1.590597063553447
+CCPERT_L_X Iteration  11: pseudoresponse = 3.394822652685152   dE = -9.75826E-06   DIIS = 7
+rms:    0.000088743777581
+polar1:   -1.658208442098884
+polar2:   -0.039225723444305
+response:    1.590617909331072
+CCPERT_L_X Iteration  12: pseudoresponse = 3.394868331086378   dE =  4.56784E-05   DIIS = 7
+rms:    0.000046180741495
+polar1:   -1.658162829296549
+polar2:   -0.039222787187203
+response:    1.590573711146469
+CCPERT_L_X Iteration  13: pseudoresponse = 3.394771232967503   dE = -9.70981E-05   DIIS = 7
+rms:    0.000026312017496
+polar1:   -1.658140648144103
+polar2:   -0.039221669026812
+response:    1.590552081853121
+CCPERT_L_X Iteration  14: pseudoresponse = 3.394724634341830   dE = -4.65986E-05   DIIS = 7
+rms:    0.000013745975035
+polar1:   -1.658123197739055
+polar2:   -0.039220339845387
+response:    1.590534918576610
+CCPERT_L_X Iteration  15: pseudoresponse = 3.394687075168884   dE = -3.75592E-05   DIIS = 7
+rms:    0.000007499963815
+polar1:   -1.658116046641924
+polar2:   -0.039219866866121
+response:    1.590527742851403
+CCPERT_L_X Iteration  16: pseudoresponse = 3.394671827016091   dE = -1.52482E-05   DIIS = 7
+rms:    0.000004593052752
+polar1:   -1.658115989682753
+polar2:   -0.039219830429560
+response:    1.590527525235008
+CCPERT_L_X Iteration  17: pseudoresponse = 3.394671640224626   dE = -1.86791E-07   DIIS = 7
+rms:    0.000002477800689
+polar1:   -1.658116911783429
+polar2:   -0.039219968956149
+response:    1.590528305242789
+CCPERT_L_X Iteration  18: pseudoresponse = 3.394673761479157   dE =  2.12125E-06   DIIS = 7
+rms:    0.000001346209812
+polar1:   -1.658117707032257
+polar2:   -0.039220079403745
+response:    1.590529007071074
+CCPERT_L_X Iteration  19: pseudoresponse = 3.394675572872003   dE =  1.81139E-06   DIIS = 7
+rms:    0.000000795401181
+polar1:   -1.658118291434653
+polar2:   -0.039220152010317
+response:    1.590529539234464
+CCPERT_L_X Iteration  20: pseudoresponse = 3.394676886889940   dE =  1.31402E-06   DIIS = 7
+rms:    0.000000488839354
+polar1:   -1.658118260742414
+polar2:   -0.039220144749644
+response:    1.590529495283916
+CCPERT_L_X Iteration  21: pseudoresponse = 3.394676810984116   dE = -7.59058E-08   DIIS = 7
+rms:    0.000000257657923
+polar1:   -1.658118295338954
+polar2:   -0.039220130472979
+response:    1.590529518856565
+CCPERT_L_X Iteration  22: pseudoresponse = 3.394676851623866   dE =  4.06397E-08   DIIS = 7
+rms:    0.000000137432162
+polar1:   -1.658118276896570
+polar2:   -0.039220117361028
+response:    1.590529495540036
+CCPERT_L_X Iteration  23: pseudoresponse = 3.394676788515196   dE = -6.31087E-08   DIIS = 7
+rms:    0.000000069573650
+polar1:   -1.658118307521121
+polar2:   -0.039220111370259
+response:    1.590529522683536
+CCPERT_L_X Iteration  24: pseudoresponse = 3.394676837782761   dE =  4.92676E-08   DIIS = 7
+
+CCPERT_L_X has converged in 0.060 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+polar1:   -0.814308233061329
+polar2:   -0.010195747527649
+response:    0.762641430022543
+CCPERT_P_X Iteration   0: pseudoresponse = 1.649007961177956   dE = -1.64901E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.226468175117581
+polar1:    0.230328500364879
+polar2:   -0.003842681819358
+response:   -0.206287574104514
+CCPERT_P_X Iteration   1: pseudoresponse = -0.452971637091042   dE = -2.10198E+00   DIIS = 0
+rms:    0.434896305849973
+polar1:    0.479202167359698
+polar2:   -0.000633366640719
+response:   -0.441663586070732
+CCPERT_P_X Iteration   2: pseudoresponse = -0.957137601437958   dE = -5.04166E-01   DIIS = 1
+rms:    0.185949539586695
+polar1:    0.628282154637256
+polar2:    0.002908457329392
+response:   -0.584229181159583
+CCPERT_P_X Iteration   3: pseudoresponse = -1.262381223933295   dE = -3.05244E-01   DIIS = 2
+rms:    0.092342620589762
+polar1:    0.666864270250375
+polar2:    0.004799552133234
+response:   -0.620218618294469
+CCPERT_P_X Iteration   4: pseudoresponse = -1.343327644767218   dE = -8.09464E-02   DIIS = 3
+rms:    0.051387145483066
+polar1:    0.704983428278296
+polar2:    0.006389353208567
+response:   -0.656296016623305
+CCPERT_P_X Iteration   5: pseudoresponse = -1.422745562973726   dE = -7.94179E-02   DIIS = 4
+rms:    0.018980211284565
+polar1:    0.716562447569167
+polar2:    0.007239417591695
+response:   -0.666778916764119
+CCPERT_P_X Iteration   6: pseudoresponse = -1.447603730321723   dE = -2.48582E-02   DIIS = 5
+rms:    0.007921790113645
+polar1:    0.721015208570019
+polar2:    0.007584697141681
+response:   -0.670738340527730
+CCPERT_P_X Iteration   7: pseudoresponse = -1.457199811423400   dE = -9.59608E-03   DIIS = 6
+rms:    0.003564716022740
+polar1:    0.721905930362955
+polar2:    0.007627877658960
+response:   -0.671489660662029
+CCPERT_P_X Iteration   8: pseudoresponse = -1.459067616043830   dE = -1.86780E-03   DIIS = 7
+rms:    0.001394863674283
+polar1:    0.722192501800693
+polar2:    0.007658564764181
+response:   -0.671718486734784
+CCPERT_P_X Iteration   9: pseudoresponse = -1.459702133129747   dE = -6.34517E-04   DIIS = 7
+rms:    0.000634922137476
+polar1:    0.722383642180082
+polar2:    0.007669111315174
+response:   -0.671877913262964
+CCPERT_P_X Iteration  10: pseudoresponse = -1.460105506990512   dE = -4.03374E-04   DIIS = 7
+rms:    0.000309857260201
+polar1:    0.722390143151826
+polar2:    0.007671766067082
+response:   -0.671879402013691
+CCPERT_P_X Iteration  11: pseudoresponse = -1.460123818437816   dE = -1.83114E-05   DIIS = 7
+rms:    0.000137595639569
+polar1:    0.722395453659016
+polar2:    0.007673988213810
+response:   -0.671880354733334
+CCPERT_P_X Iteration  12: pseudoresponse = -1.460138883745652   dE = -1.50653E-05   DIIS = 7
+rms:    0.000068261180547
+polar1:    0.722392813115770
+polar2:    0.007674191774277
+response:   -0.671877142511682
+CCPERT_P_X Iteration  13: pseudoresponse = -1.460134009780093   dE =  4.87397E-06   DIIS = 7
+rms:    0.000030243284034
+polar1:    0.722384266194403
+polar2:    0.007674323325732
+response:   -0.671868615140946
+CCPERT_P_X Iteration  14: pseudoresponse = -1.460117179040270   dE =  1.68307E-05   DIIS = 7
+rms:    0.000015467427831
+polar1:    0.722378781960907
+polar2:    0.007674232631141
+response:   -0.671863464740010
+CCPERT_P_X Iteration  15: pseudoresponse = -1.460106029184096   dE =  1.11499E-05   DIIS = 7
+rms:    0.000007207603519
+polar1:    0.722375142921882
+polar2:    0.007674102803454
+response:   -0.671860140843494
+CCPERT_P_X Iteration  16: pseudoresponse = -1.460098491450672   dE =  7.53773E-06   DIIS = 7
+rms:    0.000002889983410
+polar1:    0.722373280396018
+polar2:    0.007674050277375
+response:   -0.671858423230449
+CCPERT_P_X Iteration  17: pseudoresponse = -1.460094661346788   dE =  3.83010E-06   DIIS = 7
+rms:    0.000001241785875
+polar1:    0.722372757125192
+polar2:    0.007674038351423
+response:   -0.671857965477752
+CCPERT_P_X Iteration  18: pseudoresponse = -1.460093590953229   dE =  1.07039E-06   DIIS = 7
+rms:    0.000000627935944
+polar1:    0.722372616883790
+polar2:    0.007674033009601
+response:   -0.671857842105870
+CCPERT_P_X Iteration  19: pseudoresponse = -1.460093299786782   dE =  2.91166E-07   DIIS = 7
+rms:    0.000000282586603
+polar1:    0.722372538485740
+polar2:    0.007674032987139
+response:   -0.671857776618902
+CCPERT_P_X Iteration  20: pseudoresponse = -1.460093142945759   dE =  1.56841E-07   DIIS = 7
+rms:    0.000000142415249
+polar1:    0.722372558824901
+polar2:    0.007674034362942
+response:   -0.671857797494155
+CCPERT_P_X Iteration  21: pseudoresponse = -1.460093186375684   dE = -4.34299E-08   DIIS = 7
+rms:    0.000000064156588
+polar1:    0.722372568392526
+polar2:    0.007674034766565
+response:   -0.671857807878591
+CCPERT_P_X Iteration  22: pseudoresponse = -1.460093206318183   dE = -1.99425E-08   DIIS = 7
+
+CCPERT_P_X has converged in 0.050 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+polar1:   -3.316236615042242
+polar2:   -0.084995625986761
+response:    3.181059045367071
+CCPERT_L_X Iteration   0: pseudoresponse = 6.802464482058006   dE = -6.80246E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    2.326545645919230
+polar1:    0.181479393415447
+polar2:   -0.054439375818737
+response:   -0.154440060874369
+CCPERT_L_X Iteration   1: pseudoresponse = -0.254080035193420   dE = -7.05654E+00   DIIS = 0
+rms:    0.925884131326834
+polar1:    1.232196942785757
+polar2:   -0.018695594497705
+response:   -1.162783837226840
+CCPERT_L_X Iteration   2: pseudoresponse = -2.427002696576102   dE = -2.17292E+00   DIIS = 1
+rms:    0.476663411924929
+polar1:    2.046278915941681
+polar2:    0.015062480665236
+response:   -1.950162376263850
+CCPERT_L_X Iteration   3: pseudoresponse = -4.122682793213834   dE = -1.69568E+00   DIIS = 2
+rms:    0.231998993828119
+polar1:    2.254465216227790
+polar2:    0.030061156198447
+response:   -2.150008592267707
+CCPERT_L_X Iteration   4: pseudoresponse = -4.569052744852474   dE = -4.46370E-01   DIIS = 3
+rms:    0.097816517132098
+polar1:    2.576666305481164
+polar2:    0.048918174467020
+response:   -2.461538630786863
+CCPERT_L_X Iteration   5: pseudoresponse = -5.251168959896368   dE = -6.82116E-01   DIIS = 4
+rms:    0.034475477959520
+polar1:    2.670531836604539
+polar2:    0.056772636114656
+response:   -2.552329768614833
+CCPERT_L_X Iteration   6: pseudoresponse = -5.454608945438390   dE = -2.03440E-01   DIIS = 5
+rms:    0.016780589876544
+polar1:    2.692653068832934
+polar2:    0.059054341768416
+response:   -2.573711840001553
+CCPERT_L_X Iteration   7: pseudoresponse = -5.503414821202700   dE = -4.88059E-02   DIIS = 6
+rms:    0.007362772714798
+polar1:    2.697196645137734
+polar2:    0.059943186502993
+response:   -2.578325478597615
+CCPERT_L_X Iteration   8: pseudoresponse = -5.514279663281455   dE = -1.08648E-02   DIIS = 7
+rms:    0.003401080926389
+polar1:    2.694041087996803
+polar2:    0.059873468124598
+response:   -2.575359792263335
+CCPERT_L_X Iteration   9: pseudoresponse = -5.507829112242803   dE =  6.45055E-03   DIIS = 7
+rms:    0.001545480516567
+polar1:    2.695389394712200
+polar2:    0.060042708485849
+response:   -2.576711406136969
+CCPERT_L_X Iteration  10: pseudoresponse = -5.510864206396099   dE = -3.03509E-03   DIIS = 7
+rms:    0.000683981782817
+polar1:    2.695636193622154
+polar2:    0.060057623502745
+response:   -2.576979508379115
+CCPERT_L_X Iteration  11: pseudoresponse = -5.511387634249798   dE = -5.23428E-04   DIIS = 7
+rms:    0.000335318446781
+polar1:    2.695660724875784
+polar2:    0.060055272616422
+response:   -2.577010561536005
+CCPERT_L_X Iteration  12: pseudoresponse = -5.511431994984412   dE = -4.43607E-05   DIIS = 7
+rms:    0.000158222100866
+polar1:    2.695721167713027
+polar2:    0.060060662682085
+response:   -2.577075294254965
+CCPERT_L_X Iteration  13: pseudoresponse = -5.511563660790225   dE = -1.31666E-04   DIIS = 7
+rms:    0.000064538444485
+polar1:    2.695660874272278
+polar2:    0.060058325882095
+response:   -2.577019898615312
+CCPERT_L_X Iteration  14: pseudoresponse = -5.511438400308746   dE =  1.25260E-04   DIIS = 7
+rms:    0.000029948029315
+polar1:    2.695627757726089
+polar2:    0.060056839886441
+response:   -2.576988658534778
+CCPERT_L_X Iteration  15: pseudoresponse = -5.511369195225060   dE =  6.92051E-05   DIIS = 7
+rms:    0.000015175984654
+polar1:    2.695610549062992
+polar2:    0.060056017168072
+response:   -2.576972079835351
+CCPERT_L_X Iteration  16: pseudoresponse = -5.511333132462127   dE =  3.60628E-05   DIIS = 7
+rms:    0.000006481064886
+polar1:    2.695603144061834
+polar2:    0.060055831612318
+response:   -2.576965125298561
+CCPERT_L_X Iteration  17: pseudoresponse = -5.511317951348303   dE =  1.51811E-05   DIIS = 7
+rms:    0.000003160569210
+polar1:    2.695601583541770
+polar2:    0.060055847725287
+response:   -2.576963618872240
+CCPERT_L_X Iteration  18: pseudoresponse = -5.511314862534115   dE =  3.08881E-06   DIIS = 7
+rms:    0.000001414639943
+polar1:    2.695603104079113
+polar2:    0.060056034025224
+response:   -2.576965091662744
+CCPERT_L_X Iteration  19: pseudoresponse = -5.511318276208674   dE = -3.41367E-06   DIIS = 7
+rms:    0.000000671166583
+polar1:    2.695603669657070
+polar2:    0.060056104352944
+response:   -2.576965643206122
+CCPERT_L_X Iteration  20: pseudoresponse = -5.511319548020029   dE = -1.27181E-06   DIIS = 7
+rms:    0.000000321644056
+polar1:    2.695604080111889
+polar2:    0.060056146814236
+response:   -2.576966033626822
+CCPERT_L_X Iteration  21: pseudoresponse = -5.511320453852252   dE = -9.05832E-07   DIIS = 7
+rms:    0.000000186610828
+polar1:    2.695604157709531
+polar2:    0.060056152344850
+response:   -2.576966106228097
+CCPERT_L_X Iteration  22: pseudoresponse = -5.511320620108762   dE = -1.66257E-07   DIIS = 7
+rms:    0.000000101079003
+polar1:    2.695604145876470
+polar2:    0.060056150820858
+response:   -2.576966091899839
+CCPERT_L_X Iteration  23: pseudoresponse = -5.511320593394657   dE =  2.67141E-08   DIIS = 7
+rms:    0.000000046531334
+polar1:    2.695604123226953
+polar2:    0.060056148348224
+response:   -2.576966068238685
+CCPERT_L_X Iteration  24: pseudoresponse = -5.511320543150355   dE =  5.02443E-08   DIIS = 7
+
+CCPERT_L_X has converged in 0.054 seconds!
+
+ Calculating rotation tensor from linear response function: X 
+
+
+ optrot_PL_589nm =    1.024197328416748 
+
+
+ optrot_LP_589nm =    1.024969390412390 
+
+
+ optrot_PP_589nm =   -0.738932749694241 
+
+
+ optrot_LL_589nm =   -2.954725255614907 
+
+
+ optrot_response_589nm =    1.024583359414569 CCSD 
+
+
+solving right hand perturbed amplitudes for P_Y
+
+polar1:   -0.883341653742697
+polar2:   -0.008405716502685
+response:    0.821055982919614
+CCPERT_P_Y Iteration   0: pseudoresponse = 1.783494740490764   dE = -1.78349E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.234802532904925
+polar1:   -1.045133346842528
+polar2:   -0.013800452961661
+response:    0.961405143304120
+CCPERT_P_Y Iteration   1: pseudoresponse = 2.117867599608378   dE =  3.34373E-01   DIIS = 0
+rms:    0.136373861095694
+polar1:   -1.234228310731914
+polar2:   -0.014745156338065
+response:    1.140341224229705
+CCPERT_P_Y Iteration   2: pseudoresponse = 2.497946934139958   dE =  3.80079E-01   DIIS = 1
+rms:    0.077983192193981
+polar1:   -1.273461413619896
+polar2:   -0.018132735133907
+response:    1.173535279857688
+CCPERT_P_Y Iteration   3: pseudoresponse = 2.583188297507606   dE =  8.52414E-02   DIIS = 2
+rms:    0.038535740679087
+polar1:   -1.383016057366557
+polar2:   -0.020794620408793
+response:    1.274951000049444
+CCPERT_P_Y Iteration   4: pseudoresponse = 2.807621355550701   dE =  2.24433E-01   DIIS = 3
+rms:    0.018300754420952
+polar1:   -1.423458445581999
+polar2:   -0.023588635475665
+response:    1.310771945552677
+CCPERT_P_Y Iteration   5: pseudoresponse = 2.894094162115329   dE =  8.64728E-02   DIIS = 4
+rms:    0.008291228148841
+polar1:   -1.441191293872595
+polar2:   -0.024789644908975
+response:    1.326405608102907
+CCPERT_P_Y Iteration   6: pseudoresponse = 2.931961877563139   dE =  3.78677E-02   DIIS = 5
+rms:    0.003240523759891
+polar1:   -1.444997630482692
+polar2:   -0.025072987203620
+response:    1.329716637441086
+CCPERT_P_Y Iteration   7: pseudoresponse = 2.940141235372624   dE =  8.17936E-03   DIIS = 6
+rms:    0.001648139529042
+polar1:   -1.444107849243557
+polar2:   -0.025061488740055
+response:    1.328903363411472
+CCPERT_P_Y Iteration   8: pseudoresponse = 2.938338675967223   dE = -1.80256E-03   DIIS = 7
+rms:    0.001062984035479
+polar1:   -1.444705589125690
+polar2:   -0.025100455399219
+response:    1.329425129175623
+CCPERT_P_Y Iteration   9: pseudoresponse = 2.939612089049819   dE =  1.27341E-03   DIIS = 7
+rms:    0.000503136152954
+polar1:   -1.444547192280202
+polar2:   -0.025094872436840
+response:    1.329280825548774
+CCPERT_P_Y Iteration  10: pseudoresponse = 2.939284129434085   dE = -3.27960E-04   DIIS = 7
+rms:    0.000264814279315
+polar1:   -1.444492430453898
+polar2:   -0.025101940170300
+response:    1.329222882793584
+CCPERT_P_Y Iteration  11: pseudoresponse = 2.939188741248394   dE = -9.53882E-05   DIIS = 7
+rms:    0.000139890360034
+polar1:   -1.444543471482453
+polar2:   -0.025104560549967
+response:    1.329264443393113
+CCPERT_P_Y Iteration  12: pseudoresponse = 2.939296064064840   dE =  1.07323E-04   DIIS = 7
+rms:    0.000072536537078
+polar1:   -1.444502818173963
+polar2:   -0.025103817311850
+response:    1.329224826063379
+CCPERT_P_Y Iteration  13: pseudoresponse = 2.939213270971626   dE = -8.27931E-05   DIIS = 7
+rms:    0.000038239050761
+polar1:   -1.444475127473207
+polar2:   -0.025101798498043
+response:    1.329199640845079
+CCPERT_P_Y Iteration  14: pseudoresponse = 2.939153851942501   dE = -5.94190E-05   DIIS = 7
+rms:    0.000016074699702
+polar1:   -1.444448316468810
+polar2:   -0.025099510709342
+response:    1.329175620674464
+CCPERT_P_Y Iteration  15: pseudoresponse = 2.939095654356305   dE = -5.81976E-05   DIIS = 7
+rms:    0.000008817805559
+polar1:   -1.444439561122607
+polar2:   -0.025098835112565
+response:    1.329167849483821
+CCPERT_P_Y Iteration  16: pseudoresponse = 2.939076792470345   dE = -1.88619E-05   DIIS = 7
+rms:    0.000005775575428
+polar1:   -1.444438323800800
+polar2:   -0.025098656161314
+response:    1.329166833158195
+CCPERT_P_Y Iteration  17: pseudoresponse = 2.939073959924229   dE = -2.83255E-06   DIIS = 7
+rms:    0.000003866504371
+polar1:   -1.444438959933441
+polar2:   -0.025098679396137
+response:    1.329167379029624
+CCPERT_P_Y Iteration  18: pseudoresponse = 2.939075278659155   dE =  1.31873E-06   DIIS = 7
+rms:    0.000001780862592
+polar1:   -1.444440932720747
+polar2:   -0.025098749632123
+response:    1.329169167131763
+CCPERT_P_Y Iteration  19: pseudoresponse = 2.939079364705740   dE =  4.08605E-06   DIIS = 7
+rms:    0.000000732549961
+polar1:   -1.444441689607937
+polar2:   -0.025098790967293
+response:    1.329169829903169
+CCPERT_P_Y Iteration  20: pseudoresponse = 2.939080961150460   dE =  1.59644E-06   DIIS = 7
+rms:    0.000000471948267
+polar1:   -1.444441949169130
+polar2:   -0.025098793795470
+response:    1.329170069276854
+CCPERT_P_Y Iteration  21: pseudoresponse = 2.939081485929201   dE =  5.24779E-07   DIIS = 7
+rms:    0.000000288953257
+polar1:   -1.444442044424978
+polar2:   -0.025098792220911
+response:    1.329170163157727
+CCPERT_P_Y Iteration  22: pseudoresponse = 2.939081673291778   dE =  1.87363E-07   DIIS = 7
+rms:    0.000000167297236
+polar1:   -1.444441992381542
+polar2:   -0.025098786265041
+response:    1.329170120436473
+CCPERT_P_Y Iteration  23: pseudoresponse = 2.939081557293166   dE = -1.15999E-07   DIIS = 7
+rms:    0.000000095619787
+polar1:   -1.444441986095818
+polar2:   -0.025098784878845
+response:    1.329170117831385
+CCPERT_P_Y Iteration  24: pseudoresponse = 2.939081541949327   dE = -1.53438E-08   DIIS = 7
+
+CCPERT_P_Y has converged in 0.058 seconds!
+
+solving right hand perturbed amplitudes for L_Y
+
+polar1:   -0.156898793555782
+polar2:   -0.002764051366134
+response:    0.150051989640817
+CCPERT_L_Y Iteration   0: pseudoresponse = 0.319325689843832   dE = -3.19326E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.156410310756992
+polar1:   -0.243195723809104
+polar2:   -0.006725677891612
+response:    0.232544338269964
+CCPERT_L_Y Iteration   1: pseudoresponse = 0.499842803401433   dE =  1.80517E-01   DIIS = 0
+rms:    0.101306876438291
+polar1:   -0.297206392254778
+polar2:   -0.009990865172134
+response:    0.284106887401431
+CCPERT_L_Y Iteration   2: pseudoresponse = 0.614394514853822   dE =  1.14552E-01   DIIS = 1
+rms:    0.023207145453462
+polar1:   -0.380398092860204
+polar2:   -0.016180918117971
+response:    0.363413008260566
+CCPERT_L_Y Iteration   3: pseudoresponse = 0.793158021956351   dE =  1.78764E-01   DIIS = 2
+rms:    0.012951236800394
+polar1:   -0.387989735597485
+polar2:   -0.016987127047311
+response:    0.370567147857913
+CCPERT_L_Y Iteration   4: pseudoresponse = 0.809953725289592   dE =  1.67957E-02   DIIS = 3
+rms:    0.005157491228066
+polar1:   -0.393947318845571
+polar2:   -0.017949551468927
+response:    0.376095983670803
+CCPERT_L_Y Iteration   5: pseudoresponse = 0.823793740628996   dE =  1.38400E-02   DIIS = 4
+rms:    0.003173604602721
+polar1:   -0.394710931567140
+polar2:   -0.018083792456023
+response:    0.376739246482150
+CCPERT_L_Y Iteration   6: pseudoresponse = 0.825589448046325   dE =  1.79571E-03   DIIS = 5
+rms:    0.001203979952333
+polar1:   -0.395072528614980
+polar2:   -0.018148427230968
+response:    0.376993002215159
+CCPERT_L_Y Iteration   7: pseudoresponse = 0.826441911691895   dE =  8.52464E-04   DIIS = 6
+rms:    0.000498017987675
+polar1:   -0.395233490279439
+polar2:   -0.018157107684537
+response:    0.377113982969693
+CCPERT_L_Y Iteration   8: pseudoresponse = 0.826781195927952   dE =  3.39284E-04   DIIS = 7
+rms:    0.000279143637439
+polar1:   -0.395297216539040
+polar2:   -0.018164561251440
+response:    0.377162431779286
+CCPERT_L_Y Iteration   9: pseudoresponse = 0.826923555580962   dE =  1.42360E-04   DIIS = 7
+rms:    0.000158760182233
+polar1:   -0.395306227381795
+polar2:   -0.018165055456094
+response:    0.377166957496087
+CCPERT_L_Y Iteration  10: pseudoresponse = 0.826942565675777   dE =  1.90101E-05   DIIS = 7
+rms:    0.000083690738946
+polar1:   -0.395283820757193
+polar2:   -0.018165202975586
+response:    0.377143249418392
+CCPERT_L_Y Iteration  11: pseudoresponse = 0.826898047465557   dE = -4.45182E-05   DIIS = 7
+rms:    0.000040939857768
+polar1:   -0.395268545492129
+polar2:   -0.018165705153459
+response:    0.377127139564682
+CCPERT_L_Y Iteration  12: pseudoresponse = 0.826868501291175   dE = -2.95462E-05   DIIS = 7
+rms:    0.000018483700698
+polar1:   -0.395257853263836
+polar2:   -0.018165520077188
+response:    0.377116350966884
+CCPERT_L_Y Iteration  13: pseudoresponse = 0.826846746682048   dE = -2.17546E-05   DIIS = 7
+rms:    0.000012215351416
+polar1:   -0.395255831121700
+polar2:   -0.018165425880497
+response:    0.377114283978181
+CCPERT_L_Y Iteration  14: pseudoresponse = 0.826842514004395   dE = -4.23268E-06   DIIS = 7
+rms:    0.000005676946830
+polar1:   -0.395254289326922
+polar2:   -0.018165323966499
+response:    0.377112717085625
+CCPERT_L_Y Iteration  15: pseudoresponse = 0.826839226586842   dE = -3.28742E-06   DIIS = 7
+rms:    0.000002891013099
+polar1:   -0.395254502308040
+polar2:   -0.018165284744856
+response:    0.377112917888821
+CCPERT_L_Y Iteration  16: pseudoresponse = 0.826839574105791   dE =  3.47519E-07   DIIS = 7
+rms:    0.000001689082294
+polar1:   -0.395254819237425
+polar2:   -0.018165283018319
+response:    0.377113242131379
+CCPERT_L_Y Iteration  17: pseudoresponse = 0.826840204511487   dE =  6.30406E-07   DIIS = 7
+rms:    0.000000958113412
+polar1:   -0.395254807908764
+polar2:   -0.018165285478166
+response:    0.377113236223501
+CCPERT_L_Y Iteration  18: pseudoresponse = 0.826840186773861   dE = -1.77376E-08   DIIS = 7
+rms:    0.000000502924675
+polar1:   -0.395254793270007
+polar2:   -0.018165286945522
+response:    0.377113231771664
+CCPERT_L_Y Iteration  19: pseudoresponse = 0.826840160431057   dE = -2.63428E-08   DIIS = 7
+rms:    0.000000318802125
+polar1:   -0.395254740596688
+polar2:   -0.018165285624600
+response:    0.377113185603055
+CCPERT_L_Y Iteration  20: pseudoresponse = 0.826840052442575   dE = -1.07988E-07   DIIS = 7
+rms:    0.000000160860963
+polar1:   -0.395254732434652
+polar2:   -0.018165281152088
+response:    0.377113183560622
+CCPERT_L_Y Iteration  21: pseudoresponse = 0.826840027173481   dE = -2.52691E-08   DIIS = 7
+rms:    0.000000089759145
+polar1:   -0.395254730680712
+polar2:   -0.018165277869026
+response:    0.377113184619454
+CCPERT_L_Y Iteration  22: pseudoresponse = 0.826840017099475   dE = -1.00740E-08   DIIS = 7
+
+CCPERT_L_Y has converged in 0.053 seconds!
+
+solving left hand perturbed amplitudes for P_Y
+
+polar1:   -2.888883972191637
+polar2:   -0.052339304968995
+response:    2.658340235662770
+CCPERT_P_Y Iteration   0: pseudoresponse = 5.882446554321264   dE = -5.88245E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    2.432842603274815
+polar1:    1.104679558944991
+polar2:   -0.015303478555257
+response:   -1.035102708798194
+CCPERT_P_Y Iteration   1: pseudoresponse = -2.178752160779467   dE = -8.06120E+00   DIIS = 0
+rms:    0.852396909551723
+polar1:    1.541220649500808
+polar2:    0.008713733715199
+response:   -1.404820763285126
+CCPERT_P_Y Iteration   2: pseudoresponse = -3.099868766432014   dE = -9.21117E-01   DIIS = 1
+rms:    0.549566057898155
+polar1:    2.269569980002638
+polar2:    0.010201660979003
+response:   -2.099244267806458
+CCPERT_P_Y Iteration   3: pseudoresponse = -4.559543281963282   dE = -1.45967E+00   DIIS = 2
+rms:    0.217081071404627
+polar1:    2.287541425886393
+polar2:    0.022664614889748
+response:   -2.102581609095457
+CCPERT_P_Y Iteration   4: pseudoresponse = -4.620412081552281   dE = -6.08688E-02   DIIS = 3
+rms:    0.120482896418655
+polar1:    2.444760673866909
+polar2:    0.030274065205752
+response:   -2.244600304352243
+CCPERT_P_Y Iteration   5: pseudoresponse = -4.950069478145321   dE = -3.29657E-01   DIIS = 4
+rms:    0.048386081502892
+polar1:    2.532113403031502
+polar2:    0.038229587825712
+response:   -2.320579293702330
+CCPERT_P_Y Iteration   6: pseudoresponse = -5.140685981714427   dE = -1.90617E-01   DIIS = 5
+rms:    0.016924542929257
+polar1:    2.555486650582603
+polar2:    0.040256766923750
+response:   -2.341125340308690
+CCPERT_P_Y Iteration   7: pseudoresponse = -5.191486835012706   dE = -5.08009E-02   DIIS = 6
+rms:    0.006633418550424
+polar1:    2.561963072759594
+polar2:    0.040842971262073
+response:   -2.346766861258793
+CCPERT_P_Y Iteration   8: pseudoresponse = -5.205612088043333   dE = -1.41253E-02   DIIS = 7
+rms:    0.003274818409186
+polar1:    2.561240151595810
+polar2:    0.040918909221993
+response:   -2.346144881880412
+CCPERT_P_Y Iteration   9: pseudoresponse = -5.204318121635606   dE =  1.29397E-03   DIIS = 7
+rms:    0.001585991597552
+polar1:    2.561806160334970
+polar2:    0.040980416530024
+response:   -2.346656031460192
+CCPERT_P_Y Iteration  10: pseudoresponse = -5.205573153729986   dE = -1.25503E-03   DIIS = 7
+rms:    0.000712383657243
+polar1:    2.562057129791716
+polar2:    0.041016251383053
+response:   -2.346868133436405
+CCPERT_P_Y Iteration  11: pseudoresponse = -5.206146762349537   dE = -5.73609E-04   DIIS = 7
+rms:    0.000311973593659
+polar1:    2.562039272167300
+polar2:    0.041025553791245
+response:   -2.346851716312606
+CCPERT_P_Y Iteration  12: pseudoresponse = -5.206129651917090   dE =  1.71104E-05   DIIS = 7
+rms:    0.000170429497288
+polar1:    2.562089881328057
+polar2:    0.041028801270399
+response:   -2.346894076695775
+CCPERT_P_Y Iteration  13: pseudoresponse = -5.206237365196911   dE = -1.07713E-04   DIIS = 7
+rms:    0.000079973496799
+polar1:    2.562072861703320
+polar2:    0.041028470868966
+response:   -2.346877140071845
+CCPERT_P_Y Iteration  14: pseudoresponse = -5.206202665144573   dE =  3.47001E-05   DIIS = 7
+rms:    0.000039879967491
+polar1:    2.562058264780056
+polar2:    0.041027671800056
+response:   -2.346864001603040
+CCPERT_P_Y Iteration  15: pseudoresponse = -5.206171873160224   dE =  3.07920E-05   DIIS = 7
+rms:    0.000019785662874
+polar1:    2.562043744666728
+polar2:    0.041026311131048
+response:   -2.346851301890817
+CCPERT_P_Y Iteration  16: pseudoresponse = -5.206140111595553   dE =  3.17616E-05   DIIS = 7
+rms:    0.000007540879734
+polar1:    2.562034525025215
+polar2:    0.041025847068253
+response:   -2.346842971376245
+CCPERT_P_Y Iteration  17: pseudoresponse = -5.206120744186935   dE =  1.93674E-05   DIIS = 7
+rms:    0.000003133746660
+polar1:    2.562032120968535
+polar2:    0.041025628739488
+response:   -2.346840950472907
+CCPERT_P_Y Iteration  18: pseudoresponse = -5.206115499416047   dE =  5.24477E-06   DIIS = 7
+rms:    0.000001676249962
+polar1:    2.562031553395246
+polar2:    0.041025611301034
+response:   -2.346840446138163
+CCPERT_P_Y Iteration  19: pseudoresponse = -5.206114329392561   dE =  1.17002E-06   DIIS = 7
+rms:    0.000000970374466
+polar1:    2.562031630553632
+polar2:    0.041025603077769
+response:   -2.346840517320551
+CCPERT_P_Y Iteration  20: pseudoresponse = -5.206114467262801   dE = -1.37870E-07   DIIS = 7
+rms:    0.000000506230839
+polar1:    2.562031651053871
+polar2:    0.041025594025770
+response:   -2.346840553070000
+CCPERT_P_Y Iteration  21: pseudoresponse = -5.206114490159282   dE = -2.28965E-08   DIIS = 7
+rms:    0.000000249192080
+polar1:    2.562031775858514
+polar2:    0.041025600169541
+response:   -2.346840664860260
+CCPERT_P_Y Iteration  22: pseudoresponse = -5.206114752056112   dE = -2.61897E-07   DIIS = 7
+rms:    0.000000106726260
+polar1:    2.562031852547661
+polar2:    0.041025602172391
+response:   -2.346840735206086
+CCPERT_P_Y Iteration  23: pseudoresponse = -5.206114909440105   dE = -1.57384E-07   DIIS = 7
+rms:    0.000000052275552
+polar1:    2.562031885369208
+polar2:    0.041025603649731
+response:   -2.346840765265281
+CCPERT_P_Y Iteration  24: pseudoresponse = -5.206114978037879   dE = -6.85978E-08   DIIS = 7
+
+CCPERT_P_Y has converged in 0.054 seconds!
+
+solving left hand perturbed amplitudes for L_Y
+
+polar1:   -0.790509461361424
+polar2:   -0.040943992205023
+response:    0.754226369238908
+CCPERT_L_Y Iteration   0: pseudoresponse = 1.662906907132893   dE = -1.66291E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.302358648595345
+polar1:   -0.043840337384689
+polar2:   -0.027062142046688
+response:    0.040684267524974
+CCPERT_L_Y Iteration   1: pseudoresponse = 0.141804958862754   dE = -1.52110E+00   DIIS = 0
+rms:    0.576291365755739
+polar1:    0.257162933640654
+polar2:   -0.005870876437585
+response:   -0.246872361457511
+CCPERT_L_Y Iteration   2: pseudoresponse = -0.502584114406139   dE = -6.44389E-01   DIIS = 1
+rms:    0.206631702230327
+polar1:    0.503436294727379
+polar2:    0.016675231601273
+response:   -0.481714605247547
+CCPERT_L_Y Iteration   3: pseudoresponse = -1.040223052657304   dE = -5.37639E-01   DIIS = 2
+rms:    0.079152670979168
+polar1:    0.553597741909548
+polar2:    0.024809929621442
+response:   -0.529328739281503
+CCPERT_L_Y Iteration   4: pseudoresponse = -1.156815343061981   dE = -1.16592E-01   DIIS = 3
+rms:    0.028224248927628
+polar1:    0.577915282052989
+polar2:    0.028787439267439
+response:   -0.552207330958081
+CCPERT_L_Y Iteration   5: pseudoresponse = -1.213405442640856   dE = -5.65901E-02   DIIS = 4
+rms:    0.015109131362713
+polar1:    0.581935126600363
+polar2:    0.029784321712522
+response:   -0.555854536312644
+CCPERT_L_Y Iteration   6: pseudoresponse = -1.223438896625770   dE = -1.00335E-02   DIIS = 5
+rms:    0.007296321024720
+polar1:    0.583572310708487
+polar2:    0.030154238551011
+response:   -0.557295588666548
+CCPERT_L_Y Iteration   7: pseudoresponse = -1.227453098518996   dE = -4.01420E-03   DIIS = 6
+rms:    0.002552033283791
+polar1:    0.584385265191322
+polar2:    0.030313991794167
+response:   -0.558002328001100
+CCPERT_L_Y Iteration   8: pseudoresponse = -1.229398513970978   dE = -1.94542E-03   DIIS = 7
+rms:    0.001243939110996
+polar1:    0.584336721033207
+polar2:    0.030303168895348
+response:   -0.557946842978813
+CCPERT_L_Y Iteration   9: pseudoresponse = -1.229279779857109   dE =  1.18734E-04   DIIS = 7
+rms:    0.000520918993980
+polar1:    0.584436125958140
+polar2:    0.030319535969968
+response:   -0.558034400261994
+CCPERT_L_Y Iteration  10: pseudoresponse = -1.229511323856215   dE = -2.31544E-04   DIIS = 7
+rms:    0.000245406620315
+polar1:    0.584441657696932
+polar2:    0.030321472044462
+response:   -0.558040043544043
+CCPERT_L_Y Iteration  11: pseudoresponse = -1.229526259482789   dE = -1.49356E-05   DIIS = 7
+rms:    0.000129827707330
+polar1:    0.584432558313552
+polar2:    0.030321267611215
+response:   -0.558031744471116
+CCPERT_L_Y Iteration  12: pseudoresponse = -1.229507651849535   dE =  1.86076E-05   DIIS = 7
+rms:    0.000058206314602
+polar1:    0.584428572961291
+polar2:    0.030320671466414
+response:   -0.558028437976131
+CCPERT_L_Y Iteration  13: pseudoresponse = -1.229498488855411   dE =  9.16299E-06   DIIS = 7
+rms:    0.000022362518536
+polar1:    0.584421494584310
+polar2:    0.030319793476791
+response:   -0.558021935886149
+CCPERT_L_Y Iteration  14: pseudoresponse = -1.229482576122201   dE =  1.59127E-05   DIIS = 7
+rms:    0.000010631691520
+polar1:    0.584419222935475
+polar2:    0.030319451686416
+response:   -0.558019863243339
+CCPERT_L_Y Iteration  15: pseudoresponse = -1.229477349243782   dE =  5.22688E-06   DIIS = 7
+rms:    0.000005479816857
+polar1:    0.584417908280712
+polar2:    0.030319298350556
+response:   -0.558018656377613
+CCPERT_L_Y Iteration  16: pseudoresponse = -1.229474413262537   dE =  2.93598E-06   DIIS = 7
+rms:    0.000002693190532
+polar1:    0.584417375945734
+polar2:    0.030319250072224
+response:   -0.558018167746440
+CCPERT_L_Y Iteration  17: pseudoresponse = -1.229473252035916   dE =  1.16123E-06   DIIS = 7
+rms:    0.000001134931207
+polar1:    0.584417237617758
+polar2:    0.030319238610171
+response:   -0.558018044120281
+CCPERT_L_Y Iteration  18: pseudoresponse = -1.229472952455860   dE =  2.99580E-07   DIIS = 7
+rms:    0.000000540019734
+polar1:    0.584417225570666
+polar2:    0.030319242981831
+response:   -0.558018034527653
+CCPERT_L_Y Iteration  19: pseudoresponse = -1.229472937104995   dE =  1.53509E-08   DIIS = 7
+rms:    0.000000244171638
+polar1:    0.584417228022289
+polar2:    0.030319246913341
+response:   -0.558018037060321
+CCPERT_L_Y Iteration  20: pseudoresponse = -1.229472949871261   dE = -1.27663E-08   DIIS = 7
+rms:    0.000000110904423
+polar1:    0.584417233660338
+polar2:    0.030319248320518
+response:   -0.558018041956464
+CCPERT_L_Y Iteration  21: pseudoresponse = -1.229472963961712   dE = -1.40905E-08   DIIS = 7
+rms:    0.000000062596741
+polar1:    0.584417234613771
+polar2:    0.030319248987900
+response:   -0.558018042435857
+CCPERT_L_Y Iteration  22: pseudoresponse = -1.229472967203340   dE = -3.24163E-09   DIIS = 7
+
+CCPERT_L_Y has converged in 0.049 seconds!
+
+ Calculating rotation tensor from linear response function: Y 
+
+
+ optrot_PL_589nm =    0.007903934569212 
+
+
+ optrot_LP_589nm =    0.008045430205168 
+
+
+ optrot_PP_589nm =   -2.579202338751487 
+
+
+ optrot_LL_589nm =   -0.704019849296558 
+
+
+ optrot_response_589nm =    0.007974682387190 CCSD 
+
+
+solving right hand perturbed amplitudes for P_Z
+
+polar1:   -1.078418215302906
+polar2:   -0.003789094916194
+response:    0.979442028657777
+CCPERT_P_Z Iteration   0: pseudoresponse = 2.164414620438201   dE = -2.16441E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.206628379842218
+polar1:   -1.375603557137186
+polar2:   -0.005708644558576
+response:    1.242062994327281
+CCPERT_P_Z Iteration   1: pseudoresponse = 2.762624403391523   dE =  5.98210E-01   DIIS = 0
+rms:    0.101788106684530
+polar1:   -1.517874207048126
+polar2:   -0.006756323965776
+response:    1.370939730811954
+CCPERT_P_Z Iteration   2: pseudoresponse = 3.049261062027804   dE =  2.86637E-01   DIIS = 1
+rms:    0.050402712257565
+polar1:   -1.585360593210127
+polar2:   -0.008549883064619
+response:    1.429690011753259
+CCPERT_P_Z Iteration   3: pseudoresponse = 3.187820952549492   dE =  1.38560E-01   DIIS = 2
+rms:    0.034179230347888
+polar1:   -1.637188561361633
+polar2:   -0.009471748792443
+response:    1.476688070298993
+CCPERT_P_Z Iteration   4: pseudoresponse = 3.293320620308152   dE =  1.05500E-01   DIIS = 3
+rms:    0.013221033814406
+polar1:   -1.671794837636482
+polar2:   -0.010965884582858
+response:    1.507220872644682
+CCPERT_P_Z Iteration   5: pseudoresponse = 3.365521444438680   dE =  7.22008E-02   DIIS = 4
+rms:    0.007172556854565
+polar1:   -1.684676739925223
+polar2:   -0.011568803741195
+response:    1.518766973705501
+CCPERT_P_Z Iteration   6: pseudoresponse = 3.392491087332837   dE =  2.69696E-02   DIIS = 5
+rms:    0.003268777796495
+polar1:   -1.683870237720805
+polar2:   -0.011564521858804
+response:    1.518267223264261
+CCPERT_P_Z Iteration   7: pseudoresponse = 3.390869519159218   dE = -1.62157E-03   DIIS = 6
+rms:    0.001945721011450
+polar1:   -1.683291231515180
+polar2:   -0.011578156161727
+response:    1.517864113097017
+CCPERT_P_Z Iteration   8: pseudoresponse = 3.389738775353814   dE = -1.13074E-03   DIIS = 7
+rms:    0.001137179061297
+polar1:   -1.683947446905987
+polar2:   -0.011611029431172
+response:    1.518526532805681
+CCPERT_P_Z Iteration   9: pseudoresponse = 3.391116952674318   dE =  1.37818E-03   DIIS = 7
+rms:    0.000457475836721
+polar1:   -1.683840224542878
+polar2:   -0.011618947414206
+response:    1.518490551422846
+CCPERT_P_Z Iteration  10: pseudoresponse = 3.390918343914168   dE = -1.98609E-04   DIIS = 7
+rms:    0.000194918086635
+polar1:   -1.683816867619332
+polar2:   -0.011621610699252
+response:    1.518481253285836
+CCPERT_P_Z Iteration  11: pseudoresponse = 3.390876956637167   dE = -4.13873E-05   DIIS = 7
+rms:    0.000089712826967
+polar1:   -1.683860859172987
+polar2:   -0.011622958868985
+response:    1.518523521542342
+CCPERT_P_Z Iteration  12: pseudoresponse = 3.390967636083945   dE =  9.06794E-05   DIIS = 7
+rms:    0.000048735660086
+polar1:   -1.683833947943437
+polar2:   -0.011622442157821
+response:    1.518501274043746
+CCPERT_P_Z Iteration  13: pseudoresponse = 3.390912780202515   dE = -5.48559E-05   DIIS = 7
+rms:    0.000025199657541
+polar1:   -1.683832444281667
+polar2:   -0.011622698269645
+response:    1.518499937285350
+CCPERT_P_Z Iteration  14: pseudoresponse = 3.390910285102623   dE = -2.49510E-06   DIIS = 7
+rms:    0.000012759512904
+polar1:   -1.683832119637212
+polar2:   -0.011622737761013
+response:    1.518499827286532
+CCPERT_P_Z Iteration  15: pseudoresponse = 3.390909714796449   dE = -5.70306E-07   DIIS = 7
+rms:    0.000005165478614
+polar1:   -1.683836105746829
+polar2:   -0.011622935602661
+response:    1.518503278230691
+CCPERT_P_Z Iteration  16: pseudoresponse = 3.390918082698981   dE =  8.36790E-06   DIIS = 7
+rms:    0.000002587772490
+polar1:   -1.683837890263355
+polar2:   -0.011623008195469
+response:    1.518504851944904
+CCPERT_P_Z Iteration  17: pseudoresponse = 3.390921796917648   dE =  3.71422E-06   DIIS = 7
+rms:    0.000001598902518
+polar1:   -1.683838450012249
+polar2:   -0.011623033428754
+response:    1.518505322495165
+CCPERT_P_Z Iteration  18: pseudoresponse = 3.390922966882006   dE =  1.16996E-06   DIIS = 7
+rms:    0.000000956677095
+polar1:   -1.683838557989020
+polar2:   -0.011623043527811
+response:    1.518505404240435
+CCPERT_P_Z Iteration  19: pseudoresponse = 3.390923203033662   dE =  2.36152E-07   DIIS = 7
+rms:    0.000000600843453
+polar1:   -1.683838395201791
+polar2:   -0.011623039038054
+response:    1.518505242770717
+CCPERT_P_Z Iteration  20: pseudoresponse = 3.390922868479691   dE = -3.34554E-07   DIIS = 7
+rms:    0.000000347314238
+polar1:   -1.683838114834240
+polar2:   -0.011623026826897
+response:    1.518504979552823
+CCPERT_P_Z Iteration  21: pseudoresponse = 3.390922283322273   dE = -5.85157E-07   DIIS = 7
+rms:    0.000000208969756
+polar1:   -1.683838027836408
+polar2:   -0.011623023779876
+response:    1.518504893129856
+CCPERT_P_Z Iteration  22: pseudoresponse = 3.390922103232568   dE = -1.80090E-07   DIIS = 7
+rms:    0.000000127190116
+polar1:   -1.683837959927963
+polar2:   -0.011623019913598
+response:    1.518504825991864
+CCPERT_P_Z Iteration  23: pseudoresponse = 3.390921959683123   dE = -1.43549E-07   DIIS = 7
+rms:    0.000000069873602
+polar1:   -1.683837942354620
+polar2:   -0.011623018207346
+response:    1.518504805780979
+CCPERT_P_Z Iteration  24: pseudoresponse = 3.390921921123933   dE = -3.85592E-08   DIIS = 7
+
+CCPERT_P_Z has converged in 0.058 seconds!
+
+solving right hand perturbed amplitudes for L_Z
+
+polar1:   -0.398027504250673
+polar2:   -0.005351195535019
+response:    0.381393070922050
+CCPERT_L_Z Iteration   0: pseudoresponse = 0.806757399571385   dE = -8.06757E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.235861621142472
+polar1:   -0.595919201998944
+polar2:   -0.013495608752874
+response:    0.571776992677658
+CCPERT_L_Z Iteration   1: pseudoresponse = 1.218829621503636   dE =  4.12072E-01   DIIS = 0
+rms:    0.157328979604857
+polar1:   -0.717658468129738
+polar2:   -0.020728495943474
+response:    0.689400113708934
+CCPERT_L_Z Iteration   2: pseudoresponse = 1.476773928146424   dE =  2.57944E-01   DIIS = 1
+rms:    0.051182244107947
+polar1:   -0.901623895313105
+polar2:   -0.034985950753258
+response:    0.867120096392447
+CCPERT_L_Z Iteration   3: pseudoresponse = 1.873219692132726   dE =  3.96446E-01   DIIS = 2
+rms:    0.028194418386933
+polar1:   -0.943634250121085
+polar2:   -0.039217167403745
+response:    0.907824398739749
+CCPERT_L_Z Iteration   4: pseudoresponse = 1.965702835049659   dE =  9.24831E-02   DIIS = 3
+rms:    0.008914482540539
+polar1:   -0.967427201161639
+polar2:   -0.042900592545334
+response:    0.930776701604773
+CCPERT_L_Z Iteration   5: pseudoresponse = 2.020655587413947   dE =  5.49528E-02   DIIS = 4
+rms:    0.005170756482256
+polar1:   -0.970265050541953
+polar2:   -0.043593278975671
+response:    0.933451894466687
+CCPERT_L_Z Iteration   6: pseudoresponse = 2.027716659035248   dE =  7.06107E-03   DIIS = 5
+rms:    0.002711666402341
+polar1:   -0.970450480599956
+polar2:   -0.043816395079092
+response:    0.933600351727003
+CCPERT_L_Z Iteration   7: pseudoresponse = 2.028533751358095   dE =  8.17092E-04   DIIS = 6
+rms:    0.001322688883412
+polar1:   -0.970857872495830
+polar2:   -0.043926421611975
+response:    0.933977083597127
+CCPERT_L_Z Iteration   8: pseudoresponse = 2.029568588215610   dE =  1.03484E-03   DIIS = 7
+rms:    0.000658050635886
+polar1:   -0.971129639592656
+polar2:   -0.043971659476945
+response:    0.934235388313390
+CCPERT_L_Z Iteration   9: pseudoresponse = 2.030202598139202   dE =  6.34010E-04   DIIS = 7
+rms:    0.000360744289084
+polar1:   -0.971170487404697
+polar2:   -0.043971574733677
+response:    0.934274864741108
+CCPERT_L_Z Iteration  10: pseudoresponse = 2.030284124276748   dE =  8.15261E-05   DIIS = 7
+rms:    0.000204068850166
+polar1:   -0.971199989171543
+polar2:   -0.043972489916969
+response:    0.934304005728652
+CCPERT_L_Z Iteration  11: pseudoresponse = 2.030344958177023   dE =  6.08339E-05   DIIS = 7
+rms:    0.000122575981318
+polar1:   -0.971187074161039
+polar2:   -0.043971093135813
+response:    0.934292026493534
+CCPERT_L_Z Iteration  12: pseudoresponse = 2.030316334593704   dE = -2.86236E-05   DIIS = 7
+rms:    0.000063416884476
+polar1:   -0.971164716726706
+polar2:   -0.043969738206646
+response:    0.934270761419265
+CCPERT_L_Z Iteration  13: pseudoresponse = 2.030268909866704   dE = -4.74247E-05   DIIS = 7
+rms:    0.000034174323863
+polar1:   -0.971149140558561
+polar2:   -0.043967919182079
+response:    0.934255892698240
+CCPERT_L_Z Iteration  14: pseudoresponse = 2.030234119481279   dE = -3.47904E-05   DIIS = 7
+rms:    0.000018751244649
+polar1:   -0.971137294868328
+polar2:   -0.043966063041770
+response:    0.934244566303676
+CCPERT_L_Z Iteration  15: pseudoresponse = 2.030206715820196   dE = -2.74037E-05   DIIS = 7
+rms:    0.000009904943621
+polar1:   -0.971130156786545
+polar2:   -0.043964657695701
+response:    0.934237686515938
+CCPERT_L_Z Iteration  16: pseudoresponse = 2.030189628964492   dE = -1.70869E-05   DIIS = 7
+rms:    0.000006283926131
+polar1:   -0.971126967288071
+polar2:   -0.043963963253619
+response:    0.934234598754783
+CCPERT_L_Z Iteration  17: pseudoresponse = 2.030181861083380   dE = -7.76788E-06   DIIS = 7
+rms:    0.000003897478589
+polar1:   -0.971124572098614
+polar2:   -0.043963460945733
+response:    0.934232274829675
+CCPERT_L_Z Iteration  18: pseudoresponse = 2.030176066088694   dE = -5.79499E-06   DIIS = 7
+rms:    0.000002270866688
+polar1:   -0.971123151781735
+polar2:   -0.043963186382409
+response:    0.934230895990535
+CCPERT_L_Z Iteration  19: pseudoresponse = 2.030172676328287   dE = -3.38976E-06   DIIS = 7
+rms:    0.000001324829082
+polar1:   -0.971122520179561
+polar2:   -0.043963078889030
+response:    0.934230286919434
+CCPERT_L_Z Iteration  20: pseudoresponse = 2.030171198137183   dE = -1.47819E-06   DIIS = 7
+rms:    0.000000732390413
+polar1:   -0.971122280267853
+polar2:   -0.043963045535394
+response:    0.934230056967279
+CCPERT_L_Z Iteration  21: pseudoresponse = 2.030170651606494   dE = -5.46531E-07   DIIS = 7
+rms:    0.000000504270106
+polar1:   -0.971122202215175
+polar2:   -0.043963032844163
+response:    0.934229982784589
+CCPERT_L_Z Iteration  22: pseudoresponse = 2.030170470118676   dE = -1.81488E-07   DIIS = 7
+rms:    0.000000332452090
+polar1:   -0.971122179386743
+polar2:   -0.043963029416885
+response:    0.934229961782905
+CCPERT_L_Z Iteration  23: pseudoresponse = 2.030170417607257   dE = -5.25114E-08   DIIS = 7
+rms:    0.000000191132006
+polar1:   -0.971122174881970
+polar2:   -0.043963029536472
+response:    0.934229957604675
+CCPERT_L_Z Iteration  24: pseudoresponse = 2.030170408836883   dE = -8.77037E-09   DIIS = 7
+rms:    0.000000085931707
+polar1:   -0.971122179058214
+polar2:   -0.043963031721281
+response:    0.934229961427848
+CCPERT_L_Z Iteration  25: pseudoresponse = 2.030170421558990   dE =  1.27221E-08   DIIS = 7
+
+CCPERT_L_Z has converged in 0.061 seconds!
+
+solving left hand perturbed amplitudes for P_Z
+
+polar1:   -3.367675884709240
+polar2:   -0.024817080703170
+response:    3.037009611561958
+CCPERT_P_Z Iteration   0: pseudoresponse = 6.784985930824820   dE = -6.78499E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    2.631978688655876
+polar1:    1.528221617815921
+polar2:   -0.008236495261084
+response:   -1.402810983117264
+CCPERT_P_Z Iteration   1: pseudoresponse = -3.039970245109674   dE = -9.82496E+00   DIIS = 0
+rms:    0.702375886147057
+polar1:    2.459000783568886
+polar2:    0.000867045623169
+response:   -2.220872627228146
+CCPERT_P_Z Iteration   2: pseudoresponse = -4.919735658384109   dE = -1.87977E+00   DIIS = 1
+rms:    0.338471497521611
+polar1:    2.948044518810702
+polar2:    0.006192420832506
+response:   -2.665100450463410
+CCPERT_P_Z Iteration   3: pseudoresponse = -5.908473879286415   dE = -9.88738E-01   DIIS = 2
+rms:    0.184458062449282
+polar1:    2.982421995635714
+polar2:    0.009885169456663
+response:   -2.690380754402851
+CCPERT_P_Z Iteration   4: pseudoresponse = -5.984614330184754   dE = -7.61405E-02   DIIS = 3
+rms:    0.091730443626154
+polar1:    3.117959769630073
+polar2:    0.014868324578157
+response:   -2.810599435384517
+CCPERT_P_Z Iteration   5: pseudoresponse = -6.265656188416462   dE = -2.81042E-01   DIIS = 4
+rms:    0.035093456497891
+polar1:    3.175000266902622
+polar2:    0.018108469284053
+response:   -2.860355913550424
+CCPERT_P_Z Iteration   6: pseudoresponse = -6.386217472373351   dE = -1.20561E-01   DIIS = 5
+rms:    0.015163574653693
+polar1:    3.191845339135148
+polar2:    0.019240022206711
+response:   -2.875471100323481
+CCPERT_P_Z Iteration   7: pseudoresponse = -6.422170722683718   dE = -3.59533E-02   DIIS = 6
+rms:    0.006922365399666
+polar1:    3.195460439856793
+polar2:    0.019505521092841
+response:   -2.878961101436531
+CCPERT_P_Z Iteration   8: pseudoresponse = -6.429931921899269   dE = -7.76120E-03   DIIS = 7
+rms:    0.003648892744543
+polar1:    3.194632651891275
+polar2:    0.019564946798041
+response:   -2.878408798690526
+CCPERT_P_Z Iteration   9: pseudoresponse = -6.428395197378632   dE =  1.53672E-03   DIIS = 7
+rms:    0.001728198151415
+polar1:    3.195260244261300
+polar2:    0.019625584884596
+response:   -2.879078763903837
+CCPERT_P_Z Iteration  10: pseudoresponse = -6.429771658291792   dE = -1.37646E-03   DIIS = 7
+rms:    0.000784367693616
+polar1:    3.195275302574824
+polar2:    0.019646693803832
+response:   -2.879145591089285
+CCPERT_P_Z Iteration  11: pseudoresponse = -6.429843992757313   dE = -7.23345E-05   DIIS = 7
+rms:    0.000355783417007
+polar1:    3.195255487710682
+polar2:    0.019651170095205
+response:   -2.879138050977087
+CCPERT_P_Z Iteration  12: pseudoresponse = -6.429813315611774   dE =  3.06771E-05   DIIS = 7
+rms:    0.000161229467441
+polar1:    3.195286214363759
+polar2:    0.019652089518699
+response:   -2.879171482860464
+CCPERT_P_Z Iteration  13: pseudoresponse = -6.429876607764915   dE = -6.32922E-05   DIIS = 7
+rms:    0.000076157879157
+polar1:    3.195238989298066
+polar2:    0.019651931199428
+response:   -2.879129835536642
+CCPERT_P_Z Iteration  14: pseudoresponse = -6.429781840994989   dE =  9.47668E-05   DIIS = 7
+rms:    0.000038214364011
+polar1:    3.195226452326967
+polar2:    0.019651844455313
+response:   -2.879119497384347
+CCPERT_P_Z Iteration  15: pseudoresponse = -6.429756593564560   dE =  2.52474E-05   DIIS = 7
+rms:    0.000020059712981
+polar1:    3.195216582295180
+polar2:    0.019651794160384
+response:   -2.879110474650562
+CCPERT_P_Z Iteration  16: pseudoresponse = -6.429736752911130   dE =  1.98407E-05   DIIS = 7
+rms:    0.000010252632512
+polar1:    3.195213039190075
+polar2:    0.019651802442781
+response:   -2.879107123608713
+CCPERT_P_Z Iteration  17: pseudoresponse = -6.429729683265712   dE =  7.06965E-06   DIIS = 7
+rms:    0.000004420767743
+polar1:    3.195213388594346
+polar2:    0.019651869791011
+response:   -2.879107356475117
+CCPERT_P_Z Iteration  18: pseudoresponse = -6.429730516770714   dE = -8.33505E-07   DIIS = 7
+rms:    0.000001956269304
+polar1:    3.195213859345124
+polar2:    0.019651914187457
+response:   -2.879107671718454
+CCPERT_P_Z Iteration  19: pseudoresponse = -6.429731547065162   dE = -1.03029E-06   DIIS = 7
+rms:    0.000001122823062
+polar1:    3.195214228475480
+polar2:    0.019651925287095
+response:   -2.879107996791828
+CCPERT_P_Z Iteration  20: pseudoresponse = -6.429732307525150   dE = -7.60460E-07   DIIS = 7
+rms:    0.000000516174274
+polar1:    3.195214395023053
+polar2:    0.019651941370516
+response:   -2.879108117083345
+CCPERT_P_Z Iteration  21: pseudoresponse = -6.429732672787137   dE = -3.65262E-07   DIIS = 7
+rms:    0.000000262315778
+polar1:    3.195214452264083
+polar2:    0.019651942984574
+response:   -2.879108165613470
+CCPERT_P_Z Iteration  22: pseudoresponse = -6.429732790497315   dE = -1.17710E-07   DIIS = 7
+rms:    0.000000140951163
+polar1:    3.195214470210740
+polar2:    0.019651944089947
+response:   -2.879108177783624
+CCPERT_P_Z Iteration  23: pseudoresponse = -6.429732828601374   dE = -3.81041E-08   DIIS = 7
+rms:    0.000000079805796
+polar1:    3.195214472075154
+polar2:    0.019651944182358
+response:   -2.879108177644846
+CCPERT_P_Z Iteration  24: pseudoresponse = -6.429732832515024   dE = -3.91365E-09   DIIS = 7
+
+CCPERT_P_Z has converged in 0.054 seconds!
+
+solving left hand perturbed amplitudes for L_Z
+
+polar1:   -1.942244358116428
+polar2:   -0.095376239905096
+response:    1.868459922855696
+CCPERT_L_Z Iteration   0: pseudoresponse = 4.075241196043047   dE = -4.07524E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    2.001303397288598
+polar1:   -0.053153723429300
+polar2:   -0.068394757724902
+response:    0.057798627505202
+CCPERT_L_Z Iteration   1: pseudoresponse = 0.243096962308403   dE = -3.83214E+00   DIIS = 0
+rms:    0.897097034918083
+polar1:    0.640855697519837
+polar2:   -0.024251651342037
+response:   -0.609942254192538
+CCPERT_L_Z Iteration   2: pseudoresponse = -1.233208092355599   dE = -1.47631E+00   DIIS = 1
+rms:    0.367489621981940
+polar1:    1.167568348827611
+polar2:    0.022801665285168
+response:   -1.118788986565897
+CCPERT_L_Z Iteration   3: pseudoresponse = -2.380740028225557   dE = -1.14753E+00   DIIS = 2
+rms:    0.155250908889409
+polar1:    1.348343574642914
+polar2:    0.049467201300257
+response:   -1.292339462108791
+CCPERT_L_Z Iteration   4: pseudoresponse = -2.795621551886343   dE = -4.14882E-01   DIIS = 3
+rms:    0.054448376862662
+polar1:    1.424225555521667
+polar2:    0.060031748109710
+response:   -1.365550319356228
+CCPERT_L_Z Iteration   5: pseudoresponse = -2.968514607262754   dE = -1.72893E-01   DIIS = 4
+rms:    0.023218233010274
+polar1:    1.442607139873655
+polar2:    0.063987602296484
+response:   -1.382844807817887
+CCPERT_L_Z Iteration   6: pseudoresponse = -3.013189484340277   dE = -4.46749E-02   DIIS = 5
+rms:    0.010299788115360
+polar1:    1.448466801881562
+polar2:    0.065185733735614
+response:   -1.388288121808765
+CCPERT_L_Z Iteration   7: pseudoresponse = -3.027305071234351   dE = -1.41156E-02   DIIS = 6
+rms:    0.004655297052399
+polar1:    1.450238458988379
+polar2:    0.065587380483629
+response:   -1.389895588345282
+CCPERT_L_Z Iteration   8: pseudoresponse = -3.031651678944016   dE = -4.34661E-03   DIIS = 7
+rms:    0.002401026299176
+polar1:    1.450616395408540
+polar2:    0.065701214584821
+response:   -1.390230159501621
+CCPERT_L_Z Iteration   9: pseudoresponse = -3.032635219986721   dE = -9.83541E-04   DIIS = 7
+rms:    0.000976261039690
+polar1:    1.450854206275345
+polar2:    0.065748927231649
+response:   -1.390446415294942
+CCPERT_L_Z Iteration  10: pseudoresponse = -3.033206267013989   dE = -5.71047E-04   DIIS = 7
+rms:    0.000452951160232
+polar1:    1.450818652426470
+polar2:    0.065754219883923
+response:   -1.390412631523801
+CCPERT_L_Z Iteration  11: pseudoresponse = -3.033145744620785   dE =  6.05224E-05   DIIS = 7
+rms:    0.000255258314923
+polar1:    1.450768135919950
+polar2:    0.065752298090426
+response:   -1.390364761018209
+CCPERT_L_Z Iteration  12: pseudoresponse = -3.033040868020753   dE =  1.04877E-04   DIIS = 7
+rms:    0.000114107731506
+polar1:    1.450725064967231
+polar2:    0.065748750642840
+response:   -1.390324907877905
+CCPERT_L_Z Iteration  13: pseudoresponse = -3.032947631220143   dE =  9.32368E-05   DIIS = 7
+rms:    0.000058461571247
+polar1:    1.450699282656240
+polar2:    0.065746676735474
+response:   -1.390300798067948
+CCPERT_L_Z Iteration  14: pseudoresponse = -3.032891918783428   dE =  5.57124E-05   DIIS = 7
+rms:    0.000029805514280
+polar1:    1.450688340662555
+polar2:    0.065745624793310
+response:   -1.390290552418612
+CCPERT_L_Z Iteration  15: pseudoresponse = -3.032867930911729   dE =  2.39879E-05   DIIS = 7
+rms:    0.000015373083869
+polar1:    1.450681645408088
+polar2:    0.065744898504570
+response:   -1.390284288664946
+CCPERT_L_Z Iteration  16: pseudoresponse = -3.032853087825316   dE =  1.48431E-05   DIIS = 7
+rms:    0.000008538424814
+polar1:    1.450678359522075
+polar2:    0.065744477124734
+response:   -1.390281180774657
+CCPERT_L_Z Iteration  17: pseudoresponse = -3.032845673293620   dE =  7.41453E-06   DIIS = 7
+rms:    0.000004605220444
+polar1:    1.450677298060512
+polar2:    0.065744185964174
+response:   -1.390280186247253
+CCPERT_L_Z Iteration  18: pseudoresponse = -3.032842968049372   dE =  2.70524E-06   DIIS = 7
+rms:    0.000002145755476
+polar1:    1.450676591037069
+polar2:    0.065743940844620
+response:   -1.390279516732277
+CCPERT_L_Z Iteration  19: pseudoresponse = -3.032841063763377   dE =  1.90429E-06   DIIS = 7
+rms:    0.000001106572185
+polar1:    1.450676432187941
+polar2:    0.065743855266139
+response:   -1.390279366286272
+CCPERT_L_Z Iteration  20: pseudoresponse = -3.032840574908160   dE =  4.88855E-07   DIIS = 7
+rms:    0.000000591158001
+polar1:    1.450676388112945
+polar2:    0.065743819533753
+response:   -1.390279323762556
+CCPERT_L_Z Iteration  21: pseudoresponse = -3.032840415293397   dE =  1.59615E-07   DIIS = 7
+rms:    0.000000316766702
+polar1:    1.450676354787606
+polar2:    0.065743806265618
+response:   -1.390279290556821
+CCPERT_L_Z Iteration  22: pseudoresponse = -3.032840322106447   dE =  9.31869E-08   DIIS = 7
+rms:    0.000000146275713
+polar1:    1.450676350030359
+polar2:    0.065743801596195
+response:   -1.390279285308867
+CCPERT_L_Z Iteration  23: pseudoresponse = -3.032840303253108   dE =  1.88533E-08   DIIS = 7
+rms:    0.000000080627818
+polar1:    1.450676346269792
+polar2:    0.065743800334590
+response:   -1.390279281306420
+CCPERT_L_Z Iteration  24: pseudoresponse = -3.032840293208766   dE =  1.00443E-08   DIIS = 7
+
+CCPERT_L_Z has converged in 0.054 seconds!
+
+ Calculating rotation tensor from linear response function: Z 
+
+
+ optrot_PL_589nm =   -1.034978132793634 
+
+
+ optrot_LP_589nm =   -1.034852108563482 
+
+
+ optrot_PP_589nm =   -3.095794126266683 
+
+
+ optrot_LL_589nm =   -1.711112182489053 
+
+
+ optrot_response_589nm =   -1.034915120678558 CCSD 
+
+1/3 * Traces of each linear response function @ omega: 589nm
+
+ trace_3_optrot_PL_589nm =   -0.000958956602558 
+
+
+ trace_3_optrot_LP_589nm =   -0.000612429315308 
+
+
+ trace_3_optrot_PP_589nm =   -2.137976404904137 
+
+
+ trace_3_optrot_LL_589nm =   -1.789952429133506 
+
+
+ trace_3_actual_optrot_589nm =   -0.000785692958933 
+
+
+solving right hand perturbed amplitudes for P_X
+
+polar1:   -0.219763708965228
+polar2:   -0.001430046906419
+response:    0.204322522316818
+CCPERT_P_X Iteration   0: pseudoresponse = 0.442387511743293   dE = -4.42388E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.106548703813162
+polar1:   -0.286667628924124
+polar2:   -0.002031513575572
+response:    0.267040091104360
+CCPERT_P_X Iteration   1: pseudoresponse = 0.577398284999393   dE =  1.35011E-01   DIIS = 0
+rms:    0.057248527105734
+polar1:   -0.321127946810896
+polar2:   -0.002571155503131
+response:    0.299919473286662
+CCPERT_P_X Iteration   2: pseudoresponse = 0.647398204628055   dE =  6.99999E-02   DIIS = 1
+rms:    0.026159953421860
+polar1:   -0.345637649270266
+polar2:   -0.003273601841717
+response:    0.323115924675821
+CCPERT_P_X Iteration   3: pseudoresponse = 0.697822502223967   dE =  5.04243E-02   DIIS = 2
+rms:    0.014289499469323
+polar1:   -0.359717635079228
+polar2:   -0.003667546138182
+response:    0.336553497094323
+CCPERT_P_X Iteration   4: pseudoresponse = 0.726770362434819   dE =  2.89479E-02   DIIS = 3
+rms:    0.005523501138416
+polar1:   -0.364953002708754
+polar2:   -0.003993769228409
+response:    0.341419698942227
+CCPERT_P_X Iteration   5: pseudoresponse = 0.737893543874327   dE =  1.11232E-02   DIIS = 4
+rms:    0.002547455945569
+polar1:   -0.366586046899314
+polar2:   -0.004103199588003
+response:    0.342906303375593
+CCPERT_P_X Iteration   6: pseudoresponse = 0.741378492974633   dE =  3.48495E-03   DIIS = 5
+rms:    0.001043818063086
+polar1:   -0.366809228088447
+polar2:   -0.004117817950033
+response:    0.343091147546498
+CCPERT_P_X Iteration   7: pseudoresponse = 0.741854092076959   dE =  4.75599E-04   DIIS = 6
+rms:    0.000416287665309
+polar1:   -0.366895801758818
+polar2:   -0.004127213029474
+response:    0.343164331493486
+CCPERT_P_X Iteration   8: pseudoresponse = 0.742046029576583   dE =  1.91937E-04   DIIS = 7
+rms:    0.000199016639601
+polar1:   -0.366957911059616
+polar2:   -0.004129669220588
+response:    0.343219461892418
+CCPERT_P_X Iteration   9: pseudoresponse = 0.742175160560410   dE =  1.29131E-04   DIIS = 7
+rms:    0.000103750426097
+polar1:   -0.366951978589684
+polar2:   -0.004129765490639
+response:    0.343214460569824
+CCPERT_P_X Iteration  10: pseudoresponse = 0.742163488160646   dE = -1.16724E-05   DIIS = 7
+rms:    0.000049340979797
+polar1:   -0.366954582608661
+polar2:   -0.004130491569821
+response:    0.343216766203072
+CCPERT_P_X Iteration  11: pseudoresponse = 0.742170148356964   dE =  6.66020E-06   DIIS = 7
+rms:    0.000024196243638
+polar1:   -0.366952916448932
+polar2:   -0.004130617292127
+response:    0.343215214570827
+CCPERT_P_X Iteration  12: pseudoresponse = 0.742167067482120   dE = -3.08087E-06   DIIS = 7
+rms:    0.000012464136030
+polar1:   -0.366948331607459
+polar2:   -0.004130670879334
+response:    0.343210874874036
+CCPERT_P_X Iteration  13: pseudoresponse = 0.742158004973585   dE = -9.06251E-06   DIIS = 7
+rms:    0.000005603592774
+polar1:   -0.366944251891158
+polar2:   -0.004130598917038
+response:    0.343207095078732
+CCPERT_P_X Iteration  14: pseudoresponse = 0.742149701616392   dE = -8.30336E-06   DIIS = 7
+rms:    0.000002252292701
+polar1:   -0.366942335812002
+polar2:   -0.004130547243879
+response:    0.343205311264239
+CCPERT_P_X Iteration  15: pseudoresponse = 0.742145766111761   dE = -3.93550E-06   DIIS = 7
+rms:    0.000000925381661
+polar1:   -0.366941536072323
+polar2:   -0.004130526077341
+response:    0.343204574891784
+CCPERT_P_X Iteration  16: pseudoresponse = 0.742144124299327   dE = -1.64181E-06   DIIS = 7
+rms:    0.000000567219098
+polar1:   -0.366941377109185
+polar2:   -0.004130521205168
+response:    0.343204431454183
+CCPERT_P_X Iteration  17: pseudoresponse = 0.742143796628704   dE = -3.27671E-07   DIIS = 7
+rms:    0.000000297649860
+polar1:   -0.366941273901905
+polar2:   -0.004130518469713
+response:    0.343204337372955
+CCPERT_P_X Iteration  18: pseudoresponse = 0.742143584743235   dE = -2.11885E-07   DIIS = 7
+rms:    0.000000156305474
+polar1:   -0.366941261358025
+polar2:   -0.004130519239011
+response:    0.343204327284997
+CCPERT_P_X Iteration  19: pseudoresponse = 0.742143561194072   dE = -2.35492E-08   DIIS = 7
+rms:    0.000000070058278
+polar1:   -0.366941270838544
+polar2:   -0.004130519730791
+response:    0.343204336721489
+CCPERT_P_X Iteration  20: pseudoresponse = 0.742143581138671   dE =  1.99446E-08   DIIS = 7
+
+CCPERT_P_X has converged in 0.051 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+polar1:   -0.731570937877011
+polar2:   -0.006233239561148
+response:    0.698173445502422
+CCPERT_L_X Iteration   0: pseudoresponse = 1.475608354876318   dE = -1.47561E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.220404907957279
+polar1:   -1.002858548751619
+polar2:   -0.012717319255221
+response:    0.957827172753327
+CCPERT_L_X Iteration   1: pseudoresponse = 2.031151736013679   dE =  5.55543E-01   DIIS = 0
+rms:    0.136458812113358
+polar1:   -1.161678375317490
+polar2:   -0.017647757156055
+response:    1.111241990348655
+CCPERT_L_X Iteration   2: pseudoresponse = 2.358652264947090   dE =  3.27501E-01   DIIS = 1
+rms:    0.060006768758461
+polar1:   -1.308665782628576
+polar2:   -0.024295349363766
+response:    1.252933399206613
+CCPERT_L_X Iteration   3: pseudoresponse = 2.665922263984683   dE =  3.07270E-01   DIIS = 2
+rms:    0.032963064865869
+polar1:   -1.407929897422246
+polar2:   -0.028799205795382
+response:    1.349097708131726
+CCPERT_L_X Iteration   4: pseudoresponse = 2.873458206435256   dE =  2.07536E-01   DIIS = 3
+rms:    0.008370570218302
+polar1:   -1.453846151589977
+polar2:   -0.032118846630442
+response:    1.393523287459065
+CCPERT_L_X Iteration   5: pseudoresponse = 2.971929996440837   dE =  9.84718E-02   DIIS = 4
+rms:    0.004884914790085
+polar1:   -1.461298368707470
+polar2:   -0.032956276209135
+response:    1.400762258320747
+CCPERT_L_X Iteration   6: pseudoresponse = 2.988509289833209   dE =  1.65793E-02   DIIS = 5
+rms:    0.002137463638470
+polar1:   -1.460044116141595
+polar2:   -0.033108671212785
+response:    1.399600602210040
+CCPERT_L_X Iteration   7: pseudoresponse = 2.986305574708760   dE = -2.20372E-03   DIIS = 6
+rms:    0.000888733254983
+polar1:   -1.459004300068836
+polar2:   -0.033176641133695
+response:    1.398634484623614
+CCPERT_L_X Iteration   8: pseudoresponse = 2.984361882405062   dE = -1.94369E-03   DIIS = 7
+rms:    0.000470197002445
+polar1:   -1.459171005951834
+polar2:   -0.033238819316840
+response:    1.398815971791348
+CCPERT_L_X Iteration   9: pseudoresponse = 2.984819650537349   dE =  4.57768E-04   DIIS = 7
+rms:    0.000237166088469
+polar1:   -1.459083679491511
+polar2:   -0.033240543721492
+response:    1.398740490636402
+CCPERT_L_X Iteration  10: pseudoresponse = 2.984648446426007   dE = -1.71204E-04   DIIS = 7
+rms:    0.000101073956963
+polar1:   -1.459124068233788
+polar2:   -0.033242973583418
+response:    1.398784956380316
+CCPERT_L_X Iteration  11: pseudoresponse = 2.984734083634414   dE =  8.56372E-05   DIIS = 7
+rms:    0.000044881688338
+polar1:   -1.459152134757804
+polar2:   -0.033246185955231
+response:    1.398814651374814
+CCPERT_L_X Iteration  12: pseudoresponse = 2.984796641426071   dE =  6.25578E-05   DIIS = 7
+rms:    0.000020644895923
+polar1:   -1.459135549041862
+polar2:   -0.033244992963516
+response:    1.398799228036056
+CCPERT_L_X Iteration  13: pseudoresponse = 2.984761084010758   dE = -3.55574E-05   DIIS = 7
+rms:    0.000010733331981
+polar1:   -1.459129270331498
+polar2:   -0.033244722761614
+response:    1.398793470122874
+CCPERT_L_X Iteration  14: pseudoresponse = 2.984747986186223   dE = -1.30978E-05   DIIS = 7
+rms:    0.000004706396220
+polar1:   -1.459124785326087
+polar2:   -0.033244333560848
+response:    1.398789267170134
+CCPERT_L_X Iteration  15: pseudoresponse = 2.984738237773870   dE = -9.74841E-06   DIIS = 7
+rms:    0.000002314827888
+polar1:   -1.459123623045810
+polar2:   -0.033244275335492
+response:    1.398788199272456
+CCPERT_L_X Iteration  16: pseudoresponse = 2.984735796762603   dE = -2.44101E-06   DIIS = 7
+rms:    0.000001302395606
+polar1:   -1.459124365359101
+polar2:   -0.033244324571128
+response:    1.398788942841024
+CCPERT_L_X Iteration  17: pseudoresponse = 2.984737379860458   dE =  1.58310E-06   DIIS = 7
+rms:    0.000000655706512
+polar1:   -1.459125196691271
+polar2:   -0.033244414458165
+response:    1.398789762629028
+CCPERT_L_X Iteration  18: pseudoresponse = 2.984739222298872   dE =  1.84244E-06   DIIS = 7
+rms:    0.000000349337764
+polar1:   -1.459125674585918
+polar2:   -0.033244468275448
+response:    1.398790233533922
+CCPERT_L_X Iteration  19: pseudoresponse = 2.984740285722733   dE =  1.06342E-06   DIIS = 7
+rms:    0.000000185980217
+polar1:   -1.459125927682056
+polar2:   -0.033244500909724
+response:    1.398790479478270
+CCPERT_L_X Iteration  20: pseudoresponse = 2.984740857183560   dE =  5.71461E-07   DIIS = 7
+rms:    0.000000106741964
+polar1:   -1.459125919539423
+polar2:   -0.033244501331978
+response:    1.398790471062061
+CCPERT_L_X Iteration  21: pseudoresponse = 2.984740841742804   dE = -1.54408E-08   DIIS = 7
+rms:    0.000000054657364
+polar1:   -1.459125905702338
+polar2:   -0.033244498873478
+response:    1.398790456129469
+CCPERT_L_X Iteration  22: pseudoresponse = 2.984740809151632   dE = -3.25912E-08   DIIS = 7
+
+CCPERT_L_X has converged in 0.055 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+polar1:   -0.733882541677088
+polar2:   -0.008872229900280
+response:    0.686408673442978
+CCPERT_P_X Iteration   0: pseudoresponse = 1.485509543154734   dE = -1.48551E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.052601941661452
+polar1:    0.177487394197828
+polar2:   -0.003107299972585
+response:   -0.158403966260415
+CCPERT_P_X Iteration   1: pseudoresponse = -0.348760188450486   dE = -1.83427E+00   DIIS = 0
+rms:    0.434347265259706
+polar1:    0.453981705164670
+polar2:   -0.000394755003250
+response:   -0.417423875178349
+CCPERT_P_X Iteration   2: pseudoresponse = -0.907173900322840   dE = -5.58414E-01   DIIS = 1
+rms:    0.189972377409964
+polar1:    0.651585902671407
+polar2:    0.002963893325062
+response:   -0.605770445633427
+CCPERT_P_X Iteration   3: pseudoresponse = -1.309099591992939   dE = -4.01926E-01   DIIS = 2
+rms:    0.104439314013746
+polar1:    0.695293833904775
+polar2:    0.004868736215297
+response:   -0.646834981590389
+CCPERT_P_X Iteration   4: pseudoresponse = -1.400325140240145   dE = -9.12255E-02   DIIS = 3
+rms:    0.054795068825148
+polar1:    0.751067430483739
+polar2:    0.006809936997633
+response:   -0.699901050245320
+CCPERT_P_X Iteration   5: pseudoresponse = -1.515754734962745   dE = -1.15430E-01   DIIS = 4
+rms:    0.022983558514421
+polar1:    0.770480926893514
+polar2:    0.008022962359190
+response:   -0.717886466702568
+CCPERT_P_X Iteration   6: pseudoresponse = -1.557007778505410   dE = -4.12530E-02   DIIS = 5
+rms:    0.010477026112288
+polar1:    0.776784193568202
+polar2:    0.008467689267292
+response:   -0.723616084495817
+CCPERT_P_X Iteration   7: pseudoresponse = -1.570503765670988   dE = -1.34960E-02   DIIS = 6
+rms:    0.004520185272583
+polar1:    0.778451411891703
+polar2:    0.008568623979861
+response:   -0.725071921062249
+CCPERT_P_X Iteration   8: pseudoresponse = -1.574040071743128   dE = -3.53631E-03   DIIS = 7
+rms:    0.002008995905947
+polar1:    0.778646697612619
+polar2:    0.008600715930594
+response:   -0.725224769784730
+CCPERT_P_X Iteration   9: pseudoresponse = -1.574494827086427   dE = -4.54755E-04   DIIS = 7
+rms:    0.000960947648121
+polar1:    0.778980354482473
+polar2:    0.008617987180161
+response:   -0.725521152354445
+CCPERT_P_X Iteration  10: pseudoresponse = -1.575196683325270   dE = -7.01856E-04   DIIS = 7
+rms:    0.000468903739023
+polar1:    0.778912005325498
+polar2:    0.008618403130558
+response:   -0.725458438942993
+CCPERT_P_X Iteration  11: pseudoresponse = -1.575060816912110   dE =  1.35866E-04   DIIS = 7
+rms:    0.000221812972707
+polar1:    0.778911709094871
+polar2:    0.008623093511034
+response:   -0.725456173373606
+CCPERT_P_X Iteration  12: pseudoresponse = -1.575069605211811   dE = -8.78830E-06   DIIS = 7
+rms:    0.000111579816754
+polar1:    0.778896590469273
+polar2:    0.008623080741689
+response:   -0.725442281621274
+CCPERT_P_X Iteration  13: pseudoresponse = -1.575039342421923   dE =  3.02628E-05   DIIS = 7
+rms:    0.000058920666167
+polar1:    0.778876352483482
+polar2:    0.008623359063288
+response:   -0.725422941668682
+CCPERT_P_X Iteration  14: pseudoresponse = -1.574999423093539   dE =  3.99193E-05   DIIS = 7
+rms:    0.000026895301427
+polar1:    0.778858935170342
+polar2:    0.008622986205012
+response:   -0.725406826383693
+CCPERT_P_X Iteration  15: pseudoresponse = -1.574963842750708   dE =  3.55803E-05   DIIS = 7
+rms:    0.000010955459263
+polar1:    0.778849793485784
+polar2:    0.008622681912858
+response:   -0.725398409437157
+CCPERT_P_X Iteration  16: pseudoresponse = -1.574944950797284   dE =  1.88920E-05   DIIS = 7
+rms:    0.000005229062920
+polar1:    0.778846738860047
+polar2:    0.008622603558713
+response:   -0.725395597126391
+CCPERT_P_X Iteration  17: pseudoresponse = -1.574938684837520   dE =  6.26596E-06   DIIS = 7
+rms:    0.000003079743419
+polar1:    0.778846259299508
+polar2:    0.008622602157204
+response:   -0.725395180921812
+CCPERT_P_X Iteration  18: pseudoresponse = -1.574937722913424   dE =  9.61924E-07   DIIS = 7
+rms:    0.000001677657696
+polar1:    0.778846217998043
+polar2:    0.008622614999395
+response:   -0.725395155181813
+CCPERT_P_X Iteration  19: pseudoresponse = -1.574937665994876   dE =  5.69185E-08   DIIS = 7
+rms:    0.000000751419931
+polar1:    0.778846383323614
+polar2:    0.008622634579472
+response:   -0.725395318499535
+CCPERT_P_X Iteration  20: pseudoresponse = -1.574938035806171   dE = -3.69811E-07   DIIS = 7
+rms:    0.000000352990680
+polar1:    0.778846517166549
+polar2:    0.008622641906054
+response:   -0.725395446444054
+CCPERT_P_X Iteration  21: pseudoresponse = -1.574938318145206   dE = -2.82339E-07   DIIS = 7
+rms:    0.000000193038770
+polar1:    0.778846559661562
+polar2:    0.008622643635633
+response:   -0.725395486641447
+CCPERT_P_X Iteration  22: pseudoresponse = -1.574938406594390   dE = -8.84492E-08   DIIS = 7
+rms:    0.000000117612608
+polar1:    0.778846552102251
+polar2:    0.008622642644361
+response:   -0.725395480253506
+CCPERT_P_X Iteration  23: pseudoresponse = -1.574938389493224   dE =  1.71012E-08   DIIS = 7
+rms:    0.000000063354780
+polar1:    0.778846552427640
+polar2:    0.008622641611950
+response:   -0.725395480645959
+CCPERT_P_X Iteration  24: pseudoresponse = -1.574938388079180   dE =  1.41404E-09   DIIS = 7
+
+CCPERT_P_X has converged in 0.054 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+polar1:   -2.918251811404676
+polar2:   -0.072240768878170
+response:    2.797580912258939
+CCPERT_L_X Iteration   0: pseudoresponse = 5.980985160565693   dE = -5.98099E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.941956431782232
+polar1:    0.050868982753938
+polar2:   -0.046624160571933
+response:   -0.031590832346508
+CCPERT_L_X Iteration   1: pseudoresponse = -0.008489644364012   dE = -5.98947E+00   DIIS = 0
+rms:    0.898588342014043
+polar1:    1.147324126793839
+polar2:   -0.017201032636354
+response:   -1.080607221451486
+CCPERT_L_X Iteration   2: pseudoresponse = -2.260246188314971   dE = -2.25176E+00   DIIS = 1
+rms:    0.469159392125481
+polar1:    2.159061770366121
+polar2:    0.017383077071246
+response:   -2.057517312793947
+CCPERT_L_X Iteration   3: pseudoresponse = -4.352889694874736   dE = -2.09264E+00   DIIS = 2
+rms:    0.265575390010297
+polar1:    2.376717160139653
+polar2:    0.031167206034933
+response:   -2.266869602921600
+CCPERT_L_X Iteration   4: pseudoresponse = -4.815768732349172   dE = -4.62879E-01   DIIS = 3
+rms:    0.096116067101062
+polar1:    2.826198086992562
+polar2:    0.055814954597405
+response:   -2.701644341847810
+CCPERT_L_X Iteration   5: pseudoresponse = -5.764026083179934   dE = -9.48257E-01   DIIS = 4
+rms:    0.037598250257359
+polar1:    2.938519820546923
+polar2:    0.064517795172947
+response:   -2.810314913584419
+CCPERT_L_X Iteration   6: pseudoresponse = -6.006075231439740   dE = -2.42049E-01   DIIS = 5
+rms:    0.017758175558383
+polar1:    2.972796694125135
+polar2:    0.067655456115769
+response:   -2.843506251577907
+CCPERT_L_X Iteration   7: pseudoresponse = -6.080904300481809   dE = -7.48291E-02   DIIS = 6
+rms:    0.008948078682937
+polar1:    2.979487404258219
+polar2:    0.068891760870704
+response:   -2.850184887291105
+CCPERT_L_X Iteration   8: pseudoresponse = -6.096758330257845   dE = -1.58540E-02   DIIS = 7
+rms:    0.004138477750687
+polar1:    2.974118724209265
+polar2:    0.068818983773674
+response:   -2.845112583467041
+CCPERT_L_X Iteration   9: pseudoresponse = -6.085875415965877   dE =  1.08829E-02   DIIS = 7
+rms:    0.001958139219223
+polar1:    2.975639139137750
+polar2:    0.069079266833123
+response:   -2.846658445565690
+CCPERT_L_X Iteration  10: pseudoresponse = -6.089436811941746   dE = -3.56140E-03   DIIS = 7
+rms:    0.000887891551741
+polar1:    2.975732876110496
+polar2:    0.069094352973410
+response:   -2.846791749146125
+CCPERT_L_X Iteration  11: pseudoresponse = -6.089654458167812   dE = -2.17646E-04   DIIS = 7
+rms:    0.000439647022833
+polar1:    2.975809404154712
+polar2:    0.069087947586889
+response:   -2.846876058684348
+CCPERT_L_X Iteration  12: pseudoresponse = -6.089794703483203   dE = -1.40245E-04   DIIS = 7
+rms:    0.000214465416026
+polar1:    2.975873882487709
+polar2:    0.069093569878858
+response:   -2.846947244228974
+CCPERT_L_X Iteration  13: pseudoresponse = -6.089934904733133   dE = -1.40201E-04   DIIS = 7
+rms:    0.000089580585321
+polar1:    2.975800195269691
+polar2:    0.069091281907946
+response:   -2.846880265828627
+CCPERT_L_X Iteration  14: pseudoresponse = -6.089782954355274   dE =  1.51950E-04   DIIS = 7
+rms:    0.000042838351721
+polar1:    2.975747856270815
+polar2:    0.069089496157010
+response:   -2.846830909312368
+CCPERT_L_X Iteration  15: pseudoresponse = -6.089674704855651   dE =  1.08249E-04   DIIS = 7
+rms:    0.000021107285939
+polar1:    2.975717304875658
+polar2:    0.069088433516288
+response:   -2.846801985720276
+CCPERT_L_X Iteration  16: pseudoresponse = -6.089611476783891   dE =  6.32281E-05   DIIS = 7
+rms:    0.000011671641329
+polar1:    2.975708098500530
+polar2:    0.069088365812045
+response:   -2.846793397386564
+CCPERT_L_X Iteration  17: pseudoresponse = -6.089592928625152   dE =  1.85482E-05   DIIS = 7
+rms:    0.000006654457101
+polar1:    2.975707600891861
+polar2:    0.069088524896430
+response:   -2.846793048458447
+CCPERT_L_X Iteration  18: pseudoresponse = -6.089592251576581   dE =  6.77049E-07   DIIS = 7
+rms:    0.000003146454466
+polar1:    2.975711969833617
+polar2:    0.069088965041396
+response:   -2.846797376722613
+CCPERT_L_X Iteration  19: pseudoresponse = -6.089601869750027   dE = -9.61817E-06   DIIS = 7
+rms:    0.000001541489990
+polar1:    2.975714700807031
+polar2:    0.069089231061304
+response:   -2.846800051976006
+CCPERT_L_X Iteration  20: pseudoresponse = -6.089607863736670   dE = -5.99399E-06   DIIS = 7
+rms:    0.000000861643151
+polar1:    2.975715872942028
+polar2:    0.069089351226325
+response:   -2.846801198564934
+CCPERT_L_X Iteration  21: pseudoresponse = -6.089610448336705   dE = -2.58460E-06   DIIS = 7
+rms:    0.000000505627306
+polar1:    2.975716065821254
+polar2:    0.069089372390045
+response:   -2.846801380680443
+CCPERT_L_X Iteration  22: pseudoresponse = -6.089610876422598   dE = -4.28086E-07   DIIS = 7
+rms:    0.000000270265798
+polar1:    2.975715950209257
+polar2:    0.069089367683650
+response:   -2.846801265790138
+CCPERT_L_X Iteration  23: pseudoresponse = -6.089610635785814   dE =  2.40637E-07   DIIS = 7
+rms:    0.000000116029768
+polar1:    2.975715890460068
+polar2:    0.069089359626651
+response:   -2.846801204301356
+CCPERT_L_X Iteration  24: pseudoresponse = -6.089610500173438   dE =  1.35612E-07   DIIS = 7
+rms:    0.000000067744944
+polar1:    2.975715891412363
+polar2:    0.069089357148959
+response:   -2.846801203926907
+CCPERT_L_X Iteration  25: pseudoresponse = -6.089610497122644   dE =  3.05079E-09   DIIS = 7
+
+CCPERT_L_X has converged in 0.057 seconds!
+
+ Calculating rotation tensor from linear response function: X 
+
+
+ optrot_PL_0 =    1.011368948858197 
+
+
+ optrot_LP_0 =    1.011368896814563 
+
+
+ optrot_PP_0 =   -0.730373010448585 
+
+
+ optrot_LL_0 =   -2.907165045839842 
+
+
+ optrot_response_0 =    1.011368922836380 CCSD 
+
+
+solving right hand perturbed amplitudes for P_Y
+
+polar1:   -0.843555979571287
+polar2:   -0.008242495721685
+response:    0.784688146758156
+CCPERT_P_Y Iteration   0: pseudoresponse = 1.703596950585943   dE = -1.70360E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.211987980344171
+polar1:   -0.980057662474668
+polar2:   -0.013256598154184
+response:    0.902150440687945
+CCPERT_P_Y Iteration   1: pseudoresponse = 1.986628521257705   dE =  2.83032E-01   DIIS = 0
+rms:    0.119378819978680
+polar1:   -1.145390617319470
+polar2:   -0.014019246655818
+response:    1.058827653451733
+CCPERT_P_Y Iteration   2: pseudoresponse = 2.318819727950576   dE =  3.32191E-01   DIIS = 1
+rms:    0.065440014175025
+polar1:   -1.173321840248120
+polar2:   -0.016955778833098
+response:    1.081917773250503
+CCPERT_P_Y Iteration   3: pseudoresponse = 2.380555238162437   dE =  6.17355E-02   DIIS = 2
+rms:    0.031310555251713
+polar1:   -1.257819924966963
+polar2:   -0.019103891811521
+response:    1.160136385747201
+CCPERT_P_Y Iteration   4: pseudoresponse = 2.553847633556968   dE =  1.73292E-01   DIIS = 3
+rms:    0.013393645363266
+polar1:   -1.286666317215043
+polar2:   -0.021313902155000
+response:    1.185559184851478
+CCPERT_P_Y Iteration   5: pseudoresponse = 2.615960438740087   dE =  6.21128E-02   DIIS = 4
+rms:    0.005582778611526
+polar1:   -1.297617231798402
+polar2:   -0.022126011179054
+response:    1.195170127231528
+CCPERT_P_Y Iteration   6: pseudoresponse = 2.639486485954912   dE =  2.35260E-02   DIIS = 5
+rms:    0.001942336120555
+polar1:   -1.299346935060847
+polar2:   -0.022275878292458
+response:    1.196668793277548
+CCPERT_P_Y Iteration   7: pseudoresponse = 2.643245626706610   dE =  3.75914E-03   DIIS = 6
+rms:    0.000897975414344
+polar1:   -1.298752124761834
+polar2:   -0.022268346602521
+response:    1.196133675725713
+CCPERT_P_Y Iteration   8: pseudoresponse = 2.642040942728710   dE = -1.20468E-03   DIIS = 7
+rms:    0.000501851538009
+polar1:   -1.299047154320669
+polar2:   -0.022291131310433
+response:    1.196392303534813
+CCPERT_P_Y Iteration   9: pseudoresponse = 2.642676571262202   dE =  6.35629E-04   DIIS = 7
+rms:    0.000214309098072
+polar1:   -1.299006805448644
+polar2:   -0.022293448263690
+response:    1.196355649550370
+CCPERT_P_Y Iteration  10: pseudoresponse = 2.642600507424669   dE = -7.60638E-05   DIIS = 7
+rms:    0.000109129567420
+polar1:   -1.298976803868026
+polar2:   -0.022297260801033
+response:    1.196325886344251
+CCPERT_P_Y Iteration  11: pseudoresponse = 2.642548129338118   dE = -5.23781E-05   DIIS = 7
+rms:    0.000058270863168
+polar1:   -1.298997111589209
+polar2:   -0.022299192823742
+response:    1.196342561353445
+CCPERT_P_Y Iteration  12: pseudoresponse = 2.642592608825902   dE =  4.44795E-05   DIIS = 7
+rms:    0.000026334571877
+polar1:   -1.298979545235285
+polar2:   -0.022299088995613
+response:    1.196325645674037
+CCPERT_P_Y Iteration  13: pseudoresponse = 2.642557268461796   dE = -3.53404E-05   DIIS = 7
+rms:    0.000012554404703
+polar1:   -1.298971223372664
+polar2:   -0.022298553946976
+response:    1.196318116418521
+CCPERT_P_Y Iteration  14: pseudoresponse = 2.642539554639280   dE = -1.77138E-05   DIIS = 7
+rms:    0.000004708986633
+polar1:   -1.298964607497637
+polar2:   -0.022298011742613
+response:    1.196312140237224
+CCPERT_P_Y Iteration  15: pseudoresponse = 2.642525238480500   dE = -1.43162E-05   DIIS = 7
+rms:    0.000001716934826
+polar1:   -1.298962877282648
+polar2:   -0.022297872932944
+response:    1.196310608372711
+CCPERT_P_Y Iteration  16: pseudoresponse = 2.642521500431185   dE = -3.73805E-06   DIIS = 7
+rms:    0.000000935557520
+polar1:   -1.298963082380627
+polar2:   -0.022297858905801
+response:    1.196310820600343
+CCPERT_P_Y Iteration  17: pseudoresponse = 2.642521882572856   dE =  3.82142E-07   DIIS = 7
+rms:    0.000000549862849
+polar1:   -1.298963401953356
+polar2:   -0.022297882847540
+response:    1.196311096964588
+CCPERT_P_Y Iteration  18: pseudoresponse = 2.642522569601791   dE =  6.87029E-07   DIIS = 7
+rms:    0.000000293353949
+polar1:   -1.298963834963639
+polar2:   -0.022297902294360
+response:    1.196311488693708
+CCPERT_P_Y Iteration  19: pseudoresponse = 2.642523474515998   dE =  9.04914E-07   DIIS = 7
+rms:    0.000000102917267
+polar1:   -1.298964015916617
+polar2:   -0.022297916263124
+response:    1.196311646317976
+CCPERT_P_Y Iteration  20: pseudoresponse = 2.642523864359481   dE =  3.89843E-07   DIIS = 7
+rms:    0.000000058544576
+polar1:   -1.298964065531580
+polar2:   -0.022297917147613
+response:    1.196311691913831
+CCPERT_P_Y Iteration  21: pseudoresponse = 2.642523965358386   dE =  1.00999E-07   DIIS = 7
+
+CCPERT_P_Y has converged in 0.050 seconds!
+
+solving right hand perturbed amplitudes for L_Y
+
+polar1:   -0.146270889365850
+polar2:   -0.002684090373699
+response:    0.139897367557594
+CCPERT_L_Y Iteration   0: pseudoresponse = 0.297909959479099   dE = -2.97910E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.136954897824306
+polar1:   -0.221476086217186
+polar2:   -0.006315295806650
+response:    0.211797457013215
+CCPERT_L_Y Iteration   1: pseudoresponse = 0.455582764047670   dE =  1.57673E-01   DIIS = 0
+rms:    0.083842500315089
+polar1:   -0.265742849274386
+polar2:   -0.009158122391511
+response:    0.254065737455161
+CCPERT_L_Y Iteration   2: pseudoresponse = 0.549801943331794   dE =  9.42192E-02   DIIS = 1
+rms:    0.018081614285647
+polar1:   -0.324784761931388
+polar2:   -0.013882057027173
+response:    0.310364478726662
+CCPERT_L_Y Iteration   3: pseudoresponse = 0.677333637917123   dE =  1.27532E-01   DIIS = 2
+rms:    0.009643951249269
+polar1:   -0.329695287663551
+polar2:   -0.014458949296557
+response:    0.314992680568491
+CCPERT_L_Y Iteration   4: pseudoresponse = 0.688308473920216   dE =  1.09748E-02   DIIS = 3
+rms:    0.003479864522702
+polar1:   -0.333261198594681
+polar2:   -0.015117607096666
+response:    0.318304457964928
+CCPERT_L_Y Iteration   5: pseudoresponse = 0.696757611382695   dE =  8.44914E-03   DIIS = 4
+rms:    0.001953209973364
+polar1:   -0.333684753933435
+polar2:   -0.015200430011920
+response:    0.318664275761057
+CCPERT_L_Y Iteration   6: pseudoresponse = 0.697770367890709   dE =  1.01276E-03   DIIS = 5
+rms:    0.000685317401449
+polar1:   -0.333867079175477
+polar2:   -0.015233929736190
+response:    0.318797621203964
+CCPERT_L_Y Iteration   7: pseudoresponse = 0.698202017823333   dE =  4.31650E-04   DIIS = 6
+rms:    0.000253835354523
+polar1:   -0.333948446910541
+polar2:   -0.015237262918967
+response:    0.318863572907540
+CCPERT_L_Y Iteration   8: pseudoresponse = 0.698371419659015   dE =  1.69402E-04   DIIS = 7
+rms:    0.000125887097635
+polar1:   -0.333982587845683
+polar2:   -0.015240867511208
+response:    0.318892191981282
+CCPERT_L_Y Iteration   9: pseudoresponse = 0.698446910713781   dE =  7.54911E-05   DIIS = 7
+rms:    0.000061244751575
+polar1:   -0.333987729621855
+polar2:   -0.015240848227390
+response:    0.318896237444330
+CCPERT_L_Y Iteration  10: pseudoresponse = 0.698457155698489   dE =  1.02450E-05   DIIS = 7
+rms:    0.000030072518902
+polar1:   -0.333982115312362
+polar2:   -0.015240887592828
+response:    0.318890542469244
+CCPERT_L_Y Iteration  11: pseudoresponse = 0.698446005810380   dE = -1.11499E-05   DIIS = 7
+rms:    0.000014618824927
+polar1:   -0.333978619635931
+polar2:   -0.015241125907106
+response:    0.318886960634765
+CCPERT_L_Y Iteration  12: pseudoresponse = 0.698439491086075   dE = -6.51472E-06   DIIS = 7
+rms:    0.000006758219270
+polar1:   -0.333975609235452
+polar2:   -0.015241078635535
+response:    0.318884030898653
+CCPERT_L_Y Iteration  13: pseudoresponse = 0.698433375741975   dE = -6.11534E-06   DIIS = 7
+rms:    0.000004037540842
+polar1:   -0.333974891896739
+polar2:   -0.015241070151621
+response:    0.318883322531244
+CCPERT_L_Y Iteration  14: pseudoresponse = 0.698431924096721   dE = -1.45165E-06   DIIS = 7
+rms:    0.000001720332880
+polar1:   -0.333974499103039
+polar2:   -0.015241050282695
+response:    0.318882949798682
+CCPERT_L_Y Iteration  15: pseudoresponse = 0.698431098771468   dE = -8.25325E-07   DIIS = 7
+rms:    0.000000864748399
+polar1:   -0.333974558213153
+polar2:   -0.015241047801826
+response:    0.318883012790690
+CCPERT_L_Y Iteration  16: pseudoresponse = 0.698431212029958   dE =  1.13258E-07   DIIS = 7
+rms:    0.000000491944466
+polar1:   -0.333974622254186
+polar2:   -0.015241050899659
+response:    0.318883080329072
+CCPERT_L_Y Iteration  17: pseudoresponse = 0.698431346307690   dE =  1.34278E-07   DIIS = 7
+rms:    0.000000250011887
+polar1:   -0.333974620020817
+polar2:   -0.015241053629677
+response:    0.318883081224415
+CCPERT_L_Y Iteration  18: pseudoresponse = 0.698431347300990   dE =  9.93299E-10   DIIS = 7
+rms:    0.000000125871598
+polar1:   -0.333974610349604
+polar2:   -0.015241055031879
+response:    0.318883073824491
+CCPERT_L_Y Iteration  19: pseudoresponse = 0.698431330762965   dE = -1.65380E-08   DIIS = 7
+rms:    0.000000072333245
+polar1:   -0.333974596439074
+polar2:   -0.015241055034591
+response:    0.318883060938047
+CCPERT_L_Y Iteration  20: pseudoresponse = 0.698431302947329   dE = -2.78156E-08   DIIS = 7
+
+CCPERT_L_Y has converged in 0.048 seconds!
+
+solving left hand perturbed amplitudes for P_Y
+
+polar1:   -2.597928131063160
+polar2:   -0.046638943860546
+response:    2.392623383827662
+CCPERT_P_Y Iteration   0: pseudoresponse = 5.289134149847413   dE = -5.28913E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    2.068243561763753
+polar1:    0.876032529334808
+polar2:   -0.012908544046094
+response:   -0.827432310548224
+CCPERT_P_Y Iteration   1: pseudoresponse = -1.726247970577428   dE = -7.01538E+00   DIIS = 0
+rms:    0.864088283625770
+polar1:    1.461450041321078
+polar2:    0.008659030740316
+response:   -1.332936116739020
+CCPERT_P_Y Iteration   2: pseudoresponse = -2.940218144122788   dE = -1.21397E+00   DIIS = 1
+rms:    0.520748861337853
+polar1:    2.288796799516889
+polar2:    0.011664283709522
+response:   -2.114891047295201
+CCPERT_P_Y Iteration   3: pseudoresponse = -4.600922166452823   dE = -1.66070E+00   DIIS = 2
+rms:    0.215106989882221
+polar1:    2.410865092162451
+polar2:    0.024438162728852
+response:   -2.216564292435785
+CCPERT_P_Y Iteration   4: pseudoresponse = -4.870606509782606   dE = -2.69684E-01   DIIS = 3
+rms:    0.121232458196238
+polar1:    2.596120894795643
+polar2:    0.032636432367155
+response:   -2.384343046983997
+CCPERT_P_Y Iteration   5: pseudoresponse = -5.257514654325595   dE = -3.86908E-01   DIIS = 4
+rms:    0.057556849207467
+polar1:    2.700693767519921
+polar2:    0.040830275131881
+response:   -2.476601005112748
+CCPERT_P_Y Iteration   6: pseudoresponse = -5.483048085303604   dE = -2.25533E-01   DIIS = 5
+rms:    0.019986370396579
+polar1:    2.744081521266210
+polar2:    0.044144110527459
+response:   -2.514696245289483
+CCPERT_P_Y Iteration   7: pseudoresponse = -5.576451263587337   dE = -9.34032E-02   DIIS = 6
+rms:    0.008618659052657
+polar1:    2.755188251454575
+polar2:    0.045006335751057
+response:   -2.524393736278544
+CCPERT_P_Y Iteration   8: pseudoresponse = -5.600389174411263   dE = -2.39379E-02   DIIS = 7
+rms:    0.004223004045565
+polar1:    2.753254268701942
+polar2:    0.045010330047549
+response:   -2.522674578332111
+CCPERT_P_Y Iteration   9: pseudoresponse = -5.596529197498982   dE =  3.85998E-03   DIIS = 7
+rms:    0.002023332698263
+polar1:    2.754839627017681
+polar2:    0.045134852544608
+response:   -2.524074507800758
+CCPERT_P_Y Iteration  10: pseudoresponse = -5.599948959124578   dE = -3.41976E-03   DIIS = 7
+rms:    0.000941569385793
+polar1:    2.754850685542980
+polar2:    0.045148923967880
+response:   -2.524080193363844
+CCPERT_P_Y Iteration  11: pseudoresponse = -5.599999219021719   dE = -5.02599E-05   DIIS = 7
+rms:    0.000435790790368
+polar1:    2.754856189220938
+polar2:    0.045170295219057
+response:   -2.524074014927317
+CCPERT_P_Y Iteration  12: pseudoresponse = -5.600052968879988   dE = -5.37499E-05   DIIS = 7
+rms:    0.000235693503544
+polar1:    2.754871294151005
+polar2:    0.045172770130281
+response:   -2.524082570698751
+CCPERT_P_Y Iteration  13: pseudoresponse = -5.600088128562573   dE = -3.51597E-05   DIIS = 7
+rms:    0.000117004010511
+polar1:    2.754837677618257
+polar2:    0.045174710770560
+response:   -2.524046854574555
+CCPERT_P_Y Iteration  14: pseudoresponse = -5.600024776777633   dE =  6.33518E-05   DIIS = 7
+rms:    0.000060169220575
+polar1:    2.754793435182733
+polar2:    0.045172932825719
+response:   -2.524006000571969
+CCPERT_P_Y Iteration  15: pseudoresponse = -5.599932736016902   dE =  9.20408E-05   DIIS = 7
+rms:    0.000027884005497
+polar1:    2.754763178865453
+polar2:    0.045170198551372
+response:   -2.523979280130248
+CCPERT_P_Y Iteration  16: pseudoresponse = -5.599866754833650   dE =  6.59812E-05   DIIS = 7
+rms:    0.000008186517566
+polar1:    2.754741926608252
+polar2:    0.045169391760258
+response:   -2.523959740821037
+CCPERT_P_Y Iteration  17: pseudoresponse = -5.599822636737018   dE =  4.41181E-05   DIIS = 7
+rms:    0.000003319088358
+polar1:    2.754739011004751
+polar2:    0.045169120671502
+response:   -2.523957286319412
+CCPERT_P_Y Iteration  18: pseudoresponse = -5.599816263352505   dE =  6.37338E-06   DIIS = 7
+rms:    0.000001658109178
+polar1:    2.754738467144408
+polar2:    0.045169124807629
+response:   -2.523956764975563
+CCPERT_P_Y Iteration  19: pseudoresponse = -5.599815183904073   dE =  1.07945E-06   DIIS = 7
+rms:    0.000000934857968
+polar1:    2.754738202547697
+polar2:    0.045169082228395
+response:   -2.523956548897127
+CCPERT_P_Y Iteration  20: pseudoresponse = -5.599814569552185   dE =  6.14352E-07   DIIS = 7
+rms:    0.000000396010312
+polar1:    2.754738202764524
+polar2:    0.045169087596823
+response:   -2.523956541464177
+CCPERT_P_Y Iteration  21: pseudoresponse = -5.599814580722694   dE = -1.11705E-08   DIIS = 7
+rms:    0.000000193860608
+polar1:    2.754738260345708
+polar2:    0.045169084061499
+response:   -2.523956594331454
+CCPERT_P_Y Iteration  22: pseudoresponse = -5.599814688814413   dE = -1.08092E-07   DIIS = 7
+rms:    0.000000116005864
+polar1:    2.754738284187157
+polar2:    0.045169084569828
+response:   -2.523956615801821
+CCPERT_P_Y Iteration  23: pseudoresponse = -5.599814737513969   dE = -4.86996E-08   DIIS = 7
+rms:    0.000000062771149
+polar1:    2.754738290572397
+polar2:    0.045169083319530
+response:   -2.523956622924580
+CCPERT_P_Y Iteration  24: pseudoresponse = -5.599814747783856   dE = -1.02699E-08   DIIS = 7
+
+CCPERT_P_Y has converged in 0.055 seconds!
+
+solving left hand perturbed amplitudes for L_Y
+
+polar1:   -0.667949192878148
+polar2:   -0.034396928914543
+response:    0.637766121876094
+CCPERT_L_Y Iteration   0: pseudoresponse = 1.404692243585381   dE = -1.40469E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.023709790197754
+polar1:   -0.080708002520742
+polar2:   -0.023111185157800
+response:    0.076228317778367
+CCPERT_L_Y Iteration   1: pseudoresponse = 0.207638375357085   dE = -1.19705E+00   DIIS = 0
+rms:    0.554414455629100
+polar1:    0.220243545308649
+polar2:   -0.006209893127802
+response:   -0.211465068575822
+CCPERT_L_Y Iteration   2: pseudoresponse = -0.428067304361694   dE = -6.35706E-01   DIIS = 1
+rms:    0.185585120375966
+polar1:    0.559272190355752
+polar2:    0.019174731258455
+response:   -0.535158462008950
+CCPERT_L_Y Iteration   3: pseudoresponse = -1.156893843228416   dE = -7.28827E-01   DIIS = 2
+rms:    0.075944114721634
+polar1:    0.630542118444525
+polar2:    0.028259690150172
+response:   -0.602937487422375
+CCPERT_L_Y Iteration   4: pseudoresponse = -1.317603617189394   dE = -1.60710E-01   DIIS = 3
+rms:    0.028514645513561
+polar1:    0.661151383935056
+polar2:    0.033267596030074
+response:   -0.631759806831601
+CCPERT_L_Y Iteration   5: pseudoresponse = -1.388837959930261   dE = -7.12343E-02   DIIS = 4
+rms:    0.015500233551191
+polar1:    0.666243826352851
+polar2:    0.034421439986383
+response:   -0.636341544462558
+CCPERT_L_Y Iteration   6: pseudoresponse = -1.401330532678468   dE = -1.24926E-02   DIIS = 5
+rms:    0.007852812072388
+polar1:    0.668652813007689
+polar2:    0.034882970017623
+response:   -0.638454589740048
+CCPERT_L_Y Iteration   7: pseudoresponse = -1.407071566050624   dE = -5.74103E-03   DIIS = 6
+rms:    0.002908360837158
+polar1:    0.669845878089010
+polar2:    0.035080091471113
+response:   -0.639458900042839
+CCPERT_L_Y Iteration   8: pseudoresponse = -1.409851939120245   dE = -2.78037E-03   DIIS = 7
+rms:    0.001394913791319
+polar1:    0.669761312954870
+polar2:    0.035067479168420
+response:   -0.639346634715734
+CCPERT_L_Y Iteration   9: pseudoresponse = -1.409657584246580   dE =  1.94355E-04   DIIS = 7
+rms:    0.000633571556022
+polar1:    0.669896400124314
+polar2:    0.035090193316726
+response:   -0.639454826658670
+CCPERT_L_Y Iteration  10: pseudoresponse = -1.409973186882081   dE = -3.15603E-04   DIIS = 7
+rms:    0.000274251001470
+polar1:    0.669870060516240
+polar2:    0.035092632713818
+response:   -0.639424409330185
+CCPERT_L_Y Iteration  11: pseudoresponse = -1.409925386460116   dE =  4.78004E-05   DIIS = 7
+rms:    0.000155924308241
+polar1:    0.669857157021027
+polar2:    0.035093543874828
+response:   -0.639410504859487
+CCPERT_L_Y Iteration  12: pseudoresponse = -1.409901401791712   dE =  2.39847E-05   DIIS = 7
+rms:    0.000074892069838
+polar1:    0.669848783504649
+polar2:    0.035093940765316
+response:   -0.639401753349199
+CCPERT_L_Y Iteration  13: pseudoresponse = -1.409885448539932   dE =  1.59533E-05   DIIS = 7
+rms:    0.000031240660461
+polar1:    0.669839440462519
+polar2:    0.035093458999399
+response:   -0.639392504546238
+CCPERT_L_Y Iteration  14: pseudoresponse = -1.409865798923837   dE =  1.96496E-05   DIIS = 7
+rms:    0.000017106111487
+polar1:    0.669837053241785
+polar2:    0.035093268497132
+response:   -0.639390240829473
+CCPERT_L_Y Iteration  15: pseudoresponse = -1.409860643477833   dE =  5.15545E-06   DIIS = 7
+rms:    0.000008317680340
+polar1:    0.669834687138894
+polar2:    0.035093086185132
+response:   -0.639388036652163
+CCPERT_L_Y Iteration  16: pseudoresponse = -1.409855546648052   dE =  5.09683E-06   DIIS = 7
+rms:    0.000004028364585
+polar1:    0.669833774539961
+polar2:    0.035093050955213
+response:   -0.639387195948990
+CCPERT_L_Y Iteration  17: pseudoresponse = -1.409853650990348   dE =  1.89566E-06   DIIS = 7
+rms:    0.000001980227740
+polar1:    0.669833643315896
+polar2:    0.035093046212516
+response:   -0.639387092778651
+CCPERT_L_Y Iteration  18: pseudoresponse = -1.409853379056825   dE =  2.71934E-07   DIIS = 7
+rms:    0.000001030823164
+polar1:    0.669833616471408
+polar2:    0.035093055984385
+response:   -0.639387077958057
+CCPERT_L_Y Iteration  19: pseudoresponse = -1.409853344911587   dE =  3.41452E-08   DIIS = 7
+rms:    0.000000500795992
+polar1:    0.669833632773875
+polar2:    0.035093063488264
+response:   -0.639387098008399
+CCPERT_L_Y Iteration  20: pseudoresponse = -1.409853392524278   dE = -4.76127E-08   DIIS = 7
+rms:    0.000000240339424
+polar1:    0.669833645294560
+polar2:    0.035093066465334
+response:   -0.639387111168244
+CCPERT_L_Y Iteration  21: pseudoresponse = -1.409853423519788   dE = -3.09955E-08   DIIS = 7
+rms:    0.000000129389038
+polar1:    0.669833649537152
+polar2:    0.035093067384779
+response:   -0.639387115282939
+CCPERT_L_Y Iteration  22: pseudoresponse = -1.409853433843861   dE = -1.03241E-08   DIIS = 7
+rms:    0.000000063144035
+polar1:    0.669833648422414
+polar2:    0.035093066637492
+response:   -0.639387114403846
+CCPERT_L_Y Iteration  23: pseudoresponse = -1.409853430119811   dE =  3.72405E-09   DIIS = 7
+
+CCPERT_L_Y has converged in 0.052 seconds!
+
+ Calculating rotation tensor from linear response function: Y 
+
+
+ optrot_PL_0 =    0.008717191231006 
+
+
+ optrot_LP_0 =    0.008717198738072 
+
+
+ optrot_PP_0 =   -2.549756667058676 
+
+
+ optrot_LL_0 =   -0.686928299041326 
+
+
+ optrot_response_0 =    0.008717194984539 CCSD 
+
+
+solving right hand perturbed amplitudes for P_Z
+
+polar1:   -1.030333255661975
+polar2:   -0.003720440425584
+response:    0.936126966960096
+CCPERT_P_Z Iteration   0: pseudoresponse = 2.068107392175118   dE = -2.06811E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.187534949380614
+polar1:   -1.296123443134689
+polar2:   -0.005514464405919
+response:    1.170647217009517
+CCPERT_P_Z Iteration   1: pseudoresponse = 2.603275815081217   dE =  5.35168E-01   DIIS = 0
+rms:    0.089367297576291
+polar1:   -1.419935055555270
+polar2:   -0.006428907981095
+response:    1.282897874087729
+CCPERT_P_Z Iteration   2: pseudoresponse = 2.852727927072729   dE =  2.49452E-01   DIIS = 1
+rms:    0.042862964043979
+polar1:   -1.472975143019386
+polar2:   -0.007972803679305
+response:    1.328852423176765
+CCPERT_P_Z Iteration   3: pseudoresponse = 2.961895893397382   dE =  1.09168E-01   DIIS = 2
+rms:    0.027978541620579
+polar1:   -1.514460635550245
+polar2:   -0.008733854385737
+response:    1.366477515898798
+CCPERT_P_Z Iteration   4: pseudoresponse = 3.046388979871965   dE =  8.44931E-02   DIIS = 3
+rms:    0.009826970185904
+polar1:   -1.539318727558743
+polar2:   -0.009903583393949
+response:    1.388323339988738
+CCPERT_P_Z Iteration   5: pseudoresponse = 3.098444621905383   dE =  5.20556E-02   DIIS = 4
+rms:    0.005020811625148
+polar1:   -1.547373774833678
+polar2:   -0.010318519761894
+response:    1.395525337873447
+CCPERT_P_Z Iteration   6: pseudoresponse = 3.115384589191143   dE =  1.69400E-02   DIIS = 5
+rms:    0.002100183751660
+polar1:   -1.546816394610905
+polar2:   -0.010317533702165
+response:    1.395173431431455
+CCPERT_P_Z Iteration   7: pseudoresponse = 3.114267856626141   dE = -1.11673E-03   DIIS = 6
+rms:    0.001193859210767
+polar1:   -1.546406294724446
+polar2:   -0.010326193895787
+response:    1.394874853526217
+CCPERT_P_Z Iteration   8: pseudoresponse = 3.113464977240466   dE = -8.02879E-04   DIIS = 7
+rms:    0.000673603301087
+polar1:   -1.546743431189455
+polar2:   -0.010345425365110
+response:    1.395216276353347
+CCPERT_P_Z Iteration   9: pseudoresponse = 3.114177713109129   dE =  7.12736E-04   DIIS = 7
+rms:    0.000263711357030
+polar1:   -1.546672407516989
+polar2:   -0.010349542342857
+response:    1.395182929797104
+CCPERT_P_Z Iteration  10: pseudoresponse = 3.114043899719693   dE = -1.33813E-04   DIIS = 7
+rms:    0.000109042537467
+polar1:   -1.546658845910712
+polar2:   -0.010350743319280
+response:    1.395176205863629
+CCPERT_P_Z Iteration  11: pseudoresponse = 3.114019178459984   dE = -2.47213E-05   DIIS = 7
+rms:    0.000047143417583
+polar1:   -1.546678935399783
+polar2:   -0.010351251168050
+response:    1.395195701856476
+CCPERT_P_Z Iteration  12: pseudoresponse = 3.114060373135666   dE =  4.11947E-05   DIIS = 7
+rms:    0.000024593422238
+polar1:   -1.546665231467215
+polar2:   -0.010350913619847
+response:    1.395184262568363
+CCPERT_P_Z Iteration  13: pseudoresponse = 3.114032290174124   dE = -2.80830E-05   DIIS = 7
+rms:    0.000012441787441
+polar1:   -1.546664632931237
+polar2:   -0.010351016275585
+response:    1.395183705126981
+CCPERT_P_Z Iteration  14: pseudoresponse = 3.114031298413642   dE = -9.91760E-07   DIIS = 7
+rms:    0.000006309286941
+polar1:   -1.546664577185397
+polar2:   -0.010351038949597
+response:    1.395183694105053
+CCPERT_P_Z Iteration  15: pseudoresponse = 3.114031232269989   dE = -6.61437E-08   DIIS = 7
+rms:    0.000002642211439
+polar1:   -1.546666485399880
+polar2:   -0.010351140560081
+response:    1.395185329262789
+CCPERT_P_Z Iteration  16: pseudoresponse = 3.114035251919921   dE =  4.01965E-06   DIIS = 7
+rms:    0.000001227352025
+polar1:   -1.546667359690027
+polar2:   -0.010351185937070
+response:    1.395186092526671
+CCPERT_P_Z Iteration  17: pseudoresponse = 3.114037091254194   dE =  1.83933E-06   DIIS = 7
+rms:    0.000000716099649
+polar1:   -1.546667624861259
+polar2:   -0.010351201101467
+response:    1.395186315492128
+CCPERT_P_Z Iteration  18: pseudoresponse = 3.114037651925451   dE =  5.60671E-07   DIIS = 7
+rms:    0.000000415143315
+polar1:   -1.546667665642821
+polar2:   -0.010351207699969
+response:    1.395186347053542
+CCPERT_P_Z Iteration  19: pseudoresponse = 3.114037746685579   dE =  9.47601E-08   DIIS = 7
+rms:    0.000000239956447
+polar1:   -1.546667599440281
+polar2:   -0.010351207254892
+response:    1.395186281381879
+CCPERT_P_Z Iteration  20: pseudoresponse = 3.114037613390347   dE = -1.33295E-07   DIIS = 7
+rms:    0.000000128497896
+polar1:   -1.546667500080536
+polar2:   -0.010351202840574
+response:    1.395186188898515
+CCPERT_P_Z Iteration  21: pseudoresponse = 3.114037405842221   dE = -2.07548E-07   DIIS = 7
+rms:    0.000000074536784
+polar1:   -1.546667474991746
+polar2:   -0.010351202250388
+response:    1.395186163366494
+CCPERT_P_Z Iteration  22: pseudoresponse = 3.114037354484267   dE = -5.13580E-08   DIIS = 7
+
+CCPERT_P_Z has converged in 0.053 seconds!
+
+solving right hand perturbed amplitudes for L_Z
+
+polar1:   -0.373244385755917
+polar2:   -0.005195846554064
+response:    0.357533198085113
+CCPERT_L_Z Iteration   0: pseudoresponse = 0.756880464619962   dE = -7.56880E-01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    0.206317596957889
+polar1:   -0.546201908460001
+polar2:   -0.012627265468495
+response:    0.523825786071561
+CCPERT_L_Z Iteration   1: pseudoresponse = 1.117658347856992   dE =  3.60778E-01   DIIS = 0
+rms:    0.129703793740568
+polar1:   -0.646226737116848
+polar2:   -0.018891532111001
+response:    0.620403394077150
+CCPERT_L_Z Iteration   2: pseudoresponse = 1.330236538455698   dE =  2.12578E-01   DIIS = 1
+rms:    0.039124532548380
+polar1:   -0.776840857394656
+polar2:   -0.029729255264579
+response:    0.746446883685619
+CCPERT_L_Z Iteration   3: pseudoresponse = 1.613140225318471   dE =  2.82904E-01   DIIS = 2
+rms:    0.020740023808476
+polar1:   -0.803901972958583
+polar2:   -0.032676109511427
+response:    0.772627637215590
+CCPERT_L_Z Iteration   4: pseudoresponse = 1.673156164940020   dE =  6.00159E-02   DIIS = 3
+rms:    0.006279192768636
+polar1:   -0.817323059595537
+polar2:   -0.035073646864682
+response:    0.785518712105709
+CCPERT_L_Z Iteration   5: pseudoresponse = 1.704793412920439   dE =  3.16372E-02   DIIS = 4
+rms:    0.003517174916346
+polar1:   -0.818936093202998
+polar2:   -0.035511481693327
+response:    0.787014285965075
+CCPERT_L_Z Iteration   6: pseudoresponse = 1.708895149792651   dE =  4.10174E-03   DIIS = 5
+rms:    0.001611068675685
+polar1:   -0.819077620328034
+polar2:   -0.035656535988406
+response:    0.787122147758371
+CCPERT_L_Z Iteration   7: pseudoresponse = 1.709468312632880   dE =  5.73163E-04   DIIS = 6
+rms:    0.000729515427930
+polar1:   -0.819289302080143
+polar2:   -0.035715062516137
+response:    0.787312966627828
+CCPERT_L_Z Iteration   8: pseudoresponse = 1.710008729192558   dE =  5.40417E-04   DIIS = 7
+rms:    0.000339733713343
+polar1:   -0.819425185493356
+polar2:   -0.035738845849684
+response:    0.787440530877250
+CCPERT_L_Z Iteration   9: pseudoresponse = 1.710328062686080   dE =  3.19333E-04   DIIS = 7
+rms:    0.000170008848868
+polar1:   -0.819444844756285
+polar2:   -0.035738582952553
+response:    0.787459547804430
+CCPERT_L_Z Iteration  10: pseudoresponse = 1.710366855417676   dE =  3.87927E-05   DIIS = 7
+rms:    0.000092370715039
+polar1:   -0.819449193914362
+polar2:   -0.035738682651015
+response:    0.787464224562692
+CCPERT_L_Z Iteration  11: pseudoresponse = 1.710375753130755   dE =  8.89771E-06   DIIS = 7
+rms:    0.000053050488602
+polar1:   -0.819441267348572
+polar2:   -0.035738339296707
+response:    0.787456886099315
+CCPERT_L_Z Iteration  12: pseudoresponse = 1.710359213290557   dE = -1.65398E-05   DIIS = 7
+rms:    0.000027030567854
+polar1:   -0.819428912159246
+polar2:   -0.035737771399777
+response:    0.787445213768729
+CCPERT_L_Z Iteration  13: pseudoresponse = 1.710333367118046   dE = -2.58462E-05   DIIS = 7
+rms:    0.000014354179592
+polar1:   -0.819422270866126
+polar2:   -0.035737257972837
+response:    0.787438917369750
+CCPERT_L_Z Iteration  14: pseudoresponse = 1.710319057677925   dE = -1.43094E-05   DIIS = 7
+rms:    0.000007472461011
+polar1:   -0.819418047626234
+polar2:   -0.035736649387742
+response:    0.787434925851519
+CCPERT_L_Z Iteration  15: pseudoresponse = 1.710309394027953   dE = -9.66365E-06   DIIS = 7
+rms:    0.000003777779120
+polar1:   -0.819416249365486
+polar2:   -0.035736230657413
+response:    0.787433213058896
+CCPERT_L_Z Iteration  16: pseudoresponse = 1.710304960045798   dE = -4.43398E-06   DIIS = 7
+rms:    0.000002281769757
+polar1:   -0.819415628066946
+polar2:   -0.035736027919681
+response:    0.787432616900782
+CCPERT_L_Z Iteration  17: pseudoresponse = 1.710303311973255   dE = -1.64807E-06   DIIS = 7
+rms:    0.000001322178423
+polar1:   -0.819415182350061
+polar2:   -0.035735887861703
+response:    0.787432186703241
+CCPERT_L_Z Iteration  18: pseudoresponse = 1.710302140423528   dE = -1.17155E-06   DIIS = 7
+rms:    0.000000706498217
+polar1:   -0.819414908456062
+polar2:   -0.035735812056200
+response:    0.787431920490458
+CCPERT_L_Z Iteration  19: pseudoresponse = 1.710301441024523   dE = -6.99399E-07   DIIS = 7
+rms:    0.000000394583461
+polar1:   -0.819414774786815
+polar2:   -0.035735785664529
+response:    0.787431791379024
+CCPERT_L_Z Iteration  20: pseudoresponse = 1.710301120902689   dE = -3.20122E-07   DIIS = 7
+rms:    0.000000195317834
+polar1:   -0.819414708527482
+polar2:   -0.035735775109453
+response:    0.787431727280542
+CCPERT_L_Z Iteration  21: pseudoresponse = 1.710300967273871   dE = -1.53629E-07   DIIS = 7
+rms:    0.000000128368893
+polar1:   -0.819414690342791
+polar2:   -0.035735772008315
+response:    0.787431709777394
+CCPERT_L_Z Iteration  22: pseudoresponse = 1.710300924702212   dE = -4.25717E-08   DIIS = 7
+rms:    0.000000082005448
+polar1:   -0.819414684793577
+polar2:   -0.035735770517021
+response:    0.787431704436136
+CCPERT_L_Z Iteration  23: pseudoresponse = 1.710300910621195   dE = -1.40810E-08   DIIS = 7
+
+CCPERT_L_Z has converged in 0.056 seconds!
+
+solving left hand perturbed amplitudes for P_Z
+
+polar1:   -3.093334949983492
+polar2:   -0.022144581814426
+response:    2.790372326732989
+CCPERT_P_Z Iteration   0: pseudoresponse = 6.230959063595837   dE = -6.23096E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    2.294630332929932
+polar1:    1.221236519003178
+polar2:   -0.007016973723915
+response:   -1.126113428784672
+CCPERT_P_Z Iteration   1: pseudoresponse = -2.428439090558526   dE = -8.65940E+00   DIIS = 0
+rms:    0.785187073942314
+polar1:    2.351222712352579
+polar2:    0.001069887479883
+response:   -2.124753541693065
+CCPERT_P_Z Iteration   2: pseudoresponse = -4.704585199664923   dE = -2.27615E+00   DIIS = 1
+rms:    0.346751240563695
+polar1:    3.079141644406753
+polar2:    0.006677871154452
+response:   -2.783343614037160
+CCPERT_P_Z Iteration   3: pseudoresponse = -6.171639031122409   dE = -1.46705E+00   DIIS = 2
+rms:    0.193339301566134
+polar1:    3.123591403079486
+polar2:    0.010308156204226
+response:   -2.817890529153534
+CCPERT_P_Z Iteration   4: pseudoresponse = -6.267799118567425   dE = -9.61601E-02   DIIS = 3
+rms:    0.099599098006668
+polar1:    3.276247913965747
+polar2:    0.015660408195642
+response:   -2.952713838038242
+CCPERT_P_Z Iteration   5: pseudoresponse = -6.583816644322778   dE = -3.16018E-01   DIIS = 4
+rms:    0.041861784138048
+polar1:    3.355782689188838
+polar2:    0.019572603128331
+response:   -3.022576908944314
+CCPERT_P_Z Iteration   6: pseudoresponse = -6.750710584634337   dE = -1.66894E-01   DIIS = 5
+rms:    0.017698592217565
+polar1:    3.382917792921553
+polar2:    0.021098734690767
+response:   -3.046877971619910
+CCPERT_P_Z Iteration   7: pseudoresponse = -6.808033055224640   dE = -5.73225E-02   DIIS = 6
+rms:    0.008688288939216
+polar1:    3.389476067493813
+polar2:    0.021487639880050
+response:   -3.053104697056001
+CCPERT_P_Z Iteration   8: pseudoresponse = -6.821927414747726   dE = -1.38944E-02   DIIS = 7
+rms:    0.005088119714172
+polar1:    3.387662379807750
+polar2:    0.021515208789012
+response:   -3.051735525373665
+CCPERT_P_Z Iteration   9: pseudoresponse = -6.818355177193525   dE =  3.57224E-03   DIIS = 7
+rms:    0.002566086425651
+polar1:    3.389360925851205
+polar2:    0.021624739178412
+response:   -3.053427405038700
+CCPERT_P_Z Iteration  10: pseudoresponse = -6.821971330059234   dE = -3.61615E-03   DIIS = 7
+rms:    0.001171674555417
+polar1:    3.389123163764931
+polar2:    0.021648588379599
+response:   -3.053332744162303
+CCPERT_P_Z Iteration  11: pseudoresponse = -6.821543504289060   dE =  4.27826E-04   DIIS = 7
+rms:    0.000513631186132
+polar1:    3.389307390553823
+polar2:    0.021670007267724
+response:   -3.053512114360028
+CCPERT_P_Z Iteration  12: pseudoresponse = -6.821954795643093   dE = -4.11291E-04   DIIS = 7
+rms:    0.000222555526170
+polar1:    3.389321723609960
+polar2:    0.021671618762264
+response:   -3.053536917895524
+CCPERT_P_Z Iteration  13: pseudoresponse = -6.821986684744448   dE = -3.18891E-05   DIIS = 7
+rms:    0.000115042247305
+polar1:    3.389266650522777
+polar2:    0.021671689300509
+response:   -3.053490453563859
+CCPERT_P_Z Iteration  14: pseudoresponse = -6.821876679646571   dE =  1.10005E-04   DIIS = 7
+rms:    0.000059809040094
+polar1:    3.389248546156811
+polar2:    0.021671647355760
+response:   -3.053475077455121
+CCPERT_P_Z Iteration  15: pseudoresponse = -6.821840387025141   dE =  3.62926E-05   DIIS = 7
+rms:    0.000028184770984
+polar1:    3.389230756992670
+polar2:    0.021671384069999
+response:   -3.053459212665373
+CCPERT_P_Z Iteration  16: pseudoresponse = -6.821804282125338   dE =  3.61049E-05   DIIS = 7
+rms:    0.000013683055561
+polar1:    3.389226949646996
+polar2:    0.021671471241471
+response:   -3.053455469463990
+CCPERT_P_Z Iteration  17: pseudoresponse = -6.821796841776933   dE =  7.44035E-06   DIIS = 7
+rms:    0.000006940366554
+polar1:    3.389227864468109
+polar2:    0.021671606815560
+response:   -3.053456202674523
+CCPERT_P_Z Iteration  18: pseudoresponse = -6.821798942567338   dE = -2.10079E-06   DIIS = 7
+rms:    0.000003559259330
+polar1:    3.389228923789120
+polar2:    0.021671707458079
+response:   -3.053457065893743
+CCPERT_P_Z Iteration  19: pseudoresponse = -6.821801262494398   dE = -2.31993E-06   DIIS = 7
+rms:    0.000001946901743
+polar1:    3.389229611684275
+polar2:    0.021671755785543
+response:   -3.053457657250291
+CCPERT_P_Z Iteration  20: pseudoresponse = -6.821802734939636   dE = -1.47245E-06   DIIS = 7
+rms:    0.000000983827264
+polar1:    3.389229742112840
+polar2:    0.021671779483052
+response:   -3.053457742030231
+CCPERT_P_Z Iteration  21: pseudoresponse = -6.821803043191784   dE = -3.08252E-07   DIIS = 7
+rms:    0.000000488552934
+polar1:    3.389229698203536
+polar2:    0.021671775280585
+response:   -3.053457691902929
+CCPERT_P_Z Iteration  22: pseudoresponse = -6.821802946968242   dE =  9.62235E-08   DIIS = 7
+rms:    0.000000296448156
+polar1:    3.389229617175654
+polar2:    0.021671773753128
+response:   -3.053457609071097
+CCPERT_P_Z Iteration  23: pseudoresponse = -6.821802781857563   dE =  1.65111E-07   DIIS = 7
+rms:    0.000000172686108
+polar1:    3.389229564504027
+polar2:    0.021671769672970
+response:   -3.053457553988122
+CCPERT_P_Z Iteration  24: pseudoresponse = -6.821802668353994   dE =  1.13504E-07   DIIS = 7
+rms:    0.000000090424076
+polar1:    3.389229538971756
+polar2:    0.021671767081155
+response:   -3.053457526114135
+CCPERT_P_Z Iteration  25: pseudoresponse = -6.821802612105824   dE =  5.62482E-08   DIIS = 7
+
+CCPERT_P_Z has converged in 0.056 seconds!
+
+solving left hand perturbed amplitudes for L_Z
+
+polar1:   -1.638829369587154
+polar2:   -0.077771985789242
+response:    1.574863408872272
+CCPERT_L_Z Iteration   0: pseudoresponse = 3.433202710752792   dE = -3.43320E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+rms:    1.568184616352279
+polar1:   -0.129785649056818
+polar2:   -0.057006533353883
+response:    0.130854373548979
+CCPERT_L_Z Iteration   1: pseudoresponse = 0.373584364821403   dE = -3.05962E+00   DIIS = 0
+rms:    0.838353957521685
+polar1:    0.565282522153571
+polar2:   -0.023142252535790
+response:   -0.537005521007770
+CCPERT_L_Z Iteration   2: pseudoresponse = -1.084280539235561   dE = -1.45786E+00   DIIS = 1
+rms:    0.358877608942775
+polar1:    1.254848082885788
+polar2:    0.025959252542594
+response:   -1.202454551414793
+CCPERT_L_Z Iteration   3: pseudoresponse = -2.561614670856763   dE = -1.47733E+00   DIIS = 2
+rms:    0.160912562273414
+polar1:    1.489914417134296
+polar2:    0.054553394500931
+response:   -1.429109183375260
+CCPERT_L_Z Iteration   4: pseudoresponse = -3.088935623270454   dE = -5.27321E-01   DIIS = 3
+rms:    0.056426921218073
+polar1:    1.618292418258892
+polar2:    0.070811134816013
+response:   -1.553239156742228
+CCPERT_L_Z Iteration   5: pseudoresponse = -3.378207106149810   dE = -2.89271E-01   DIIS = 4
+rms:    0.026891138925096
+polar1:    1.640288472353433
+polar2:    0.075407414611849
+response:   -1.574157160493032
+CCPERT_L_Z Iteration   6: pseudoresponse = -3.431391773930565   dE = -5.31847E-02   DIIS = 5
+rms:    0.013347542280146
+polar1:    1.649013554193651
+polar2:    0.077016344276670
+response:   -1.582374109455262
+CCPERT_L_Z Iteration   7: pseudoresponse = -3.452059796940641   dE = -2.06680E-02   DIIS = 6
+rms:    0.006450698060610
+polar1:    1.651777380743225
+polar2:    0.077647445058201
+response:   -1.584946779938959
+CCPERT_L_Z Iteration   8: pseudoresponse = -3.458849651602852   dE = -6.78985E-03   DIIS = 7
+rms:    0.003326297725976
+polar1:    1.652456274916205
+polar2:    0.077806969730564
+response:   -1.585561882916844
+CCPERT_L_Z Iteration   9: pseudoresponse = -3.460526489293539   dE = -1.67684E-03   DIIS = 7
+rms:    0.001413847873634
+polar1:    1.653096013841662
+polar2:    0.077934530442746
+response:   -1.586158667066907
+CCPERT_L_Z Iteration  10: pseudoresponse = -3.462061088568816   dE = -1.53460E-03   DIIS = 7
+rms:    0.000692362594385
+polar1:    1.653050705041517
+polar2:    0.077947565704484
+response:   -1.586114080445512
+CCPERT_L_Z Iteration  11: pseudoresponse = -3.461996541492002   dE =  6.45471E-05   DIIS = 7
+rms:    0.000415743643105
+polar1:    1.652980759950287
+polar2:    0.077951200350712
+response:   -1.586045504312527
+CCPERT_L_Z Iteration  12: pseudoresponse = -3.461863920602000   dE =  1.32621E-04   DIIS = 7
+rms:    0.000215953296658
+polar1:    1.652888636435451
+polar2:    0.077943333221566
+response:   -1.585958730838078
+CCPERT_L_Z Iteration  13: pseudoresponse = -3.461663939314034   dE =  1.99981E-04   DIIS = 7
+rms:    0.000108089637401
+polar1:    1.652826151421390
+polar2:    0.077936881590171
+response:   -1.585899532417497
+CCPERT_L_Z Iteration  14: pseudoresponse = -3.461526066023123   dE =  1.37873E-04   DIIS = 7
+rms:    0.000061106552036
+polar1:    1.652808442301117
+polar2:    0.077934917966695
+response:   -1.585882778512833
+CCPERT_L_Z Iteration  15: pseudoresponse = -3.461486720535623   dE =  3.93455E-05   DIIS = 7
+rms:    0.000030419035598
+polar1:    1.652796846009266
+polar2:    0.077932915206516
+response:   -1.585871918641114
+CCPERT_L_Z Iteration  16: pseudoresponse = -3.461459522431565   dE =  2.71981E-05   DIIS = 7
+rms:    0.000015890598929
+polar1:    1.652792385936575
+polar2:    0.077932015544310
+response:   -1.585867718810317
+CCPERT_L_Z Iteration  17: pseudoresponse = -3.461448802961770   dE =  1.07195E-05   DIIS = 7
+rms:    0.000008085246898
+polar1:    1.652791279483136
+polar2:    0.077931497342124
+response:   -1.585866682063786
+CCPERT_L_Z Iteration  18: pseudoresponse = -3.461445553650520   dE =  3.24931E-06   DIIS = 7
+rms:    0.000003937263552
+polar1:    1.652790519862093
+polar2:    0.077931116450006
+response:   -1.585865949278420
+CCPERT_L_Z Iteration  19: pseudoresponse = -3.461443272624199   dE =  2.28103E-06   DIIS = 7
+rms:    0.000002200798664
+polar1:    1.652790236828791
+polar2:    0.077930936989549
+response:   -1.585865663722423
+CCPERT_L_Z Iteration  20: pseudoresponse = -3.461442347636680   dE =  9.24988E-07   DIIS = 7
+rms:    0.000001158237788
+polar1:    1.652790071022214
+polar2:    0.077930817556224
+response:   -1.585865496612503
+CCPERT_L_Z Iteration  21: pseudoresponse = -3.461441777156876   dE =  5.70480E-07   DIIS = 7
+rms:    0.000000606137507
+polar1:    1.652789947886894
+polar2:    0.077930772359841
+response:   -1.585865371523779
+CCPERT_L_Z Iteration  22: pseudoresponse = -3.461441440493470   dE =  3.36663E-07   DIIS = 7
+rms:    0.000000350010782
+polar1:    1.652789904422425
+polar2:    0.077930758383355
+response:   -1.585865326890795
+CCPERT_L_Z Iteration  23: pseudoresponse = -3.461441325611561   dE =  1.14882E-07   DIIS = 7
+rms:    0.000000211205559
+polar1:    1.652789884392139
+polar2:    0.077930753121728
+response:   -1.585865306291768
+CCPERT_L_Z Iteration  24: pseudoresponse = -3.461441275027733   dE =  5.05838E-08   DIIS = 7
+rms:    0.000000128606000
+polar1:    1.652789882043991
+polar2:    0.077930752232829
+response:   -1.585865303224213
+CCPERT_L_Z Iteration  25: pseudoresponse = -3.461441268553640   dE =  6.47409E-09   DIIS = 7
+rms:    0.000000071551027
+polar1:    1.652789887990396
+polar2:    0.077930751885408
+response:   -1.585865308722054
+CCPERT_L_Z Iteration  26: pseudoresponse = -3.461441279751608   dE = -1.11980E-08   DIIS = 7
+
+CCPERT_L_Z has converged in 0.059 seconds!
+
+ Calculating rotation tensor from linear response function: Z 
+
+
+ optrot_PL_0 =   -1.023728274596306 
+
+
+ optrot_LP_0 =   -1.023728221400577 
+
+
+ optrot_PP_0 =   -3.072795465131350 
+
+
+ optrot_LL_0 =   -1.665999892637135 
+
+
+ optrot_response_0 =   -1.023728247998442 CCSD 
+
+1/3 * Traces of each linear response function @ omega: 0
+
+ trace_3_optrot_PL_0 =   -0.001214044835701 
+
+
+ trace_3_optrot_LP_0 =   -0.001214041949314 
+
+
+ trace_3_optrot_PP_0 =   -2.117641714212871 
+
+
+ trace_3_optrot_LL_0 =   -1.753364412506101 
+
+
+ trace_3_actual_optrot_0 =   -0.001214043392508 
+
