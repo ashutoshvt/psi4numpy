@@ -316,6 +316,36 @@ class helper_localize(object):
                 Z2[pair_idx][ab] = 0
         return Z2
 
+    def local_filter_T1(self,Z1):
+        # Make list of significant diagonal pairs
+        self.diag_pairs = []
+        for ij in range(self.spairs):
+            pair_idx = self.pair_list_[ij]
+            i = pair_idx/occ
+            j = pair_idx%occ
+            if i == j:
+                self.diag_pairs.append(ij)
+        for ii in range(self.diag_pairs):
+            diag_idx = self.diag_pairs[ii]
+            pair_idx = self.pair_list_[diag_idx]
+            i = pair_idx/occ
+            ldim = self.dim_[pair_idx]
+            # To PNO/OSV basis
+            t1tilde = self.Q_[diag_idx].T.dot(Z1[i])
+            # To semi - can.basis
+            t1bar = self.L_[diag_idx].dot(t1tilde)
+            # Apply energy denominators
+            for a in range(ldim):
+                t1bar[a] /= self.F[i][i] - self.eps_vir_[a]
+            # Back to PNO basis
+            t1tilde = self.L_[diag_idx].dot(t1bar)
+            # Back to PNO basis
+            Z1[i] = self.Q_[diag_idx].dot(t1tilde)
+        return Z1
+
+
+
+
 
 
 
