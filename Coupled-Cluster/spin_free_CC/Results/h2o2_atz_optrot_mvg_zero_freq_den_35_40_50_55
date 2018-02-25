@@ -1,0 +1,2799 @@
+  Threads set to 24 by Python driver.
+Computing RHF reference.
+RHF Final Energy                           -150.8359331241
+
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 138 basis functions.
+Building initial guess...
+
+..initialized CCSD in 31.650 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.531943242424023   dE =  5.31943E-01   MP2
+CCSD Iteration   1: CCSD correlation = -0.524873726729164   dE =  7.06952E-03   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.537552929184952   dE = -1.26792E-02   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.537443037792958   dE =  1.09891E-04   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.538654131070240   dE = -1.21109E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.538758444414344   dE = -1.04313E-04   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.538762081957907   dE = -3.63754E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.538763858647813   dE = -1.77669E-06   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.538764180813393   dE = -3.22166E-07   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.538764386392713   dE = -2.05579E-07   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.538764550807366   dE = -1.64415E-07   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.538764588421489   dE = -3.76141E-08   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.538764506549188   dE =  8.18723E-08   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.538764485074624   dE =  2.14746E-08   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.538764472835285   dE =  1.22393E-08   DIIS = 7
+CCSD Iteration  15: CCSD correlation = -0.538764469183610   dE =  3.65167E-09   DIIS = 7
+
+CCSD has converged in 51.077 seconds!
+
+Final CCSD correlation energy:          -0.538764469183610
+
+Final CCSD correlation energy:          -0.538764469183610
+Total CCSD energy:                      -151.374697593310373
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.538824141914579   dE =  5.38824E-01   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.525765538625223   dE =  1.30586E-02   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.525074609773884   dE =  6.90929E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.524879011418494   dE =  1.95598E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.524781460395375   dE =  9.75510E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.524759160933523   dE =  2.22995E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.524756444559040   dE =  2.71637E-06   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.524757157174854   dE = -7.12616E-07   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.524757202369674   dE = -4.51948E-08   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.524757112228853   dE =  9.01408E-08   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.524757124459100   dE = -1.22302E-08   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.524757130699316   dE = -6.24022E-09   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.524757125645668   dE =  5.05365E-09   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.524757132256607   dE = -6.61094E-09   DIIS = 7
+CCLAMBDA Iteration  14: pseudoenergy = -0.524757133085245   dE = -8.28639E-10   DIIS = 7
+CCLAMBDA Iteration  15: pseudoenergy = -0.524757133683192   dE = -5.97946E-10   DIIS = 7
+
+CCLAMBDA has converged in 12.372 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.569018938225069   dE = -1.35690E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 15.387298997553410   dE =  1.81828E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 16.210106604860599   dE =  8.22808E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 16.726684246592352   dE =  5.16578E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 16.800224758103653   dE =  7.35405E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 16.821834069599088   dE =  2.16093E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 16.827403234424217   dE =  5.56916E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 16.828992326457769   dE =  1.58909E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 16.829885752222516   dE =  8.93426E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 16.830353944619088   dE =  4.68192E-04   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 16.830438310986430   dE =  8.43664E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 16.830423539836303   dE = -1.47712E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 16.830405724590346   dE = -1.78152E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 16.830412618218599   dE =  6.89363E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 16.830431246944137   dE =  1.86287E-05   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 16.830440569245486   dE =  9.32230E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 16.830444744774510   dE =  4.17553E-06   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 16.830446340203952   dE =  1.59543E-06   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 16.830446552699581   dE =  2.12496E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = 16.830446779527918   dE =  2.26828E-07   DIIS = 7
+CCPERT_P_X Iteration  20: pseudoresponse = 16.830446872832479   dE =  9.33046E-08   DIIS = 7
+
+CCPERT_P_X has converged in 41.742 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.677868321729473   dE = -6.67787E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 8.410801835048913   dE =  1.73293E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 9.376585469976741   dE =  9.65784E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 10.597915884157443   dE =  1.22133E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 10.745620485151575   dE =  1.47705E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 10.832709791594759   dE =  8.70893E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 10.848030154465638   dE =  1.53204E-02   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 10.848392176826941   dE =  3.62022E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 10.850129503034761   dE =  1.73733E-03   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 10.850836786732138   dE =  7.07284E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 10.851174968096172   dE =  3.38181E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 10.851076497701932   dE = -9.84704E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 10.850905695321973   dE = -1.70802E-04   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 10.850889095115468   dE = -1.66002E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 10.850911347070801   dE =  2.22520E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 10.850938945986908   dE =  2.75989E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 10.850953299799917   dE =  1.43538E-05   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 10.850959904450452   dE =  6.60465E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 10.850960588602973   dE =  6.84153E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = 10.850960979717595   dE =  3.91115E-07   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = 10.850960899853947   dE = -7.98636E-08   DIIS = 7
+
+CCPERT_L_X has converged in 37.142 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -28.926709373824334   dE =  2.89267E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -31.604498851203950   dE = -2.67779E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -32.899276613484268   dE = -1.29478E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -33.221929913601826   dE = -3.22653E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -33.379000779276765   dE = -1.57071E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -33.390475456992945   dE = -1.14747E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -33.389959908849349   dE =  5.15548E-04   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -33.390359699952057   dE = -3.99791E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -33.390610080423428   dE = -2.50380E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -33.390665805902763   dE = -5.57255E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -33.390719642485998   dE = -5.38366E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -33.390706865588612   dE =  1.27769E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -33.390700241283824   dE =  6.62430E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -33.390695478253292   dE =  4.76303E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -33.390693801890748   dE =  1.67636E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -33.390693153599990   dE =  6.48291E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -33.390693003266996   dE =  1.50333E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -33.390692963852331   dE =  3.94147E-08   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -33.390692942437582   dE =  2.14147E-08   DIIS = 7
+
+CCPERT_P_X has converged in 28.815 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -13.634332854013151   dE =  1.36343E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.248248493310282   dE = -2.61392E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -17.518006522060066   dE = -1.26976E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -18.190253478583053   dE = -6.72247E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -18.487792836464862   dE = -2.97539E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -18.523159305034046   dE = -3.53665E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -18.524549928282173   dE = -1.39062E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -18.525441122799656   dE = -8.91195E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -18.525864931840900   dE = -4.23809E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -18.525976076913970   dE = -1.11145E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -18.526099566012974   dE = -1.23489E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -18.526050801906283   dE =  4.87641E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -18.526030614503863   dE =  2.01874E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -18.526013772546605   dE =  1.68420E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -18.526005811116871   dE =  7.96143E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -18.526002516180228   dE =  3.29494E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -18.526001606123941   dE =  9.10056E-07   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -18.526001389417203   dE =  2.16707E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -18.526001332424947   dE =  5.69923E-08   DIIS = 7
+
+CCPERT_L_X has converged in 28.517 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.094898477377741   dE = -1.30949E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 14.755547242457965   dE =  1.66065E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 15.467657633855669   dE =  7.12110E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 15.869622994749683   dE =  4.01965E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 15.918244405397347   dE =  4.86214E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 15.928071215877745   dE =  9.82681E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 15.930221826291058   dE =  2.15061E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 15.930621720461277   dE =  3.99894E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 15.930874180594449   dE =  2.52460E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 15.930996926197924   dE =  1.22746E-04   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 15.931005836642147   dE =  8.91044E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 15.930994056551004   dE = -1.17801E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 15.930989123212743   dE = -4.93334E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 15.930989926319155   dE =  8.03106E-07   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 15.930992902696097   dE =  2.97638E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 15.930994249218500   dE =  1.34652E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 15.930994759435174   dE =  5.10217E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 15.930994928343171   dE =  1.68908E-07   DIIS = 7
+
+CCPERT_P_X has converged in 29.984 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.370364093541012   dE = -6.37036E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 7.902049835769453   dE =  1.53169E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 8.697077559131655   dE =  7.95028E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 9.563053355356674   dE =  8.65976E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 9.638918942529470   dE =  7.58656E-02   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 9.677387331167230   dE =  3.84684E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 9.683072543722357   dE =  5.68521E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 9.682854457032109   dE = -2.18087E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 9.683415228393224   dE =  5.60771E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 9.683580972503123   dE =  1.65744E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 9.683641157760610   dE =  6.01853E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 9.683591943035905   dE = -4.92147E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 9.683553867381566   dE = -3.80757E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 9.683548151598250   dE = -5.71578E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 9.683550581378146   dE =  2.42978E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 9.683554088035949   dE =  3.50666E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 9.683555702193898   dE =  1.61416E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 9.683556314899162   dE =  6.12705E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 9.683556377976089   dE =  6.30769E-08   DIIS = 7
+
+CCPERT_L_X has converged in 30.583 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -27.756796206892748   dE =  2.77568E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -32.077783240023017   dE = -4.32099E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -33.701198979683880   dE = -1.62342E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -34.551347492943357   dE = -8.50149E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -34.732235047304741   dE = -1.80888E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -34.750563192634296   dE = -1.83281E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -34.752453377438144   dE = -1.89018E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -34.754709476793181   dE = -2.25610E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -34.755189544066610   dE = -4.80067E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -34.755283814404308   dE = -9.42703E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -34.755301014458368   dE = -1.72001E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -34.755324626234334   dE = -2.36118E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -34.755351651661528   dE = -2.70254E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -34.755363555298658   dE = -1.19036E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -34.755368731554732   dE = -5.17626E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -34.755370574419459   dE = -1.84286E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -34.755371423326146   dE = -8.48907E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -34.755371834043430   dE = -4.10717E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -34.755371972841616   dE = -1.38798E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = -34.755372030000686   dE = -5.71591E-08   DIIS = 7
+
+CCPERT_P_X has converged in 29.512 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -12.971104809902899   dE =  1.29711E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.410935326015441   dE = -3.43983E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -18.074832447218665   dE = -1.66390E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -19.695548142511338   dE = -1.62072E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -20.043762559869077   dE = -3.48214E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -20.113458176889512   dE = -6.96956E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -20.117595331623541   dE = -4.13715E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -20.121491019575323   dE = -3.89569E-03   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -20.122472852633333   dE = -9.81833E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -20.122543150014273   dE = -7.02974E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -20.122381003936251   dE =  1.62146E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -20.122411816886817   dE = -3.08130E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -20.122500016955520   dE = -8.82001E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -20.122556997441212   dE = -5.69805E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -20.122589198038092   dE = -3.22006E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -20.122603558978160   dE = -1.43609E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -20.122608007964210   dE = -4.44899E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -20.122609417225583   dE = -1.40926E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -20.122609790340793   dE = -3.73115E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = -20.122609885511675   dE = -9.51709E-08   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = -20.122609905285827   dE = -1.97742E-08   DIIS = 7
+
+CCPERT_L_X has converged in 30.281 seconds!
+
+ Calculating rotation tensor from linear response function:
+
+
+ optrot_response P*L (0.07735713394560646) =    0.044507659096088 
+
+
+ optrot_response L*P (0.07735713394560646) =    0.046294356436939 
+
+
+ optrot_response velocity gauge (0.07735713394560646)=    0.045401007766514 
+
+
+ optrot_response P*L (0) =    0.040523866964722 
+
+
+ optrot_response L*P (0) =    0.040523871594035 
+
+
+ optrot_response (0)=    0.040523869279378 
+
+
+ optrot_response Modified velocity gauge (0.07735713394560646):    0.004877138487135
+
+
+ Printing sorted eigenvalues
+
+-0.247815379615
+-0.220266180507
+0.194223977738
+0.141919426617
+0.0199008494199
+0.00125883313848
+-0.000471659742503
+-0.000244260292782
+-0.000232269404449
+
+ Printing sorted eigenvalues
+
+0.455992365834
+0.398671344838
+-0.394798279553
+-0.356306807687
+-0.0696503802544
+0.0677066258493
+0.0440756415727
+-0.0359806393186
+-0.0335558000199
+0.0309902165395
+0.0278464372891
+-0.0248639455357
+-0.0196356694258
+0.0191631490344
+0.00283795091556
+-0.00275900488176
+0.00256247463332
+-0.00211109496477
+-0.00201972915887
+0.00189805924297
+0.0017184694494
+0.00169599479157
+-0.00163825984929
+-0.00149843230611
+0.000874030700681
+0.000792774239189
+-0.000663389737199
+0.000645834549365
+-0.000623919068364
+0.000534547883396
+-0.000512290605709
+-0.000444633364404
+0.000397521793702
+-0.000317715832922
+0.000309815017756
+0.000260355707759
+-0.000249785904417
+0.000223645478374
+0.000217651220248
+-0.00021056176438
+-0.000197508170241
+0.000195060467152
+0.000157714553552
+-0.000130941098676
+-0.000126132000641
+0.00012289603981
+-0.000113164735836
+0.000109517887939
+-9.81043911758e-05
+9.64796808805e-05
+-9.07266933162e-05
+8.94577973585e-05
+8.91002568902e-05
+7.12482541437e-05
+6.80084104358e-05
+-6.31593402594e-05
+-6.13069190839e-05
+-5.7906554953e-05
+-5.29543372142e-05
+4.48501484009e-05
+4.32162446055e-05
+3.90801197785e-05
+3.81323497901e-05
+-3.81171158467e-05
+-3.34134849908e-05
+3.14621877884e-05
+-2.69289711022e-05
+2.67668200867e-05
+2.20389741283e-05
+-2.10115765258e-05
+2.06699319872e-05
+-2.05661724426e-05
+1.9063391007e-05
+1.7785372818e-05
+-1.73331275298e-05
+-1.6551660072e-05
+-1.56310915626e-05
+1.46565583297e-05
+-1.43958745877e-05
+1.31840784051e-05
+-1.22885293207e-05
+1.15409371807e-05
+1.07858483918e-05
+-1.06144837205e-05
+-1.04854141591e-05
+-9.28643760397e-06
+8.36765766132e-06
+8.23455961804e-06
+-8.22304608318e-06
+-7.67984104849e-06
+7.5272880296e-06
+7.2242977545e-06
+6.47122197563e-06
+5.77293364378e-06
+5.48233738507e-06
+-4.87092160131e-06
+4.64184310797e-06
+4.23437708443e-06
+-4.02428124149e-06
+3.84808030922e-06
+3.5775962576e-06
+-3.26123366633e-06
+-3.20495570936e-06
+2.5709228329e-06
+-2.38844619644e-06
+-2.28325197908e-06
+2.24784581485e-06
+2.2356103976e-06
+-2.16367702867e-06
+1.90227668601e-06
+-1.56660713982e-06
+-1.56300343603e-06
+1.46486478355e-06
+1.43668612971e-06
+1.19114241851e-06
+9.33066944346e-07
+-6.26633422315e-07
+5.55946077009e-07
+-5.29343270987e-07
+-5.09836494597e-07
+4.1956745731e-07
+3.39070011647e-07
+2.41718623346e-07
+-2.13313353741e-07
+-1.7341556597e-07
+1.70782153636e-07
+1.26216428463e-07
+-6.28552388404e-08
+3.39235717022e-08
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 138 basis functions.
+Building initial guess...
+
+..initialized CCSD in 30.301 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.502974134931514   dE =  5.02974E-01   MP2
+CCSD Iteration   1: CCSD correlation = -0.497641313690136   dE =  5.33282E-03   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.509544426422584   dE = -1.19031E-02   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.509649413633330   dE = -1.04987E-04   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.510825784607792   dE = -1.17637E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.510904447845562   dE = -7.86632E-05   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.510909945058504   dE = -5.49721E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.510911654055062   dE = -1.70900E-06   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.510911632883852   dE =  2.11712E-08   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.510911944084372   dE = -3.11201E-07   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.510912026529330   dE = -8.24450E-08   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.510911922622461   dE =  1.03907E-07   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.510911925048960   dE = -2.42650E-09   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.510911912453402   dE =  1.25956E-08   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.510911912160051   dE =  2.93350E-10   DIIS = 7
+
+CCSD has converged in 38.220 seconds!
+
+Final CCSD correlation energy:          -0.510911912160051
+
+Final CCSD correlation energy:          -0.510911912160051
+Total CCSD energy:                      -151.346845036286823
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.510966590722106   dE =  5.10967E-01   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.498602788390773   dE =  1.23638E-02   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.497895796659499   dE =  7.06992E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.497696628453372   dE =  1.99168E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.497603826650737   dE =  9.28018E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.497583259367919   dE =  2.05673E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.497580416532726   dE =  2.84284E-06   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.497580932057582   dE = -5.15525E-07   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.497580812805302   dE =  1.19252E-07   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.497580809595285   dE =  3.21002E-09   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.497580835974386   dE = -2.63791E-08   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.497580834196440   dE =  1.77795E-09   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.497580834269791   dE = -7.33515E-11   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.497580836542300   dE = -2.27251E-09   DIIS = 7
+CCLAMBDA Iteration  14: pseudoenergy = -0.497580835500754   dE =  1.04155E-09   DIIS = 7
+
+CCLAMBDA has converged in 9.425 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.562141207547114   dE = -1.35621E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 15.392327818567459   dE =  1.83019E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 16.209678660414177   dE =  8.17351E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 16.737751150262248   dE =  5.28072E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 16.806242377764615   dE =  6.84912E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 16.825879907678864   dE =  1.96375E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 16.829922082309416   dE =  4.04217E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 16.830785834075908   dE =  8.63752E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 16.831648685061115   dE =  8.62851E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 16.831823239281878   dE =  1.74554E-04   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 16.831838927053830   dE =  1.56878E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 16.831821799762853   dE = -1.71273E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 16.831834068368760   dE =  1.22686E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 16.831851014824906   dE =  1.69465E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 16.831864617273759   dE =  1.36024E-05   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 16.831869748126390   dE =  5.13085E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 16.831872158191572   dE =  2.41007E-06   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 16.831872907505989   dE =  7.49314E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 16.831873432227201   dE =  5.24721E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = 16.831873588066429   dE =  1.55839E-07   DIIS = 7
+CCPERT_P_X Iteration  20: pseudoresponse = 16.831873611085431   dE =  2.30190E-08   DIIS = 7
+
+CCPERT_P_X has converged in 32.554 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.660508861430074   dE = -6.66051E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 8.399278225003016   dE =  1.73877E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 9.361581149076811   dE =  9.62303E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 10.596462831286688   dE =  1.23488E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 10.735770817398670   dE =  1.39308E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 10.822764040401568   dE =  8.69932E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 10.834806789850173   dE =  1.20427E-02   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 10.835181268145407   dE =  3.74478E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 10.837054782365504   dE =  1.87351E-03   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 10.837369476878655   dE =  3.14695E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 10.837434429378362   dE =  6.49525E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 10.837401621408725   dE = -3.28080E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 10.837406444279344   dE =  4.82287E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 10.837436554829068   dE =  3.01105E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 10.837466984566930   dE =  3.04297E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 10.837484889592259   dE =  1.79050E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 10.837494964586138   dE =  1.00750E-05   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 10.837498605911090   dE =  3.64132E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 10.837500505279440   dE =  1.89937E-06   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = 10.837501268020006   dE =  7.62741E-07   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = 10.837501371729084   dE =  1.03709E-07   DIIS = 7
+CCPERT_L_X Iteration  21: pseudoresponse = 10.837501296602568   dE = -7.51265E-08   DIIS = 7
+
+CCPERT_L_X has converged in 38.923 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -28.907273659071642   dE =  2.89073E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -31.614585526820154   dE = -2.70731E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -32.890258550229504   dE = -1.27567E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -33.224322411143085   dE = -3.34064E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -33.378546637041843   dE = -1.54224E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -33.388104459989179   dE = -9.55782E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -33.387751790236955   dE =  3.52670E-04   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -33.388198907494832   dE = -4.47117E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -33.388382632321466   dE = -1.83725E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -33.388406047246136   dE = -2.34149E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -33.388435369999378   dE = -2.93228E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -33.388421107331418   dE =  1.42627E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -33.388420510323449   dE =  5.97008E-07   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -33.388418736528969   dE =  1.77379E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -33.388418543375543   dE =  1.93153E-07   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -33.388418449271001   dE =  9.41045E-08   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -33.388418397795419   dE =  5.14756E-08   DIIS = 7
+
+CCPERT_P_X has converged in 28.113 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -13.598421150867587   dE =  1.35984E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.229425702629946   dE = -2.63100E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -17.488949942792289   dE = -1.25952E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -18.181799701674077   dE = -6.92850E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -18.467087013504766   dE = -2.85287E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -18.500539971620871   dE = -3.34530E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -18.501559087338947   dE = -1.01912E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -18.502476552910874   dE = -9.17466E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -18.502893065289676   dE = -4.16512E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -18.502925963973571   dE = -3.28987E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -18.502983421596838   dE = -5.74576E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -18.502942780130290   dE =  4.06415E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -18.502939604641799   dE =  3.17549E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -18.502935117680718   dE =  4.48696E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -18.502933810691417   dE =  1.30699E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -18.502933387099336   dE =  4.23592E-07   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -18.502933132348673   dE =  2.54751E-07   DIIS = 7
+
+CCPERT_L_X has converged in 34.676 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.088058206980406   dE = -1.30881E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 14.758748100148317   dE =  1.67069E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 15.465078879913484   dE =  7.06331E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 15.874536201301877   dE =  4.09457E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 15.920339594211031   dE =  4.58034E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 15.929856891934604   dE =  9.51730E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 15.931570060536268   dE =  1.71317E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 15.931795970231169   dE =  2.25910E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 15.932061080105564   dE =  2.65110E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 15.932111479502682   dE =  5.03994E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 15.932107685211873   dE = -3.79429E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 15.932101215165300   dE = -6.47005E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 15.932103464453393   dE =  2.24929E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 15.932107232173731   dE =  3.76772E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 15.932109977030981   dE =  2.74486E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 15.932110892719614   dE =  9.15689E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 15.932111245810798   dE =  3.53091E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 15.932111337923805   dE =  9.21130E-08   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 15.932111392002813   dE =  5.40790E-08   DIIS = 7
+
+CCPERT_P_X has converged in 38.752 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.354308783273805   dE = -6.35431E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 7.891214042414246   dE =  1.53691E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 8.683107149725423   dE =  7.91893E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 9.556745017374528   dE =  8.73638E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 9.628531325250535   dE =  7.17863E-02   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 9.667336941637725   dE =  3.88056E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 9.671910154808817   dE =  4.57321E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 9.671761218067987   dE = -1.48937E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 9.672360931064881   dE =  5.99713E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 9.672425165889376   dE =  6.42348E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 9.672430540395597   dE =  5.37451E-06   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 9.672410801188246   dE = -1.97392E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 9.672407475107642   dE = -3.32608E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 9.672412732663426   dE =  5.25756E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 9.672418467663904   dE =  5.73500E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 9.672421331393634   dE =  2.86373E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 9.672422641921694   dE =  1.31053E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 9.672423017544510   dE =  3.75623E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 9.672423151648355   dE =  1.34104E-07   DIIS = 7
+
+CCPERT_L_X has converged in 37.249 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -27.738250740892951   dE =  2.77383E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -32.079015834118621   dE = -4.34077E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -33.690963014294987   dE = -1.61195E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -34.554565866469140   dE = -8.63603E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -34.734181363904447   dE = -1.79615E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -34.749699299764693   dE = -1.55179E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -34.751477952237416   dE = -1.77865E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -34.753269819855646   dE = -1.79187E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -34.753629880234058   dE = -3.60060E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -34.753723746534980   dE = -9.38663E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -34.753675555587357   dE =  4.81909E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -34.753702959759103   dE = -2.74042E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -34.753726108408500   dE = -2.31486E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -34.753738047291414   dE = -1.19389E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -34.753742414692553   dE = -4.36740E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -34.753743880034804   dE = -1.46534E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -34.753744521955895   dE = -6.41921E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -34.753744809069040   dE = -2.87113E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -34.753744915879487   dE = -1.06810E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = -34.753744939692709   dE = -2.38132E-08   DIIS = 7
+
+CCPERT_P_X has converged in 37.404 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -12.938184003928658   dE =  1.29382E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.387159247584549   dE = -3.44898E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -18.045062358876478   dE = -1.65790E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -19.686262612189942   dE = -1.64120E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -20.026017262708081   dE = -3.39755E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -20.090297657493185   dE = -6.42804E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -20.094471270395719   dE = -4.17361E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -20.097984910432032   dE = -3.51364E-03   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -20.098841984639371   dE = -8.57074E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -20.098961085892913   dE = -1.19101E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -20.098760482545298   dE =  2.00603E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -20.098823991389015   dE = -6.35088E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -20.098893277732049   dE = -6.92863E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -20.098936661414498   dE = -4.33837E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -20.098960381879017   dE = -2.37205E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -20.098968355788568   dE = -7.97391E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -20.098970969726480   dE = -2.61394E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -20.098972121379926   dE = -1.15165E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -20.098972422047090   dE = -3.00667E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = -20.098972488728947   dE = -6.66819E-08   DIIS = 7
+
+CCPERT_L_X has converged in 34.713 seconds!
+
+ Calculating rotation tensor from linear response function:
+
+
+ optrot_response P*L (0.07735713394560646) =    0.044443796962656 
+
+
+ optrot_response L*P (0.07735713394560646) =    0.046163314133772 
+
+
+ optrot_response velocity gauge (0.07735713394560646)=    0.045303555548214 
+
+
+ optrot_response P*L (0) =    0.040683984408915 
+
+
+ optrot_response L*P (0) =    0.040683992601971 
+
+
+ optrot_response (0)=    0.040683988505443 
+
+
+ optrot_response Modified velocity gauge (0.07735713394560646):    0.004619567042771
+
+
+ Printing sorted eigenvalues
+
+-0.24773033372
+-0.220909607683
+0.19411853805
+0.142518142227
+0.0200318465634
+0.00125182908023
+-0.000467964760137
+-0.000243179425042
+-0.000231542256302
+
+ Printing sorted eigenvalues
+
+0.456628164387
+0.399078996316
+-0.395726536055
+-0.356613113365
+-0.0696057556561
+0.0672948431273
+0.0443019620007
+-0.0359785020179
+-0.0333910824764
+0.0310022187286
+0.0278147004662
+-0.0247551943001
+-0.0196294701426
+0.0191612969625
+0.00284865299006
+-0.0027331465205
+0.0025508029713
+-0.00210230891175
+-0.00202151434823
+0.00190243685591
+0.00171578281392
+0.00169069011102
+-0.00164165177146
+-0.0015008676646
+0.000869008188736
+0.000797401808177
+-0.000665499601874
+0.000636058259893
+-0.000613699245122
+0.0005308883896
+-0.000505847707058
+-0.000441528726826
+0.00040044661471
+-0.00031045149356
+0.000304641719834
+0.00025632665187
+-0.000248650832175
+0.000215117927143
+-0.000213940852585
+0.000207535432893
+0.000195911270992
+-0.000191556562011
+0.000160350321761
+-0.000132800304951
+-0.000126560087832
+0.000125065501654
+-0.000110609126392
+0.000108447528549
+-9.68756865241e-05
+9.60155410598e-05
+-9.04899353901e-05
+8.49552868322e-05
+8.41098046553e-05
+7.04688317534e-05
+6.71927873422e-05
+-6.33854382173e-05
+-6.09352059709e-05
+-5.68557338495e-05
+-5.09698231205e-05
+4.67069909646e-05
+4.47899597938e-05
+3.82173161191e-05
+3.72824887662e-05
+-3.34765310835e-05
+-2.98620965673e-05
+2.9538583829e-05
+2.62823393016e-05
+-2.57845639322e-05
+-2.0911236762e-05
+2.072148117e-05
+1.88815160338e-05
+-1.87653679899e-05
+1.79959170111e-05
+-1.75061411405e-05
+1.69947506768e-05
+-1.48700783738e-05
+-1.45282442534e-05
+1.44259785741e-05
+-1.30484684252e-05
+1.28202959396e-05
+-1.07640740267e-05
+-9.92323740098e-06
+9.9157475076e-06
+9.75436316775e-06
+-8.90731381268e-06
+-7.83763812273e-06
+-7.69086353376e-06
+7.58008225076e-06
+7.54842831687e-06
+-7.44247750677e-06
+6.61419984191e-06
+6.31400828131e-06
+5.60125313062e-06
+4.91455076846e-06
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 138 basis functions.
+Building initial guess...
+
+..initialized CCSD in 31.231 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.495990907224600   dE =  4.95991E-01   MP2
+CCSD Iteration   1: CCSD correlation = -0.491327489087666   dE =  4.66342E-03   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.503015053594403   dE = -1.16876E-02   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.503157658019717   dE = -1.42604E-04   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.504309946405537   dE = -1.15229E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.504384846280912   dE = -7.48999E-05   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.504390207568294   dE = -5.36129E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.504391695619587   dE = -1.48805E-06   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.504391635823697   dE =  5.97959E-08   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.504391922244451   dE = -2.86421E-07   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.504391989236319   dE = -6.69919E-08   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.504391892678485   dE =  9.65578E-08   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.504391896817616   dE = -4.13913E-09   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.504391886852910   dE =  9.96471E-09   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.504391886689631   dE =  1.63278E-10   DIIS = 7
+
+CCSD has converged in 48.634 seconds!
+
+Final CCSD correlation energy:          -0.504391886689631
+
+Final CCSD correlation energy:          -0.504391886689631
+Total CCSD energy:                      -151.340325010816400
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.504447016035970   dE =  5.04447E-01   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.492361640437772   dE =  1.20854E-02   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.491634058601775   dE =  7.27582E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.491439894312269   dE =  1.94164E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.491346780741656   dE =  9.31136E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.491326240113156   dE =  2.05406E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.491323538700865   dE =  2.70141E-06   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.491324008174924   dE = -4.69474E-07   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.491323896632820   dE =  1.11542E-07   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.491323897399363   dE = -7.66544E-10   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.491323920527798   dE = -2.31284E-08   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.491323919873386   dE =  6.54412E-10   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.491323920013966   dE = -1.40580E-10   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.491323921838531   dE = -1.82457E-09   DIIS = 7
+CCLAMBDA Iteration  14: pseudoenergy = -0.491323920877909   dE =  9.60622E-10   DIIS = 7
+
+CCLAMBDA has converged in 11.299 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.561193463565829   dE = -1.35612E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 15.393259882908133   dE =  1.83207E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 16.209564848413486   dE =  8.16305E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 16.738623661215914   dE =  5.29059E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 16.805782818241919   dE =  6.71592E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 16.824189662470427   dE =  1.84068E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 16.827985802164108   dE =  3.79614E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 16.828832227341969   dE =  8.46425E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 16.829611639484575   dE =  7.79412E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 16.829755277674078   dE =  1.43638E-04   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 16.829766478458989   dE =  1.12008E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 16.829751619316070   dE = -1.48591E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 16.829764677492118   dE =  1.30582E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 16.829780456962819   dE =  1.57795E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 16.829792418103921   dE =  1.19611E-05   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 16.829796796829882   dE =  4.37873E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 16.829798849851656   dE =  2.05302E-06   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 16.829799516205373   dE =  6.66354E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 16.829799972446189   dE =  4.56241E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = 16.829800102009319   dE =  1.29563E-07   DIIS = 7
+CCPERT_P_X Iteration  20: pseudoresponse = 16.829800116339182   dE =  1.43299E-08   DIIS = 7
+
+CCPERT_P_X has converged in 33.009 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.658231799984736   dE = -6.65823E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 8.398739663644001   dE =  1.74051E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 9.360208835666107   dE =  9.61469E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 10.598273921833387   dE =  1.23807E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 10.735324912284348   dE =  1.37051E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 10.821068945639301   dE =  8.57440E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 10.832483960998950   dE =  1.14150E-02   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 10.832742185821312   dE =  2.58225E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 10.834431706281039   dE =  1.68952E-03   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 10.834699756739536   dE =  2.68050E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 10.834744199799845   dE =  4.44431E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 10.834712454604219   dE = -3.17452E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 10.834719813952795   dE =  7.35935E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 10.834748906303396   dE =  2.90924E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 10.834777309951191   dE =  2.84036E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 10.834794362233389   dE =  1.70523E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 10.834804001430689   dE =  9.63920E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 10.834807237356801   dE =  3.23593E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 10.834808967608183   dE =  1.73025E-06   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = 10.834809615771032   dE =  6.48163E-07   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = 10.834809728258072   dE =  1.12487E-07   DIIS = 7
+CCPERT_L_X Iteration  21: pseudoresponse = 10.834809601151111   dE = -1.27107E-07   DIIS = 7
+
+CCPERT_L_X has converged in 41.836 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -28.906964037822540   dE =  2.89070E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -31.616197307700801   dE = -2.70923E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -32.887989651536351   dE = -1.27179E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -33.222334295788229   dE = -3.34345E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -33.375853554746953   dE = -1.53519E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -33.385083790393637   dE = -9.23024E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -33.384806253818297   dE =  2.77537E-04   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -33.385279922366216   dE = -4.73669E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -33.385468435369511   dE = -1.88513E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -33.385488763896795   dE = -2.03285E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -33.385515405436145   dE = -2.66415E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -33.385501687803433   dE =  1.37176E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -33.385501146670954   dE =  5.41132E-07   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -33.385499540534767   dE =  1.60614E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -33.385499390594312   dE =  1.49940E-07   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -33.385499308424045   dE =  8.21703E-08   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -33.385499259300047   dE =  4.91240E-08   DIIS = 7
+
+CCPERT_P_X has converged in 31.686 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -13.593522535295293   dE =  1.35935E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.228049648904886   dE = -2.63453E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -17.484448540878947   dE = -1.25640E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -18.180694927806162   dE = -6.96246E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -18.462548009953814   dE = -2.81853E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -18.495285093110745   dE = -3.27371E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -18.496072121387279   dE = -7.87028E-04   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -18.496875779420904   dE = -8.03658E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -18.497238984942811   dE = -3.63206E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -18.497263842093410   dE = -2.48572E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -18.497317743436824   dE = -5.39013E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -18.497281007679462   dE =  3.67358E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -18.497278236130768   dE =  2.77155E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -18.497274300332741   dE =  3.93580E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -18.497273188738479   dE =  1.11159E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -18.497272819302371   dE =  3.69436E-07   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -18.497272604227827   dE =  2.15075E-07   DIIS = 7
+
+CCPERT_L_X has converged in 34.736 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.086515732700539   dE = -1.30865E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 14.758617553628230   dE =  1.67210E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 15.463721497436504   dE =  7.05104E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 15.873781546936911   dE =  4.10060E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 15.918939368704244   dE =  4.51578E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 15.928072984300279   dE =  9.13362E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 15.929712241909060   dE =  1.63926E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 15.929946453555180   dE =  2.34212E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 15.930196959982485   dE =  2.50506E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 15.930239898728658   dE =  4.29387E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 15.930235843312509   dE = -4.05542E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 15.930230102992361   dE = -5.74032E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 15.930232692840304   dE =  2.58985E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 15.930236303924497   dE =  3.61108E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 15.930238812538771   dE =  2.50861E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 15.930239616516776   dE =  8.03978E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 15.930239917890523   dE =  3.01374E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 15.930240002858593   dE =  8.49681E-08   DIIS = 7
+
+CCPERT_P_X has converged in 32.345 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.352153478229412   dE = -6.35215E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 7.890466987751621   dE =  1.53831E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 8.681465111131374   dE =  7.90998E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 9.556664631474325   dE =  8.75200E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 9.627125427882332   dE =  7.04608E-02   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 9.665305956949549   dE =  3.81805E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 9.669587379931325   dE =  4.28142E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 9.669405704343967   dE = -1.81676E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 9.669944708207005   dE =  5.39004E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 9.670001370529210   dE =  5.66623E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 9.670004115095340   dE =  2.74457E-06   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 9.669986572735057   dE = -1.75424E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 9.669984291983559   dE = -2.28075E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 9.669989473087631   dE =  5.18110E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 9.669994907853503   dE =  5.43477E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 9.669997593095202   dE =  2.68524E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 9.669998845604921   dE =  1.25251E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 9.669999194845042   dE =  3.49240E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 9.669999321300118   dE =  1.26455E-07   DIIS = 7
+
+CCPERT_L_X has converged in 32.305 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -27.736609005697954   dE =  2.77366E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -32.079397680782797   dE = -4.34279E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -33.688579086257704   dE = -1.60918E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -34.553477725240207   dE = -8.64899E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -34.731946616207338   dE = -1.78469E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -34.746422137512496   dE = -1.44755E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -34.748140923713713   dE = -1.71879E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -34.749914589417571   dE = -1.77367E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -34.750257759327759   dE = -3.43170E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -34.750336853871751   dE = -7.90945E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -34.750286225969056   dE =  5.06279E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -34.750314177961705   dE = -2.79520E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -34.750337776117910   dE = -2.35982E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -34.750349559981473   dE = -1.17839E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -34.750353719127865   dE = -4.15915E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -34.750354917791952   dE = -1.19866E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -34.750355401143580   dE = -4.83352E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -34.750355635093463   dE = -2.33950E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -34.750355726661894   dE = -9.15684E-08   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = -34.750355746911467   dE = -2.02496E-08   DIIS = 7
+
+CCPERT_P_X has converged in 29.268 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -12.933625353519851   dE =  1.29336E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.384762538448125   dE = -3.45114E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -18.040835628601997   dE = -1.65607E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -19.685735689213470   dE = -1.64490E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -20.022840740797786   dE = -3.37105E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -20.085256404091613   dE = -6.24157E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -20.089004708465627   dE = -3.74830E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -20.092270016838484   dE = -3.26531E-03   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -20.092962170511214   dE = -6.92154E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -20.093053079916874   dE = -9.09094E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -20.092862725233122   dE =  1.90355E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -20.092923760051800   dE = -6.10348E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -20.092989594027223   dE = -6.58340E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -20.093030214406784   dE = -4.06204E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -20.093051911834415   dE = -2.16974E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -20.093059084914884   dE = -7.17308E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -20.093061436518273   dE = -2.35160E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -20.093062519492026   dE = -1.08297E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -20.093062792680797   dE = -2.73189E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = -20.093062862456399   dE = -6.97756E-08   DIIS = 7
+
+CCPERT_L_X has converged in 29.405 seconds!
+
+ Calculating rotation tensor from linear response function:
+
+
+ optrot_response P*L (0.07735713394560646) =    0.043648396279695 
+
+
+ optrot_response L*P (0.07735713394560646) =    0.045344569610818 
+
+
+ optrot_response velocity gauge (0.07735713394560646)=    0.044496482945257 
+
+
+ optrot_response P*L (0) =    0.039939623900241 
+
+
+ optrot_response L*P (0) =    0.039939633987606 
+
+
+ optrot_response (0)=    0.039939628943923 
+
+
+ optrot_response Modified velocity gauge (0.07735713394560646):    0.004556854001333
+
+
+ Printing sorted eigenvalues
+
+-0.247789573211
+-0.221232531284
+0.193979282231
+0.143141498561
+0.0200287779872
+0.00127891412218
+-0.000441933632584
+-0.000243652166081
+-0.000231644601313
+
+ Printing sorted eigenvalues
+
+0.456927898734
+0.399296886175
+-0.396202780111
+-0.35643997327
+-0.0695614962252
+0.0670909291926
+0.0441577831418
+-0.0359824179198
+-0.0333547618774
+0.0309825368739
+0.0277553863068
+-0.024716593653
+-0.0196242714423
+0.0191569251189
+0.00285950587124
+-0.00273582402448
+0.00253579881015
+-0.00210371345985
+-0.0019922484189
+0.00188557255184
+0.00170940264069
+0.00168250995017
+-0.00164493787723
+-0.00150475663115
+0.000871582878027
+0.000790264781918
+-0.00066157268586
+0.000619830125159
+-0.000610425663437
+0.0005263820926
+-0.000508338610848
+-0.000436812255532
+0.000401157952988
+0.000306191711733
+-0.000304915778463
+0.000254655482892
+-0.000249128958643
+-0.000215518085741
+0.000214169755222
+0.000208268920625
+0.000197157058012
+-0.00019278883611
+0.000160225643467
+-0.000131668045456
+-0.000126839750425
+0.000126585187178
+-0.00011083754182
+0.00010472529497
+-9.7607697562e-05
+9.49055540297e-05
+-8.86311085377e-05
+8.42217164198e-05
+8.38084917262e-05
+7.12993586646e-05
+6.68529855543e-05
+-6.49217254858e-05
+-6.17499216945e-05
+-5.67806318267e-05
+-5.09546452364e-05
+4.52278906495e-05
+4.38854179445e-05
+3.83315816009e-05
+3.582199021e-05
+-3.38477666855e-05
+3.06089602491e-05
+-2.992222574e-05
+2.62421507281e-05
+-2.50217880406e-05
+-2.083367144e-05
+2.00709251823e-05
+-1.8788769309e-05
+1.8699906671e-05
+1.77704138124e-05
+-1.75653340731e-05
+1.61466644133e-05
+-1.46764649414e-05
+1.4069332321e-05
+-1.33105959313e-05
+-1.28892017526e-05
+1.13368572616e-05
+-1.03281207845e-05
+9.89616815409e-06
+-9.07053869677e-06
+-8.96547661235e-06
+8.28277595045e-06
+-7.82049451889e-06
+7.18139033088e-06
+6.63297451079e-06
+-6.45646294703e-06
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 138 basis functions.
+Building initial guess...
+
+..initialized CCSD in 29.820 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.490341539409240   dE =  4.90342E-01   MP2
+CCSD Iteration   1: CCSD correlation = -0.486294399615536   dE =  4.04714E-03   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.497706243390636   dE = -1.14118E-02   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.497912032588111   dE = -2.05789E-04   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.499035293263731   dE = -1.12326E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.499102369887363   dE = -6.70766E-05   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.499107860465013   dE = -5.49058E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.499109293495109   dE = -1.43303E-06   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.499109219763855   dE =  7.37313E-08   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.499109479420771   dE = -2.59657E-07   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.499109516824548   dE = -3.74038E-08   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.499109420839352   dE =  9.59852E-08   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.499109429004736   dE = -8.16538E-09   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.499109421631124   dE =  7.37361E-09   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.499109421947839   dE = -3.16715E-10   DIIS = 7
+
+CCSD has converged in 42.483 seconds!
+
+Final CCSD correlation energy:          -0.499109421947839
+
+Final CCSD correlation energy:          -0.499109421947839
+Total CCSD energy:                      -151.335042546074618
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.499162372020289   dE =  4.99162E-01   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.487326736424460   dE =  1.18356E-02   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.486603824977353   dE =  7.22911E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.486409098025987   dE =  1.94727E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.486320577481576   dE =  8.85205E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.486300987553899   dE =  1.95899E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.486298231863979   dE =  2.75569E-06   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.486298539204496   dE = -3.07341E-07   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.486298469663405   dE =  6.95411E-08   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.486298485486792   dE = -1.58234E-08   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.486298516995993   dE = -3.15092E-08   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.486298518464359   dE = -1.46837E-09   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.486298517858734   dE =  6.05625E-10   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.486298519160874   dE = -1.30214E-09   DIIS = 7
+
+CCLAMBDA has converged in 8.608 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.560191185101662   dE = -1.35602E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 15.395229761039154   dE =  1.83504E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 16.209268107071860   dE =  8.14038E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 16.741274080486878   dE =  5.32006E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 16.805457053156907   dE =  6.41830E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 16.823671192666556   dE =  1.82141E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 16.827472077410864   dE =  3.80088E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 16.828294382032951   dE =  8.22305E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 16.829064120130234   dE =  7.69738E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 16.829182272137643   dE =  1.18152E-04   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 16.829193401713162   dE =  1.11296E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 16.829185002139724   dE = -8.39957E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 16.829201754997602   dE =  1.67529E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 16.829217597265455   dE =  1.58423E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 16.829228757762934   dE =  1.11605E-05   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 16.829232692801842   dE =  3.93504E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 16.829234684603897   dE =  1.99180E-06   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 16.829235347129377   dE =  6.62525E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 16.829235806923386   dE =  4.59794E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = 16.829235925709824   dE =  1.18786E-07   DIIS = 7
+CCPERT_P_X Iteration  20: pseudoresponse = 16.829235944148230   dE =  1.84384E-08   DIIS = 7
+
+CCPERT_P_X has converged in 34.518 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.650932566694931   dE = -6.65093E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 8.394296246258145   dE =  1.74336E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 9.355045062237370   dE =  9.60749E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 10.598216920404388   dE =  1.24317E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 10.731991343401747   dE =  1.33774E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 10.816903417497841   dE =  8.49121E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 10.827971790590365   dE =  1.10684E-02   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 10.828432341830664   dE =  4.60551E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 10.830055868567133   dE =  1.62353E-03   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 10.830281520282224   dE =  2.25652E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 10.830279191646117   dE = -2.32864E-06   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 10.830259438980717   dE = -1.97527E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 10.830277199547265   dE =  1.77606E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 10.830307987239117   dE =  3.07877E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 10.830334845063101   dE =  2.68578E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 10.830350528439904   dE =  1.56834E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 10.830358628989284   dE =  8.10055E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 10.830361459060434   dE =  2.83007E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 10.830363128274852   dE =  1.66921E-06   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = 10.830363672625465   dE =  5.44351E-07   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = 10.830363802517681   dE =  1.29892E-07   DIIS = 7
+CCPERT_L_X Iteration  21: pseudoresponse = 10.830363636381236   dE = -1.66136E-07   DIIS = 7
+
+CCPERT_L_X has converged in 33.737 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -28.903770291912174   dE =  2.89038E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -31.616822992105302   dE = -2.71305E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -32.880848453658835   dE = -1.26403E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -33.218769914623735   dE = -3.37921E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -33.370217226815988   dE = -1.51447E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -33.378881381669004   dE = -8.66415E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -33.378745692907522   dE =  1.35689E-04   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -33.379257976677607   dE = -5.12284E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -33.379437584207899   dE = -1.79608E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -33.379454140517055   dE = -1.65563E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -33.379477505943164   dE = -2.33654E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -33.379464774812917   dE =  1.27311E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -33.379464739749736   dE =  3.50632E-08   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -33.379463423546603   dE =  1.31620E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -33.379463385040680   dE =  3.85059E-08   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -33.379463325661419   dE =  5.93793E-08   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -33.379463282378438   dE =  4.32830E-08   DIIS = 7
+
+CCPERT_P_X has converged in 27.384 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -13.577409967021312   dE =  1.35774E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.220773794641854   dE = -2.64336E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -17.474436457744272   dE = -1.25366E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -18.179110756939306   dE = -7.04674E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -18.456329327673846   dE = -2.77219E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -18.488434652142445   dE = -3.21053E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -18.489256562006727   dE = -8.21910E-04   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -18.490089858901705   dE = -8.33297E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -18.490457569218474   dE = -3.67710E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -18.490469998361029   dE = -1.24291E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -18.490516190274931   dE = -4.61919E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -18.490480965310489   dE =  3.52250E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -18.490478613891199   dE =  2.35142E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -18.490475429595755   dE =  3.18430E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -18.490474725602731   dE =  7.03993E-07   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -18.490474490422688   dE =  2.35180E-07   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -18.490474328522595   dE =  1.61900E-07   DIIS = 7
+
+CCPERT_L_X has converged in 30.229 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.085104957916087   dE = -1.30851E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 14.759441967496539   dE =  1.67434E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 15.462290252441660   dE =  7.02848E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 15.874388000574292   dE =  4.12098E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 15.917733993123697   dE =  4.33460E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 15.926887239055597   dE =  9.15325E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 15.928534873579460   dE =  1.64763E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 15.928766415566429   dE =  2.31542E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 15.929017034572032   dE =  2.50619E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 15.929051057243683   dE =  3.40227E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 15.929047647084102   dE = -3.41016E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 15.929043764575445   dE = -3.88251E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 15.929047389795013   dE =  3.62522E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 15.929051098086941   dE =  3.70829E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 15.929053500291525   dE =  2.40220E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 15.929054250334490   dE =  7.50043E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 15.929054546718863   dE =  2.96384E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 15.929054632262950   dE =  8.55441E-08   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 15.929054682051149   dE =  4.97882E-08   DIIS = 7
+
+CCPERT_P_X has converged in 39.096 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.345387184576229   dE = -6.34539E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 7.886268157373739   dE =  1.54088E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 8.676657831072541   dE =  7.90390E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 9.554960007390623   dE =  8.78302E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 9.623956079254283   dE =  6.89961E-02   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 9.662158963815369   dE =  3.82029E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 9.666309035229869   dE =  4.15007E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 9.666206882122310   dE = -1.02153E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 9.666726651699349   dE =  5.19770E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 9.666770725580744   dE =  4.40739E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 9.666763142773640   dE = -7.58281E-06   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 9.666749372532662   dE = -1.37702E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 9.666749377276275   dE =  4.74361E-09   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 9.666755133721471   dE =  5.75645E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 9.666760513863359   dE =  5.38014E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 9.666763114035652   dE =  2.60017E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 9.666764241703154   dE =  1.12767E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 9.666764548377284   dE =  3.06674E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 9.666764675213408   dE =  1.26836E-07   DIIS = 7
+
+CCPERT_L_X has converged in 38.951 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -27.732758254213778   dE =  2.77328E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -32.078826382072663   dE = -4.34607E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -33.683342174199865   dE = -1.60452E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -34.552122214791240   dE = -8.68780E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -34.727951073107029   dE = -1.75829E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -34.741570769239956   dE = -1.36197E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -34.743585035038805   dE = -2.01427E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -34.745351140285997   dE = -1.76611E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -34.745661280711943   dE = -3.10140E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -34.745736377654573   dE = -7.50969E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -34.745682017330545   dE =  5.43603E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -34.745710951147323   dE = -2.89338E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -34.745734682438986   dE = -2.37313E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -34.745746633744098   dE = -1.19513E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -34.745750725601965   dE = -4.09186E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -34.745751866501450   dE = -1.14090E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -34.745752306768203   dE = -4.40267E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -34.745752539156960   dE = -2.32389E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -34.745752633030357   dE = -9.38734E-08   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = -34.745752656029538   dE = -2.29992E-08   DIIS = 7
+
+CCPERT_P_X has converged in 34.718 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -12.918845882407373   dE =  1.29188E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.375293486951698   dE = -3.45645E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -18.030494175398935   dE = -1.65520E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -19.683941420059433   dE = -1.65345E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -20.017850434240511   dE = -3.33909E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -20.077999537945175   dE = -6.01491E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -20.082091011179092   dE = -4.09147E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -20.085357557005825   dE = -3.26655E-03   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -20.086032407061140   dE = -6.74850E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -20.086106514362079   dE = -7.41073E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -20.085904161219464   dE =  2.02353E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -20.085963062389400   dE = -5.89012E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -20.086027511479774   dE = -6.44491E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -20.086066673497349   dE = -3.91620E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -20.086087520983007   dE = -2.08475E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -20.086094342331570   dE = -6.82135E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -20.086096589456350   dE = -2.24712E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -20.086097669469531   dE = -1.08001E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -20.086097929126772   dE = -2.59657E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = -20.086097985836791   dE = -5.67100E-08   DIIS = 7
+
+CCPERT_L_X has converged in 31.505 seconds!
+
+ Calculating rotation tensor from linear response function:
+
+
+ optrot_response P*L (0.07735713394560646) =    0.040822354845427 
+
+
+ optrot_response L*P (0.07735713394560646) =    0.042447454204670 
+
+
+ optrot_response velocity gauge (0.07735713394560646)=    0.041634904525049 
+
+
+ optrot_response P*L (0) =    0.037088491110507 
+
+
+ optrot_response L*P (0) =    0.037088501267221 
+
+
+ optrot_response (0)=    0.037088496188864 
+
+
+ optrot_response Modified velocity gauge (0.07735713394560646):    0.004546408336185
+
+
+ Printing sorted eigenvalues
+
+-0.247954420295
+-0.221406007174
+0.194093750786
+0.14448347979
+0.0201810731338
+0.00132070457023
+-0.00042332184414
+-0.000243204859187
+-0.000232139324592
+
+ Printing sorted eigenvalues
+
+0.45674116573
+0.399609288966
+-0.397133069918
+-0.356504728154
+-0.0697357942905
+0.0670469439785
+0.0441789948232
+-0.0360107121718
+-0.0333897843122
+0.0309401360418
+0.0277156398005
+-0.0247483842331
+-0.0196129618277
+0.0191240481964
+0.00285170083894
+-0.00273871902357
+0.00253193642494
+-0.00209853697522
+-0.00199854138909
+0.0018867445309
+0.00169572049785
+0.00167550323823
+-0.0016587186756
+-0.00150113873798
+0.000870658407574
+0.000778317966326
+-0.000659733932172
+0.000616707279887
+-0.000604920619505
+0.000515970956275
+-0.000513497039588
+-0.000432798238655
+0.000394942829815
+0.000305441012323
+-0.000305384312494
+0.000253639453634
+-0.000248547393691
+-0.000214076201784
+0.000211929934419
+0.000211300420683
+0.000200348322268
+-0.000195027494043
+0.00015694931232
+-0.000129697513003
+-0.000125205755345
+0.000125159092968
+-0.000108179143309
+0.000104408836543
+-9.57824194554e-05
+9.3059646787e-05
+-8.77905080868e-05
+8.40017834255e-05
+8.37830443399e-05
+6.95549072973e-05
+6.55261996755e-05
+-6.38406155598e-05
+-6.21075556592e-05
+-5.71261622491e-05
+-4.94732478566e-05
+4.49217697184e-05
+4.46233115183e-05
+3.68626504932e-05
+3.5601744134e-05
+-3.40292373078e-05
+2.97664743572e-05
+-2.96885172548e-05
+2.5728511591e-05
+-2.56057373323e-05
+-2.02231343912e-05
+1.97390802695e-05
+-1.97208388076e-05
+1.82722250386e-05
+-1.70570243763e-05
+1.66452619023e-05
+1.64611727819e-05
+-1.49646062993e-05
+1.43107772534e-05
+-1.39502424188e-05
+-1.21949345202e-05
+1.11579532466e-05
+-1.05666904273e-05
+8.22518078288e-06
+8.06940037299e-06
+-7.54394571951e-06
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 138 basis functions.
+Building initial guess...
+
+..initialized CCSD in 31.496 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.484893946392886   dE =  4.84894E-01   MP2
+CCSD Iteration   1: CCSD correlation = -0.481490942636797   dE =  3.40300E-03   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.492637771694571   dE = -1.11468E-02   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.492918808625723   dE = -2.81037E-04   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.494022324063464   dE = -1.10352E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.494087191978261   dE = -6.48679E-05   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.494093325461100   dE = -6.13348E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.494094679943502   dE = -1.35448E-06   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.494094572160856   dE =  1.07783E-07   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.494094828332418   dE = -2.56172E-07   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.494094849523055   dE = -2.11906E-08   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.494094760382636   dE =  8.91404E-08   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.494094771866783   dE = -1.14841E-08   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.494094765730180   dE =  6.13660E-09   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.494094766369901   dE = -6.39722E-10   DIIS = 7
+
+CCSD has converged in 47.579 seconds!
+
+Final CCSD correlation energy:          -0.494094766369901
+
+Final CCSD correlation energy:          -0.494094766369901
+Total CCSD energy:                      -151.330027890496666
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.494146901816977   dE =  4.94147E-01   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.482499324177806   dE =  1.16476E-02   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.481782336745579   dE =  7.16987E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.481589149668685   dE =  1.93187E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.481502094081901   dE =  8.70556E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.481482584692198   dE =  1.95094E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.481479882983143   dE =  2.70171E-06   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.481480167368394   dE = -2.84385E-07   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.481480108687203   dE =  5.86812E-08   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.481480121880445   dE = -1.31932E-08   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.481480148784446   dE = -2.69040E-08   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.481480149936893   dE = -1.15245E-09   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.481480149697686   dE =  2.39207E-10   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.481480150837292   dE = -1.13961E-09   DIIS = 7
+
+CCLAMBDA has converged in 8.648 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.559470556876770   dE = -1.35595E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 15.395698176509489   dE =  1.83623E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 16.207974962570358   dE =  8.12277E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 16.740473326352220   dE =  5.32498E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 16.802941757937113   dE =  6.24684E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 16.820924126433212   dE =  1.79824E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 16.824582989567933   dE =  3.65886E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 16.825389846224393   dE =  8.06857E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 16.826138037957652   dE =  7.48192E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 16.826234758235429   dE =  9.67203E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 16.826246314968682   dE =  1.15567E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 16.826240168439590   dE = -6.14653E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 16.826259292170985   dE =  1.91237E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 16.826274451825224   dE =  1.51597E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 16.826284609086695   dE =  1.01573E-05   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 16.826288187390613   dE =  3.57830E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 16.826290033486494   dE =  1.84610E-06   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 16.826290633853255   dE =  6.00367E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 16.826291001404201   dE =  3.67551E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = 16.826291103114208   dE =  1.01710E-07   DIIS = 7
+CCPERT_P_X Iteration  20: pseudoresponse = 16.826291115811202   dE =  1.26970E-08   DIIS = 7
+
+CCPERT_P_X has converged in 32.528 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.649325139848377   dE = -6.64933E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 8.394758031558828   dE =  1.74543E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 9.354873848354647   dE =  9.60116E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 10.599170263336866   dE =  1.24430E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 10.730394241683580   dE =  1.31224E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 10.814443727620855   dE =  8.40495E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 10.824823796806516   dE =  1.03801E-02   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 10.825342532966371   dE =  5.18736E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 10.826872421206236   dE =  1.52989E-03   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 10.827076034141346   dE =  2.03613E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 10.827056634954948   dE = -1.93992E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 10.827046948292509   dE = -9.68666E-06   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 10.827071006624118   dE =  2.40583E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 10.827101630642296   dE =  3.06240E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 10.827126277333347   dE =  2.46467E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 10.827140944848498   dE =  1.46675E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 10.827148457109276   dE =  7.51226E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 10.827151033367116   dE =  2.57626E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 10.827152636828922   dE =  1.60346E-06   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = 10.827153043318701   dE =  4.06490E-07   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = 10.827153166189243   dE =  1.22871E-07   DIIS = 7
+CCPERT_L_X Iteration  21: pseudoresponse = 10.827152999650226   dE = -1.66539E-07   DIIS = 7
+
+CCPERT_L_X has converged in 33.194 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -28.900846818148668   dE =  2.89008E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -31.613414230211305   dE = -2.71257E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -32.872410145975032   dE = -1.25900E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -33.211307217463407   dE = -3.38897E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -33.361157334233972   dE = -1.49850E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -33.369450960524851   dE = -8.29363E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -33.369357846231459   dE =  9.31143E-05   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -33.369866979737758   dE = -5.09134E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -33.370039286135857   dE = -1.72306E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -33.370054013284793   dE = -1.47271E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -33.370075508337528   dE = -2.14951E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -33.370063528824858   dE =  1.19795E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -33.370063722742671   dE = -1.93918E-07   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -33.370062575329420   dE =  1.14741E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -33.370062563137601   dE =  1.21918E-08   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -33.370062513929923   dE =  4.92077E-08   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -33.370062474386444   dE =  3.95435E-08   DIIS = 7
+
+CCPERT_P_X has converged in 27.035 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -13.573523056474871   dE =  1.35735E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.218975223308092   dE = -2.64545E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -17.469970222145133   dE = -1.25099E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -18.176291626688592   dE = -7.06321E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -18.450204440742670   dE = -2.73913E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -18.481747800157727   dE = -3.15434E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -18.482473996252057   dE = -7.26196E-04   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -18.483267361171350   dE = -7.93365E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -18.483628023200087   dE = -3.60662E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -18.483634131839864   dE = -6.10864E-06   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -18.483678827787809   dE = -4.46959E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -18.483644871701056   dE =  3.39561E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -18.483642763603179   dE =  2.10810E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -18.483639956903819   dE =  2.80670E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -18.483639428292062   dE =  5.28612E-07   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -18.483639261098716   dE =  1.67193E-07   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -18.483639132440246   dE =  1.28658E-07   DIIS = 7
+
+CCPERT_L_X has converged in 30.791 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.084039652089363   dE = -1.30840E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 14.759199906282744   dE =  1.67516E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 15.460332500120177   dE =  7.01133E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 15.872736464906204   dE =  4.12404E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 15.914984459075200   dE =  4.22480E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 15.924054033247291   dE =  9.06957E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 15.925635897977179   dE =  1.58186E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 15.925865351920923   dE =  2.29454E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 15.926110515518509   dE =  2.45164E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 15.926137759850834   dE =  2.72443E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 15.926134862632166   dE = -2.89722E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 15.926131857572861   dE = -3.00506E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 15.926136143004044   dE =  4.28543E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 15.926139740308313   dE =  3.59730E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 15.926141963901079   dE =  2.22359E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 15.926142639362238   dE =  6.75461E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 15.926142915186523   dE =  2.75824E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 15.926142993609899   dE =  7.84234E-08   DIIS = 7
+
+CCPERT_P_X has converged in 30.869 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.343641481590665   dE = -6.34364E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 7.886237928491924   dE =  1.54260E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 8.675952088460720   dE =  7.89714E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 9.554570942822908   dE =  8.78619E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 9.622179822134369   dE =  6.76089E-02   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 9.660002677896905   dE =  3.78229E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 9.663879021748050   dE =  3.87634E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 9.663811090716953   dE = -6.79310E-05   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 9.664300095983336   dE =  4.89005E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 9.664339729124938   dE =  3.96331E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 9.664328389910175   dE = -1.13392E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 9.664317842522092   dE = -1.05474E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 9.664319477527652   dE =  1.63501E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 9.664325279648653   dE =  5.80212E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 9.664330312599571   dE =  5.03295E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 9.664332740905277   dE =  2.42831E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 9.664333802618209   dE =  1.06171E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 9.664334091156652   dE =  2.88538E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 9.664334222039594   dE =  1.30883E-07   DIIS = 7
+
+CCPERT_L_X has converged in 31.110 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -27.729233516135388   dE =  2.77292E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -32.074897549288195   dE = -4.34566E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -33.675635932749465   dE = -1.60074E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -34.545199775653977   dE = -8.69564E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -34.718973025303754   dE = -1.73773E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -34.731893634274918   dE = -1.29206E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -34.733993090454440   dE = -2.09946E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -34.735686869516528   dE = -1.69378E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -34.735971438881066   dE = -2.84569E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -34.736046282023416   dE = -7.48431E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -34.735991429031273   dE =  5.48530E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -34.736021206567493   dE = -2.97775E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -34.736044434973579   dE = -2.32284E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -34.736056124958303   dE = -1.16900E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -34.736060021150827   dE = -3.89619E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -34.736061043908862   dE = -1.02276E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -34.736061422167701   dE = -3.78259E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -34.736061629837074   dE = -2.07669E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -34.736061719840166   dE = -9.00031E-08   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = -34.736061741245990   dE = -2.14058E-08   DIIS = 7
+
+CCPERT_P_X has converged in 29.732 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -12.914737332983306   dE =  1.29147E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.373164819771368   dE = -3.45843E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -18.026786367040760   dE = -1.65362E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -19.682120903129537   dE = -1.65533E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -20.012312602526038   dE = -3.30192E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -20.070771983591374   dE = -5.84594E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -20.074713897463841   dE = -3.94191E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -20.077848084388656   dE = -3.13419E-03   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -20.078490494080537   dE = -6.42410E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -20.078564688455412   dE = -7.41944E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -20.078371292604118   dE =  1.93396E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -20.078426002906767   dE = -5.47103E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -20.078486608255670   dE = -6.06053E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -20.078523509195794   dE = -3.69009E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -20.078543507705344   dE = -1.99985E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -20.078549968418820   dE = -6.46071E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -20.078552056147359   dE = -2.08773E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -20.078553098418205   dE = -1.04227E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -20.078553340715704   dE = -2.42297E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = -20.078553397343686   dE = -5.66280E-08   DIIS = 7
+
+CCPERT_L_X has converged in 33.615 seconds!
+
+ Calculating rotation tensor from linear response function:
+
+
+ optrot_response P*L (0.07735713394560646) =    0.040999584482652 
+
+
+ optrot_response L*P (0.07735713394560646) =    0.042566647102104 
+
+
+ optrot_response velocity gauge (0.07735713394560646)=    0.041783115792378 
+
+
+ optrot_response P*L (0) =    0.037272116708849 
+
+
+ optrot_response L*P (0) =    0.037272124356064 
+
+
+ optrot_response (0)=    0.037272120532457 
+
+
+ optrot_response Modified velocity gauge (0.07735713394560646):    0.004510995259922
+
+
+ Printing sorted eigenvalues
+
+-0.2480454285
+-0.221462972663
+0.193818089143
+0.144348155899
+0.020199065448
+0.00136203598682
+-0.000415323111192
+-0.000243680857908
+-0.000232737443332
+
+ Printing sorted eigenvalues
+
+0.456906617758
+0.39956499505
+-0.397113726775
+-0.355922170693
+-0.0697870769173
+0.0669170366822
+0.0442154535366
+-0.0360513615744
+-0.0333642860459
+0.0309304687418
+0.0276819098357
+-0.0247845206992
+-0.0196126147732
+0.0191223002197
+0.00286023283486
+-0.00273697074277
+0.00252102883436
+-0.002086048831
+-0.00199612600513
+0.00189064387802
+0.00170342537353
+0.00166432737416
+-0.00166026600978
+-0.00150700771539
+0.000872473370978
+0.000779392760098
+-0.000655216075489
+0.000609603448086
+-0.000596041134567
+0.000517795168154
+-0.000511406262754
+-0.000426009111439
+0.000391429294018
+-0.000306516533363
+0.000304611828221
+0.00025023925299
+-0.000249023428729
+0.000214890828447
+-0.000214722322814
+0.000207321080346
+0.000200618425486
+-0.000192268217239
+0.000157276134136
+-0.000129022469223
+0.000128733479499
+-0.000123688371286
+-0.000107447452902
+0.000103641802518
+-9.48579298119e-05
+9.06001982428e-05
+-8.70732271289e-05
+8.26750411817e-05
+8.15213355709e-05
+6.59974467496e-05
+6.50639119078e-05
+-6.37858906929e-05
+-6.21278315846e-05
+-5.53699833379e-05
+-5.00057417815e-05
+4.50226107531e-05
+4.38524351055e-05
+3.70981177488e-05
+3.36631710744e-05
+-3.32012210174e-05
+3.10516480156e-05
+-2.82133267132e-05
+-2.59703804605e-05
+2.54088104786e-05
+-2.06263710875e-05
+1.99290609551e-05
+-1.86074504025e-05
+1.73732960098e-05
+1.63095259087e-05
+1.58768600178e-05
+-1.54929350418e-05
+-1.47837657163e-05
+1.37013277005e-05
+-1.33086340034e-05
+-1.18528405772e-05
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 138 basis functions.
+Building initial guess...
+
+..initialized CCSD in 31.906 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.476364038616611   dE =  4.76364E-01   MP2
+CCSD Iteration   1: CCSD correlation = -0.473613836059109   dE =  2.75020E-03   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.484490345581927   dE = -1.08765E-02   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.484821595810181   dE = -3.31250E-04   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.485897481029804   dE = -1.07589E-03   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.485959639533235   dE = -6.21585E-05   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.485965976187102   dE = -6.33665E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.485967201551193   dE = -1.22536E-06   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.485967069703690   dE =  1.31848E-07   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.485967307142230   dE = -2.37439E-07   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.485967317901253   dE = -1.07590E-08   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.485967238969016   dE =  7.89322E-08   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.485967251272337   dE = -1.23033E-08   DIIS = 7
+CCSD Iteration  13: CCSD correlation = -0.485967245782736   dE =  5.48960E-09   DIIS = 7
+CCSD Iteration  14: CCSD correlation = -0.485967246613078   dE = -8.30342E-10   DIIS = 7
+
+CCSD has converged in 48.915 seconds!
+
+Final CCSD correlation energy:          -0.485967246613078
+
+Final CCSD correlation energy:          -0.485967246613078
+Total CCSD energy:                      -151.321900370739854
+
+Building appropriate pieces of similarity transformed hamiltonian ...
+
+..CCHBAR completed !!
+
+ Solving lambda equations ...
+
+CCLAMBDA Iteration   0: pseudoenergy = -0.486021215835453   dE =  4.86021E-01   MP2
+CCLAMBDA Iteration   1: pseudoenergy = -0.474749448476737   dE =  1.12718E-02   DIIS = 0
+CCLAMBDA Iteration   2: pseudoenergy = -0.474014733775814   dE =  7.34715E-04   DIIS = 1
+CCLAMBDA Iteration   3: pseudoenergy = -0.473825188541109   dE =  1.89545E-04   DIIS = 2
+CCLAMBDA Iteration   4: pseudoenergy = -0.473739723198560   dE =  8.54653E-05   DIIS = 3
+CCLAMBDA Iteration   5: pseudoenergy = -0.473720289839931   dE =  1.94334E-05   DIIS = 4
+CCLAMBDA Iteration   6: pseudoenergy = -0.473717690622995   dE =  2.59922E-06   DIIS = 5
+CCLAMBDA Iteration   7: pseudoenergy = -0.473717912669516   dE = -2.22047E-07   DIIS = 6
+CCLAMBDA Iteration   8: pseudoenergy = -0.473717863944273   dE =  4.87252E-08   DIIS = 7
+CCLAMBDA Iteration   9: pseudoenergy = -0.473717879132514   dE = -1.51882E-08   DIIS = 7
+CCLAMBDA Iteration  10: pseudoenergy = -0.473717901995413   dE = -2.28629E-08   DIIS = 7
+CCLAMBDA Iteration  11: pseudoenergy = -0.473717903830290   dE = -1.83488E-09   DIIS = 7
+CCLAMBDA Iteration  12: pseudoenergy = -0.473717903407630   dE =  4.22660E-10   DIIS = 7
+CCLAMBDA Iteration  13: pseudoenergy = -0.473717904283991   dE = -8.76360E-10   DIIS = 7
+
+CCLAMBDA has converged in 8.508 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.552235147507993   dE = -1.35522E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 15.392741488114675   dE =  1.84051E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 16.203323985425559   dE =  8.10582E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 16.735506786127175   dE =  5.32183E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 16.795181852595050   dE =  5.96751E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 16.812508971929699   dE =  1.73271E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 16.815931434142314   dE =  3.42246E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 16.816677775491087   dE =  7.46341E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 16.817351916720472   dE =  6.74141E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 16.817427673323568   dE =  7.57566E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 16.817436420015856   dE =  8.74669E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 16.817432973869963   dE = -3.44615E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 16.817452217458190   dE =  1.92436E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 16.817466315702028   dE =  1.40982E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 16.817475416584166   dE =  9.10088E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 16.817478588692129   dE =  3.17211E-06   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 16.817480280374973   dE =  1.69168E-06   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 16.817480788450961   dE =  5.08076E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = 16.817481076468678   dE =  2.88018E-07   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = 16.817481157628904   dE =  8.11602E-08   DIIS = 7
+CCPERT_P_X Iteration  20: pseudoresponse = 16.817481172568886   dE =  1.49400E-08   DIIS = 7
+
+CCPERT_P_X has converged in 41.771 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.652978420100133   dE = -6.65298E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 8.400365809868999   dE =  1.74739E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 9.359204346355472   dE =  9.58839E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 10.602466941694011   dE =  1.24326E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 10.730518326446907   dE =  1.28051E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 10.814049728551549   dE =  8.35314E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 10.823515020581887   dE =  9.46529E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 10.823973730722686   dE =  4.58710E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 10.825337242885036   dE =  1.36351E-03   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 10.825506887109123   dE =  1.69644E-04   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 10.825497056550248   dE = -9.83056E-06   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 10.825489075378357   dE = -7.98117E-06   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 10.825510479338297   dE =  2.14040E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 10.825538677832878   dE =  2.81985E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 10.825561429501452   dE =  2.27517E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 10.825575607058077   dE =  1.41776E-05   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 10.825582820220802   dE =  7.21316E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 10.825585174001036   dE =  2.35378E-06   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 10.825586639807669   dE =  1.46581E-06   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = 10.825586932284894   dE =  2.92477E-07   DIIS = 7
+CCPERT_L_X Iteration  20: pseudoresponse = 10.825587041027092   dE =  1.08742E-07   DIIS = 7
+CCPERT_L_X Iteration  21: pseudoresponse = 10.825586898271229   dE = -1.42756E-07   DIIS = 7
+
+CCPERT_L_X has converged in 36.563 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -28.881081072609089   dE =  2.88811E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -31.598851109695474   dE = -2.71777E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -32.851234935883873   dE = -1.25238E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -33.190658111826160   dE = -3.39423E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -33.337601044964117   dE = -1.46943E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -33.345562376236288   dE = -7.96133E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -33.345507476842080   dE =  5.48994E-05   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -33.346008057431149   dE = -5.00581E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -33.346166407028761   dE = -1.58350E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -33.346178904087665   dE = -1.24971E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -33.346198971248370   dE = -2.00672E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -33.346188347263293   dE =  1.06240E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -33.346188689646375   dE = -3.42383E-07   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -33.346187658038957   dE =  1.03161E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -33.346187643554181   dE =  1.44848E-08   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -33.346187602499263   dE =  4.10549E-08   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -33.346187569153379   dE =  3.33459E-08   DIIS = 7
+
+CCPERT_P_X has converged in 27.222 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -13.581311626680742   dE =  1.35813E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.225055895168190   dE = -2.64374E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -17.470998623265004   dE = -1.24594E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -18.176961112470600   dE = -7.05962E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -18.446600904786287   dE = -2.69640E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -18.477600858305035   dE = -3.10000E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -18.478252460245706   dE = -6.51602E-04   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -18.478968665500695   dE = -7.16205E-04   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -18.479305869301264   dE = -3.37204E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -18.479310866518105   dE = -4.99722E-06   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -18.479353748552008   dE = -4.28820E-05   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -18.479322737943590   dE =  3.10106E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -18.479321048956283   dE =  1.68899E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -18.479318670846805   dE =  2.37811E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -18.479318275567692   dE =  3.95279E-07   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -18.479318141327180   dE =  1.34241E-07   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -18.479318034291484   dE =  1.07036E-07   DIIS = 7
+
+CCPERT_L_X has converged in 27.106 seconds!
+
+solving right hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = 13.075750617139141   dE = -1.30758E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = 14.754329450435092   dE =  1.67858E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = 15.453755991464902   dE =  6.99427E-01   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = 15.866061407595694   dE =  4.12305E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = 15.906551993566456   dE =  4.04906E-02   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = 15.915327010723116   dE =  8.77502E-03   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = 15.916817258049646   dE =  1.49025E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = 15.917037988974082   dE =  2.20731E-04   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = 15.917266235238309   dE =  2.28246E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = 15.917288239808936   dE =  2.20046E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = 15.917285564700929   dE = -2.67511E-06   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = 15.917283649299371   dE = -1.91540E-06   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = 15.917288207928481   dE =  4.55863E-06   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = 15.917291607377416   dE =  3.39945E-06   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = 15.917293620583409   dE =  2.01321E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = 15.917294220360795   dE =  5.99777E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = 15.917294476576169   dE =  2.56215E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = 15.917294545467280   dE =  6.88911E-08   DIIS = 7
+
+CCPERT_P_X has converged in 31.784 seconds!
+
+solving right hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = 6.346246881892282   dE = -6.34625E+00 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = 7.890106905496912   dE =  1.54386E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = 8.678431750420716   dE =  7.88325E-01   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = 9.555716132434316   dE =  8.77284E-01   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = 9.621682516800341   dE =  6.59664E-02   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = 9.659313681506172   dE =  3.76312E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = 9.662854107405247   dE =  3.54043E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = 9.662782377723840   dE = -7.17297E-05   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = 9.663224035790366   dE =  4.41658E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = 9.663257203566708   dE =  3.31678E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = 9.663249003224632   dE = -8.20034E-06   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = 9.663240319711523   dE = -8.68351E-06   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = 9.663242376591894   dE =  2.05688E-06   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = 9.663247828001758   dE =  5.45141E-06   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = 9.663252402452184   dE =  4.57445E-06   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = 9.663254700690395   dE =  2.29824E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = 9.663255711017118   dE =  1.01033E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = 9.663255981706781   dE =  2.70690E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = 9.663256113325810   dE =  1.31619E-07   DIIS = 7
+
+CCPERT_L_X has converged in 30.787 seconds!
+
+solving left hand perturbed amplitudes for P_X
+
+CCPERT_P_X Iteration   0: pseudoresponse = -27.707484385297452   dE =  2.77075E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_P_X Iteration   1: pseudoresponse = -32.058974105769209   dE = -4.35149E+00   DIIS = 0
+CCPERT_P_X Iteration   2: pseudoresponse = -33.656066267134385   dE = -1.59709E+00   DIIS = 1
+CCPERT_P_X Iteration   3: pseudoresponse = -34.525794574103756   dE = -8.69728E-01   DIIS = 2
+CCPERT_P_X Iteration   4: pseudoresponse = -34.695446430652233   dE = -1.69652E-01   DIIS = 3
+CCPERT_P_X Iteration   5: pseudoresponse = -34.707627223344090   dE = -1.21808E-02   DIIS = 4
+CCPERT_P_X Iteration   6: pseudoresponse = -34.709786512214365   dE = -2.15929E-03   DIIS = 5
+CCPERT_P_X Iteration   7: pseudoresponse = -34.711380848200612   dE = -1.59434E-03   DIIS = 6
+CCPERT_P_X Iteration   8: pseudoresponse = -34.711613390148379   dE = -2.32542E-04   DIIS = 7
+CCPERT_P_X Iteration   9: pseudoresponse = -34.711682130891305   dE = -6.87407E-05   DIIS = 7
+CCPERT_P_X Iteration  10: pseudoresponse = -34.711634117307355   dE =  4.80136E-05   DIIS = 7
+CCPERT_P_X Iteration  11: pseudoresponse = -34.711663119342845   dE = -2.90020E-05   DIIS = 7
+CCPERT_P_X Iteration  12: pseudoresponse = -34.711684350328866   dE = -2.12310E-05   DIIS = 7
+CCPERT_P_X Iteration  13: pseudoresponse = -34.711694804049273   dE = -1.04537E-05   DIIS = 7
+CCPERT_P_X Iteration  14: pseudoresponse = -34.711698159381648   dE = -3.35533E-06   DIIS = 7
+CCPERT_P_X Iteration  15: pseudoresponse = -34.711699051009901   dE = -8.91628E-07   DIIS = 7
+CCPERT_P_X Iteration  16: pseudoresponse = -34.711699384603371   dE = -3.33593E-07   DIIS = 7
+CCPERT_P_X Iteration  17: pseudoresponse = -34.711699577401234   dE = -1.92798E-07   DIIS = 7
+CCPERT_P_X Iteration  18: pseudoresponse = -34.711699660862138   dE = -8.34609E-08   DIIS = 7
+CCPERT_P_X Iteration  19: pseudoresponse = -34.711699682241012   dE = -2.13789E-08   DIIS = 7
+
+CCPERT_P_X has converged in 29.381 seconds!
+
+solving left hand perturbed amplitudes for L_X
+
+CCPERT_L_X Iteration   0: pseudoresponse = -12.920394690660890   dE =  1.29204E+01 
+
+MAXITER: 100
+
+
+R_CONV:    0.000000100000000
+
+CCPERT_L_X Iteration   1: pseudoresponse = -16.380384382162685   dE = -3.45999E+00   DIIS = 0
+CCPERT_L_X Iteration   2: pseudoresponse = -18.030934968552184   dE = -1.65055E+00   DIIS = 1
+CCPERT_L_X Iteration   3: pseudoresponse = -19.684161504376153   dE = -1.65323E+00   DIIS = 2
+CCPERT_L_X Iteration   4: pseudoresponse = -20.010572730336232   dE = -3.26411E-01   DIIS = 3
+CCPERT_L_X Iteration   5: pseudoresponse = -20.067799648012702   dE = -5.72269E-02   DIIS = 4
+CCPERT_L_X Iteration   6: pseudoresponse = -20.071519524927105   dE = -3.71988E-03   DIIS = 5
+CCPERT_L_X Iteration   7: pseudoresponse = -20.074413838043100   dE = -2.89431E-03   DIIS = 6
+CCPERT_L_X Iteration   8: pseudoresponse = -20.074974555616564   dE = -5.60718E-04   DIIS = 7
+CCPERT_L_X Iteration   9: pseudoresponse = -20.075032502260527   dE = -5.79466E-05   DIIS = 7
+CCPERT_L_X Iteration  10: pseudoresponse = -20.074854650914983   dE =  1.77851E-04   DIIS = 7
+CCPERT_L_X Iteration  11: pseudoresponse = -20.074907280689605   dE = -5.26298E-05   DIIS = 7
+CCPERT_L_X Iteration  12: pseudoresponse = -20.074965137828535   dE = -5.78571E-05   DIIS = 7
+CCPERT_L_X Iteration  13: pseudoresponse = -20.075000076857958   dE = -3.49390E-05   DIIS = 7
+CCPERT_L_X Iteration  14: pseudoresponse = -20.075018467898410   dE = -1.83910E-05   DIIS = 7
+CCPERT_L_X Iteration  15: pseudoresponse = -20.075024371078303   dE = -5.90318E-06   DIIS = 7
+CCPERT_L_X Iteration  16: pseudoresponse = -20.075026225179030   dE = -1.85410E-06   DIIS = 7
+CCPERT_L_X Iteration  17: pseudoresponse = -20.075027185482949   dE = -9.60304E-07   DIIS = 7
+CCPERT_L_X Iteration  18: pseudoresponse = -20.075027405407038   dE = -2.19924E-07   DIIS = 7
+CCPERT_L_X Iteration  19: pseudoresponse = -20.075027457820418   dE = -5.24134E-08   DIIS = 7
+
+CCPERT_L_X has converged in 33.814 seconds!
+
+ Calculating rotation tensor from linear response function:
+
+
+ optrot_response P*L (0.07735713394560646) =    0.040277678700159 
+
+
+ optrot_response L*P (0.07735713394560646) =    0.041769643977061 
+
+
+ optrot_response velocity gauge (0.07735713394560646)=    0.041023661338610 
+
+
+ optrot_response P*L (0) =    0.036568451594250 
+
+
+ optrot_response L*P (0) =    0.036568458822707 
+
+
+ optrot_response (0)=    0.036568455208478 
+
+
+ optrot_response Modified velocity gauge (0.07735713394560646):    0.004455206130132
+
+
+ Printing sorted eigenvalues
+
+-0.247473722492
+-0.22200479954
+0.192886538119
+0.144637911305
+0.0203364951091
+0.00140120457139
+-0.00038833077767
+-0.000243878469121
+-0.000233459034169
+
+ Printing sorted eigenvalues
+
+0.457164515659
+0.399499161514
+-0.397167221465
+-0.356084714212
+-0.0698211855299
+0.0672626720626
+0.0442174067532
+-0.0361143100755
+-0.0332866590836
+0.0309597701462
+0.0277119954632
+-0.024747457537
+-0.0196235472534
+0.0191076738464
+0.00284566969184
+-0.00273733124423
+0.00251177251154
+-0.00208152519207
+-0.00197119392736
+0.00187074003873
+0.00170051076353
+-0.00166195578515
+0.00166109613725
+-0.00151405621588
+0.000870595589486
+0.000774324205697
+-0.000650097057711
+0.000630634140689
+-0.000604860612327
+0.000518238179447
+-0.000506780489199
+-0.000417637993717
+0.000382793567392
+-0.000311185634275
+0.000306917710391
+0.00024991625151
+-0.000242267119465
+-0.000215005751048
+0.000211448422129
+0.000207042640477
+0.000199780025669
+-0.000189764010529
+0.000156274505206
+0.000128931263604
+-0.000128371141566
+-0.0001228168465
+-0.000107267626492
+0.000104771676447
+-9.47067568599e-05
+8.6580515054e-05
+-8.64246358161e-05
+8.29963582648e-05
+8.08157320428e-05
+6.73005715817e-05
+6.59527134401e-05
+-6.33119227353e-05
+-6.17556059385e-05
+-5.14857742804e-05
+-4.86602204429e-05
+4.26973511063e-05
+4.09076195086e-05
+3.63612730986e-05
+3.32431561522e-05
+-3.24579664348e-05
+3.08729163577e-05
+-2.67610823665e-05
+2.63925370491e-05
+-2.44300715464e-05
+2.05337915909e-05
+-1.95820022901e-05
+1.7029917108e-05
+-1.70176103069e-05
+1.5127159453e-05
+1.43822836315e-05
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0

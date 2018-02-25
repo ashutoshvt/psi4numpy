@@ -11,7 +11,8 @@ np.set_printoptions(precision=15, linewidth=200, suppress=True)
 import psi4
 
 #psi4.core.set_memory(int(2e9), False)
-psi4.set_memory(int(10e9), False)
+psi4.set_memory(int(12e9), False)
+psi4.set_num_threads(24)
 psi4.core.set_output_file('output.dat', False)
 
 #numpy_memory = 2
@@ -31,7 +32,7 @@ symmetry c1
 #symmetry c1
 #""")
 
-psi4.set_options({'basis': 'aug-cc-pVTZ'})
+psi4.set_options({'basis': 'aug-cc-pVQZ'})
 #psi4.set_options({'basis': 'cc-pVDZ'})
 #psi4.set_options({'basis': 'sto-3g'})
 #psi4.set_options({'basis': 'ORP'})
@@ -333,25 +334,25 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory, MVG):
         #Dab2[string_P+string_L] -=  np.einsum('ijac,ijcb->ab', ccpert[string_P].x2, ccpert[string_L].x2)
         """
 
-        #Dij[string_P+string_L + str(omega_zero)] =  0.5 * np.einsum('ia,ja->ij', ccpert[string_P + str(omega_zero)].x1, ccpert[string_L + str(omega_zero)].y1)
-        #Dij[string_P+string_L + str(omega_zero)] += 0.5 * np.einsum('ikab,jkab->ij', ccpert[string_P + str(omega_zero)].x2, ccpert[string_L + str(omega_zero)].y2)
-        #Dij[string_P+string_L + str(omega_zero)] =  -1.0 * Dij[string_P + string_L + str(omega_zero)]
-
-        #Dab[string_P+string_L + str(omega_zero)] =   0.5 * np.einsum('ia,ib->ab', ccpert[string_P + str(omega_zero)].x1, ccpert[string_L + str(omega_zero)].y1)
-        #Dab[string_P+string_L + str(omega_zero)] +=  0.5 * np.einsum('ijac,ijbc->ab', ccpert[string_P + str(omega_zero)].x2, ccpert[string_L + str(omega_zero)].y2)
-
-        x1 = ccpert[string_P + str(omega)].x1 - ccpert[string_P + str(omega_zero)].x1
-        x2 = ccpert[string_P + str(omega)].x2 - ccpert[string_P + str(omega_zero)].x2
-
-        y1 = ccpert[string_P + str(omega)].y1 - ccpert[string_P + str(omega_zero)].y1
-        y2 = ccpert[string_P + str(omega)].y2 - ccpert[string_P + str(omega_zero)].y2
-
-        Dij[string_P+string_L + str(omega_zero)] =  0.5 * np.einsum('ia,ja->ij', x1, y1)
-        Dij[string_P+string_L + str(omega_zero)] += 0.5 * np.einsum('ikab,jkab->ij', x2, y2)
+        Dij[string_P+string_L + str(omega_zero)] =  0.5 * np.einsum('ia,ja->ij', ccpert[string_P + str(omega_zero)].x1, ccpert[string_L + str(omega_zero)].y1)
+        Dij[string_P+string_L + str(omega_zero)] += 0.5 * np.einsum('ikab,jkab->ij', ccpert[string_P + str(omega_zero)].x2, ccpert[string_L + str(omega_zero)].y2)
         Dij[string_P+string_L + str(omega_zero)] =  -1.0 * Dij[string_P + string_L + str(omega_zero)]
 
-        Dab[string_P+string_L + str(omega_zero)] =   0.5 * np.einsum('ia,ib->ab', x1, y1)
-        Dab[string_P+string_L + str(omega_zero)] +=  0.5 * np.einsum('ijac,ijbc->ab', x2, y2)
+        Dab[string_P+string_L + str(omega_zero)] =   0.5 * np.einsum('ia,ib->ab', ccpert[string_P + str(omega_zero)].x1, ccpert[string_L + str(omega_zero)].y1)
+        Dab[string_P+string_L + str(omega_zero)] +=  0.5 * np.einsum('ijac,ijbc->ab', ccpert[string_P + str(omega_zero)].x2, ccpert[string_L + str(omega_zero)].y2)
+
+        #x1 = ccpert[string_P + str(omega)].x1 + ccpert[string_P + str(omega_zero)].x1
+        #x2 = ccpert[string_P + str(omega)].x2 + ccpert[string_P + str(omega_zero)].x2
+
+        #y1 = ccpert[string_P + str(omega)].y1 - ccpert[string_P + str(omega_zero)].y1
+        #y2 = ccpert[string_P + str(omega)].y2 - ccpert[string_P + str(omega_zero)].y2
+
+        #Dij[string_P+string_L + str(omega_zero)] =  0.5 * np.einsum('ia,ja->ij', x1, y1)
+        #Dij[string_P+string_L + str(omega_zero)] += 0.5 * np.einsum('ikab,jkab->ij', x2, y2)
+        #Dij[string_P+string_L + str(omega_zero)] =  -1.0 * Dij[string_P + string_L + str(omega_zero)]
+
+        #Dab[string_P+string_L + str(omega_zero)] =   0.5 * np.einsum('ia,ib->ab', x1, y1)
+        #Dab[string_P+string_L + str(omega_zero)] +=  0.5 * np.einsum('ijac,ijbc->ab', x2, y2)
 
         #Dij[string_P+string_L + str(omega)] =  0.5 * np.einsum('ia,ja->ij', ccpert[string_P + str(omega)].x1, ccpert[string_L + str(omega)].y1)
         #Dij[string_P+string_L + str(omega)] += 0.5 * np.einsum('ikab,jkab->ij', ccpert[string_P + str(omega)].x2, ccpert[string_L + str(omega)].y2)
@@ -519,10 +520,12 @@ F_mo  = np.einsum('ui,vj,uv', C, C, F)
 F_mo_occ = F_mo[:occ,:occ]
 F_mo_vir = F_mo[occ:, occ:]
 
-Emat_ij, Emat_ab = fvno_procedure(mol, rhf_e, rhf_wfn, 40, 'true')
+Emat_ij, Emat_ab = fvno_procedure(mol, rhf_e, rhf_wfn, 50, 'true')
 
 #frz_vir = [i for i in range(5,9)]
-frz_vir = [15,30,45,60,65,70]
+#frz_vir = [15,30,45,60,65,70]
+#frz_vir = [35,40,45,50,55]
+frz_vir = [40,60,80,100,120]
 Emat_ab1 = np.zeros_like(Emat_ab)
 for k in frz_vir:
 
@@ -552,4 +555,4 @@ for k in frz_vir:
     rhf_wfn.Ca().copy(C_psi4_sc)
     #for item in C:
     #    print(item)
-    tmp_1, tmp_2 = fvno_procedure(mol, rhf_e, rhf_wfn, 40, 'true')
+    tmp_1, tmp_2 = fvno_procedure(mol, rhf_e, rhf_wfn, 50, 'true')

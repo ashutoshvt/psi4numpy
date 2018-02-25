@@ -1,0 +1,18 @@
+#! /bin/bash
+#PBS -l walltime=4:00:00
+#PBS -l nodes=1:ppn=24
+#PBS -W group_list=dragonstooth
+#PBS -q normal_q
+#PBS -A crawdad
+#PBS -M akumar1@vt.edu
+#PBS -m a
+##PBS -N  
+
+source /groups/crawdad_lab/opt/etc/crawdad_psi4vars.sh -python 3
+echo "psi4 at"
+which psi4
+echo ""
+
+cd $PBS_O_WORKDIR
+
+python  correction_cc2_density_guess_optrot_lg.py > Results/h2o2_atz_optrot_lg_cc2_coorection_1_0_3

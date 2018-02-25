@@ -1,0 +1,20 @@
+In h2o2/aTZ test case, only 45 virtuals have ONs less than 1e-5. 1e-5 is a fairly tight cutoff by the way :) Actually only 14 virtuals have ONs less than 1e-6. This is a fairly tight system.
+The main motivation behind this technique is to apply it to ghost systems. For regular molecules,
+this method is not good unless there is a lot of sparsity in the wavefunction.
+
+So, when I remove 45 virtuals, the errors are close to 6~7 % in MVG when I construct the density
+using zero frequency amplitudes. However, the errors in the VG are close to 13-14%
+
+I can expect errors like that by the way: When I am removing 45 virtuals, I am removing 
+ONs close to 1e-5. Ofcourse, the errors are large.
+
+
+A natural question is that is length-gauge results also this much sensitive ???
+
+It seems like the length gauge results are not that much sensitive. 
+Even though, the eigenvalue spectrum in the lg case is nearly the same as that in the vg
+case, I am getting ~1-2% error with full CCSD density. compared to an upwards of 
+10 % in the velocity gauge case. There is something going in velocity gauge,
+which I need to figure out!! Why so sensitive ??
+
+Ofcourse since MVG results are difference of VG results, the errors are a bit lesser than VG.

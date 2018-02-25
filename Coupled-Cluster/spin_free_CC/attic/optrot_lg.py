@@ -11,10 +11,11 @@ np.set_printoptions(precision=15, linewidth=200, suppress=True)
 import psi4
 
 #psi4.core.set_memory(int(2e9), False)
-psi4.set_memory(int(8e9), False)
+psi4.set_memory(int(10e9), False)
+#psi4.set_memory(int(10e9), False)
 psi4.core.set_output_file('output.dat', False)
 
-numpy_memory = 2
+#numpy_memory = 2
 
 mol = psi4.geometry("""
  O     -0.028962160801    -0.694396279686    -0.049338350190                                                                  
@@ -31,27 +32,27 @@ symmetry c1
 #symmetry c1
 #""")
 
-psi4.set_options({'basis': 'aug-cc-pVDZ'})
+psi4.set_options({'basis': 'aug-cc-pVTZ'})
+psi4.set_num_threads(24)
 #psi4.set_options({'basis': 'sto-3g'})
 #psi4.set_options({'basis': 'ORP'})
 
 # For numpy
-compare_psi4 = True
+#compare_psi4 = True
 
 print('Computing RHF reference.')
 psi4.core.set_active_molecule(mol)
 psi4.set_module_options('SCF', {'SCF_TYPE':'PK'})
-psi4.set_module_options('SCF', {'E_CONVERGENCE':1e-13})
-psi4.set_module_options('SCF', {'D_CONVERGENCE':1e-13})
+psi4.set_module_options('SCF', {'E_CONVERGENCE':1e-9})
+psi4.set_module_options('SCF', {'D_CONVERGENCE':1e-9})
 rhf_e, rhf_wfn = psi4.energy('SCF', return_wfn=True)  
 print('RHF Final Energy                          % 16.10f\n' % rhf_e)
-c_square = 137 * 137 
 
 def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
 
     # Compute CCSD
     ccsd = helper_ccenergy(mol, rhf_e, rhf_wfn, memory)
-    ccsd.compute_energy(r_conv=1e-10)
+    ccsd.compute_energy(r_conv=1e-7)
     CCSDcorr_E = ccsd.ccsd_corr_e
     CCSD_E = ccsd.ccsd_e
     
@@ -62,7 +63,7 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
     cchbar = helper_cchbar(ccsd)
     
     cclambda = helper_cclambda(ccsd,cchbar)
-    cclambda.compute_lambda(r_conv=1e-10)
+    cclambda.compute_lambda(r_conv=1e-7)
     omega = 0.07735713394560646
     #omega = 0.01
     
@@ -85,13 +86,13 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
         ccpert[string_Mu] = helper_ccpert(string_Mu, Mu[string_Mu], ccsd, cchbar, cclambda, omega)
         ccpert[string_L] = helper_ccpert(string_L, L[string_L], ccsd, cchbar, cclambda, omega)
         print('\nsolving right hand perturbed amplitudes for %s\n' % string_Mu)
-        ccpert[string_Mu].solve('right', r_conv=1e-10)
+        ccpert[string_Mu].solve('right', r_conv=1e-7)
         print('\nsolving right hand perturbed amplitudes for %s\n' % string_L)
-        ccpert[string_L].solve('right', r_conv=1e-10)
+        ccpert[string_L].solve('right', r_conv=1e-7)
         print('\nsolving left hand perturbed amplitudes for %s\n'% string_Mu)
-        ccpert[string_Mu].solve('left', r_conv=1e-10)
+        ccpert[string_Mu].solve('left', r_conv=1e-7)
         print('\nsolving left hand perturbed amplitudes for %s\n'% string_L)
-        ccpert[string_L].solve('left', r_conv=1e-10)
+        ccpert[string_L].solve('left', r_conv=1e-7)
     
     # Now that I have solved for x and y, I would like to calculate
     # first order ccsd perturbed density. I am assuming only diagonal
@@ -135,7 +136,7 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
 
    
         # Occupied - Occupied block of Density #
-        
+        """ 
         Dij_Mu[string_Mu]  =  np.einsum('ia,ja->ij', ccpert[string_Mu].x1, cclambda.l1)
         Dij_Mu[string_Mu] +=  np.einsum('ia,ja->ij', ccsd.t1, ccpert[string_Mu].y1)
         Dij_Mu[string_Mu] +=  np.einsum('ikab,jkab->ij', ccsd.t2, ccpert[string_Mu].y2)
@@ -160,7 +161,7 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
 
         # 'ia,ib->ba': ba is absolutley essential instead of ab because angular momentum
         # integrals are anti-hermitian because of which Lab*Dab = - Lab*Dba
-               
+
         Dab_Mu[string_Mu] =   np.einsum('ia,ib->ba', ccpert[string_Mu].x1, cclambda.l1)
         Dab_Mu[string_Mu] +=  np.einsum('ia,ib->ba', ccsd.t1, ccpert[string_Mu].y1)
         Dab_Mu[string_Mu] +=  np.einsum('ijac,ijbc->ba', ccsd.t2, ccpert[string_Mu].y2)
@@ -172,7 +173,7 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
 
         #Dab2_Mu[string_Mu] =   np.einsum('ia,ib->ab', ccpert[string_Mu].y1, ccpert[string_Mu].y1)
         #Dab2_Mu[string_Mu] +=  np.einsum('ijac,ijbc->ab', ccpert[string_Mu].y2, ccpert[string_Mu].y2)
-
+        
         Dab2_Mu[string_Mu] =   np.einsum('ia,ib->ab', ccpert[string_Mu].x1, ccpert[string_Mu].x1)
         Dab2_Mu[string_Mu] +=  2.0 * np.einsum('ijac,ijbc->ab', ccpert[string_Mu].x2, ccpert[string_Mu].x2)
         Dab2_Mu[string_Mu] -=  np.einsum('ijac,ijcb->ab', ccpert[string_Mu].x2, ccpert[string_Mu].x2)
@@ -318,14 +319,14 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
         #Dab2[string_Mu+string_L] +=  2.0 * np.einsum('ijac,ijbc->ab', ccpert[string_Mu].x2, ccpert[string_L].x2)
         #Dab2[string_Mu+string_L] -=  np.einsum('ijac,ijcb->ab', ccpert[string_Mu].x2, ccpert[string_L].x2)
 
+        """
+
         Dij2[string_Mu+string_L] =  0.5 * np.einsum('ia,ja->ij', ccpert[string_Mu].x1, ccpert[string_L].y1)
         Dij2[string_Mu+string_L] += 0.5 * np.einsum('ikab,jkab->ij', ccpert[string_Mu].x2, ccpert[string_L].y2)
         Dij2[string_Mu+string_L] =  -1.0 * Dij2[string_Mu + string_L]
 
         Dab2[string_Mu+string_L] =   0.5 * np.einsum('ia,ib->ab', ccpert[string_Mu].x1, ccpert[string_L].y1)
         Dab2[string_Mu+string_L] +=  0.5 * np.einsum('ijac,ijbc->ab', ccpert[string_Mu].x2, ccpert[string_L].y2)
-
-
 
     
     # calculate response function <<A;B>> by pert_A * density_B
@@ -346,13 +347,13 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
 
         #Dij_Mu[string_Mu]  =  0.5 * (Dij_Mu[string_Mu] + Dij_Mu[string_Mu].T)
         #Dab_Mu[string_Mu]  =  0.5 * (Dab_Mu[string_Mu] + Dab_Mu[string_Mu].T)
-        Dij2_Mu[string_Mu] =  0.5 * (Dij2_Mu[string_Mu] + Dij2_Mu[string_Mu].T)
-        Dab2_Mu[string_Mu] =  0.5 * (Dab2_Mu[string_Mu] + Dab2_Mu[string_Mu].T)
+        #Dij2_Mu[string_Mu] =  0.5 * (Dij2_Mu[string_Mu] + Dij2_Mu[string_Mu].T)
+        #Dab2_Mu[string_Mu] =  0.5 * (Dab2_Mu[string_Mu] + Dab2_Mu[string_Mu].T)
 
         #Dij_L[string_L]  =  0.5 * (Dij_L[string_L] + Dij_L[string_L].T)
         #Dab_L[string_L]  =  0.5 * (Dab_L[string_L] + Dab_L[string_L].T)
-        Dij2_L[string_L] =  0.5 * (Dij2_L[string_L] + Dij2_L[string_L].T)
-        Dab2_L[string_L] =  0.5 * (Dab2_L[string_L] + Dab2_L[string_L].T)
+        #Dij2_L[string_L] =  0.5 * (Dij2_L[string_L] + Dij2_L[string_L].T)
+        #Dab2_L[string_L] =  0.5 * (Dab2_L[string_L] + Dab2_L[string_L].T)
 
 
         #Dij2[string_Mu + string_L]  =  1.0/(1.0 + c_square) * (Dij2_Mu[string_Mu] + c_square * Dij2_L[string_L])
@@ -366,8 +367,8 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
 
         Dij2[string_Mu + string_L] =  0.5 * (Dij2[string_Mu + string_L] + Dij2[string_Mu + string_L].T)
         Dab2[string_Mu + string_L] =  0.5 * (Dab2[string_Mu + string_L] + Dab2[string_Mu + string_L].T)
-
-
+        
+        """
         optrot_density_L[string_L] = 0
         optrot_density_L_ij[string_L] =  np.einsum('ij,ij->', Dij_L[string_L], Muij[string_Mu])
         optrot_density_L[string_L] +=  optrot_density_L_ij[string_L]
@@ -409,14 +410,14 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
         print('\noptrot_density_L*D_Mu: %20.15lf\n' % optrot_density_Mu[string_Mu])
 
         print('\noptrot_density: %20.15lf\n' % (0.50 * optrot_density_Mu[string_Mu] - 0.5 * optrot_density_L[string_L]))
-
+        """
     
         print('\n Calculating rotation tensor from linear response function:\n')
         optrot_PQ={}
         
         for p in range(0,1):
             str_p = "MU_" + cart[p]
-            for q in range(0,3):
+            for q in range(0,1):
                 if p == q:
                     str_q = "L_" + cart[q]
                     str_pq = "<<" + str_p + ";" + str_q + ">>"
@@ -432,22 +433,6 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
                     print('\n optrot_response Lmu= %20.15lf \n' %  optrot_PQ[str_qp])
                     print('\n optrot_response = %20.15lf \n' % ( 0.5 * optrot_PQ[str_pq] - 0.5 * optrot_PQ[str_qp]))
     
-    #print('\nPolarizability tensor (symmetrized):\n')
-    #
-    #for a in range(0,1):
-    #    str_a = "MU_" + cart[a]
-    #    for b in range(0,1):
-    #        str_b = "MU_" + cart[b]
-    #        str_ab = "<<" + str_a + ";" + str_b + ">>"
-    #        #str_ba = "<<" + str_b + ";" + str_a + ">>"
-    #        value = optrot_AB[str_ab]
-    #        #value = 0.5*(optrot_AB[str_ab] + optrot_AB[str_ba])
-    #        optrot_AB[str_ab] = value
-    #        #optrot_AB[str_ba] = value
-    #        print(str_ab + ":" + str(value))
-    
-    
-    
     
     # Post-Processing of the densities to obtained `perturbed` natural orbitals
     # Just pick only the x component for now. We will extend this later.
@@ -460,11 +445,11 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
         #Evecij,  Ematij =  LA.eig(Dij[string_Mu])
         #Evecab,  Ematab =  LA.eig(Dab[string_Mu])
 
-        Evec2_Mu_ij, Emat2_Mu_ij = LA.eig(Dij2_Mu[string_Mu])
-        Evec2_Mu_ab, Emat2_Mu_ab = LA.eig(Dab2_Mu[string_Mu])
+        #Evec2_Mu_ij, Emat2_Mu_ij = LA.eig(Dij2_Mu[string_Mu])
+        #Evec2_Mu_ab, Emat2_Mu_ab = LA.eig(Dab2_Mu[string_Mu])
 
-        Evec2_L_ij, Emat2_L_ij = LA.eig(Dij2_L[string_L])
-        Evec2_L_ab, Emat2_L_ab = LA.eig(Dab2_L[string_L])
+        #Evec2_L_ij, Emat2_L_ij = LA.eig(Dij2_L[string_L])
+        #Evec2_L_ab, Emat2_L_ab = LA.eig(Dab2_L[string_L])
 
         Evec2_ij, Emat2_ij = LA.eig(Dij2[string_Mu + string_L])
         Evec2_ab, Emat2_ab = LA.eig(Dab2[string_Mu + string_L])
@@ -514,16 +499,17 @@ def fvno_procedure(mol, rhf_e, rhf_wfn, memory):
         #DEmatij =  sort(DEmatij, DEvecij)
         #DEmatab =  sort(DEmatab, DEvecab)
 
-        Emat2_Mu_ij =  sort(Emat2_Mu_ij, Evec2_Mu_ij)
-        Emat2_Mu_ab =  sort(Emat2_Mu_ab, Evec2_Mu_ab)
+        #Emat2_Mu_ij =  sort(Emat2_Mu_ij, Evec2_Mu_ij)
+        #Emat2_Mu_ab =  sort(Emat2_Mu_ab, Evec2_Mu_ab)
 
-        Emat2_L_ij =  sort(Emat2_L_ij, Evec2_L_ij)
-        Emat2_L_ab =  sort(Emat2_L_ab, Evec2_L_ab)
+        #Emat2_L_ij =  sort(Emat2_L_ij, Evec2_L_ij)
+        #Emat2_L_ab =  sort(Emat2_L_ab, Evec2_L_ab)
 
         Emat2_ij =  sort(Emat2_ij, Evec2_ij)
         Emat2_ab =  sort(Emat2_ab, Evec2_ab)
 
-    return Emat2_Mu_ij, Emat2_Mu_ab, Emat2_L_ij, Emat2_L_ab, Emat2_ij, Emat2_ab
+    #return Emat2_Mu_ij, Emat2_Mu_ab, Emat2_L_ij, Emat2_L_ab, Emat2_ij, Emat2_ab
+    return Emat2_ij, Emat2_ab
 
 
 def sort(Emat, Evec):
@@ -541,10 +527,63 @@ def sort(Emat, Evec):
     return Emat
     
 
-#Emat2ij, Emat2ab = fvno_procedure(mol, rhf_e, rhf_wfn, 4)
-Emat2_Mu_ij, Emat2_Mu_ab, Emat2_L_ij, Emat2_L_ab, Emat2_ij, Emat2_ab = fvno_procedure(mol, rhf_e, rhf_wfn, 4)
+#Emat2_Mu_ij, Emat2_Mu_ab, Emat2_L_ij, Emat2_L_ab, Emat2_ij, Emat2_ab = fvno_procedure(mol, rhf_e, rhf_wfn, 40)
+
+# When I use np.asarray(), once I copy truncated C 
+# into rhf_wfn.Ca(), C aslo changes as C is just a 
+# view of rhf_wfn.Ca() in this case.
+#C = np.asarray(rhf_wfn.Ca())
+#F = np.asarray(rhf_wfn.Fa())
+
+C = psi4.core.Matrix.to_array(rhf_wfn.Ca())
+F = psi4.core.Matrix.to_array(rhf_wfn.Fa())
+
+nmo = rhf_wfn.nmo()
+occ = rhf_wfn.doccpi()[0]
+vir = nmo - occ
+C_occ = C[:, :occ]
+C_vir = C[:, occ:]
+F_mo  = np.einsum('ui,vj,uv', C, C, F)
+F_mo_occ = F_mo[:occ,:occ]
+F_mo_vir = F_mo[occ:, occ:]
+
+Emat_ij, Emat_ab = fvno_procedure(mol, rhf_e, rhf_wfn, 40)
+
+#frz_vir = [i for i in range(5,9)]
+frz_vir = [15,30,35,40,45,50,55,60,65]
+Emat_ab1 = np.zeros_like(Emat_ab)
+for k in frz_vir:
+
+    Emat_ab1 = Emat_ab.copy()
+    Emat_view = Emat_ab1[:,vir-k:]
+    Emat_view.fill(0)
+
+    C_occ_no = np.einsum('pi,ij->pj', C_occ, Emat_ij)
+    C_vir_no = np.einsum('pa,ab->pb', C_vir, Emat_ab1)
+
+    F_no_occ  = np.einsum('ki,lj,kl', Emat_ij, Emat_ij, F_mo_occ)
+    F_no_vir  = np.einsum('ca,db,cd', Emat_ab1, Emat_ab1, F_mo_vir)
+
+    tmp_occ_ev, tmp_occ_mat = LA.eig(F_no_occ)
+    tmp_vir_ev, tmp_vir_mat = LA.eig(F_no_vir)
+
+    C_occ_sc = np.einsum('pi,ij->pj', C_occ_no, tmp_occ_mat)
+    C_vir_sc = np.einsum('pa,ab->pb', C_vir_no, tmp_vir_mat)
+
+    F_occ_sc  = np.einsum('ui,vj,uv', C_occ_sc, C_occ_sc, F)
+    F_vir_sc  = np.einsum('ua,vb,uv', C_vir_sc, C_vir_sc, F)
+
+    C_np_sc = np.concatenate((C_occ_sc, C_vir_sc), axis=1)
+
+    C_psi4_sc = psi4.core.Matrix.from_array(C_np_sc)
+
+    rhf_wfn.Ca().copy(C_psi4_sc)
+    #for item in C:
+    #    print(item)
+    tmp_1, tmp_2 = fvno_procedure(mol, rhf_e, rhf_wfn, 40)
 
 
+"""
 C = np.asarray(rhf_wfn.Ca())
 F = np.asarray(rhf_wfn.Fa())
 S = np.asarray(rhf_wfn.S())
@@ -557,6 +596,7 @@ F_mo  = np.einsum('ui,vj,uv', C, C, F)
 F_mo_occ = F_mo[:occ,:occ]
 F_mo_vir = F_mo[occ:, occ:]
 
+"""
 """
 C_occ_Mu_no = np.einsum('pi,ij->pj', C_occ, Emat2_Mu_ij)
 C_vir_Mu_no = np.einsum('pa,ab->pb', C_vir, Emat2_Mu_ab)
@@ -630,6 +670,7 @@ import matplotlib.pyplot as plt
 plt.plot(virtuals, se_vir_Mu, se_vir_L)
 plt.savefig("se_Mu_L.png")
 """
+"""
 frz_vir = 6
 Emat2_Mu_ab1 = np.zeros_like(Emat2_Mu_ab)
 Emat2_L_ab1 = np.zeros_like(Emat2_L_ab)
@@ -691,3 +732,4 @@ for k in range(5, frz_vir):
 
     tmp_1, tmp_2, tmp_3, tmp_4, tmp_5, tmp_6 = fvno_procedure(mol, rhf_e, rhf_wfn, 4)
 # Now I want to change the coefficient matrix appropriately#
+"""

@@ -1,0 +1,41 @@
+Separate helper modules for all the core utilities.
+1.  ccenergy
+2.  cclambda
+3.  cchbar
+4.  ccresponse
+5.  cclinresp
+6.  localization_PAO
+7.  cc2energy
+8.  cc2lambda
+9.  cc2hbar
+10. cc2response
+11. cc2linresp
+12. dens_linresp_cc
+13. dens_linresp_cc2
+14. D2(ij_ab)
+15. polarizability
+16. rotation - length gauge
+17. rotation - modified velocity gauge
+
+After making all these helper modules create 
+a proper implementation file for submission and
+running. That would be very clean
+
+
+Final scripts that should be run:
+
+1. helper_guess_density.py
+
+what should it take as arguments:
+1. psi4_options for scf (molecule, basis, convergence, etc) 
+2. guess : cc2 or ccsd or cis(d) etc. .. with iteration structure for ccenergy, cclambda, ccresponse. ex. cc2, 1, 0, 3.
+3. property(rotation, polarizability)
+4. a list of cartesian corrdinates: [X(XX), Y(YY), Z(ZZ)]
+5. Gauge? if polarizability error if gauge is not length
+6. should return 1, 2 or 3 bases depending on the cartesian coordinates.
+
+what should it print:
+sparsity analysis of the density: its eigenvalue structure
+
+Once we have the new basis from eigenvectors of the guess density, 
+lets proceed with calculation of the property in this basis. 

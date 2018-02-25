@@ -4,12 +4,13 @@ from helper_cc2 import helper_cc2energy
 from helper_cc2 import helper_cc2hbar 
 from helper_cc2 import helper_cc2lambda 
 from helper_cc2 import helper_cc2pert 
-from helper_cc2 import helper_cclinresp
+from helper_cc2 import helper_cc2linresp
 np.set_printoptions(precision=15, linewidth=200, suppress=True)
 import psi4
 
 #psi4.core.set_memory(int(2e9), False)
 psi4.set_memory(int(2e9), False)
+psi4.set_num_threads(24)
 psi4.core.set_output_file('output.dat', False)
 
 numpy_memory = 2
@@ -22,8 +23,8 @@ noreorient
 symmetry c1
 """)
 
-psi4.set_options({'basis': 'aug-cc-pVDZ'})
-#psi4.set_options({'basis': 'sto-3g'})
+#psi4.set_options({'basis': 'aug-cc-pVDZ'})
+psi4.set_options({'basis': 'sto-3g'})
 
 print('Computing RHF reference.')
 psi4.core.set_active_molecule(mol)
@@ -82,7 +83,7 @@ for p in range(0,1):
         if p == q:
             str_q = "MU_" + cart[q]
             str_pq = "<<" + str_p + ";" + str_q + ">>"
-            cclinresp[str_pq]= helper_cclinresp(cc2lambda, ccpert[str_p], ccpert[str_q])
+            cclinresp[str_pq]= helper_cc2linresp(cc2lambda, ccpert[str_p], ccpert[str_q])
             polar_PQ[str_pq]= cclinresp[str_pq].linresp()
             print(str_pq)
             print('\n polar1 = %20.15lf \n' % cclinresp[str_pq].polar1)
