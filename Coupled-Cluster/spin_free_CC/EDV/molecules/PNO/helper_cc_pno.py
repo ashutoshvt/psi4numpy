@@ -1244,10 +1244,10 @@ class helper_cclambda(object):
 
         old_l2 = self.l2.copy()
         old_l1 = self.l1.copy()
-        if self.edv:
-            tmp = self.pert_basis_transform2(r_l2)
+        if self.local == 'PNO':
+            tmp = self.pno_object.local_filter_T2(r_l2)
             self.l2 += tmp + tmp.swapaxes(0,1).swapaxes(2,3)
-            self.l1 += self.pert_basis_transform1(r_l1)
+            self.l1 += self.pno_object.local_filter_T1(r_l1)
         else:
             self.l2 += r_l2/self.Dijab 
             self.l2 += (r_l2/self.Dijab).swapaxes(0,1).swapaxes(2,3) 
