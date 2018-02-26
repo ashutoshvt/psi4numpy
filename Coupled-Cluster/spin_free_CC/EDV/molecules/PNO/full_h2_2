@@ -1,0 +1,27 @@
+Computing RHF reference.
+RHF Final Energy                             -2.2082095525
+
+
+Initalizing CCSD object...
+
+Starting AO ->  MO transformation...
+Size of the ERI tensor is 0.00 GB, 36 basis functions.
+Building initial guess...
+
+..initialized CCSD in 0.225 seconds.
+
+CCSD Iteration   0: CCSD correlation = -0.059547559146732   dE =  5.95476E-02   MP2
+CCSD Iteration   1: CCSD correlation = -0.072082981151426   dE = -1.25354E-02   DIIS = 0
+CCSD Iteration   2: CCSD correlation = -0.075521154387216   dE = -3.43817E-03   DIIS = 1
+CCSD Iteration   3: CCSD correlation = -0.077171353515683   dE = -1.65020E-03   DIIS = 2
+CCSD Iteration   4: CCSD correlation = -0.077332115629257   dE = -1.60762E-04   DIIS = 3
+CCSD Iteration   5: CCSD correlation = -0.077344566067803   dE = -1.24504E-05   DIIS = 4
+CCSD Iteration   6: CCSD correlation = -0.077343427456273   dE =  1.13861E-06   DIIS = 5
+CCSD Iteration   7: CCSD correlation = -0.077343369781999   dE =  5.76743E-08   DIIS = 6
+CCSD Iteration   8: CCSD correlation = -0.077343583825057   dE = -2.14043E-07   DIIS = 7
+CCSD Iteration   9: CCSD correlation = -0.077343613207612   dE = -2.93826E-08   DIIS = 7
+CCSD Iteration  10: CCSD correlation = -0.077343588657149   dE =  2.45505E-08   DIIS = 7
+CCSD Iteration  11: CCSD correlation = -0.077343586213145   dE =  2.44400E-09   DIIS = 7
+CCSD Iteration  12: CCSD correlation = -0.077343586715795   dE = -5.02650E-10   DIIS = 7
+
+CCSD has converged in 0.114 seconds!

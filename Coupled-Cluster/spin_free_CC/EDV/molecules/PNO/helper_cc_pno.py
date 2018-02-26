@@ -127,7 +127,7 @@ def sort_descending(Evec, Eval):
         print(item)
 
     Evec = Evec[:,idx]
-    return Evec
+    return Evec,Eval
 
 def sort_ascending(Evec, Eval):
     tmp = Eval.copy()
@@ -141,10 +141,10 @@ def sort_ascending(Evec, Eval):
         print(item)
 
     Evec = Evec[:,idx]
-    return Evec
+    return Evec, Eval
 
 class helper_localize(object):
-    def __init__(self, wfn, mol, pno_cutoff):
+    def __init__(self, wfn, F, MO, mol, pno_cutoff):
         #npC = np.asarray(self.wfn.Ca())
         #C_occ = self.wfn.Ca_subset("AO", "OCC")
         # No frozen core as of now
@@ -169,12 +169,25 @@ class helper_localize(object):
         self.dints = []
         tmp = np.zeros((vir,vir))
         
-        self.F = wfn.F.copy()
-        self.t2   = wfn.t2.copy()
-        self.t2_t = 2.0 * self.t2 - self.t2.swapaxes(2,3)
+        self.F = F.copy()
+        self.MO = MO
+        Fvir = self.F[occ:,occ:]
 
-        self.t2   = self.t2.reshape(occ*occ,vir*vir)
-        self.t2_t = self.t2_t.reshape(occ*occ,vir*vir)
+        Focc_d = np.diag(self.F)[:occ]
+        Fvir_d = np.diag(self.F)[occ:]
+        #print(Focc_d)
+        #print(Fvir_d)
+        self.Dia = Focc_d.reshape(-1, 1) - Fvir_d
+        self.Dijab = Focc_d.reshape(-1, 1, 1, 1) + Focc_d.reshape(-1, 1, 1) - Fvir_d.reshape(-1, 1) - Fvir_d
+
+        self.ijab = self.MO[:occ, :occ, occ:, occ:] 
+        self.ijab_t = 2 * self.ijab - self.ijab.swapaxes(2,3)
+        self.t2 = self.ijab/self.Dijab    
+        self.t2_t = self.ijab_t/self.Dijab    
+        #self.t2_t = 2.0 * self.t2 - self.t2.swapaxes(2,3)
+
+        self.t2   = self.t2.reshape(occ*occ,vir,vir)
+        self.t2_t = self.t2_t.reshape(occ*occ,vir,vir)
         n_pairs = occ * occ
 
         for ij in range(n_pairs):
@@ -190,11 +203,11 @@ class helper_localize(object):
             
         self.Dij = []
         for ij in range(n_pairs):
-            i = ij/occ
+            i = int(ij/occ)
             j = ij%occ
-            temp  = np.einsum('ac,cb->ab', Tij[ij], Ttij[ij].T)
-            temp += np.einsum('ac,cb->ab', Tij[ij].T, Ttij[ij])
-            temp /= 2.0 * 1/(1 + (i==j))
+            temp  = np.einsum('ac,cb->ab', self.Tij[ij], self.Ttij[ij].T)
+            temp += np.einsum('ac,cb->ab', self.Tij[ij].T, self.Ttij[ij])
+            temp *= 2.0 * 1/(1 + (i==j))
             self.Dij.append(temp.copy())
 
         # Get PNO Transforms, Occupation numbers (aka diagonalize each pair density) #
@@ -203,8 +216,8 @@ class helper_localize(object):
         self.occ_num = []
 
         for ij in range(n_pairs):
-            Eval, Evec = LA.eig(Dij[ij])
-            Evec = sort_descending(Evec, Eval)
+            Eval, Evec = LA.eig(self.Dij[ij])
+            Evec, Eval = sort_descending(Evec, Eval)
             self.Q_full.append(Evec.copy())
             self.occ_num.append(Eval.copy())
             
@@ -213,7 +226,7 @@ class helper_localize(object):
         for ij in range(n_pairs):
             survivor = 0
             for a in range(vir):
-                n_pno = abs(occ_num[ij][a])
+                n_pno = abs(self.occ_num[ij][a])
                 if n_pno >= self.pno_cutoff:
                     survivor += 1
             self.dim_.append(survivor) 
@@ -228,19 +241,25 @@ class helper_localize(object):
         print('Average # of PNOs : %10.3lf'%avg_pno)
         print('PNO Dimensions')
         for items in self.dim_:
-            print items
+            print(items)
 
         # T1, T2 Length for direct comparison to PAO approach later !!
         
         self.pair_list_ = []
         self.zero_list_ = []    
         # find  surviving pairs  
-        for ij in range(self.dim_.size):
+        for ij in range(len(self.dim_)):
             if (self.dim_[ij]):
                 self.pair_list_.append(ij)
             else:
                 self.zero_list_.append(ij)    
-        self.spairs = self.pair_list_.size
+        #print('self.pair_list_')
+        #print(self.pair_list_)
+        #print('self.zero_list_')
+        #print(self.zero_list_)
+        self.spairs = len(self.pair_list_)
+        #print('self.spairs')
+        #print(self.spairs)
 
         self.Q_ = []
         # Form truncated transforms
@@ -250,11 +269,10 @@ class helper_localize(object):
             qtemp = np.zeros((vir,pno))
             for a in range(vir):
                 for aij in range(pno):
-                    qtemp[a][aij] = self.Q_full[a][aij] 
+                    qtemp[a][aij] = self.Q_full[ij][a][aij] 
             self.Q_.append(qtemp.copy()) 
     
         # Get semicanonical transforms from virtual fock block 
-        Fvir = self.F[vir:,vir:]
         #  Transform Fvir to PNO basis
         self.eps_vir_ = []
         self.fpno = []
@@ -269,10 +287,16 @@ class helper_localize(object):
         for ij in range(self.spairs):
             pair_idx = self.pair_list_[ij]
             pno = self.dim_[pair_idx]
-            Eval, Evec = LA.eig(self.pno[ij])
-            Evec = sort_ascending(Evec,Eval)
+            Eval, Evec = LA.eig(self.fpno[ij])
+            Evec, Eval = sort_ascending(Evec,Eval)
             self.eps_vir_.append(Eval.copy())
             self.L_.append(Evec.copy())
+
+        for ij in range(self.spairs):
+            identity = self.Q_[ij].dot(self.L_[ij]) 
+            #print(np.diag(identity))
+
+        #print(self.eps_vir_)    
 
     def local_filter_T2(self, Z2):
         nao = self.nao
@@ -280,92 +304,74 @@ class helper_localize(object):
         occ = self.occ
         vir = self.vir
         natom = self.natom
-        Z2 = Z2.reshape(occ*occ,vir*vir)
+        Z2 = Z2.reshape(occ*occ,vir,vir)
         # Transform from MO to Local to Semicanonical Basis
         for ij in range(self.spairs):
             pair_idx = self.pair_list_[ij]
-            i = pair_idx/occ
+            i = int(pair_idx/occ)
             j = pair_idx%occ
             pno = self.dim_[pair_idx]
-            t2temp = np.zeros((vir, vir))
-            for ab in range(vir*vir):
-                a = ab/vir
-                b = ab%vir
-                t2temp[a][b] = Z2[pair_idx][ab]
-
+            #print('i : %d, j: %d, ij: %d, pno: %d, pair_idx: %d'%(i,j,ij,pno, pair_idx))
+            t2temp = Z2[pair_idx].copy()
+            #print('t2temp')
+            #print(t2temp)
              # To PNO basis
             t2bar = np.einsum('Aa,ab,bB', self.Q_[ij].T, t2temp, self.Q_[ij])
             # To semi-can basis
             t2bar_scn = np.einsum('aA,AB,Bb', self.L_[ij].T, t2bar, self.L_[ij])
+            #print('t2bar_scn')
+            #print(t2bar_scn)
             # apply energy denominators
             for a in range(pno):
                 for b in range(pno):
-                    t2bar_scn[a][b] /= (self.F[i][i] + self.F[j][j] - self.eps_vir_[a] - self.eps_vir_[b])
+                    #t2bar_scn[a][b] *= 1.0/(self.F[i][i] + self.F[j][j] - self.F[a+occ][a+occ] - self.F[b+occ][b+occ])
+                    t2bar_scn[a][b] *= 1.0/(self.F[i][i] + self.F[j][j] - self.eps_vir_[ij][a] - self.eps_vir_[ij][b])
             # back to pno basis
             t2bar = np.einsum('Aa,ab,bB',self.L_[ij], t2bar_scn, self.L_[ij].T)
             # back to MO basis
             t2temp = np.einsum('aA,AB,Bb',self.Q_[ij], t2bar, self.Q_[ij].T)
-            for ab in range(vir*vir):
-                a = ab/vir
-                b = ab%vir
-                Z2[pair_idx][ab] = t2temp[a][b]
+            Z2[pair_idx] = t2temp.copy()
         # Make sure T2 data for non - significant pairs are zero
-        for ij in range(self.zero_list_.size):
+        for ij in range(len(self.zero_list_)):
             pair_idx = self.zero_list_[ij]
-            for ab in range(vir*vir):
-                Z2[pair_idx][ab] = 0
-        return Z2
+            Z2[pair_idx] = 0
+        return Z2.reshape(occ,occ,vir,vir)
 
     def local_filter_T1(self,Z1):
         # Make list of significant diagonal pairs
+        occ = self.occ
         self.diag_pairs = []
         for ij in range(self.spairs):
             pair_idx = self.pair_list_[ij]
-            i = pair_idx/occ
+            i = int(pair_idx/occ)
             j = pair_idx%occ
             if i == j:
                 self.diag_pairs.append(ij)
-        for ii in range(self.diag_pairs):
+        for ii in range(len(self.diag_pairs)):
             diag_idx = self.diag_pairs[ii]
             pair_idx = self.pair_list_[diag_idx]
-            i = pair_idx/occ
+            i = int(pair_idx/occ)
             ldim = self.dim_[pair_idx]
             # To PNO/OSV basis
             t1tilde = self.Q_[diag_idx].T.dot(Z1[i])
             # To semi - can.basis
-            t1bar = self.L_[diag_idx].dot(t1tilde)
+            t1bar = self.L_[diag_idx].T.dot(t1tilde)
             # Apply energy denominators
             for a in range(ldim):
-                t1bar[a] /= self.F[i][i] - self.eps_vir_[a]
+                #t1bar[a] /= (self.F[i][i] - self.F[a+occ][a+occ])
+                #print(self.F[a+occ][a+occ])    
+                #print(self.eps_vir_[diag_idx][a])    
+                t1bar[a] /= (self.F[i][i] - self.eps_vir_[diag_idx][a])
             # Back to PNO basis
             t1tilde = self.L_[diag_idx].dot(t1bar)
             # Back to PNO basis
             Z1[i] = self.Q_[diag_idx].dot(t1tilde)
         return Z1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class helper_ccenergy(object):
 
     #def __init__(self, mol, freeze_core=False, memory=2):
-    def __init__(self, mol, rhf_e, rhf_wfn, edv, memory=2):
+    def __init__(self, mol, rhf_e, rhf_wfn, local, cutoff, memory=2):
 
         #if freeze_core:
         #    raise Exception("Frozen core doesnt work yet!")
@@ -389,6 +395,7 @@ class helper_ccenergy(object):
 
         self.rhf_e = rhf_e 
         self.wfn = rhf_wfn
+        self.mol = mol
    
         self.ccsd_corr_e = 0.0
         self.ccsd_e = 0.0
@@ -398,7 +405,8 @@ class helper_ccenergy(object):
         self.nmo = self.wfn.nmo()
         self.memory = memory
         self.nfzc = 0
-        self.edv = edv
+        self.local = local
+        self.cutoff = cutoff
 
         # Freeze core
         #if freeze_core:
@@ -499,6 +507,14 @@ class helper_ccenergy(object):
         self.t1 = np.zeros((self.nocc, self.nvirt))
         # t^{ab}_{ij}
         self.t2 = self.MO[self.slice_o, self.slice_o, self.slice_v, self.slice_v] / self.Dijab
+
+        if self.local == "PNO":
+            self.pno_object = helper_localize(self.wfn, self.F, self.MO, self.mol, self.cutoff)
+        #    self.r_T2 = self.MO[self.slice_o, self.slice_o, self.slice_v, self.slice_v].copy()
+        #    self.t2 = self.pno_object.local_filter_T2(self.r_T2)
+        #    self.r_T2 = np.zeros((self.nocc,self.nocc,self.nvirt,self.nvirt))
+        #else :
+        #    self.t2 = self.MO[self.slice_o, self.slice_o, self.slice_v, self.slice_v] / self.Dijab
 
         print('\n..initialized CCSD in %.3f seconds.\n' % (time.time() - time_init), flush=True)
 
@@ -745,15 +761,33 @@ class helper_ccenergy(object):
 
         ### Update T1 and T2 amplitudes
         #self.t1 += r_T1 / self.Dia
-        
-        if self.edv:
-            self.t1 += self.pert_basis_transform1(r_T1)
-            self.t2 += self.pert_basis_transform2(r_T2)
+
+        if self.local == "PNO":
+            Z1 = r_T1.copy()    
+            Z1_d = Z1/self.Dia
+            #print('r_T1 before filter')
+            #print(Z1_d)
+            r_T1 = self.pno_object.local_filter_T1(Z1)
+            #print('r_T1 after filter')
+            #print(r_T1)
+            self.t1 += r_T1
+            #self.t1 += r_T1 / self.Dia
+            Z2 = r_T2.copy()
+            Z2_d = Z2/self.Dijab    
+            #print('r_T2/Dijab canonical')
+            #print(Z2_d)
+            r_T2 =  self.pno_object.local_filter_T2(Z2)
+            #print('r_T2/Dijab after filter')
+            #print(r_T2)
+            self.t2 += r_T2
+            rms = np.einsum('ia,ia->', r_T1/self.Dia, r_T1/self.Dia)
+            rms += np.einsum('ijab,ijab->', r_T2, r_T2)
         else:
             self.t1 += r_T1 / self.Dia
             self.t2 += r_T2 / self.Dijab
+            rms = np.einsum('ia,ia->', r_T1/self.Dia, r_T1/self.Dia)
+            rms += np.einsum('ijab,ijab->', r_T2/self.Dijab, r_T2/self.Dijab)
 
-    
         rms = np.einsum('ia,ia->', old_t1-self.t1, old_t1-self.t1)
         rms += np.einsum('ijab,ijab->', old_t2-self.t2, old_t2-self.t2)
 
@@ -1084,7 +1118,7 @@ class helper_cchbar(object):
 
 class helper_cclambda(object):
 
-    def __init__(self, ccsd, hbar, edv):
+    def __init__(self, ccsd, hbar):
 
         # Integral generation from Psi4's MintsHelper
         time_init = time.time()
@@ -1095,7 +1129,8 @@ class helper_cclambda(object):
         self.nfzc = 0
         self.nocc = ccsd.ndocc
         self.nvirt = ccsd.nmo - ccsd.nocc - ccsd.nfzc
-        self.edv = edv
+        self.local = ccsd.local 
+        self.pno_object = ccsd.pno_object
 
         self.slice_nfzc = slice(0, self.nfzc)
         self.slice_o = slice(self.nfzc, self.nocc + self.nfzc)

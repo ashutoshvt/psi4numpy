@@ -507,22 +507,20 @@ symmetry c1
 import sys
 import numpy as np
 sys.path.append('../')
-from fvno_plus_plus_lg import guess_calculate 
-from fvno_plus_plus_lg import optrot_calculate 
-
+from helper_cc_pno import helper_ccenergy
 np.set_printoptions(precision=15, linewidth=200, suppress=True)
 #psi4.core.set_memory(int(2e9), False)
 psi4.set_memory(int(5e9), False)
 
-filt_singles = False
-if sys.argv[3] == "true":
-    filt_singles = True
+#filt_singles = False
+#if sys.argv[3] == "true":
+#    filt_singles = True
 
-if filt_singles:
-    output_file = sys.argv[1] + '_' + sys.argv[2] + '_singles_frozen' + '.dat'
-else:
-    output_file = sys.argv[1] + '_' + sys.argv[2] + '.dat'
-    
+#if filt_singles:
+#    output_file = sys.argv[1] + '_' + sys.argv[2] + '_singles_frozen' + '.dat'
+#else:
+#    output_file = sys.argv[1] + '_' + sys.argv[2] + '.dat'
+output_file = sys.argv[1] + '_PNO.dat' 
 psi4.core.set_output_file(output_file, False)
 
 psi4.set_options({'basis': 'aug-cc-pvdz',
@@ -530,13 +528,19 @@ psi4.set_options({'basis': 'aug-cc-pvdz',
                   'scf_type': 'pk',
                   'e_convergence': 1e-9,
                   'd_convergence': 1e-9})
-psi4.set_num_threads(24)
-psi4.set_options({'guess': 'sad'})
+#psi4.set_num_threads(24)
 
 print('Computing RHF reference.')
 psi4.core.set_active_molecule(mol[sys.argv[1]])
 rhf_e, rhf_wfn = psi4.energy('SCF', return_wfn=True)  
 print('RHF Final Energy                          % 16.10f\n' % rhf_e)
 
-Evec_ab = guess_calculate(mol, rhf_e, rhf_wfn, 'CCSD', 0, 0, 0, 40, False, False, sys.argv[2])
-optrot_calculate(mol, rhf_e, rhf_wfn, 'CCSD', 100, 100, 100, 40, True, filt_singles, Evec_ab)
+cc_wfn = helper_ccenergy(mol[sys.argv[1]], rhf_e, rhf_wfn, "PNO", 1e-10, 2)
+cc_wfn.compute_energy(1e-7, 50)
+CCcorr_E = cc_wfn.ccsd_corr_e
+CC_E = cc_wfn.ccsd_e
+
+cchbar = helper_cchbar(cc_wfn)
+cclambda = helper_cclambda(cc_wfn, cchbar)
+cclambda.compute_lambda(1e-7, 50)
+

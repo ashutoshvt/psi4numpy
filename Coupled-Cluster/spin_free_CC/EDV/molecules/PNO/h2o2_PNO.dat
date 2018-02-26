@@ -1,0 +1,225 @@
+
+*** tstart() called on dtlogin1
+*** at Sun Feb 25 11:53:35 2018
+
+   => Loading Basis Set <=
+
+    Name: AUG-CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1-2 entry O          line   244 file /groups/crawdad_lab/opt/software/dragonstooth_python3_psi4/share/psi4/basis/aug-cc-pvdz.gbs 
+    atoms 3-4 entry H          line    36 file /groups/crawdad_lab/opt/software/dragonstooth_python3_psi4/share/psi4/basis/aug-cc-pvdz.gbs 
+
+    There are an even number of electrons - assuming singlet.
+    Specify the multiplicity in the molecule input block.
+
+
+         ---------------------------------------------------------
+                                   SCF
+            by Justin Turney, Rob Parrish, Andy Simmonett
+                             and Daniel Smith
+                              RHF Reference
+                        1 Threads,    500 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: c1
+    Full point group: C2
+
+    Geometry (in Angstrom), charge = 0, multiplicity = 1:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+           O         -0.028962160801    -0.694396279686    -0.049338350190    15.994914619560
+           O          0.028962160801     0.694396279686    -0.049338350190    15.994914619560
+           H          0.350498145881    -0.910645626300     0.783035421467     1.007825032070
+           H         -0.350498145881     0.910645626300     0.783035421467     1.007825032070
+
+  Running in c1 symmetry.
+
+  Rotational constants: A =     10.61423  B =      0.97044  C =      0.91566 [cm^-1]
+  Rotational constants: A = 318206.57462  B =  29093.19738  C =  27450.82444 [MHz]
+  Nuclear repulsion =   38.253968380675488
+
+  Charge       = 0
+  Multiplicity = 1
+  Electrons    = 18
+  Nalpha       = 9
+  Nbeta        = 9
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is PK.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-09
+  Density threshold  = 1.00e-09
+  Integral threshold = 0.00e+00
+
+  ==> Primary Basis <==
+
+  Basis Set: AUG-CC-PVDZ
+    Blend: AUG-CC-PVDZ
+    Number of shells: 28
+    Number of basis function: 64
+    Number of Cartesian functions: 68
+    Spherical Harmonics?: true
+    Max angular momentum: 2
+
+  ==> Pre-Iterations <==
+
+   -------------------------------------------------------
+    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
+   -------------------------------------------------------
+     A         64      64       0       0       0       0
+   -------------------------------------------------------
+    Total      64      64       9       9       9       0
+   -------------------------------------------------------
+
+  ==> Integral Setup <==
+
+  Using in-core PK algorithm.
+   Calculation information:
+      Number of atoms:                   4
+      Number of AO shells:              28
+      Number of primitives:             64
+      Number of atomic orbitals:        68
+      Number of basis functions:        64
+
+      Integral cutoff                 1.00e-12
+      Number of threads:                 1
+
+  Performing in-core PK
+  Using 4328480 doubles for integral storage.
+  We computed 82621 shell quartets total.
+  Whereas there are 82621 unique shell quartets.
+  ==> DiskJK: Disk-Based J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    Memory (MB):               375
+    Schwarz Cutoff:          1E-12
+
+    OpenMP threads:              1
+  Minimum eigenvalue in the overlap matrix is 7.7328293691E-04.
+  Using Symmetric Orthogonalization.
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+
+  ==> Iterations <==
+
+                        Total Energy        Delta E     RMS |[F,P]|
+
+   @RHF iter   0:  -150.97847250400335   -1.50978e+02   3.30030e-02 
+   @RHF iter   1:  -150.75335319656276    2.25119e-01   4.58407e-03 
+   @RHF iter   2:  -150.79247403743224   -3.91208e-02   1.50357e-03 DIIS
+   @RHF iter   3:  -150.79653349572880   -4.05946e-03   5.04589e-04 DIIS
+   @RHF iter   4:  -150.79728156749894   -7.48072e-04   1.72296e-04 DIIS
+   @RHF iter   5:  -150.79741110090913   -1.29533e-04   5.40621e-05 DIIS
+   @RHF iter   6:  -150.79742398716135   -1.28863e-05   2.57440e-05 DIIS
+   @RHF iter   7:  -150.79742604817829   -2.06102e-06   5.38102e-06 DIIS
+   @RHF iter   8:  -150.79742624594320   -1.97765e-07   1.49171e-06 DIIS
+   @RHF iter   9:  -150.79742626404567   -1.81025e-08   3.35572e-07 DIIS
+   @RHF iter  10:  -150.79742626496778   -9.22114e-10   8.16614e-08 DIIS
+   @RHF iter  11:  -150.79742626501854   -5.07612e-11   2.04596e-08 DIIS
+   @RHF iter  12:  -150.79742626502178   -3.24007e-12   4.54682e-09 DIIS
+   @RHF iter  13:  -150.79742626502173    5.68434e-14   8.54594e-10 DIIS
+
+  ==> Post-Iterations <==
+
+    Orbital Energies (a.u.)
+    -----------------------
+
+    Doubly Occupied:                                                      
+
+       1A    -20.637656     2A    -20.637321     3A     -1.520298  
+       4A     -1.219670     5A     -0.783972     6A     -0.679838  
+       7A     -0.625139     8A     -0.545165     9A     -0.467526  
+
+    Virtual:                                                              
+
+      10A      0.033032    11A      0.051787    12A      0.154521  
+      13A      0.163302    14A      0.205868    15A      0.216414  
+      16A      0.219439    17A      0.234038    18A      0.242810  
+      19A      0.297111    20A      0.343268    21A      0.350641  
+      22A      0.414424    23A      0.431926    24A      0.468304  
+      25A      0.472921    26A      0.542015    27A      0.632015  
+      28A      0.652432    29A      0.855248    30A      0.880507  
+      31A      1.033319    32A      1.053264    33A      1.141949  
+      34A      1.151972    35A      1.166538    36A      1.249451  
+      37A      1.292527    38A      1.354137    39A      1.411454  
+      40A      1.420597    41A      1.505926    42A      1.605945  
+      43A      1.617335    44A      1.749600    45A      2.066560  
+      46A      2.070577    47A      2.186295    48A      2.231144  
+      49A      2.446329    50A      2.499800    51A      2.534733  
+      52A      2.787385    53A      2.809599    54A      3.343341  
+      55A      3.485144    56A      3.540611    57A      3.634688  
+      58A      3.661160    59A      3.679777    60A      3.824020  
+      61A      3.836344    62A      4.112714    63A      4.208265  
+      64A      4.372450  
+
+    Final Occupation by Irrep:
+              A 
+    DOCC [     9 ]
+
+  Energy converged.
+
+  @RHF Final Energy:  -150.79742626502173
+
+   => Energetics <=
+
+    Nuclear Repulsion Energy =             38.2539683806754880
+    One-Electron Energy =                -283.8696155965702701
+    Two-Electron Energy =                  94.8182209508730693
+    Total Energy =                       -150.7974262650217270
+
+
+
+Properties will be evaluated at   0.000000,   0.000000,   0.000000 Bohr
+
+Properties computed using the SCF density matrix
+
+  Nuclear Dipole Moment: (a.u.)
+     X:    -0.0000      Y:     0.0000      Z:     1.4677
+
+  Electronic Dipole Moment: (a.u.)
+     X:     0.0000      Y:    -0.0000      Z:    -0.2963
+
+  Dipole Moment: (a.u.)
+     X:     0.0000      Y:    -0.0000      Z:     1.1713     Total:     1.1713
+
+  Dipole Moment: (Debye)
+     X:     0.0000      Y:    -0.0000      Z:     2.9772     Total:     2.9772
+
+
+*** tstop() called on dtlogin1 at Sun Feb 25 11:53:36 2018
+Module time:
+	user time   =       0.89 seconds =       0.01 minutes
+	system time =       0.03 seconds =       0.00 minutes
+	total time  =          1 seconds =       0.02 minutes
+Total time:
+	user time   =       0.89 seconds =       0.01 minutes
+	system time =       0.03 seconds =       0.00 minutes
+	total time  =          1 seconds =       0.02 minutes
+  ==> Pipek-Mezey Localizer <==
+
+    Convergence =   1.000E-12
+    Maxiter     =         200
+
+    Iteration                   Metric       Residual
+    @PM    0   3.8222284267672673E+00              -
+    @PM    1   7.0864973834641383E+00   8.540225E-01
+    @PM    2   7.7200456336977741E+00   8.940217E-02
+    @PM    3   7.8602110455644043E+00   1.815603E-02
+    @PM    4   7.8613596297352100E+00   1.461264E-04
+    @PM    5   7.8613924571619567E+00   4.175795E-06
+    @PM    6   7.8613924782203215E+00   2.678707E-09
+    @PM    7   7.8613924782378408E+00   2.228526E-12
+    @PM    8   7.8613924782379128E+00   9.151362E-15
+
+    PM Localizer converged.
+
